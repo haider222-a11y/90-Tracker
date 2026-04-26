@@ -782,6 +782,26 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   #page-portable .portable-info{ grid-template-columns:1fr 1fr; }
 }
 
+
+/* ── HYGIENE + TASBIH ADD-ON (added only; existing system preserved) ── */
+.tasbih-wrap{display:flex;flex-direction:column;gap:12px;}
+.tasbih-intro{font-size:12px;color:var(--muted);font-style:italic;line-height:1.6;margin-bottom:2px;}
+.tasbih-card{padding:13px;border-radius:16px;border:1px solid rgba(88,166,255,.18);background:linear-gradient(180deg,rgba(56,189,248,.06),rgba(8,17,33,.76));}
+.tasbih-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px;}
+.tasbih-title{font-size:14px;font-weight:800;color:#F8FBFF;line-height:1.35;}
+.tasbih-count{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gold2);font-weight:800;white-space:nowrap;}
+.tasbih-arabic{font-size:17px;color:#EAF6FF;line-height:1.75;margin:7px 0 8px;font-weight:700;direction:rtl;text-align:right;}
+.tasbih-meaning{display:grid;grid-template-columns:1fr;gap:6px;margin:8px 0;}
+.tasbih-meaning div{font-size:11px;line-height:1.5;color:var(--muted2);background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:8px 10px;}
+.tasbih-meaning strong{color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-right:4px;}
+.tasbih-bar{height:7px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;margin:9px 0;}
+.tasbih-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#22C55E,#38BDF8,#3B82F6);box-shadow:0 0 14px rgba(56,189,248,.22);transition:width .2s ease;}
+.tasbih-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px;}
+.tasbih-btn{padding:7px 10px;border-radius:10px;border:1px solid rgba(140,199,255,.16);background:rgba(255,255,255,.035);color:#EAF3FF;font-family:'JetBrains Mono',monospace;font-size:10px;cursor:pointer;transition:all .15s;}
+.tasbih-btn:hover{border-color:#60A5FA;background:rgba(59,130,246,.12);}
+.tasbih-btn.done{border-color:rgba(46,204,113,.35);color:#9CF2C3;background:rgba(46,204,113,.10);}
+.tasbih-summary{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--muted2);}
+
 </style>
 <!-- PWA APP SUPPORT -->
 <link rel="manifest" href="manifest.json">
@@ -969,6 +989,11 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
       <div class="card">
         <div class="card-title">Prayers Today</div>
         <div id="prayerPanel"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Tasbih Today</div>
+        <div id="tasbihPanel"></div>
       </div>
 
       <div class="card">
@@ -1849,6 +1874,53 @@ const FRIDAY_TASKS=[
   {id:'fri04',label:'🕌 Mosque Project (Friday)',start:'15:30',end:'17:00',note:'Friday special work block reserved for mosque project only',tag:'t-mosque'},
 ];
 
+// ── HYGIENE TASK — added to normal Today schedule only, not Bad Habits ──
+const HYGIENE_DAILY_DETAILS=[
+  'Brush teeth',
+  'Wash face',
+  'Wear clean clothes',
+  'Apply perfume / deodorant',
+  'Comb hair / regular hair care',
+  'Maintain overall cleanliness'
+];
+const HYGIENE_FRIDAY_DETAILS=[
+  'Ghusl (full shower)',
+  'Brush teeth / Miswak',
+  'Beard shave / trim',
+  'Proper face care',
+  'Hair wash + proper styling',
+  'Apply perfume (Sunnah)',
+  'Wear best and clean clothes',
+  'Trim nails if needed',
+  'Maintain overall cleanliness'
+];
+const HYGIENE_SUNDAY_DETAILS=[
+  'Brush teeth',
+  'Wash face',
+  'Wear clean clothes',
+  'Apply perfume / deodorant',
+  'Comb hair / regular hair care',
+  'Laundry / wash clothes',
+  'Organize wardrobe',
+  'Clean room / environment',
+  'Prepare clothes for next week'
+];
+function getHygieneTaskForDay(d){
+  const day=d.getDay();
+  if(day===5){
+    return {id:'hygiene_daily',label:'🧼 Hygiene Routine — Friday Full Reset',start:'07:25',end:'07:45',desc:'Friday special hygiene: full reset before Jumu\'ah',note:'Ghusl · Miswak · Beard shave/trim · Face care · Hair · Perfume · Best clean clothes',details:HYGIENE_FRIDAY_DETAILS,tag:'t-health'};
+  }
+  if(day===0){
+    return {id:'hygiene_daily',label:'🧼 Hygiene Routine — Sunday Clothes & Environment',start:'07:25',end:'07:45',desc:'Daily hygiene plus clothes and environment reset',note:'Brush · Face · Clothes · Perfume · Hair · Laundry · Room clean · Next week clothes',details:HYGIENE_SUNDAY_DETAILS,tag:'t-health'};
+  }
+  return {id:'hygiene_daily',label:'🧼 Hygiene Routine',start:'07:25',end:'07:35',desc:'Brush, face wash, clean clothes, perfume, hair, and overall cleanliness',note:'Brush teeth · Wash face · Clean clothes · Perfume · Hair care · Overall cleanliness',details:HYGIENE_DAILY_DETAILS,tag:'t-health'};
+}
+function getAllHygieneTasks(){
+  const base=new Date('2026-04-20');
+  return [0,1,2,3,4,5,6].map(add=>{const d=new Date(base); d.setDate(base.getDate()+add); return getHygieneTaskForDay(d);});
+}
+
+
 function getTasksForDay(d){
   const isFriday=d.getDay()===5;
   const base = isWeekend(d) ? WEEKEND_TASKS : WEEKDAY_TASKS;
@@ -1868,6 +1940,12 @@ function getTasksForDay(d){
         tasks.push(edited?{...ft,...edited}:{...ft});
       }
     });
+  }
+  // Inject hygiene task into the normal Today schedule only (not Bad Habits)
+  const hygieneTask=getHygieneTaskForDay(d);
+  if(!(state.removedIds&&state.removedIds.includes(hygieneTask.id)) && !tasks.find(t=>t.id===hygieneTask.id)){
+    const edited=state.editedTasks&&state.editedTasks[hygieneTask.id];
+    tasks.push(edited?{...hygieneTask,...edited}:{...hygieneTask});
   }
   // Add custom
   if(state.customTasks) tasks = tasks.concat(state.customTasks);
@@ -2249,6 +2327,73 @@ function renderImprovementPanel(){
   </div>`;
 }
 
+
+
+// ══════════════════════════════════════════════════════
+//  TASBIH TODAY SYSTEM — added only; existing sections preserved
+// ══════════════════════════════════════════════════════
+const TASBIH_ITEMS = [
+  {id:'tasbih1',title:'Tasbih #1',arabic:'يا رَحْمٰنُ يا رَحِيمُ يا كَرِيمُ',translit:'Ya Rahman, Ya Rahim, Ya Kareem',target:300,meaningEn:'O Most Merciful, O Especially Merciful, O Most Generous.',meaningUr:'اے بہت رحم فرمانے والے، اے نہایت مہربان، اے بہت کرم کرنے والے۔'},
+  {id:'tasbih2',title:'Tasbih #2',arabic:'لا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللهِ',translit:'La hawla wa la quwwata illa billah',target:300,meaningEn:'There is no power and no strength except through Allah.',meaningUr:'نہ گناہ سے بچنے کی طاقت ہے نہ نیکی کرنے کی قوت، مگر اللہ ہی کی مدد سے۔'},
+  {id:'tasbih3',title:'Tasbih #3',arabic:'يا وَلِيُّ يا نَصِيرُ',translit:'Ya Wali, Ya Naseer',target:300,meaningEn:'O Protecting Friend and Guardian, O Helper and Supporter.',meaningUr:'اے دوست، سرپرست اور نگہبان؛ اے مددگار اور نصرت دینے والے۔'},
+  {id:'tasbih4',title:'Tasbih #4',arabic:'يا سَلَامُ يا مُؤْمِنُ يا اللهُ',translit:'Ya Salam, Ya Momin, Ya Allah',target:300,meaningEn:'O Source of Peace, O Giver of Safety and Faith, O Allah.',meaningUr:'اے سلامتی دینے والے، اے امن و ایمان عطا کرنے والے، اے اللہ۔'}
+];
+function tasbihKey(d){ return 'tasbih_'+dateKey(d); }
+function getTasbihState(d){ return load(tasbihKey(d))||{}; }
+function saveTasbihState(d,st){ save(tasbihKey(d),st); }
+function setTasbihCount(id,val){
+  const st=getTasbihState(viewDate);
+  const item=TASBIH_ITEMS.find(x=>x.id===id);
+  const target=item?item.target:300;
+  st[id]=Math.max(0,Math.min(target,parseInt(val||0,10)));
+  saveTasbihState(viewDate,st);
+  renderTasbihPanel();
+}
+function addTasbihCount(id,amount){
+  const st=getTasbihState(viewDate);
+  const item=TASBIH_ITEMS.find(x=>x.id===id);
+  const target=item?item.target:300;
+  st[id]=Math.max(0,Math.min(target,(parseInt(st[id]||0,10)+amount)));
+  saveTasbihState(viewDate,st);
+  renderTasbihPanel();
+}
+function resetTasbihToday(){
+  if(!confirm('Reset today\'s tasbih counts?')) return;
+  saveTasbihState(viewDate,{});
+  renderTasbihPanel();
+}
+function renderTasbihPanel(){
+  const el=document.getElementById('tasbihPanel');
+  if(!el) return;
+  const st=getTasbihState(viewDate);
+  const totalTarget=TASBIH_ITEMS.reduce((a,x)=>a+x.target,0);
+  const totalDone=TASBIH_ITEMS.reduce((a,x)=>a+Math.min(x.target,parseInt(st[x.id]||0,10)),0);
+  const overall=totalTarget?Math.round((totalDone/totalTarget)*100):0;
+  el.innerHTML=`<div class="tasbih-wrap">
+    <div class="tasbih-intro">Daily target: 4 tasbih × 300 each = 1200 total.</div>
+    <div class="tasbih-summary"><span>Total today: ${totalDone}/${totalTarget}</span><span>${overall}% complete</span></div>
+    ${TASBIH_ITEMS.map(item=>{
+      const count=Math.min(item.target,parseInt(st[item.id]||0,10));
+      const pct=Math.round((count/item.target)*100);
+      const complete=count>=item.target;
+      return `<div class="tasbih-card">
+        <div class="tasbih-top"><div><div class="tasbih-title">${item.title} · ${escapeHtml(item.translit)}</div></div><div class="tasbih-count">${count}/${item.target}</div></div>
+        <div class="tasbih-arabic">${item.arabic}</div>
+        <div class="tasbih-meaning"><div><strong>EN</strong>${escapeHtml(item.meaningEn)}</div><div><strong>UR</strong>${escapeHtml(item.meaningUr)}</div></div>
+        <div class="tasbih-bar"><div class="tasbih-fill" style="width:${pct}%"></div></div>
+        <div class="tasbih-actions">
+          <button class="tasbih-btn" onclick="addTasbihCount('${item.id}',1)">+1</button>
+          <button class="tasbih-btn" onclick="addTasbihCount('${item.id}',33)">+33</button>
+          <button class="tasbih-btn" onclick="addTasbihCount('${item.id}',100)">+100</button>
+          <button class="tasbih-btn ${complete?'done':''}" onclick="setTasbihCount('${item.id}',300)">${complete?'✓ Done':'Mark 300'}</button>
+          <button class="tasbih-btn" onclick="addTasbihCount('${item.id}',-1)">−1</button>
+        </div>
+      </div>`;
+    }).join('')}
+    <button class="tasbih-btn" onclick="resetTasbihToday()" style="width:100%;">Reset Today Tasbih</button>
+  </div>`;
+}
+
 // ══════════════════════════════════════════════════════
 //  RENDER TODAY PAGE
 // ══════════════════════════════════════════════════════
@@ -2259,6 +2404,7 @@ function renderToday(){
   renderDayRibbon();
   renderTaskList();
   renderPrayerPanel();
+  renderTasbihPanel();
   renderTelepathyPanel();
   renderMustWinPanel();
   renderPrayerPanel();
@@ -2391,7 +2537,7 @@ const PRAYER_TASK_IDS=new Set(['w02','w10','w14','w16','w18','s02','s09','s11','
 
 // Original base time lookup — always read from here for durations, never from edited state
 function getBaseTask(id){
-  const all=[...WEEKDAY_TASKS,...WEEKEND_TASKS,...FRIDAY_TASKS];
+  const all=[...WEEKDAY_TASKS,...WEEKEND_TASKS,...FRIDAY_TASKS,...getAllHygieneTasks()];
   return all.find(t=>t.id===id)||null;
 }
 
