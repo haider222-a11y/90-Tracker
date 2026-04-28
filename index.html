@@ -1859,7 +1859,7 @@ function save(key,val){ try{ localStorage.setItem(prefixedKey(key),JSON.stringif
 // Per-day state: {taskId: 'done'|'missed'|'pending', customTasks:[...], removedIds:[...], editedTasks:{id:{...}}}
 function getDayState(d){
   const k='day_'+dateKey(d);
-  return load(k)||{statuses:{},customTasks:[],removedIds:[],editedTasks:{},carryForward:{},carryForwardApplied:false};
+  return load(k)||{statuses:{},customTasks:[],removedIds:[],editedTasks:{}};
 }
 function saveDayState(d,state){ save('day_'+dateKey(d),state); }
 
@@ -2398,7 +2398,6 @@ function renderTasbihPanel(){
 //  RENDER TODAY PAGE
 // ══════════════════════════════════════════════════════
 function renderToday(){
-  carryForwardPendingDetails(viewDate);
   updateHeaderStats();
   renderWeekStrip();
   renderDayRibbon();
@@ -2716,7 +2715,7 @@ function renderTaskList(){
 
   const hint=document.createElement('div');
   hint.className='drag-hint';
-  hint.innerHTML='<span class="drag-hint-icon">⠿</span> Drag to reorder · times cascade · task details below support done / missed tracking and auto carry-forward';
+  hint.innerHTML='<span class="drag-hint-icon">⠿</span> Drag to reorder · times cascade · task details below support done / missed tracking';
   list.appendChild(hint);
 
   const state=getDayState(viewDate);
@@ -2733,7 +2732,6 @@ function renderTaskList(){
     details.forEach((_,i)=>{ if(snState[i]==='done') snDone++; else if(snState[i]==='missed') snMissed++; });
     const fallbackPct=status==='done'?100:(status==='missed'?0:0);
     const snPct=snTotal?Math.round((snDone/snTotal)*100):fallbackPct;
-    const carryCount=(task.carryForwardItems||[]).length;
 
     const item=document.createElement('div');
     item.className='task-item'+(status==='done'?' done':status==='missed'?' missed':'');
@@ -2757,7 +2755,7 @@ function renderTaskList(){
       const progressBar=`<div class="task-progress-wrap">
         <div class="task-progress-head"><span>Today's task progress</span><strong>${snPct}%</strong></div>
         <div class="task-progress-bar"><div class="task-progress-fill" style="width:${snPct}%"></div></div>
-        <div class="task-progress-meta">${snDone}/${snTotal} detail item${snTotal===1?'':'s'} done${snMissed>0?` · ${snMissed} marked missed`:''}${carryCount>0?` · ${carryCount} carried from yesterday`:''}</div>
+        <div class="task-progress-meta">${snDone}/${snTotal} detail item${snTotal===1?'':'s'} done${snMissed>0?` · ${snMissed} marked missed`:''}</div>
       </div>`;
       const items=details.map((sn,i)=>{
         const st=snState[i]||'pending';
@@ -2787,7 +2785,7 @@ function renderTaskList(){
           ${statusBadge}${isMustWin?'<span class="must-badge">MUST WIN</span>':''}${lateBadge}
         </div>
         <div class="task-label">${escapeHtml(task.label)}</div>
-        ${desc?`<div class="task-desc-box"><div class="task-desc-label">Description</div><div class="task-desc-line">${escapeHtml(desc)}</div>${carryCount?`<div class="carry-chip">↺ ${carryCount} carried forward</div>`:''}</div>`:''}
+        ${desc?`<div class="task-desc-box"><div class="task-desc-label">Description</div><div class="task-desc-line">${escapeHtml(desc)}</div></div>`:''}
         ${subNoteHTML}
         <div class="task-tags"><span class="tag ${task.tag||'t-other'}">${tagName(task.tag)}</span></div>
       </div>
@@ -2868,20 +2866,12 @@ function getBaseTaskDetails(task){
   return legacy.length?legacy:parseChecklistLines(task.noteItemsText||'');
 }
 function getTaskDetails(task, d=viewDate){
-  const base=getBaseTaskDetails(task);
-  const dayState=getDayState(d);
-  const carry=(dayState.carryForward&&dayState.carryForward[task.id])||task.carryForwardItems||[];
-  const out=[...base];
-  carry.forEach(item=>{ if(item && !out.includes(item)) out.push(item); });
-  return out;
+  return getBaseTaskDetails(task);
 }
 function normalizeTaskMeta(task,d,state){
-  const currentState=state||getDayState(d);
-  const carry=(currentState.carryForward&&currentState.carryForward[task.id])||[];
   const normalized={...task};
   normalized.desc=(normalized.desc||legacyPlainNote(normalized.note||'')||'').trim();
   normalized.details=getTaskDetails(normalized,d);
-  normalized.carryForwardItems=carry.slice();
   return normalized;
 }
 function getTaskDetailsText(task){
@@ -2892,29 +2882,8 @@ function getSubNoteState(taskId,d=viewDate){ return load(snKeyForDate(d,taskId))
 function saveSubNoteState(taskId,st,d=viewDate){ try{localStorage.setItem(prefixedKey(snKeyForDate(d,taskId)),JSON.stringify(st));}catch(e){} }
 
 function carryForwardPendingDetails(d){
-  const state=getDayState(d);
-  if(state.carryForwardApplied) return;
-  const prev=new Date(d); prev.setDate(prev.getDate()-1);
-  if(prev < START){ state.carryForwardApplied=true; saveDayState(d,state); return; }
-  const prevTasks=getTasksForDay(prev);
-  let changed=false;
-  state.carryForward=state.carryForward||{};
-  prevTasks.forEach(task=>{
-    const prevDetails=getTaskDetails(task, prev);
-    if(!prevDetails.length) return;
-    const prevStatuses=getSubNoteState(task.id, prev);
-    const carryItems=prevDetails.filter((item,idx)=>prevStatuses[idx]!=='done');
-    if(!carryItems.length) return;
-    const todayTask=getTasksForDay(d).find(t=>t.id===task.id) || task;
-    const existing=new Set([...(state.carryForward[task.id]||[]), ...getBaseTaskDetails(todayTask)]);
-    const newItems=carryItems.filter(it=>!existing.has(it));
-    if(newItems.length){
-      state.carryForward[task.id]=[...(state.carryForward[task.id]||[]), ...newItems];
-      changed=true;
-    }
-  });
-  state.carryForwardApplied=true;
-  if(changed) saveDayState(d,state); else saveDayState(d,state);
+  // Carry-forward feature removed. This function is kept as a no-op so older saved data does not break the tracker.
+  return;
 }
 
 function setSubNote(taskId, idx, newStatus, e){
