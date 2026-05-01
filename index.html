@@ -408,6 +408,363 @@ header::before{content:'';position:absolute;inset:-10px 0 auto 0;height:120px;ba
 .tele-journal textarea:focus{outline:none;border-color:#60A5FA;background:rgba(59,130,246,.06);}
 .tele-small{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.12em;margin-bottom:7px;}
 
+
+
+/* ── WATER TRACKING ADD-ON (visual refresh only; existing logic preserved) ── */
+.water-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  position:relative;
+}
+.water-wrap.water-pro{
+  margin-top:2px;
+}
+.water-pro-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:2px;
+}
+.water-pro-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:max-content;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:3.5px;
+  text-transform:uppercase;
+  color:#F8FBFF;
+  text-shadow:0 0 18px rgba(125,211,252,.22);
+}
+.water-drop{
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  background:radial-gradient(circle at 35% 25%,rgba(255,255,255,.28),transparent 24%),linear-gradient(145deg,#38BDF8,#3B82F6 52%,#8B5CF6);
+  border:1px solid rgba(125,211,252,.28);
+  box-shadow:0 0 24px rgba(56,189,248,.32), inset 0 1px 0 rgba(255,255,255,.22);
+  font-size:16px;
+}
+.water-title-line{
+  flex:1;
+  height:2px;
+  min-width:54px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#7C3AED,#38BDF8,rgba(140,199,255,.12));
+  position:relative;
+  box-shadow:0 0 18px rgba(56,189,248,.22);
+}
+.water-title-line::after{
+  content:'';
+  position:absolute;
+  top:50%;
+  left:48%;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  transform:translateY(-50%);
+  background:#38BDF8;
+  box-shadow:0 0 18px #38BDF8;
+}
+.water-intro{
+  font-size:12px;
+  color:#AAB6CA;
+  font-style:italic;
+  line-height:1.75;
+}
+.water-summary{
+  padding:18px 18px 16px;
+  border-radius:24px;
+  border:1px solid rgba(125,211,252,.24);
+  background:
+    radial-gradient(circle at 12% 0%,rgba(56,189,248,.22),transparent 34%),
+    radial-gradient(circle at 92% 10%,rgba(139,92,246,.15),transparent 34%),
+    linear-gradient(145deg,rgba(12,31,58,.96),rgba(4,10,22,.98));
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 22px 56px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.055);
+}
+.water-summary::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(125,211,252,.16),transparent 34%,rgba(124,58,237,.10));
+  pointer-events:none;
+}
+.water-summary::after{
+  content:'';
+  position:absolute;
+  right:-48px;
+  bottom:-52px;
+  width:150px;
+  height:150px;
+  border-radius:45px;
+  border:1px solid rgba(125,211,252,.13);
+  transform:rotate(18deg);
+  pointer-events:none;
+}
+.water-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  position:relative;
+  z-index:1;
+}
+.water-main{
+  font-weight:900;
+  color:#F8FBFF;
+  letter-spacing:-.055em;
+  line-height:.92;
+  text-shadow:0 16px 34px rgba(0,0,0,.34);
+}
+.water-main span{
+  display:block;
+  font-size:clamp(34px,5.2vw,46px);
+  background:linear-gradient(135deg,#7DD3FC 0%,#3B82F6 50%,#A855F7 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 0 14px rgba(96,165,250,.18));
+}
+.water-main small{
+  display:block;
+  margin-top:4px;
+  font-size:clamp(20px,3vw,26px);
+  color:#F8FBFF;
+  letter-spacing:-.035em;
+}
+.water-target{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  line-height:1.35;
+  color:#DCEBFF;
+  background:linear-gradient(180deg,rgba(15,35,66,.86),rgba(7,18,36,.92));
+  border:1px solid rgba(125,211,252,.22);
+  padding:8px 11px;
+  border-radius:999px;
+  white-space:nowrap;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 12px 24px rgba(0,0,0,.16);
+}
+.water-bar{
+  height:11px;
+  border-radius:999px;
+  background:rgba(255,255,255,.07);
+  overflow:hidden;
+  margin:14px 0 9px;
+  position:relative;
+  z-index:1;
+  border:1px solid rgba(140,199,255,.08);
+  box-shadow:inset 0 0 12px rgba(0,0,0,.38);
+}
+.water-fill{
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#38BDF8 0%,#3B82F6 50%,#A855F7 100%);
+  box-shadow:0 0 24px rgba(96,165,250,.45);
+  transition:width .25s ease;
+  position:relative;
+}
+.water-fill::after{
+  content:'';
+  position:absolute;
+  inset:1px 0 auto 0;
+  height:38%;
+  border-radius:999px;
+  background:rgba(255,255,255,.24);
+  opacity:.55;
+}
+.water-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:11px;
+  color:#B8C8E4;
+  font-family:'JetBrains Mono',monospace;
+  position:relative;
+  z-index:1;
+  line-height:1.5;
+}
+.water-meta strong{
+  color:#C084FC;
+  font-weight:900;
+}
+.water-actions{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.water-btn{
+  min-height:40px;
+  padding:8px 9px;
+  border-radius:14px;
+  border:1px solid rgba(140,199,255,.18);
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+  color:#EAF6FF;
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease;
+  box-shadow:0 10px 24px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.045);
+}
+.water-btn:hover{
+  transform:translateY(-2px);
+  border-color:#38BDF8;
+  background:linear-gradient(180deg,rgba(56,189,248,.12),rgba(255,255,255,.035));
+  box-shadow:0 14px 30px rgba(0,0,0,.26),0 0 22px rgba(56,189,248,.16), inset 0 1px 0 rgba(255,255,255,.06);
+}
+.water-btn:active{
+  transform:scale(.98);
+}
+.water-btn.done{
+  border-color:rgba(46,204,113,.38);
+  color:#9CF2C3;
+  background:linear-gradient(135deg,rgba(46,204,113,.16),rgba(46,204,113,.055));
+}
+.water-btn.water-primary{
+  border-color:rgba(168,85,247,.46);
+  background:linear-gradient(135deg,#2563EB,#7C3AED);
+  color:#fff;
+  box-shadow:0 16px 34px rgba(37,99,235,.24),0 0 24px rgba(124,58,237,.18);
+}
+.water-custom{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:10px;
+}
+.water-input{
+  width:100%;
+  background:linear-gradient(180deg,rgba(10,24,45,.88),rgba(5,13,26,.94));
+  border:1px solid rgba(125,211,252,.18);
+  color:#F8FBFF;
+  padding:10px 12px;
+  border-radius:14px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+.water-input:focus{
+  border-color:#38BDF8;
+  background:rgba(56,189,248,.06);
+  box-shadow:0 0 0 3px rgba(56,189,248,.12), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.water-note{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:center;
+  gap:10px;
+  font-size:11px;
+  line-height:1.65;
+  color:#9FB2D2;
+  background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.016));
+  border:1px solid rgba(140,199,255,.10);
+  border-radius:18px;
+  padding:12px 13px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+.water-note-icon{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(circle at 35% 20%,rgba(255,255,255,.15),transparent 28%),linear-gradient(145deg,rgba(59,130,246,.18),rgba(124,58,237,.22));
+  border:1px solid rgba(168,85,247,.34);
+  box-shadow:0 0 24px rgba(124,58,237,.20), inset 0 1px 0 rgba(255,255,255,.07);
+  color:#C4B5FD;
+  font-size:15px;
+}
+@media(max-width:520px){
+  .water-pro-title{font-size:11px;letter-spacing:2.4px;}
+  .water-drop{width:30px;height:30px;border-radius:11px;}
+  .water-summary{padding:16px 14px;border-radius:22px;}
+  .water-actions{grid-template-columns:1fr 1fr;}
+  .water-top{flex-direction:column;}
+  .water-target{white-space:normal;}
+  .water-custom{grid-template-columns:1fr;}
+  .water-meta{flex-direction:column;gap:3px;}
+}
+
+
+/* ── FRIDAY MOSQUE PROJECT SECTION (added only; existing system preserved) ── */
+.mosque-wrap{display:flex;flex-direction:column;gap:16px;margin-top:20px;}
+.mosque-hero{position:relative;overflow:hidden;border-radius:26px;padding:22px;background:radial-gradient(circle at 0% 0%,rgba(34,197,94,.18),transparent 34%),radial-gradient(circle at 100% 0%,rgba(56,189,248,.16),transparent 32%),linear-gradient(145deg,rgba(8,24,45,.98),rgba(3,9,20,.98));border:1px solid rgba(140,199,255,.18);box-shadow:0 24px 62px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.04);}
+.mosque-hero::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,#22C55E,#38BDF8,#7C3AED,transparent);}
+.mosque-hero-title{font-size:clamp(22px,3vw,34px);font-weight:900;letter-spacing:-.04em;color:#F8FBFF;margin-bottom:8px;}
+.mosque-hero-sub{font-size:13px;line-height:1.75;color:#B8C8E4;max-width:920px;}
+.mosque-summary-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;}
+.mosque-stat{border-radius:20px;padding:14px 12px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.018));border:1px solid rgba(140,199,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.035);}
+.mosque-stat-num{font-family:'Inter',sans-serif;font-size:25px;font-weight:900;color:#F8FBFF;letter-spacing:-.04em;}
+.mosque-stat-label{font-size:10px;color:#93A7C9;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;margin-top:4px;line-height:1.35;}
+.mosque-control-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.mosque-plan-box,.mosque-focus-box{border-radius:22px;padding:16px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.016));border:1px solid rgba(140,199,255,.10);}
+.mosque-small-title{font-size:11px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1.7px;color:#7DD3FC;margin-bottom:12px;font-weight:900;}
+.mosque-form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.mosque-form-grid .field-group{margin-bottom:0;}
+.mosque-form-grid .full{grid-column:1 / -1;}
+.mosque-add-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.mosque-list{display:flex;flex-direction:column;gap:16px;}
+.mosque-card{position:relative;overflow:hidden;border-radius:30px;padding:18px;background:radial-gradient(circle at 0% 0%,rgba(34,197,94,.12),transparent 30%),radial-gradient(circle at 100% 10%,rgba(56,189,248,.12),transparent 30%),linear-gradient(145deg,rgba(9,21,42,.98),rgba(4,10,22,.98));border:1px solid rgba(140,199,255,.16);box-shadow:0 22px 58px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.04);}
+.mosque-card::before{content:'';position:absolute;left:18px;right:18px;top:0;height:2px;border-radius:99px;background:linear-gradient(90deg,transparent,#22C55E,#38BDF8,transparent);opacity:.9;}
+.mosque-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:14px;position:relative;z-index:1;}
+.mosque-card-title{display:flex;gap:12px;align-items:center;}
+.mosque-number{width:46px;height:46px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(34,197,94,.18),rgba(59,130,246,.12));border:1px solid rgba(125,211,252,.22);font-family:'JetBrains Mono',monospace;font-weight:900;color:#DFFFEF;}
+.mosque-name-title{font-size:20px;font-weight:900;color:#F8FBFF;letter-spacing:-.03em;line-height:1.25;}
+.mosque-subline{font-size:11px;color:#93A7C9;font-family:'JetBrains Mono',monospace;margin-top:4px;}
+.mosque-status-pill{padding:8px 12px;border-radius:999px;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.24);font-size:11px;font-family:'JetBrains Mono',monospace;color:#CFE6FF;font-weight:800;text-transform:uppercase;letter-spacing:.7px;}
+.mosque-card-grid{display:grid;grid-template-columns:minmax(240px,.78fr) minmax(320px,1.22fr);gap:16px;position:relative;z-index:1;}
+.mosque-media{display:flex;flex-direction:column;gap:12px;}
+.mosque-img-box{min-height:210px;border-radius:24px;overflow:hidden;border:1px dashed rgba(125,211,252,.22);background:linear-gradient(145deg,rgba(56,189,248,.08),rgba(255,255,255,.02));display:grid;place-items:center;position:relative;}
+.mosque-img-box img{width:100%;height:100%;min-height:210px;object-fit:cover;display:block;}
+.mosque-img-empty{padding:24px;text-align:center;color:#93A7C9;font-size:12px;line-height:1.6;}
+.mosque-map-box{height:220px;border-radius:24px;overflow:hidden;border:1px solid rgba(140,199,255,.14);background:rgba(255,255,255,.03);}
+.mosque-map-box iframe{width:100%;height:100%;border:0;filter:saturate(.85) contrast(1.05);}
+.mosque-map-empty{height:100%;display:grid;place-items:center;text-align:center;padding:18px;color:#93A7C9;font-size:12px;line-height:1.6;}
+.mosque-details{display:flex;flex-direction:column;gap:12px;}
+.mosque-field-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.mosque-field-grid .full{grid-column:1 / -1;}
+.mosque-textarea{min-height:82px;}
+.mosque-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px;}
+.mosque-link-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;padding:9px 13px;border-radius:14px;border:1px solid rgba(96,165,250,.24);background:linear-gradient(135deg,rgba(59,130,246,.16),rgba(56,189,248,.08));color:#DFF3FF;font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:800;letter-spacing:.6px;}
+.mosque-link-btn:hover{border-color:#60A5FA;background:rgba(59,130,246,.18);}
+.mosque-danger{border-color:rgba(255,107,107,.30)!important;color:#FFB4B4!important;background:rgba(255,107,107,.08)!important;}
+.mosque-focus-text{font-size:13px;color:#DCEBFF;line-height:1.7;}
+.mosque-focus-text strong{color:#9CF2C3;}
+
+.mosque-calendar-card{border-radius:26px;padding:16px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.016));border:1px solid rgba(140,199,255,.10);}
+.mosque-calendar-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+.mosque-calendar-title{font-size:15px;font-weight:900;color:#F8FBFF;letter-spacing:-.02em;}
+.mosque-calendar-sub{font-size:11px;color:#93A7C9;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.45;}
+.mosque-calendar-nav{display:flex;gap:6px;flex-wrap:wrap;}
+.mosque-friday-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+.mosque-friday-day{position:relative;overflow:hidden;border-radius:22px;padding:14px;background:radial-gradient(circle at 100% 0%,rgba(56,189,248,.11),transparent 34%),linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.11);box-shadow:inset 0 1px 0 rgba(255,255,255,.035);}
+.mosque-friday-day.has-visit{border-color:rgba(34,197,94,.30);background:radial-gradient(circle at 100% 0%,rgba(34,197,94,.15),transparent 34%),linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.016));}
+.mosque-friday-day.today{box-shadow:0 0 0 2px rgba(96,165,250,.20),0 16px 34px rgba(37,99,235,.14);border-color:rgba(96,165,250,.42);}
+.mosque-friday-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:#CFE6FF;font-weight:900;letter-spacing:.06em;text-transform:uppercase;margin-bottom:9px;}
+.mosque-friday-empty{font-size:12px;color:#8FA2C2;line-height:1.55;font-style:italic;}
+.mosque-friday-visit{padding:10px 0;border-top:1px solid rgba(255,255,255,.055);}
+.mosque-friday-visit:first-of-type{border-top:none;padding-top:0;}
+.mosque-friday-mosque{font-size:13px;font-weight:900;color:#F8FBFF;line-height:1.35;}
+.mosque-friday-meta{font-size:10px;color:#93A7C9;font-family:'JetBrains Mono',monospace;margin-top:3px;line-height:1.45;}
+.mosque-friday-review{font-size:12px;color:#DCEBFF;line-height:1.55;margin-top:7px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.mosque-friday-pill{display:inline-flex;margin-top:8px;padding:4px 8px;border-radius:999px;background:rgba(34,197,94,.11);border:1px solid rgba(34,197,94,.24);color:#9CF2C3;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:800;}
+.mosque-review-panel{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
+.mosque-review-box{border-radius:20px;padding:13px;background:rgba(255,255,255,.03);border:1px solid rgba(140,199,255,.09);}
+.mosque-review-title{font-size:10px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1.3px;color:#7DD3FC;margin-bottom:8px;font-weight:900;}
+.mosque-review-text{font-size:12px;color:#DCEBFF;line-height:1.65;}
+@media(max-width:760px){.mosque-review-panel{grid-template-columns:1fr;}.mosque-friday-grid{grid-template-columns:1fr;}}
+
+.mosque-footer-note{font-size:12px;line-height:1.75;color:#AFC0DA;border-left:3px solid #22C55E;padding:12px 14px;border-radius:12px;background:rgba(34,197,94,.06);border-top:1px solid rgba(34,197,94,.12);border-right:1px solid rgba(34,197,94,.12);border-bottom:1px solid rgba(34,197,94,.12);}
+@media(max-width:980px){.mosque-summary-grid{grid-template-columns:repeat(3,1fr);}.mosque-control-grid,.mosque-card-grid{grid-template-columns:1fr;}}
+@media(max-width:620px){.mosque-summary-grid{grid-template-columns:repeat(2,1fr);}.mosque-form-grid,.mosque-field-grid{grid-template-columns:1fr;}.mosque-form-grid .full,.mosque-field-grid .full{grid-column:auto;}.mosque-card{padding:14px;border-radius:24px;}.mosque-name-title{font-size:17px;}}
+
 /* ── SAVE NOTICE ── */
 .save-toast{position:fixed;bottom:24px;right:24px;background:rgba(46,204,113,.15);border:1px solid rgba(46,204,113,.4);color:var(--green);padding:10px 18px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:11px;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none;}
 .save-toast.show{opacity:1;}
@@ -570,6 +927,31 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 .bad-day.clean{border-color:rgba(46,204,113,.28);background:rgba(46,204,113,.08);}
 .bad-day.relapse{border-color:rgba(229,83,83,.30);background:rgba(229,83,83,.10);}
 .bad-day.none{opacity:.82;}
+.bad-day.selected{border-color:#60A5FA;box-shadow:0 0 0 1px rgba(96,165,250,.30) inset;background:rgba(59,130,246,.10);}
+.bad-day-actions{display:flex;gap:4px;justify-content:center;margin-top:7px;}
+.bad-mini-btn{width:24px;height:22px;border-radius:7px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:10px;cursor:pointer;line-height:1;color:#DDEBFF;}
+.bad-mini-btn.clean{border-color:rgba(46,204,113,.28);color:#9CF2C3;background:rgba(46,204,113,.08);}
+.bad-mini-btn.clean:hover{border-color:var(--green);background:rgba(46,204,113,.16);}
+.bad-mini-btn.relapse{border-color:rgba(229,83,83,.32);color:#FFB4B4;background:rgba(229,83,83,.08);}
+.bad-mini-btn.relapse:hover{border-color:var(--red);background:rgba(229,83,83,.16);}
+.bad-week-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 14px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);}
+.bad-week-title{font-size:13px;font-weight:800;color:#F8FBFF;}
+.bad-week-sub{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:3px;}
+.bad-week-btns{display:flex;gap:6px;flex-wrap:wrap;}
+.bad-history-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px;}
+@media(max-width:560px){.bad-history-grid{grid-template-columns:repeat(2,1fr);}}
+.bad-history-day{padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025);}
+.bad-history-date{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--muted2);margin-bottom:7px;}
+.bad-history-line{display:flex;justify-content:space-between;gap:8px;font-size:11px;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.035);}
+.bad-history-line:last-child{border-bottom:none;}
+.bad-history-clean{color:#9CF2C3;}
+.bad-history-relapse{color:#FFB4B4;}
+.bad-history-none{color:var(--muted);}
+.bad-improve-box{margin-top:12px;padding:12px 14px;border-radius:14px;border:1px solid rgba(245,158,11,.24);background:rgba(245,158,11,.07);font-size:12px;line-height:1.7;color:#FFE7C2;}
+.bad-day{cursor:pointer;transition:all .18s;}
+.bad-day:hover{border-color:rgba(96,165,250,.42);background:rgba(59,130,246,.08);}
+.bad-day.selected{outline:2px solid rgba(96,165,250,.55);box-shadow:0 0 0 3px rgba(59,130,246,.10);}
+.bad-selected-date{margin-top:12px;padding:10px 12px;border-radius:12px;background:rgba(59,130,246,.08);border:1px solid rgba(96,165,250,.22);color:#CFE6FF;font-size:11px;font-family:'JetBrains Mono',monospace;line-height:1.55;}
 .bad-journal{margin-top:14px;}
 .bad-journal textarea{width:100%;min-height:82px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;color:var(--text);padding:12px 14px;font-size:13px;line-height:1.6;font-family:'Inter',sans-serif;resize:vertical;}
 .bad-journal textarea:focus{outline:none;border-color:#60A5FA;background:rgba(59,130,246,.06);}
@@ -802,6 +1184,310 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 .tasbih-btn.done{border-color:rgba(46,204,113,.35);color:#9CF2C3;background:rgba(46,204,113,.10);}
 .tasbih-summary{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--muted2);}
 
+
+/* ── BAD HABITS VISUAL REFRESH (style-only override; logic + IDs preserved) ── */
+#page-badhabits .note-box{border-radius:18px;padding:16px 18px;background:linear-gradient(135deg,rgba(229,83,83,.10),rgba(59,130,246,.05));box-shadow:0 14px 34px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.04);}
+#page-badhabits .card{border-radius:24px;background:radial-gradient(circle at 100% 0%,rgba(88,166,255,.10),transparent 30%),linear-gradient(180deg,rgba(9,19,38,.98),rgba(4,10,22,.98));box-shadow:0 20px 55px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.035);}
+#page-badhabits .card::before{height:3px;background:linear-gradient(90deg,transparent,rgba(255,107,107,.85),rgba(88,166,255,.9),transparent);}
+.bad-habit-card{position:relative;overflow:hidden;padding:20px;border-radius:24px;border:1px solid rgba(140,199,255,.14);background:radial-gradient(circle at 8% 0%,rgba(255,107,107,.11),transparent 28%),radial-gradient(circle at 100% 20%,rgba(56,189,248,.10),transparent 28%),linear-gradient(180deg,rgba(10,22,43,.98),rgba(4,11,24,.98));box-shadow:0 18px 42px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.04);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;animation:badHabitRise .38s ease both;}
+.bad-habit-card:hover{transform:translateY(-2px);border-color:rgba(140,199,255,.26);box-shadow:0 24px 58px rgba(0,0,0,.38),0 0 0 1px rgba(88,166,255,.06) inset;}
+.bad-habit-card::after{content:'';position:absolute;inset:auto -20% 0 -20%;height:1px;background:linear-gradient(90deg,transparent,rgba(140,199,255,.45),transparent);opacity:.75;}
+.bad-habit-name{font-size:20px;letter-spacing:-.035em;text-shadow:0 10px 28px rgba(0,0,0,.35);}
+.bad-habit-sub{color:#AFC0DA;}.bad-score{border-radius:999px;padding:9px 13px;background:linear-gradient(135deg,rgba(59,130,246,.14),rgba(255,255,255,.04));border-color:rgba(96,165,250,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.05);}
+.bad-stat{position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border-color:rgba(140,199,255,.10);transition:transform .18s ease,border-color .18s ease,background .18s ease;}.bad-stat:hover{transform:translateY(-1px);border-color:rgba(140,199,255,.20);background:rgba(59,130,246,.055);}.bad-stat-num{font-family:'Inter',sans-serif;font-size:22px;letter-spacing:-.03em;}
+.bad-action-row{gap:10px;margin-top:15px;}.bad-btn,.bad-mini-btn,.bad-pun-btn{position:relative;overflow:hidden;border-radius:999px;font-weight:800;box-shadow:0 10px 24px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.05);transform:translateZ(0);}.bad-btn{padding:10px 16px;border-color:rgba(140,199,255,.14);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));}.bad-btn:hover,.bad-mini-btn:hover,.bad-pun-btn:hover{transform:translateY(-1px);}.bad-btn:active,.bad-mini-btn:active,.bad-pun-btn:active{transform:scale(.97);}.bad-btn.safe{background:linear-gradient(135deg,rgba(46,204,113,.16),rgba(46,204,113,.06));}.bad-btn.relapse{background:linear-gradient(135deg,rgba(255,107,107,.16),rgba(255,107,107,.06));}
+.bad-days{gap:8px;margin-top:16px;}.bad-day{position:relative;min-height:86px;padding:10px 6px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border-color:rgba(140,199,255,.09);box-shadow:inset 0 1px 0 rgba(255,255,255,.035);transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;}.bad-day:hover{transform:translateY(-2px);border-color:rgba(96,165,250,.48);box-shadow:0 13px 26px rgba(0,0,0,.24),0 0 0 1px rgba(59,130,246,.08) inset;}.bad-day.clean{background:linear-gradient(180deg,rgba(46,204,113,.16),rgba(46,204,113,.045));border-color:rgba(46,204,113,.36);}.bad-day.relapse{background:linear-gradient(180deg,rgba(255,107,107,.17),rgba(255,107,107,.055));border-color:rgba(255,107,107,.40);}.bad-day.selected{outline:none;border-color:#60A5FA;box-shadow:0 0 0 2px rgba(96,165,250,.20),0 14px 30px rgba(37,99,235,.18);}.bad-day-num{font-size:10px;color:#DCEBFF;letter-spacing:.08em;text-transform:uppercase;}.bad-day-mark{font-size:16px;margin-top:6px;}.bad-mini-btn{width:28px;height:25px;border-radius:10px;backdrop-filter:blur(8px);}.bad-mini-btn.clean{background:rgba(46,204,113,.12);}.bad-mini-btn.relapse{background:rgba(255,107,107,.12);}
+.bad-week-nav{border-radius:20px;padding:14px 16px;background:linear-gradient(135deg,rgba(59,130,246,.085),rgba(255,255,255,.025));border-color:rgba(140,199,255,.13);box-shadow:inset 0 1px 0 rgba(255,255,255,.035);}.bad-week-title{font-size:15px;letter-spacing:-.02em;}.bad-week-sub{color:#93A7C9;}.bad-history-grid{gap:8px;}.bad-history-day{border-radius:18px;padding:12px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));border-color:rgba(140,199,255,.09);transition:transform .18s ease,border-color .18s ease;}.bad-history-day:hover{transform:translateY(-2px);border-color:rgba(140,199,255,.20);}.bad-history-date{color:#D7E7FF;font-weight:800;letter-spacing:.05em;}.bad-history-line{border-bottom-color:rgba(140,199,255,.05);}.bad-improve-box{border-radius:18px;background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(59,130,246,.045));box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}.bad-selected-date{border-radius:16px;background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(56,189,248,.045));border-color:rgba(96,165,250,.28);}
+.bad-journal textarea{border-radius:18px;min-height:96px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.022));border-color:rgba(140,199,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.035);transition:border-color .2s ease,box-shadow .2s ease,background .2s ease;}.bad-journal textarea:focus{box-shadow:0 0 0 3px rgba(96,165,250,.12), inset 0 1px 0 rgba(255,255,255,.04);}
+.bad-alert,.bad-pun-card,.bad-pool-item,.bad-log-row{border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.035);}.bad-log{gap:10px;}.bad-log-row{padding:12px 14px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.018));border-color:rgba(140,199,255,.09);transition:transform .18s ease,border-color .18s ease;}.bad-log-row:hover{transform:translateX(3px);border-color:rgba(140,199,255,.20);}.bad-log-date{padding:4px 8px;border-radius:999px;background:rgba(59,130,246,.08);border:1px solid rgba(96,165,250,.12);}.bad-pool-item{padding:12px;border:1px solid rgba(255,255,255,.045);background:rgba(255,255,255,.018);margin-bottom:8px;border-bottom:none;}.bad-pool-n{display:grid;place-items:center;width:28px;height:28px;min-width:28px;border-radius:10px;background:rgba(255,107,107,.10);font-family:'Inter',sans-serif;}.bad-pun-card{padding:16px;background:linear-gradient(180deg,rgba(255,107,107,.12),rgba(255,107,107,.045));}.bad-pun-card.done{background:linear-gradient(180deg,rgba(46,204,113,.12),rgba(46,204,113,.045));}.bad-pun-btn{padding:9px 16px;background:linear-gradient(135deg,rgba(46,204,113,.18),rgba(46,204,113,.07));}
+@keyframes badHabitRise{from{opacity:0;transform:translateY(10px) scale(.99);}to{opacity:1;transform:translateY(0) scale(1);}}
+@media(max-width:560px){.bad-day{min-height:92px;}.bad-btn{width:100%;justify-content:center;}.bad-action-row{display:grid;grid-template-columns:1fr;}}
+
+
+/* ── BAD HABITS READABLE FUTURISTIC PANELS (targeted: Summary / Active Punishments / Punishment Pool only) ── */
+#page-badhabits #badHabitSummary,
+#page-badhabits #badHabitPunishments,
+#page-badhabits #badHabitPunishmentPool{
+  position:relative;
+}
+#page-badhabits .bad-future-panel{
+  position:relative;
+  overflow:hidden;
+  border-radius:26px;
+  padding:16px;
+  background:
+    radial-gradient(circle at 12% 0%,rgba(96,165,250,.20),transparent 32%),
+    radial-gradient(circle at 88% 14%,rgba(255,107,107,.14),transparent 30%),
+    linear-gradient(145deg,rgba(12,26,52,.96),rgba(4,10,22,.98));
+  border:1px solid rgba(140,199,255,.18);
+  box-shadow:0 22px 56px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.045);
+}
+#page-badhabits .bad-future-panel::before{
+  content:'';position:absolute;inset:0;border-radius:26px;padding:1px;
+  background:linear-gradient(135deg,rgba(255,107,107,.75),rgba(88,166,255,.85),rgba(61,220,151,.55));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.72;
+}
+#page-badhabits .bad-future-panel::after{
+  content:'';position:absolute;right:-70px;top:18px;width:210px;height:78px;border-radius:999px;
+  border:1px solid rgba(96,165,250,.18);transform:rotate(-8deg);opacity:.55;pointer-events:none;
+}
+#page-badhabits .bad-panel-head{
+  position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;
+}
+#page-badhabits .bad-panel-title{
+  font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:#F3F8FF;line-height:1.45;
+}
+#page-badhabits .bad-panel-icon{
+  width:46px;height:46px;border-radius:16px;display:grid;place-items:center;font-size:20px;
+  background:linear-gradient(145deg,rgba(96,165,250,.18),rgba(255,255,255,.045));
+  border:1px solid rgba(140,199,255,.16);box-shadow:0 12px 24px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.05);
+}
+#page-badhabits .bad-kpi-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+#page-badhabits .bad-kpi{
+  min-height:118px;padding:14px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.065),rgba(255,255,255,.018));
+  border:1px solid rgba(140,199,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+  display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s ease,border-color .2s ease;
+}
+#page-badhabits .bad-kpi:hover{transform:translateY(-2px) rotate(-.4deg);border-color:rgba(140,199,255,.24);}
+#page-badhabits .bad-kpi.wide{grid-column:1 / -1;min-height:76px;flex-direction:row;align-items:center;}
+#page-badhabits .bad-kpi-label{font-size:13px;line-height:1.35;color:#B8C8E4;font-weight:700;}
+#page-badhabits .bad-kpi-value{font-family:'Inter',sans-serif;font-size:32px;font-weight:900;letter-spacing:-.05em;text-shadow:0 10px 26px rgba(0,0,0,.28);}
+#page-badhabits .bad-kpi-sub{font-size:11px;color:#8094B7;margin-top:6px;line-height:1.35;}
+#page-badhabits .bad-habit-breakdown{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:9px;margin-top:12px;}
+#page-badhabits .bad-break-card{
+  display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:center;padding:12px;border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid rgba(140,199,255,.09);
+}
+#page-badhabits .bad-break-orb{width:38px;height:38px;border-radius:14px;display:grid;place-items:center;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.24);font-size:17px;}
+#page-badhabits .bad-break-title{font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:1.4px;text-transform:uppercase;color:#FDBA74;font-weight:900;line-height:1.35;}
+#page-badhabits .bad-break-text{font-size:13px;color:#DCEBFF;line-height:1.55;margin-top:4px;}
+#page-badhabits .bad-pun-card{
+  position:relative;overflow:hidden;border-radius:26px;padding:18px 18px 16px 18px;
+  background:radial-gradient(circle at 85% 20%,rgba(61,220,151,.16),transparent 30%),linear-gradient(145deg,rgba(7,42,36,.78),rgba(5,15,28,.96));
+  border:1px solid rgba(61,220,151,.24);box-shadow:0 20px 46px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.05);
+}
+#page-badhabits .bad-pun-card:not(.done){
+  background:radial-gradient(circle at 88% 20%,rgba(255,107,107,.16),transparent 30%),linear-gradient(145deg,rgba(45,14,20,.86),rgba(5,15,28,.96));
+  border-color:rgba(255,107,107,.30);
+}
+#page-badhabits .bad-pun-card::before{content:'';position:absolute;left:-30px;top:-35px;width:95px;height:95px;border-radius:28px;background:rgba(61,220,151,.09);border:1px solid rgba(61,220,151,.22);transform:rotate(28deg);}
+#page-badhabits .bad-pun-card:not(.done)::before{background:rgba(255,107,107,.10);border-color:rgba(255,107,107,.22);}
+#page-badhabits .bad-pun-title{position:relative;z-index:1;font-size:16px;line-height:1.35;color:#62F0A7;padding-left:42px;margin-bottom:10px;}
+#page-badhabits .bad-pun-card:not(.done) .bad-pun-title{color:#FFB4B4;}
+#page-badhabits .bad-pun-desc{position:relative;z-index:1;font-size:13px;line-height:1.65;color:#E8F2FF;padding-left:42px;}
+#page-badhabits .bad-pun-meta{position:relative;z-index:1;margin-top:11px;padding:10px 12px;border-radius:16px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.07);font-size:10px;line-height:1.7;}
+#page-badhabits .bad-pun-btn{position:relative;z-index:1;width:100%;margin-top:12px;border-radius:16px;padding:11px 14px;}
+#page-badhabits .bad-pool-grid{display:grid;grid-template-columns:1fr;gap:10px;}
+#page-badhabits .bad-pool-item{
+  position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:flex-start;border-radius:22px;padding:14px;
+  background:radial-gradient(circle at 100% 0%,rgba(88,166,255,.12),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+  border:1px solid rgba(140,199,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+#page-badhabits .bad-pool-item::after{content:'';position:absolute;right:-24px;bottom:-25px;width:82px;height:82px;border-radius:24px;border:1px solid rgba(255,107,107,.14);transform:rotate(18deg);}
+#page-badhabits .bad-pool-n{width:38px;height:38px;min-width:38px;border-radius:15px;background:linear-gradient(145deg,rgba(255,107,107,.18),rgba(59,130,246,.10));color:#FFB4B4;border:1px solid rgba(255,107,107,.22);}
+#page-badhabits .bad-pool-label{font-size:14px;line-height:1.35;color:#F4F8FF;}
+#page-badhabits .bad-pool-sub{font-size:12px;line-height:1.6;color:#AFC0DA;margin-top:5px;}
+@media(max-width:560px){
+  #page-badhabits .bad-future-panel{padding:14px;border-radius:24px;}
+  #page-badhabits .bad-kpi-grid{grid-template-columns:1fr;}
+  #page-badhabits .bad-kpi{min-height:auto;gap:10px;}
+  #page-badhabits .bad-kpi.wide{grid-column:auto;min-height:auto;}
+  #page-badhabits .bad-pun-title,#page-badhabits .bad-pun-desc{padding-left:34px;}
+}
+
+
+/* ── BAD HABITS HORIZONTAL FUTURISTIC PANELS (confirmed update: no side/vertical stacking) ── */
+#page-badhabits .bad-grid{
+  grid-template-columns:1fr !important;
+  gap:18px !important;
+}
+#page-badhabits .col-stack{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:18px !important;
+}
+#page-badhabits #badHabitSummary .bad-future-panel,
+#page-badhabits #badHabitPunishments .bad-future-panel,
+#page-badhabits #badHabitPunishmentPool .bad-future-panel{
+  padding:18px;
+  border-radius:32px;
+  background:
+    radial-gradient(circle at 0% 10%,rgba(88,166,255,.22),transparent 28%),
+    radial-gradient(circle at 100% 0%,rgba(255,107,107,.15),transparent 32%),
+    radial-gradient(circle at 55% 100%,rgba(61,220,151,.10),transparent 34%),
+    linear-gradient(145deg,rgba(10,23,47,.98),rgba(3,9,20,.98));
+  box-shadow:0 26px 70px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.05);
+}
+#page-badhabits .bad-panel-head{
+  margin-bottom:18px;
+  align-items:center;
+}
+#page-badhabits .bad-panel-title{
+  font-size:14px;
+  letter-spacing:5px;
+}
+#page-badhabits .bad-panel-title::after{
+  content:'';
+  display:block;
+  width:min(180px,52vw);
+  height:3px;
+  margin-top:12px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#38BDF8,#7C3AED,#FF6B6B);
+  box-shadow:0 0 18px rgba(88,166,255,.25);
+}
+#page-badhabits .bad-kpi-grid{
+  display:flex !important;
+  gap:14px !important;
+  overflow-x:auto;
+  padding:2px 2px 12px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+#page-badhabits .bad-kpi-grid::-webkit-scrollbar,
+#page-badhabits .bad-habit-breakdown::-webkit-scrollbar,
+#page-badhabits .bad-pun-horizontal::-webkit-scrollbar,
+#page-badhabits .bad-pool-grid::-webkit-scrollbar{height:5px;}
+#page-badhabits .bad-kpi-grid::-webkit-scrollbar-thumb,
+#page-badhabits .bad-habit-breakdown::-webkit-scrollbar-thumb,
+#page-badhabits .bad-pun-horizontal::-webkit-scrollbar-thumb,
+#page-badhabits .bad-pool-grid::-webkit-scrollbar-thumb{background:rgba(88,166,255,.32);border-radius:99px;}
+#page-badhabits .bad-kpi{
+  flex:0 0 clamp(190px,30vw,250px);
+  min-height:150px !important;
+  scroll-snap-align:start;
+  border-radius:26px;
+  padding:18px;
+  background:radial-gradient(circle at 20% 0%,rgba(88,166,255,.12),transparent 35%),linear-gradient(155deg,rgba(255,255,255,.07),rgba(255,255,255,.018));
+  transform:rotate(-.6deg);
+}
+#page-badhabits .bad-kpi:nth-child(even){transform:rotate(.6deg);}
+#page-badhabits .bad-kpi:hover{transform:translateY(-4px) rotate(0deg) scale(1.015);}
+#page-badhabits .bad-kpi.wide{flex-direction:column !important;align-items:flex-start !important;justify-content:space-between !important;}
+#page-badhabits .bad-kpi-label{font-size:15px;line-height:1.45;}
+#page-badhabits .bad-kpi-value{font-size:40px;}
+#page-badhabits .bad-habit-breakdown{
+  display:flex !important;
+  gap:14px !important;
+  overflow-x:auto;
+  padding:2px 2px 8px;
+  scroll-snap-type:x mandatory;
+}
+#page-badhabits .bad-break-card{
+  flex:0 0 clamp(260px,42vw,380px);
+  scroll-snap-align:start;
+  border-radius:26px;
+  min-height:110px;
+  grid-template-columns:52px 1fr;
+  background:radial-gradient(circle at 100% 10%,rgba(245,158,11,.11),transparent 34%),linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.014));
+}
+#page-badhabits .bad-break-orb{width:50px;height:50px;border-radius:18px;font-size:22px;}
+#page-badhabits .bad-break-text{font-size:14px;line-height:1.65;}
+#page-badhabits .bad-pun-horizontal{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  padding:3px 3px 12px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+#page-badhabits .bad-pun-wide-card{
+  flex:0 0 min(880px,92vw);
+  scroll-snap-align:start;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:minmax(210px,.85fr) minmax(260px,1.3fr) minmax(190px,.8fr);
+  gap:18px;
+  align-items:center;
+  min-height:210px;
+  border-radius:34px;
+  padding:22px;
+  background:radial-gradient(circle at 78% 40%,rgba(61,220,151,.18),transparent 28%),linear-gradient(145deg,rgba(5,45,38,.80),rgba(5,15,28,.98));
+  border:1px solid rgba(61,220,151,.28);
+  box-shadow:0 22px 54px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.05);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+#page-badhabits .bad-pun-wide-card:not(.done){
+  background:radial-gradient(circle at 78% 40%,rgba(255,107,107,.18),transparent 28%),linear-gradient(145deg,rgba(48,12,20,.86),rgba(5,15,28,.98));
+  border-color:rgba(255,107,107,.30);
+}
+#page-badhabits .bad-pun-wide-card:hover{transform:translateY(-4px);box-shadow:0 28px 68px rgba(0,0,0,.44),0 0 0 1px rgba(61,220,151,.09) inset;}
+#page-badhabits .bad-pun-wide-card::before{
+  content:'';
+  position:absolute;
+  left:-36px;
+  top:-42px;
+  width:126px;
+  height:126px;
+  border-radius:36px;
+  transform:rotate(30deg);
+  background:rgba(61,220,151,.10);
+  border:1px solid rgba(61,220,151,.22);
+}
+#page-badhabits .bad-pun-wide-card:not(.done)::before{background:rgba(255,107,107,.10);border-color:rgba(255,107,107,.22);}
+#page-badhabits .bad-pun-left,
+#page-badhabits .bad-pun-center,
+#page-badhabits .bad-pun-right{position:relative;z-index:1;}
+#page-badhabits .bad-pun-icon{
+  width:58px;height:58px;border-radius:22px;display:grid;place-items:center;font-size:25px;margin-bottom:14px;
+  background:rgba(61,220,151,.14);border:1px solid rgba(61,220,151,.28);box-shadow:0 12px 26px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.05);
+}
+#page-badhabits .bad-pun-wide-card:not(.done) .bad-pun-icon{background:rgba(255,107,107,.14);border-color:rgba(255,107,107,.28);}
+#page-badhabits .bad-pun-wide-title{font-size:20px;line-height:1.35;font-weight:900;color:#62F0A7;letter-spacing:-.03em;}
+#page-badhabits .bad-pun-wide-card:not(.done) .bad-pun-wide-title{color:#FFB4B4;}
+#page-badhabits .bad-pun-wide-habit{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#9FB2D2;margin-bottom:6px;}
+#page-badhabits .bad-pun-wide-desc{font-size:15px;line-height:1.75;color:#EAF3FF;}
+#page-badhabits .bad-pun-right{
+  border-radius:24px;
+  padding:14px;
+  background:rgba(0,0,0,.20);
+  border:1px solid rgba(255,255,255,.08);
+}
+#page-badhabits .bad-pun-meta-row{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:11px;line-height:1.45;color:#9FB2D2;}
+#page-badhabits .bad-pun-meta-row:last-child{border-bottom:none;}
+#page-badhabits .bad-pun-meta-row strong{display:block;color:#EAF6FF;font-size:13px;margin-top:3px;}
+#page-badhabits .bad-pun-wide-card .bad-pun-btn{width:100%;border-radius:16px;margin-top:10px;padding:11px 12px;}
+#page-badhabits .bad-pool-grid{
+  display:flex !important;
+  gap:14px !important;
+  overflow-x:auto;
+  padding:3px 3px 12px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+#page-badhabits .bad-pool-item{
+  flex:0 0 clamp(250px,34vw,330px);
+  min-height:150px;
+  scroll-snap-align:start;
+  border-radius:28px;
+  padding:18px;
+  grid-template-columns:52px 1fr;
+  align-items:start;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+#page-badhabits .bad-pool-item:hover{transform:translateY(-4px) rotate(-.5deg);border-color:rgba(140,199,255,.26);box-shadow:0 18px 36px rgba(0,0,0,.30);}
+#page-badhabits .bad-pool-n{width:48px;height:48px;min-width:48px;border-radius:18px;font-size:15px;}
+#page-badhabits .bad-pool-label{font-size:15px;line-height:1.45;}
+#page-badhabits .bad-pool-sub{font-size:13px;line-height:1.7;}
+@media(max-width:760px){
+  #page-badhabits .bad-pun-wide-card{grid-template-columns:1fr;min-height:auto;gap:14px;padding:18px;}
+  #page-badhabits .bad-pun-right{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
+  #page-badhabits .bad-pun-meta-row{border-bottom:none;}
+  #page-badhabits .bad-pun-wide-card .bad-pun-btn{grid-column:1 / -1;}
+}
+@media(max-width:520px){
+  #page-badhabits #badHabitSummary .bad-future-panel,
+  #page-badhabits #badHabitPunishments .bad-future-panel,
+  #page-badhabits #badHabitPunishmentPool .bad-future-panel{padding:14px;border-radius:26px;}
+  #page-badhabits .bad-kpi{flex-basis:74vw;min-height:140px !important;}
+  #page-badhabits .bad-break-card{flex-basis:86vw;}
+  #page-badhabits .bad-pool-item{flex-basis:82vw;}
+  #page-badhabits .bad-pun-wide-card{flex-basis:88vw;}
+  #page-badhabits .bad-pun-right{grid-template-columns:1fr;}
+}
+
 </style>
 <!-- PWA APP SUPPORT -->
 <link rel="manifest" href="manifest.json">
@@ -852,6 +1538,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   <button class="nav-tab" onclick="navTo('priorities',this)">🎯 Priorities</button>
   <button class="nav-tab" onclick="navTo('phases',this)">🗓 90-Day Phases</button>
   <button class="nav-tab" onclick="navTo('badhabits',this)">🚫 Bad Habits</button>
+  <button class="nav-tab" onclick="navTo('mosque',this)">🕌 Mosque Project</button>
   <button class="nav-tab" onclick="navTo('portable',this)">☁ Portable Sync</button>
 </div>
 
@@ -994,6 +1681,12 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
       <div class="card">
         <div class="card-title">Tasbih Today</div>
         <div id="tasbihPanel"></div>
+      </div>
+
+
+      <div class="card">
+        <div class="card-title">Water Tracking</div>
+        <div id="waterPanel"></div>
       </div>
 
       <div class="card">
@@ -1364,6 +2057,11 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
           <div class="card-title" style="color:var(--red);">Relapse Log</div>
           <div id="badHabitLog"></div>
         </div>
+
+        <div class="card" style="margin-top:16px;">
+          <div class="card-title" style="color:var(--cyan);">Previous Weeks & Improvement</div>
+          <div id="badHabitWeekHistory"></div>
+        </div>
       </div>
 
       <div class="col-stack">
@@ -1386,6 +2084,69 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
     </div>
   </div>
 </div>
+
+<!-- ══════════════════════════════════════════
+     PAGE: MOSQUE PROJECT
+══════════════════════════════════════════ -->
+<div id="page-mosque" class="page">
+  <div class="mosque-wrap">
+    <div class="mosque-hero">
+      <div class="mosque-hero-title">🕌 Friday Mosque Project</div>
+      <div class="mosque-hero-sub">Track every mosque separately: Imam name, community contact, original Google Maps location, mosque image, Friday discussion notes, agreement status, interest level, follow-up date, and which mosque deserves more focus.</div>
+    </div>
+
+    <div class="mosque-summary-grid" id="mosqueSummaryGrid"></div>
+
+
+    <div class="card">
+      <div class="card-title" style="color:#9CF2C3;">Friday Visit Calendar & Reviews</div>
+      <div class="mosque-calendar-card" id="mosqueFridayCalendar"></div>
+    </div>
+
+    <div class="mosque-control-grid">
+      <div class="card">
+        <div class="card-title" style="color:#7DD3FC;">This Friday Plan</div>
+        <div class="mosque-plan-box">
+          <div class="mosque-small-title">Only Friday tracking</div>
+          <div class="mosque-form-grid">
+            <div class="field-group"><div class="field-label">Target Mosque</div><input class="field-input" id="mosquePlanTarget" placeholder="Which mosque this Friday?" oninput="saveMosquePlan()"></div>
+            <div class="field-group"><div class="field-label">Visit Time</div><input class="field-input" id="mosquePlanTime" placeholder="After Jumu'ah / 3:30 PM" oninput="saveMosquePlan()"></div>
+            <div class="field-group"><div class="field-label">Agreement Ready?</div><select class="field-input" id="mosquePlanAgreement" onchange="saveMosquePlan()"><option value="No">No</option><option value="Yes">Yes</option><option value="Need print">Need print</option></select></div>
+            <div class="field-group"><div class="field-label">Follow-up Needed?</div><select class="field-input" id="mosquePlanFollow" onchange="saveMosquePlan()"><option value="No">No</option><option value="Yes">Yes</option></select></div>
+            <div class="field-group full"><div class="field-label">Friday Notes</div><textarea class="field-input mosque-textarea" id="mosquePlanNotes" placeholder="What should you discuss this Friday?" oninput="saveMosquePlan()"></textarea></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title" style="color:#9CF2C3;">Focus Recommendation</div>
+        <div class="mosque-focus-box">
+          <div class="mosque-small-title">Best mosque to focus</div>
+          <div id="mosqueFocusBox" class="mosque-focus-text"></div>
+        </div>
+        <div class="mosque-footer-note" style="margin-top:12px;">Tip: mark a mosque as <strong>Highly interested</strong>, <strong>Interested</strong>, or <strong>Accepted</strong> to make it appear as a stronger focus option.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="color:#7DD3FC;">Add New Mosque</div>
+      <div class="mosque-form-grid">
+        <div class="field-group"><div class="field-label">Mosque Name</div><input class="field-input" id="newMosqueName" placeholder="e.g. Jamia Masjid ..."></div>
+        <div class="field-group"><div class="field-label">Area / City</div><input class="field-input" id="newMosqueArea" placeholder="Area, city"></div>
+        <div class="field-group"><div class="field-label">Imam Name</div><input class="field-input" id="newMosqueImam" placeholder="Imam name"></div>
+        <div class="field-group"><div class="field-label">Community Contact</div><input class="field-input" id="newMosqueContact" placeholder="Phone / WhatsApp / committee contact"></div>
+        <div class="field-group full"><div class="field-label">Google Maps Link or Location Text</div><input class="field-input" id="newMosqueMap" placeholder="Paste Google Maps link or exact location"></div>
+      </div>
+      <div class="mosque-add-actions">
+        <button class="btn btn-primary" onclick="addMosqueCard()">＋ Add Mosque</button>
+        <button class="btn btn-ghost" onclick="resetNewMosqueForm()">Clear</button>
+      </div>
+    </div>
+
+    <div class="mosque-list" id="mosqueCardsList"></div>
+  </div>
+</div>
+
 
 <!-- ══════════════════════════════════════════
      PAGE: PHASES
@@ -2394,6 +3155,83 @@ function renderTasbihPanel(){
   </div>`;
 }
 
+
+
+// ══════════════════════════════════════════════════════
+//  WATER TRACKING SYSTEM — added only; existing sections preserved
+// ══════════════════════════════════════════════════════
+const WATER_DEFAULT_TARGET_ML = 2500;
+const WATER_GLASS_ML = 250;
+function waterKey(d){ return 'water_'+dateKey(d); }
+function getWaterState(d){ return load(waterKey(d))||{ml:0,target:WATER_DEFAULT_TARGET_ML}; }
+function saveWaterState(d,st){ save(waterKey(d),st); }
+function clampWaterValue(v){ return Math.max(0,Math.min(10000,parseInt(v||0,10))); }
+function addWaterMl(amount){
+  const st=getWaterState(viewDate);
+  st.target=clampWaterValue(st.target||WATER_DEFAULT_TARGET_ML)||WATER_DEFAULT_TARGET_ML;
+  st.ml=clampWaterValue((parseInt(st.ml||0,10)+amount));
+  saveWaterState(viewDate,st);
+  renderWaterPanel();
+}
+function setWaterTarget(val){
+  const st=getWaterState(viewDate);
+  st.target=clampWaterValue(val)||WATER_DEFAULT_TARGET_ML;
+  saveWaterState(viewDate,st);
+  renderWaterPanel();
+}
+function markWaterTargetDone(){
+  const st=getWaterState(viewDate);
+  st.target=clampWaterValue(st.target||WATER_DEFAULT_TARGET_ML)||WATER_DEFAULT_TARGET_ML;
+  st.ml=st.target;
+  saveWaterState(viewDate,st);
+  renderWaterPanel();
+}
+function resetWaterToday(){
+  if(!confirm('Reset today\'s water count?')) return;
+  const st=getWaterState(viewDate);
+  saveWaterState(viewDate,{ml:0,target:st.target||WATER_DEFAULT_TARGET_ML});
+  renderWaterPanel();
+}
+function renderWaterPanel(){
+  const el=document.getElementById('waterPanel');
+  if(!el) return;
+  const st=getWaterState(viewDate);
+  const ml=clampWaterValue(st.ml||0);
+  const target=clampWaterValue(st.target||WATER_DEFAULT_TARGET_ML)||WATER_DEFAULT_TARGET_ML;
+  const glasses=Math.round(ml/WATER_GLASS_ML*10)/10;
+  const targetGlasses=Math.round(target/WATER_GLASS_ML*10)/10;
+  const pct=Math.min(100,Math.round((ml/target)*100));
+  const remaining=Math.max(0,target-ml);
+  el.innerHTML=`<div class="water-wrap water-pro">
+    <div class="water-pro-head">
+      <div class="water-pro-title"><span class="water-drop">💧</span><span>Water Tracking</span></div>
+      <div class="water-title-line"></div>
+    </div>
+    <div class="water-intro">Track daily hydration separately from tasks. Default goal: 10 glasses / 2500ml.</div>
+    <div class="water-summary">
+      <div class="water-top">
+        <div class="water-main"><span>${ml}</span><small>ml</small></div>
+        <div class="water-target">Goal: ${target} ml · ${targetGlasses} glasses</div>
+      </div>
+      <div class="water-bar"><div class="water-fill" style="width:${pct}%"></div></div>
+      <div class="water-meta"><span>${glasses} glasses today</span><span><strong>${pct}%</strong> · ${remaining} ml left</span></div>
+    </div>
+    <div class="water-actions">
+      <button class="water-btn" onclick="addWaterMl(250)">🥤 +1 Glass</button>
+      <button class="water-btn" onclick="addWaterMl(500)">💧 +500ml</button>
+      <button class="water-btn" onclick="addWaterMl(-250)">🧃 −1 Glass</button>
+      <button class="water-btn ${ml>=target?'done':''}" onclick="markWaterTargetDone()">🎯 ${ml>=target?'Goal Done':'Mark Goal'}</button>
+      <button class="water-btn" onclick="resetWaterToday()">↻ Reset</button>
+      <button class="water-btn" onclick="addWaterMl(1000)">🧴 +1 Liter</button>
+    </div>
+    <div class="water-custom">
+      <input class="water-input" id="waterTargetInput" type="number" min="250" step="250" value="${target}" aria-label="Water target in ml">
+      <button class="water-btn water-primary" onclick="setWaterTarget(document.getElementById('waterTargetInput').value)">Set Goal</button>
+    </div>
+    <div class="water-note"><span class="water-note-icon">💡</span><span>Tip: Your Phase 1 target already mentions 8–10 glasses. This tracker stores a separate daily water record using the same local/portable storage system.</span></div>
+  </div>`;
+}
+
 // ══════════════════════════════════════════════════════
 //  RENDER TODAY PAGE
 // ══════════════════════════════════════════════════════
@@ -2404,6 +3242,7 @@ function renderToday(){
   renderTaskList();
   renderPrayerPanel();
   renderTasbihPanel();
+  renderWaterPanel();
   renderTelepathyPanel();
   renderMustWinPanel();
   renderPrayerPanel();
@@ -3727,7 +4566,7 @@ const BAD_HABIT_PUNISHMENTS = {
   ]
 };
 
-function badHabitStateKey(d){ return 'badhabit_'+dateKey(d); }
+function badHabitStateKey(d){ return 'badhabit_'+badLocalDateKey(d); }
 function getBadHabitState(d){ return load(badHabitStateKey(d))||{habits:{},notes:{}}; }
 function saveBadHabitState(d,state){ save(badHabitStateKey(d),state); }
 
@@ -3765,20 +4604,77 @@ function completeBadHabitPunishment(habitId, triggerDK){
   showToast();
 }
 
-function setBadHabitStatus(habitId, status){
-  const st=getBadHabitState(viewDate);
+let selectedBadHabitDateKey=null;
+let badHabitWeekOffset=0;
+function badLocalDateKey(d){
+  const y=d.getFullYear();
+  const m=String(d.getMonth()+1).padStart(2,'0');
+  const day=String(d.getDate()).padStart(2,'0');
+  return y+'-'+m+'-'+day;
+}
+function parseBadLocalDate(dk){
+  const parts=String(dk||'').split('-').map(Number);
+  if(parts.length!==3 || parts.some(isNaN)) return null;
+  const d=new Date(parts[0],parts[1]-1,parts[2]);
+  d.setHours(0,0,0,0);
+  return d;
+}
+function getBadHabitWeekBase(){
+  const d=new Date(viewDate); d.setHours(0,0,0,0);
+  d.setDate(d.getDate()+(badHabitWeekOffset*7));
+  return d;
+}
+function changeBadHabitWeek(delta){
+  badHabitWeekOffset+=delta;
+  selectedBadHabitDateKey=badLocalDateKey(getBadHabitWeekBase());
+  renderBadHabitTracker();
+}
+function goBadHabitThisWeek(){
+  badHabitWeekOffset=0;
+  selectedBadHabitDateKey=badLocalDateKey(viewDate);
+  renderBadHabitTracker();
+}
+function getSelectedBadHabitDate(){
+  if(!selectedBadHabitDateKey) selectedBadHabitDateKey=badLocalDateKey(viewDate);
+  const d=parseBadLocalDate(selectedBadHabitDateKey);
+  if(!d){
+    selectedBadHabitDateKey=badLocalDateKey(viewDate);
+    return new Date(viewDate);
+  }
+  return d;
+}
+function selectBadHabitDate(dk){
+  selectedBadHabitDateKey=dk;
+  renderBadHabitCards();
+}
+function setBadHabitStatusForDate(habitId, status, dk){
+  const d=parseBadLocalDate(dk||badLocalDateKey(viewDate));
+  if(!d) return;
+  selectedBadHabitDateKey=badLocalDateKey(d);
+  const st=getBadHabitState(d);
   st.habits=st.habits||{};
   if(status==='none') delete st.habits[habitId];
   else st.habits[habitId]=status;
-  saveBadHabitState(viewDate, st);
+  saveBadHabitState(d, st);
   renderBadHabitTracker();
 }
-function saveBadHabitNote(habitId, val){
-  const st=getBadHabitState(viewDate);
+function setBadHabitStatus(habitId, status){
+  setBadHabitStatusForDate(habitId, status, badLocalDateKey(getSelectedBadHabitDate()));
+}
+function saveBadHabitNoteForDate(habitId, val, dk){
+  const d=parseBadLocalDate(dk||badLocalDateKey(viewDate));
+  if(!d) return;
+  selectedBadHabitDateKey=badLocalDateKey(d);
+  const st=getBadHabitState(d);
   st.notes=st.notes||{};
   st.notes[habitId]=val||'';
-  saveBadHabitState(viewDate, st);
+  saveBadHabitState(d, st);
   renderBadHabitSummary();
+  renderBadHabitLog();
+  renderBadHabitWeekHistory();
+}
+function saveBadHabitNote(habitId, val){
+  saveBadHabitNoteForDate(habitId, val, badLocalDateKey(getSelectedBadHabitDate()));
 }
 function getBadHabitStats(habitId){
   const start=new Date(START); start.setHours(0,0,0,0);
@@ -3804,10 +4700,10 @@ function getBadHabitStats(habitId){
   const warnAt=(BAD_HABITS.find(h=>h.id===habitId)||{}).warnAt||4;
   if(relapses.length>=warnAt){
     const trigger=relapses[warnAt-1];
-    const pun=getOrCreateBadHabitPunishment(habitId, dkStr(trigger));
+    const pun=getOrCreateBadHabitPunishment(habitId, badLocalDateKey(trigger));
     if(pun&&pun.completed) completedPunishments.push(pun); else if(pun) activePunishments.push(pun);
     for(let i=warnAt;i<relapses.length;i++){
-      const extraPun=getOrCreateBadHabitPunishment(habitId, dkStr(relapses[i]));
+      const extraPun=getOrCreateBadHabitPunishment(habitId, badLocalDateKey(relapses[i]));
       if(extraPun&&extraPun.completed) completedPunishments.push(extraPun); else if(extraPun) activePunishments.push(extraPun);
     }
   }
@@ -3841,11 +4737,23 @@ function getBadHabitWeek(viewD, habitId){
 function renderBadHabitCards(){
   const el=document.getElementById('badHabitCards');
   if(!el) return;
-  const state=getBadHabitState(viewDate);
-  el.innerHTML=BAD_HABITS.map(habit=>{
+  if(!selectedBadHabitDateKey) selectedBadHabitDateKey=badLocalDateKey(viewDate);
+  const selectedDate=getSelectedBadHabitDate();
+  const state=getBadHabitState(selectedDate);
+  const selectedLabel=selectedDate.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  const wkStart=new Date(getBadHabitWeekBase());
+  const wkDay=wkStart.getDay()||7;
+  wkStart.setDate(wkStart.getDate()-wkDay+1);
+  const wkEnd=new Date(wkStart); wkEnd.setDate(wkStart.getDate()+6);
+  const weekNav=`<div class="bad-week-nav">
+    <div><div class="bad-week-title">Bad Habit Week: ${wkStart.toLocaleDateString('en-GB',{day:'numeric',month:'short'})} – ${wkEnd.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</div><div class="bad-week-sub">Click ✓ or ✕ inside any day box to update that exact previous day.</div></div>
+    <div class="bad-week-btns"><button class="dnav-btn" onclick="changeBadHabitWeek(-1)">← Previous Week</button><button class="dnav-btn today-btn" onclick="goBadHabitThisWeek()">This Week</button><button class="dnav-btn" onclick="changeBadHabitWeek(1)">Next Week →</button></div>
+  </div>`;
+  el.innerHTML=weekNav+BAD_HABITS.map(habit=>{
     const stats=getBadHabitStats(habit.id);
-    const week=getBadHabitWeek(viewDate, habit.id);
+    const week=getBadHabitWeek(getBadHabitWeekBase(), habit.id);
     const note=(state.notes&&state.notes[habit.id])||'';
+    const selectedStatus=(state.habits&&state.habits[habit.id])||'none';
     const statusTone=stats.activePunishments.length?'red':(stats.totalRelapses>=1?'warn':'');
     return `<div class="bad-habit-card">
       <div class="bad-habit-top">
@@ -3871,21 +4779,31 @@ function renderBadHabitCards(){
             : `No relapse day logged yet for this habit. Keep this at zero for the full 90 days.`}
       </div>
 
+      <div class="bad-selected-date">Selected day: <strong>${selectedLabel}</strong> · Status: <strong>${selectedStatus==='clean'?'Clean':selectedStatus==='relapse'?'Relapse':'Not marked'}</strong><br>Tap any day below, then use the buttons or write a note for that exact day.</div>
+
       <div class="bad-action-row">
-        <button class="bad-btn safe" onclick="setBadHabitStatus('${habit.id}','clean')">✓ Mark Today Clean</button>
-        <button class="bad-btn relapse" onclick="setBadHabitStatus('${habit.id}','relapse')">✕ Mark Relapse Today</button>
-        <button class="bad-btn" onclick="setBadHabitStatus('${habit.id}','none')">↺ Clear Today</button>
+        <button class="bad-btn safe" onclick="setBadHabitStatus('${habit.id}','clean')">✓ Mark Selected Day Clean</button>
+        <button class="bad-btn relapse" onclick="setBadHabitStatus('${habit.id}','relapse')">✕ Mark Selected Day Relapse</button>
+        <button class="bad-btn" onclick="setBadHabitStatus('${habit.id}','none')">↺ Clear Selected Day</button>
       </div>
 
       <div class="bad-days">
-        ${week.map(day=>`<div class="bad-day ${day.status}">
-          <div class="bad-day-num">${day.date.toLocaleDateString('en-GB',{weekday:'short'})}<br>${day.date.getDate()}</div>
-          <div class="bad-day-mark">${day.status==='clean'?'✓':day.status==='relapse'?'✕':'·'}</div>
-        </div>`).join('')}
+        ${week.map(day=>{
+          const dk=badLocalDateKey(day.date);
+          const isSelected=dk===selectedBadHabitDateKey;
+          return `<div class="bad-day ${day.status} ${isSelected?'selected':''}" onclick="selectBadHabitDate('${dk}')" title="Select ${day.date.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}">
+            <div class="bad-day-num">${day.date.toLocaleDateString('en-GB',{weekday:'short'})}<br>${day.date.getDate()}</div>
+            <div class="bad-day-mark">${day.status==='clean'?'✓':day.status==='relapse'?'✕':'·'}</div>
+            <div class="bad-day-actions">
+              <button class="bad-mini-btn clean" onclick="event.stopPropagation(); setBadHabitStatusForDate('${habit.id}','clean','${dk}')" title="Mark this day clean">✓</button>
+              <button class="bad-mini-btn relapse" onclick="event.stopPropagation(); setBadHabitStatusForDate('${habit.id}','relapse','${dk}')" title="Mark this day relapse">✕</button>
+            </div>
+          </div>`;
+        }).join('')}
       </div>
 
       <div class="bad-journal">
-        <div class="tele-small">Today note for this habit</div>
+        <div class="tele-small">Note for selected day — ${selectedLabel}</div>
         <textarea placeholder="Trigger, time, what happened, how to prevent next time..." oninput="saveBadHabitNote('${habit.id}', this.value)">${escapeHtml(note)}</textarea>
       </div>
     </div>`;
@@ -3926,12 +4844,41 @@ function renderBadHabitSummary(){
   const relapseDays=totals.reduce((a,b)=>a+b.stats.totalRelapses,0);
   const activePun=totals.reduce((a,b)=>a+b.stats.activePunishments.length,0);
   el.innerHTML=`
-    <div class="stat-line"><span class="stat-label-s">Tracked habits</span><span class="stat-val" style="color:var(--cyan);">${BAD_HABITS.length}</span></div>
-    <div class="stat-line"><span class="stat-label-s">Total clean days logged</span><span class="stat-val" style="color:var(--green);">${cleanDays}</span></div>
-    <div class="stat-line"><span class="stat-label-s">Total relapse days logged</span><span class="stat-val" style="color:var(--red);">${relapseDays}</span></div>
-    <div class="stat-line"><span class="stat-label-s">Active punishments</span><span class="stat-val" style="color:${activePun?'var(--red)':'var(--green)'};">${activePun}</span></div>
-    <div style="margin-top:12px;font-size:12px;color:var(--muted);line-height:1.7;">
-      ${totals.map(t=>`${t.habit.short}: <strong style="color:${t.stats.totalRelapses?'#FFB4B4':'#9CF2C3'};">${t.stats.totalRelapses} relapse day${t.stats.totalRelapses===1?'':'s'}</strong> · current clean streak ${t.stats.currentClean} day${t.stats.currentClean===1?'':'s'}`).join('<br>')}
+    <div class="bad-future-panel">
+      <div class="bad-panel-head">
+        <div>
+          <div class="bad-panel-title">Summary</div>
+          <div class="bad-kpi-sub">Readable overview of your habit discipline.</div>
+        </div>
+        <div class="bad-panel-icon">📊</div>
+      </div>
+      <div class="bad-kpi-grid">
+        <div class="bad-kpi">
+          <div class="bad-kpi-label">Tracked habits</div>
+          <div class="bad-kpi-value" style="color:var(--cyan);">${BAD_HABITS.length}</div>
+        </div>
+        <div class="bad-kpi">
+          <div class="bad-kpi-label">Clean days logged</div>
+          <div class="bad-kpi-value" style="color:var(--green);">${cleanDays}</div>
+        </div>
+        <div class="bad-kpi">
+          <div class="bad-kpi-label">Relapse days logged</div>
+          <div class="bad-kpi-value" style="color:var(--red);">${relapseDays}</div>
+        </div>
+        <div class="bad-kpi">
+          <div class="bad-kpi-label">Active punishments</div>
+          <div class="bad-kpi-value" style="color:${activePun?'var(--red)':'var(--green)'};">${activePun}</div>
+        </div>
+      </div>
+      <div class="bad-habit-breakdown">
+        ${totals.map(t=>`<div class="bad-break-card">
+          <div class="bad-break-orb">${t.stats.totalRelapses?'⚠️':'✓'}</div>
+          <div>
+            <div class="bad-break-title">${escapeHtml(t.habit.short)}</div>
+            <div class="bad-break-text"><strong style="color:${t.stats.totalRelapses?'#FFB4B4':'#9CF2C3'};">${t.stats.totalRelapses} relapse day${t.stats.totalRelapses===1?'':'s'}</strong><br>Current clean streak: <strong>${t.stats.currentClean}</strong> day${t.stats.currentClean===1?'':'s'}</div>
+          </div>
+        </div>`).join('')}
+      </div>
     </div>`;
 }
 function renderBadHabitPunishments(){
@@ -3942,16 +4889,28 @@ function renderBadHabitPunishments(){
     const stats=getBadHabitStats(habit.id);
     [...stats.activePunishments, ...stats.completedPunishments].sort((a,b)=>(b.assigned||0)-(a.assigned||0)).forEach(p=>{
       const done=!!p.completed;
-      cards.push(`<div class="bad-pun-card ${done?'done':''}">
-        <div class="bad-pun-title">${done?'✅ ':'⚠️ '}${escapeHtml(habit.label)} — ${escapeHtml(p.label)}</div>
-        <div class="bad-pun-desc">${escapeHtml(p.desc)}</div>
-        <div class="bad-pun-meta">Triggered on relapse day: ${p.triggerDK} · Assigned: ${new Date(p.assigned).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})} · Status: ${done?'completed':'active'}</div>
-        ${done && p.completedAt ? `<div class="bad-pun-meta">Completed: ${new Date(p.completedAt).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</div>`:''}
-        ${done?'':`<button class="bad-pun-btn" onclick="completeBadHabitPunishment('${habit.id}','${p.triggerDK}')">MARK PUNISHMENT DONE</button>`}
+      const assignedTxt=new Date(p.assigned).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+      const completedTxt=p.completedAt ? new Date(p.completedAt).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}) : '';
+      cards.push(`<div class="bad-pun-wide-card ${done?'done':''}">
+        <div class="bad-pun-left">
+          <div class="bad-pun-icon">${done?'✅':'⚠️'}</div>
+          <div class="bad-pun-wide-habit">${escapeHtml(habit.short)}</div>
+          <div class="bad-pun-wide-title">${escapeHtml(p.label)}</div>
+        </div>
+        <div class="bad-pun-center">
+          <div class="bad-pun-wide-desc">${escapeHtml(p.desc)}</div>
+        </div>
+        <div class="bad-pun-right">
+          <div class="bad-pun-meta-row">Triggered on relapse day<strong>${p.triggerDK}</strong></div>
+          <div class="bad-pun-meta-row">Assigned<strong>${assignedTxt}</strong></div>
+          <div class="bad-pun-meta-row">Status<strong style="color:${done?'var(--green)':'var(--red)'};">${done?'Complete':'Active'}</strong></div>
+          ${done && completedTxt ? `<div class="bad-pun-meta-row">Completed<strong>${completedTxt}</strong></div>`:''}
+          ${done?'':`<button class="bad-pun-btn" onclick="completeBadHabitPunishment('${habit.id}','${p.triggerDK}')">MARK PUNISHMENT DONE</button>`}
+        </div>
       </div>`);
     });
   });
-  el.innerHTML=cards.length?cards.join('<div style="height:10px"></div>'):'<div class="section-empty">✓ No active or completed punishments yet.</div>';
+  el.innerHTML=cards.length?`<div class="bad-future-panel"><div class="bad-panel-head"><div><div class="bad-panel-title">Active Punishments</div><div class="bad-kpi-sub">Swipe horizontally to review every assigned consequence.</div></div><div class="bad-panel-icon">⚡</div></div><div class="bad-pun-horizontal">${cards.join('')}</div></div>`:'<div class="bad-future-panel"><div class="bad-panel-head"><div><div class="bad-panel-title">Active Punishments</div><div class="bad-kpi-sub">No active or completed punishments yet.</div></div><div class="bad-panel-icon">🔒</div></div><div class="section-empty">✓ You are clear right now.</div></div>';
 }
 function renderBadHabitPunishmentPool(){
   const el=document.getElementById('badHabitPunishmentPool');
@@ -3968,7 +4927,60 @@ function renderBadHabitPunishmentPool(){
       </div>`);
     });
   });
-  el.innerHTML=items.join('');
+  el.innerHTML=`<div class="bad-future-panel">
+    <div class="bad-panel-head">
+      <div>
+        <div class="bad-panel-title">Punishment Pool</div>
+        <div class="bad-kpi-sub">Consequences that activate after repeated relapse days.</div>
+      </div>
+      <div class="bad-panel-icon">⚡</div>
+    </div>
+    <div class="bad-pool-grid">${items.join('')}</div>
+  </div>`;
+}
+
+function getBadHabitWeekRange(baseDate){
+  const start=new Date(baseDate); start.setHours(0,0,0,0);
+  const day=start.getDay()||7;
+  start.setDate(start.getDate()-day+1);
+  const end=new Date(start); end.setDate(start.getDate()+6);
+  return {start,end};
+}
+function renderBadHabitWeekHistory(){
+  const el=document.getElementById('badHabitWeekHistory');
+  if(!el) return;
+  const range=getBadHabitWeekRange(getBadHabitWeekBase());
+  const start=range.start, end=range.end;
+  const days=[];
+  let cleanCount=0, relapseCount=0, markedCount=0;
+  for(let cur=new Date(start); cur<=end; cur.setDate(cur.getDate()+1)){
+    const st=getBadHabitState(cur);
+    const habits=BAD_HABITS.map(h=>{
+      const status=(st.habits&&st.habits[h.id])||'none';
+      if(status==='clean'){ cleanCount++; markedCount++; }
+      if(status==='relapse'){ relapseCount++; markedCount++; }
+      return {habit:h,status,note:(st.notes&&st.notes[h.id])||''};
+    });
+    days.push({date:new Date(cur),habits});
+  }
+  const totalSlots=days.length*BAD_HABITS.length;
+  const cleanPct=totalSlots?Math.round((cleanCount/totalSlots)*100):0;
+  let advice='Keep marking every day honestly. Unmarked days hide your real pattern.';
+  if(relapseCount===0 && markedCount>0) advice='Strong week: no relapse recorded. Your next improvement is consistency — keep every day marked clean.';
+  else if(relapseCount>0 && cleanCount>relapseCount) advice='Improving week: clean days are higher than relapse days. Study the relapse notes and protect those trigger times next week.';
+  else if(relapseCount>=cleanCount && relapseCount>0) advice='Warning week: relapse count is too high. Use your notes to identify the time, trigger, and environment, then add a replacement action.';
+  el.innerHTML=`
+    <div class="bad-week-nav">
+      <div><div class="bad-week-title">History: ${start.toLocaleDateString('en-GB',{day:'numeric',month:'short'})} – ${end.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</div><div class="bad-week-sub">Clean ${cleanCount}/${totalSlots} · Relapse ${relapseCount}/${totalSlots} · Clean rate ${cleanPct}%</div></div>
+      <div class="bad-week-btns"><button class="dnav-btn" onclick="changeBadHabitWeek(-1)">← Previous Week</button><button class="dnav-btn today-btn" onclick="goBadHabitThisWeek()">This Week</button><button class="dnav-btn" onclick="changeBadHabitWeek(1)">Next Week →</button></div>
+    </div>
+    <div class="bad-history-grid">
+      ${days.map(day=>`<div class="bad-history-day">
+        <div class="bad-history-date">${day.date.toLocaleDateString('en-GB',{weekday:'short',day:'2-digit',month:'short'})}</div>
+        ${day.habits.map(x=>`<div class="bad-history-line"><span>${escapeHtml(x.habit.short)}</span><span class="${x.status==='clean'?'bad-history-clean':x.status==='relapse'?'bad-history-relapse':'bad-history-none'}">${x.status==='clean'?'✓ Clean':x.status==='relapse'?'✕ Relapse':'· Not marked'}</span></div>${x.note?`<div style="font-size:10px;color:var(--muted);line-height:1.45;margin:2px 0 5px;">${escapeHtml(x.note)}</div>`:''}`).join('')}
+      </div>`).join('')}
+    </div>
+    <div class="bad-improve-box"><strong>Improvement note:</strong> ${advice}</div>`;
 }
 function renderBadHabitTracker(){
   renderBadHabitCards();
@@ -3976,6 +4988,206 @@ function renderBadHabitTracker(){
   renderBadHabitSummary();
   renderBadHabitPunishments();
   renderBadHabitPunishmentPool();
+  renderBadHabitWeekHistory();
+}
+
+
+// ══════════════════════════════════════════════════════
+//  FRIDAY MOSQUE PROJECT — separate mosque cards
+// ══════════════════════════════════════════════════════
+const MOSQUE_STATUS_OPTIONS=['Planned','Visited','Interested','Highly interested','Needs follow-up','Accepted','Rejected'];
+const MOSQUE_AGREEMENT_OPTIONS=['Agreement not shown','Agreement shown','Imam reviewing','Committee reviewing','Approved','Needs changes','Declined'];
+function mosqueDefaultData(){
+  return {
+    mosques:[1,2,3].map(n=>({
+      id:'mosque_'+n+'_'+Date.now(), number:n, name:'Mosque '+n, area:'', imam:'', contact:'', mapLink:'', visitDate:'', followDate:'', status:'Planned', agreement:'Agreement not shown', interest:0, image:'', talked:'', feedback:'', nextStep:''
+    })),
+    plan:{target:'',time:"After Jumu'ah / 3:30 PM",agreement:'No',follow:'No',notes:''}
+  };
+}
+function getMosqueProjectData(){
+  const data=load('mosque_project_v1');
+  if(data && Array.isArray(data.mosques)) return data;
+  const fresh=mosqueDefaultData();
+  save('mosque_project_v1',fresh);
+  return fresh;
+}
+function saveMosqueProjectData(data){ save('mosque_project_v1',data); }
+function mosqueScore(m){
+  const map={'Accepted':100,'Highly interested':85,'Interested':70,'Needs follow-up':55,'Visited':35,'Planned':15,'Rejected':0};
+  const agreementBoost={'Approved':20,'Committee reviewing':12,'Imam reviewing':10,'Agreement shown':7,'Needs changes':5,'Agreement not shown':0,'Declined':-10};
+  return (map[m.status]||0)+(agreementBoost[m.agreement]||0)+(parseInt(m.interest||0,10)*4);
+}
+function mosqueMapSrc(m){
+  const q=(m.mapLink||m.area||m.name||'mosque').trim();
+  if(!q) return '';
+  return 'https://maps.google.com/maps?q='+encodeURIComponent(q)+'&output=embed';
+}
+function mosqueLinkHref(m){ return (m.mapLink||'').trim() || ('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent((m.area||m.name||'mosque').trim())); }
+function optionList(options,selected){ return options.map(o=>'<option value="'+escapeHtml(o)+'" '+(o===selected?'selected':'')+'>'+escapeHtml(o)+'</option>').join(''); }
+function renderMosqueProject(){
+  const data=getMosqueProjectData();
+  renderMosquePlan(data);
+  renderMosqueSummary(data.mosques);
+  renderMosqueFridayCalendar(data.mosques);
+  renderMosqueFocus(data.mosques);
+  renderMosqueCards(data.mosques);
+}
+function renderMosquePlan(data){
+  const p=data.plan||{};
+  const set=(id,val)=>{ const el=document.getElementById(id); if(el) el.value=val||''; };
+  set('mosquePlanTarget',p.target); set('mosquePlanTime',p.time); set('mosquePlanAgreement',p.agreement||'No'); set('mosquePlanFollow',p.follow||'No'); set('mosquePlanNotes',p.notes);
+}
+function saveMosquePlan(){
+  const data=getMosqueProjectData();
+  data.plan={
+    target:document.getElementById('mosquePlanTarget')?.value||'',
+    time:document.getElementById('mosquePlanTime')?.value||'',
+    agreement:document.getElementById('mosquePlanAgreement')?.value||'No',
+    follow:document.getElementById('mosquePlanFollow')?.value||'No',
+    notes:document.getElementById('mosquePlanNotes')?.value||''
+  };
+  saveMosqueProjectData(data);
+}
+function renderMosqueSummary(mosques){
+  const total=mosques.length;
+  const visited=mosques.filter(m=>['Visited','Interested','Highly interested','Needs follow-up','Accepted','Rejected'].includes(m.status)).length;
+  const interested=mosques.filter(m=>['Interested','Highly interested','Accepted'].includes(m.status)).length;
+  const high=mosques.filter(m=>m.status==='Highly interested').length;
+  const accepted=mosques.filter(m=>m.status==='Accepted').length;
+  const follow=mosques.filter(m=>m.status==='Needs follow-up' || (m.followDate||'').trim()).length;
+  const rows=[['Total Mosques',total],['Visited',visited],['Interested',interested],['High Interest',high],['Accepted',accepted],['Follow-ups',follow]];
+  const el=document.getElementById('mosqueSummaryGrid'); if(!el) return;
+  el.innerHTML=rows.map(r=>'<div class="mosque-stat"><div class="mosque-stat-num">'+r[1]+'</div><div class="mosque-stat-label">'+r[0]+'</div></div>').join('');
+}
+
+let mosqueCalendarBase=new Date();
+function mosqueDateKey(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function mosqueParseDate(v){
+  if(!v) return null;
+  const parts=String(v).split('-').map(Number);
+  if(parts.length!==3 || !parts[0] || !parts[1] || !parts[2]) return null;
+  return new Date(parts[0],parts[1]-1,parts[2]);
+}
+function mosqueMonthFridays(base){
+  const y=base.getFullYear(), m=base.getMonth();
+  const days=[];
+  const cur=new Date(y,m,1);
+  while(cur.getMonth()===m){
+    if(cur.getDay()===5) days.push(new Date(cur));
+    cur.setDate(cur.getDate()+1);
+  }
+  return days;
+}
+function mosqueShortText(text,empty){
+  const clean=(text||'').trim();
+  return clean ? escapeHtml(clean) : '<span style="color:#8FA2C2;font-style:italic;">'+escapeHtml(empty||'No review written yet')+'</span>';
+}
+function renderMosqueFridayCalendar(mosques){
+  const el=document.getElementById('mosqueFridayCalendar'); if(!el) return;
+  const today=new Date();
+  const monthName=mosqueCalendarBase.toLocaleDateString('en-GB',{month:'long',year:'numeric'});
+  const fridays=mosqueMonthFridays(mosqueCalendarBase);
+  const visited=mosques.filter(m=>(m.visitDate||'').trim());
+  const lastFriday=[...visited].map(m=>({m,date:mosqueParseDate(m.visitDate)})).filter(x=>x.date && x.date<=today).sort((a,b)=>b.date-a.date)[0];
+  const best=[...mosques].sort((a,b)=>mosqueScore(b)-mosqueScore(a))[0];
+  const grid=fridays.map(d=>{
+    const key=mosqueDateKey(d);
+    const visits=mosques.filter(m=>(m.visitDate||'')===key);
+    const isToday=mosqueDateKey(today)===key;
+    return '<div class="mosque-friday-day '+(visits.length?'has-visit ':'')+(isToday?'today':'')+'">'+
+      '<div class="mosque-friday-date">Friday · '+d.toLocaleDateString('en-GB',{day:'2-digit',month:'short'})+'</div>'+
+      (visits.length?visits.map(m=>'<div class="mosque-friday-visit"><div class="mosque-friday-mosque">'+escapeHtml(m.name||('Mosque '+m.number))+'</div><div class="mosque-friday-meta">'+escapeHtml(m.status||'Planned')+' · Agreement: '+escapeHtml(m.agreement||'Not set')+' · Interest '+escapeHtml(String(m.interest||0))+'/10</div><div class="mosque-friday-review"><strong>Review:</strong> '+mosqueShortText(m.feedback,'No Imam/community review yet')+'</div><div class="mosque-friday-pill">Score '+mosqueScore(m)+'</div></div>').join(''):'<div class="mosque-friday-empty">No mosque visit recorded for this Friday yet.</div>')+
+    '</div>';
+  }).join('');
+  const previousText=lastFriday?('<strong>'+escapeHtml(lastFriday.m.name||('Mosque '+lastFriday.m.number))+'</strong> on '+lastFriday.date.toLocaleDateString('en-GB',{weekday:'long',day:'2-digit',month:'short',year:'numeric'})+'<br>'+mosqueShortText(lastFriday.m.feedback,'No review written for previous Friday yet')):'No previous Friday mosque visit is recorded yet.';
+  const bestText=best?('<strong>'+escapeHtml(best.name||('Mosque '+best.number))+'</strong> is currently going best.<br>Status: '+escapeHtml(best.status||'Planned')+' · Agreement: '+escapeHtml(best.agreement||'Not set')+' · Interest '+escapeHtml(String(best.interest||0))+'/10 · Score '+mosqueScore(best)):'Add a mosque to see progress ranking.';
+  el.innerHTML='<div class="mosque-calendar-head"><div><div class="mosque-calendar-title">'+monthName+' Friday Calendar</div><div class="mosque-calendar-sub">Use each mosque card\'s Friday Visit Date + Imam/Community Thoughts to fill this calendar automatically.</div></div><div class="mosque-calendar-nav"><button class="dnav-btn" onclick="changeMosqueCalendarMonth(-1)">← Prev Month</button><button class="dnav-btn today-btn" onclick="goMosqueCalendarNow()">This Month</button><button class="dnav-btn" onclick="changeMosqueCalendarMonth(1)">Next Month →</button></div></div><div class="mosque-friday-grid">'+grid+'</div><div class="mosque-review-panel"><div class="mosque-review-box"><div class="mosque-review-title">Previous Friday Review</div><div class="mosque-review-text">'+previousText+'</div></div><div class="mosque-review-box"><div class="mosque-review-title">Progress Going Good</div><div class="mosque-review-text">'+bestText+'</div></div></div>';
+}
+function changeMosqueCalendarMonth(delta){
+  mosqueCalendarBase.setMonth(mosqueCalendarBase.getMonth()+delta);
+  renderMosqueFridayCalendar(getMosqueProjectData().mosques);
+}
+function goMosqueCalendarNow(){
+  mosqueCalendarBase=new Date();
+  renderMosqueFridayCalendar(getMosqueProjectData().mosques);
+}
+
+function renderMosqueFocus(mosques){
+  const el=document.getElementById('mosqueFocusBox'); if(!el) return;
+  if(!mosques.length){ el.innerHTML='No mosque added yet. Add Mosque 1 first.'; return; }
+  const ranked=[...mosques].sort((a,b)=>mosqueScore(b)-mosqueScore(a));
+  const best=ranked[0];
+  const bestName=best.name||('Mosque '+best.number);
+  const reason=best.status==='Rejected'?'No strong option yet. Add more mosque visits and update interest levels.':'Focus on <strong>'+escapeHtml(bestName)+'</strong> because its current status is <strong>'+escapeHtml(best.status)+'</strong> and agreement status is <strong>'+escapeHtml(best.agreement)+'</strong>.';
+  el.innerHTML=reason+'<br><br><span style="color:#93A7C9;">Score: '+mosqueScore(best)+' · Next follow-up: '+escapeHtml(best.followDate||'Not set')+'</span>';
+}
+function renderMosqueCards(mosques){
+  const el=document.getElementById('mosqueCardsList'); if(!el) return;
+  if(!mosques.length){ el.innerHTML='<div class="card"><div class="section-empty">No mosques yet. Add your first mosque above.</div></div>'; return; }
+  el.innerHTML=mosques.map((m,idx)=>{
+    const safeId=escapeHtml(m.id);
+    const title=escapeHtml(m.name||('Mosque '+(idx+1)));
+    const sub=[m.area,m.imam?('Imam: '+m.imam):'',m.visitDate?('Visited: '+m.visitDate):''].filter(Boolean).map(escapeHtml).join(' · ') || 'Add location, Imam, and Friday visit details';
+    const mapSrc=mosqueMapSrc(m);
+    return '<div class="mosque-card">'+
+      '<div class="mosque-card-head"><div class="mosque-card-title"><div class="mosque-number">M'+(idx+1)+'</div><div><div class="mosque-name-title">'+title+'</div><div class="mosque-subline">'+sub+'</div></div></div><div class="mosque-status-pill">'+escapeHtml(m.status||'Planned')+'</div></div>'+
+      '<div class="mosque-card-grid"><div class="mosque-media">'+
+        '<div class="mosque-img-box">'+(m.image?'<img src="'+m.image+'" alt="Mosque image">':'<div class="mosque-img-empty">🕌<br>No mosque image yet<br><span style="font-size:11px;">Upload one image for this mosque.</span></div>')+'</div>'+
+        '<input type="file" accept="image/*" class="field-input" onchange="updateMosqueImage(\''+safeId+'\',this)">'+
+        '<div class="mosque-map-box">'+(mapSrc?'<iframe loading="lazy" src="'+mapSrc+'"></iframe>':'<div class="mosque-map-empty">📍 Add Google Maps link or location text to show original mosque location here.</div>')+'</div>'+
+        '<div class="mosque-actions"><a class="mosque-link-btn" target="_blank" href="'+escapeHtml(mosqueLinkHref(m))+'">📍 Open Location</a><button class="btn btn-ghost mosque-danger" onclick="deleteMosqueCard(\''+safeId+'\')">Delete Mosque</button></div>'+
+      '</div><div class="mosque-details"><div class="mosque-field-grid">'+
+        mosqueInput(safeId,'name','Mosque Name',m.name,'text')+
+        mosqueInput(safeId,'area','Area / City',m.area,'text')+
+        mosqueInput(safeId,'imam','Imam Name',m.imam,'text')+
+        mosqueInput(safeId,'contact','Community Contact',m.contact,'text')+
+        mosqueInput(safeId,'visitDate','Friday Visit Date',m.visitDate,'date')+
+        mosqueInput(safeId,'followDate','Next Follow-up Friday',m.followDate,'date')+
+        '<div class="field-group"><div class="field-label">Interest / Status</div><select class="field-input" onchange="updateMosqueField(\''+safeId+'\',\'status\',this.value)">'+optionList(MOSQUE_STATUS_OPTIONS,m.status)+'</select></div>'+
+        '<div class="field-group"><div class="field-label">Agreement Status</div><select class="field-input" onchange="updateMosqueField(\''+safeId+'\',\'agreement\',this.value)">'+optionList(MOSQUE_AGREEMENT_OPTIONS,m.agreement)+'</select></div>'+
+        '<div class="field-group"><div class="field-label">Interest Score 0-10</div><input type="number" min="0" max="10" class="field-input" value="'+escapeHtml(String(m.interest||0))+'" onchange="updateMosqueField(\''+safeId+'\',\'interest\',this.value)"></div>'+
+        mosqueInput(safeId,'mapLink','Google Maps Link / Location Text',m.mapLink,'text','full')+
+        mosqueText(safeId,'talked','What You Talked About',m.talked)+
+        mosqueText(safeId,'feedback','Imam / Community Thoughts',m.feedback)+
+        mosqueText(safeId,'nextStep','Next Step',m.nextStep)+
+      '</div></div></div></div>';
+  }).join('');
+}
+function mosqueInput(id,field,label,value,type,extraClass){
+  return '<div class="field-group '+(extraClass||'')+'"><div class="field-label">'+label+'</div><input type="'+type+'" class="field-input" value="'+escapeHtml(value||'')+'" oninput="updateMosqueField(\''+id+'\',\''+field+'\',this.value)"></div>';
+}
+function mosqueText(id,field,label,value){
+  return '<div class="field-group full"><div class="field-label">'+label+'</div><textarea class="field-input mosque-textarea" oninput="updateMosqueField(\''+id+'\',\''+field+'\',this.value)">'+escapeHtml(value||'')+'</textarea></div>';
+}
+function updateMosqueField(id,field,value){
+  const data=getMosqueProjectData();
+  const m=data.mosques.find(x=>x.id===id);
+  if(!m) return;
+  m[field]=value;
+  saveMosqueProjectData(data);
+  if(['status','agreement','interest','name','area','imam','visitDate','followDate','mapLink'].includes(field)) renderMosqueProject();
+  else if(['talked','feedback','nextStep'].includes(field)){ renderMosqueFridayCalendar(data.mosques); renderMosqueFocus(data.mosques); }
+}
+function updateMosqueImage(id,input){
+  const file=input.files && input.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=function(){ const data=getMosqueProjectData(); const m=data.mosques.find(x=>x.id===id); if(m){ m.image=reader.result; saveMosqueProjectData(data); renderMosqueProject(); } };
+  reader.readAsDataURL(file);
+}
+function addMosqueCard(){
+  const data=getMosqueProjectData();
+  const next=data.mosques.length+1;
+  const val=id=>document.getElementById(id)?.value||'';
+  data.mosques.push({id:'mosque_'+next+'_'+Date.now(),number:next,name:val('newMosqueName')||('Mosque '+next),area:val('newMosqueArea'),imam:val('newMosqueImam'),contact:val('newMosqueContact'),mapLink:val('newMosqueMap'),visitDate:'',followDate:'',status:'Planned',agreement:'Agreement not shown',interest:0,image:'',talked:'',feedback:'',nextStep:''});
+  saveMosqueProjectData(data); resetNewMosqueForm(); renderMosqueProject();
+}
+function resetNewMosqueForm(){ ['newMosqueName','newMosqueArea','newMosqueImam','newMosqueContact','newMosqueMap'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; }); }
+function deleteMosqueCard(id){
+  if(!confirm('Delete this mosque card?')) return;
+  const data=getMosqueProjectData();
+  data.mosques=data.mosques.filter(m=>m.id!==id).map((m,i)=>({...m,number:i+1}));
+  saveMosqueProjectData(data); renderMosqueProject();
 }
 
 // ══════════════════════════════════════════════════════
@@ -3988,7 +5200,7 @@ function navTo(page, btn){
   if(btn) btn.classList.add('active');
   else {
     const tabs=document.querySelectorAll('.nav-tab');
-    const pages=['today','weekly','streaks','islamic','media','telepathy','priorities','phases','badhabits','portable'];
+    const pages=['today','weekly','streaks','islamic','media','telepathy','priorities','phases','badhabits','mosque','portable'];
     const idx=pages.indexOf(page);
     if(idx>=0) tabs[idx].classList.add('active');
   }
@@ -3997,6 +5209,7 @@ function navTo(page, btn){
   if(page==='islamic') isCalGoNow();
   if(page==='streaks') renderStreakTracker();
   if(page==='badhabits') renderBadHabitTracker();
+  if(page==='mosque') renderMosqueProject();
   if(page==='portable') updateSyncPanelStats();
 }
 
@@ -5087,6 +6300,7 @@ if(viewDate<START){
 }
 renderToday();
 renderBadHabitTracker();
+renderMosqueProject();
 setTimeout(initDropArea, 100);
 setTimeout(checkStreakAlert, 400);
 </script>
