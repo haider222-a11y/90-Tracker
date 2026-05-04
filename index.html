@@ -1787,6 +1787,17 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
           <div id="punRulesList"></div>
           <div class="note-box" style="margin-top:12px;font-size:11px;">💡 The pain of the consequence must be greater than the comfort of skipping. That is how discipline is built.</div>
         </div>
+        <!-- HONESTY CHECK -->
+        <div class="card" style="border-color:rgba(245,158,11,.3);">
+          <div class="card-title" style="color:var(--orange);">🔍 Daily Honesty Check</div>
+          <div style="font-size:14px;color:var(--text);font-weight:600;margin-bottom:5px;">Did you cheat or fake any punishment today?</div>
+          <div style="font-size:11px;color:var(--muted);font-style:italic;margin-bottom:14px;">Answer honestly. No one is watching except you and Allah.</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button onclick="honestyAnswer(false)" id="honestyNo" style="flex:1;min-width:120px;padding:11px 18px;border-radius:10px;border:1.5px solid rgba(61,220,151,.4);background:rgba(61,220,151,.08);color:var(--green);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:all .2s;">✓ No — I was fully honest</button>
+            <button onclick="honestyAnswer(true)" id="honestyYes" style="flex:1;min-width:120px;padding:11px 18px;border-radius:10px;border:1.5px solid rgba(229,83,83,.4);background:rgba(229,83,83,.08);color:var(--red);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:all .2s;">✗ Yes — I cheated</button>
+          </div>
+          <div id="honestyResult" style="margin-top:12px;display:none;"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -4576,18 +4587,18 @@ const BAD_HABITS = [
 
 const BAD_HABIT_PUNISHMENTS = {
   social_distraction:[
-    {id:'bd_app_1', label:'48 Hours App Block', desc:'Block the distracting app for the next 48 hours using StayFree or your phone settings.'},
-    {id:'bd_app_2', label:'3 Days No Social Media', desc:'No social media at all for the next 3 days. Essential communication only.'},
-    {id:'bd_app_3', label:'Phone Outside Room', desc:'Keep your phone outside your room for the next 2 nights and next morning deep-work block.'},
-    {id:'bd_app_4', label:'Write the Trigger Map', desc:'Write by hand the trigger, time, emotion, and replacement action for the relapse.'},
-    {id:'bd_app_5', label:'45-Min Walk Without Phone', desc:'Do a 45-minute walk without the phone and no entertainment for the rest of the day.'}
+    {id:'bd_app_1', label:'No Social Media for 24 Hours', desc:'Zero social media for the full next 24 hours. No scrolling, no checking, no exceptions. Pleasure removed.'},
+    {id:'bd_app_2', label:'No Phone Until Next Morning', desc:'Phone locked away from now until after Fajr tomorrow. Calls only through a family member\'s phone if truly urgent.'},
+    {id:'bd_app_3', label:'No Entertainment Full Day', desc:'No YouTube, reels, shorts, games, movies, or music for the entire next day. Screen only for work and deen.'},
+    {id:'bd_app_4', label:'Dopamine Detox Day', desc:'No music, no videos, no scrolling, no entertainment of any kind for the full next day. Total pleasure removal.'},
+    {id:'bd_app_5', label:'No Phone After Maghrib', desc:'After Maghrib tonight and every night for the next 2 days: phone goes off and stays off until Fajr.'}
   ],
   masturbation:[
-    {id:'bd_mast_1', label:'72 Hours No Isolation', desc:'For the next 72 hours do not stay alone with the phone in private weak spots. Keep doors open and phone outside.'},
-    {id:'bd_mast_2', label:'Cold Shower + Early Sleep', desc:'Take a cold shower today and sleep by 9:30 PM for the next 2 nights.'},
-    {id:'bd_mast_3', label:'3 Days Strict Filter', desc:'No social media, no private browsing, and no late-night phone use for the next 3 days.'},
-    {id:'bd_mast_4', label:'Accountability Review', desc:'Write a full trigger review: what led to it, what time it happened, and the exact prevention plan for the next 7 days.'},
-    {id:'bd_mast_5', label:'Device-Free Fajr to Dhuhr', desc:'On the next day keep the phone away from Fajr until Dhuhr except urgent calls.'}
+    {id:'bd_mast_1', label:'Strict Screen Limit — Essential Use Only', desc:'For the next 3 days: phone and screens only for prayer times, urgent work, and family. No casual use whatsoever.'},
+    {id:'bd_mast_2', label:'No Private Phone Use for 72 Hours', desc:'For 72 hours: no phone alone in a private space. Keep doors open. Phone stays in common areas only.'},
+    {id:'bd_mast_3', label:'Early Sleep Lock — 9:30 PM for 3 Nights', desc:'Lights out by 9:30 PM for the next 3 nights. No late-night usage that enables the trigger.'},
+    {id:'bd_mast_4', label:'No Entertainment Full Day', desc:'Zero entertainment tomorrow: no music, no videos, no social media, no games. Total dopamine removal for 24 hours.'},
+    {id:'bd_mast_5', label:'Dopamine Detox Day', desc:'Complete blackout on all pleasure content for the full next day. No scrolling, no music, no videos. Fast the dopamine.'}
   ]
 };
 
@@ -5257,14 +5268,14 @@ function navTo(page, btn){
 // ══════════════════════════════════════════════════════
 
 const PUNISHMENTS=[
-  {id:'p1',label:'🚫 No Phone Next Day',desc:'No phone tomorrow except calls, prayer times, maps, and urgent work.'},
-  {id:'p2',label:'🎬 No Entertainment Next Day',desc:'No YouTube, reels, shorts, movies, or entertainment tomorrow.'},
-  {id:'p3',label:'📵 No Social Media Next Day',desc:'Stay off all social media for the full next day.'},
-  {id:'p4',label:'🌙 Sleep by 9:30 PM',desc:'No late night. Tomorrow lights out by 9:30 PM sharp.'},
-  {id:'p5',label:'🧊 Cold Shower + No Entertainment',desc:'Take a full cold shower and stay off entertainment for the rest of the next day.'},
-  {id:'p6',label:'📿 Extra 30 Minutes Quran',desc:'Add 30 extra minutes of Quran tomorrow before any casual screen time.'},
-  {id:'p7',label:'🏃 45-Min Walk Without Phone',desc:'Do a 45-minute walk tomorrow without using your phone.'},
-  {id:'p8',label:'✍️ Write the Failure Review',desc:'Write by hand why you missed the task and how you will stop repeating it.'}
+  {id:'p1',label:'🥶 Cold Shower + 60 min Deep Work',desc:'Take a cold shower, then complete 60 minutes of focused work on the exact task you avoided.',type:'timed',duration:60},
+  {id:'p2',label:'🚫 No Phone Next Day',desc:'No phone next day except calls, family, emergency, or necessary work.',type:'restrict'},
+  {id:'p3',label:'🎬 No Entertainment + No Social Media Next Day',desc:'No YouTube entertainment, reels, shorts, games, movies, music, or social media for the full next day.',type:'restrict'},
+  {id:'p4',label:'🌙 Monk Mode Evening',desc:'From Maghrib until sleep: no phone, no entertainment, only prayer, Qur\'an, study, reflection, and preparation.',type:'timed',duration:120},
+  {id:'p5',label:'😴 Sleep by 9:30 PM + Wake Early',desc:'Sleep by 9:30 PM and wake early without snooze. No late-night escape.',type:'restrict'},
+  {id:'p6',label:'📿 90 min Qur\'an / Islamic Study Before Screen',desc:'Complete 90 minutes of Qur\'an, tafsir, Islamic study, or reflection before any entertainment screen.',type:'timed',duration:90},
+  {id:'p7',label:'🚶 75 min Walk Without Phone',desc:'Walk for 75 minutes without phone, music, or podcasts. Reflect on why you failed.',type:'timed',duration:75},
+  {id:'p8',label:'✍️ Full Failure Report',desc:'Write what failed, why it failed, the trigger, the excuse, and the exact prevention plan.',type:'report'}
 ];
 
 // ── KEY HELPERS — deterministic, no dateKey() confusion ──
@@ -5297,11 +5308,70 @@ function completePunishment(taskId, streakStartDK){
   const k=punKey(taskId, streakStartDK);
   const ex=loadRaw(k);
   if(!ex) return;
+
+  // PROOF CHECK: report type requires written text
+  if(ex.type==='report'){
+    const inputEl=document.getElementById('punProof_'+taskId+'_'+streakStartDK);
+    const val=(inputEl?inputEl.value:'').trim();
+    if(val.length<50){
+      alert('⚠️ You must write a real failure report (minimum 50 characters) before marking done.\n\nWrite: what failed, why, the trigger, the excuse, and the exact prevention plan. No shortcuts.');
+      if(inputEl) inputEl.focus();
+      return;
+    }
+    ex.proofText=val;
+  }
+
+  // PROOF CHECK: timed type — timer must have been started and elapsed
+  if(ex.type==='timed'){
+    const timerKey='punTimer_'+taskId+'_'+streakStartDK;
+    const timerData=loadRaw(timerKey);
+    if(!timerData || !timerData.startedAt){
+      alert('⚠️ You must start the timer and complete the full duration before marking done.\n\nPress "▶ Start Timer" first, then complete the task.');
+      return;
+    }
+    const elapsed=Math.floor((Date.now()-timerData.startedAt)/1000/60);
+    if(elapsed < ex.duration){
+      alert('⚠️ Timer not complete yet. You need '+ex.duration+' minutes. Only '+elapsed+' minutes have passed.\n\nDo not cheat yourself.');
+      return;
+    }
+  }
+
   ex.completed=true;
   ex.completedAt=Date.now();
   saveRaw(k,ex);
   renderStreakTracker();
   showToast();
+}
+
+function startPunishmentTimer(taskId, streakStartDK, durationMins){
+  const timerKey='punTimer_'+taskId+'_'+streakStartDK;
+  const existing=loadRaw(timerKey);
+  if(existing && existing.startedAt){
+    alert('Timer already started at '+new Date(existing.startedAt).toLocaleTimeString()+'. It will run for '+durationMins+' minutes.');
+    return;
+  }
+  saveRaw(timerKey,{startedAt:Date.now(), duration:durationMins});
+  // Update button UI
+  const btn=document.getElementById('timerBtn_'+taskId+'_'+streakStartDK);
+  const status=document.getElementById('timerStatus_'+taskId+'_'+streakStartDK);
+  if(btn){ btn.textContent='⏱ Timer Running…'; btn.disabled=true; btn.style.opacity='0.6'; }
+  if(status){ status.textContent='Started at '+new Date().toLocaleTimeString()+' — come back in '+durationMins+' min'; status.style.color='var(--orange)'; }
+  // Live countdown
+  const intervalId=setInterval(()=>{
+    const data=loadRaw(timerKey);
+    if(!data) return clearInterval(intervalId);
+    const elapsed=Math.floor((Date.now()-data.startedAt)/1000);
+    const total=durationMins*60;
+    const remaining=total-elapsed;
+    if(remaining<=0){
+      clearInterval(intervalId);
+      if(status){ status.textContent='✅ Timer complete! You may now mark this done.'; status.style.color='var(--green)'; }
+      if(btn){ btn.textContent='✅ Time Complete'; }
+    } else {
+      const m=Math.floor(remaining/60), s=remaining%60;
+      if(status) status.textContent='⏱ '+m+'m '+String(s).padStart(2,'0')+'s remaining…';
+    }
+  },1000);
 }
 
 // ── DATA: scan all days and collect missed entries ──
@@ -5432,10 +5502,43 @@ function renderStreakTracker(){
         </div>`;
       } else {
         alertNames.push(label);
+
+        // Build proof/timer UI based on punishment type
+        let proofHtml='';
+        if(pun.type==='report'){
+          proofHtml=`<div style="margin-top:12px;">
+            <div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">✍️ Write your full failure report below — required before marking done:</div>
+            <textarea id="punProof_${cid}_${punStartDK}" rows="5" placeholder="What failed? Why did it fail? What was the trigger? What excuse did you use? What is the exact prevention plan?" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.04);border:1px solid rgba(245,158,11,0.4);color:var(--text);padding:10px 12px;border-radius:8px;font-size:12px;font-family:'Inter',sans-serif;resize:vertical;outline:none;line-height:1.6;min-height:90px;"></textarea>
+            <div style="font-size:10px;color:var(--muted);margin-top:3px;font-family:'JetBrains Mono',monospace;">Minimum 50 characters. Be honest. No vague answers.</div>
+          </div>`;
+        } else if(pun.type==='timed'){
+          const timerKey='punTimer_'+cid+'_'+punStartDK;
+          const timerData=loadRaw(timerKey);
+          const alreadyStarted=timerData&&timerData.startedAt;
+          const elapsed=alreadyStarted?Math.floor((Date.now()-timerData.startedAt)/1000/60):0;
+          const done=alreadyStarted&&elapsed>=pun.duration;
+          const statusText=done
+            ?'✅ Timer complete! You may now mark this done.'
+            :alreadyStarted
+              ?'⏱ Started at '+new Date(timerData.startedAt).toLocaleTimeString()+' — '+Math.max(0,pun.duration-elapsed)+'m remaining…'
+              :'Press Start Timer to begin. Do not mark done until timer completes.';
+          proofHtml=`<div style="margin-top:12px;padding:11px 13px;background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.28);border-radius:9px;">
+            <div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">⏱ Timer Required — ${pun.duration} Minutes</div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <button id="timerBtn_${cid}_${punStartDK}" onclick="startPunishmentTimer('${cid}','${punStartDK}',${pun.duration})" ${alreadyStarted?'disabled':''} style="padding:7px 14px;border-radius:7px;border:1.5px solid rgba(245,158,11,0.5);background:rgba(245,158,11,0.12);color:var(--orange);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;cursor:${alreadyStarted?'default':'pointer'};opacity:${alreadyStarted?'0.6':'1'};">${alreadyStarted?(done?'✅ Time Complete':'⏱ Timer Running…'):'▶ Start Timer'}</button>
+              <div id="timerStatus_${cid}_${punStartDK}" style="font-size:11px;font-family:'JetBrains Mono',monospace;color:${done?'var(--green)':'var(--muted)'};">${statusText}</div>
+            </div>
+            <div style="font-size:10px;color:var(--muted);margin-top:7px;">Complete the full ${pun.duration} minutes before marking done. Timer is enforced.</div>
+          </div>`;
+        } else {
+          proofHtml=`<div style="margin-top:8px;padding:7px 11px;background:rgba(229,83,83,0.07);border:1px solid rgba(229,83,83,0.22);border-radius:7px;font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;">⚠️ Apply this fully for the full day. Only mark done when complete.</div>`;
+        }
+
         punBlock=`<div class="punish-box pb-active">
           <div class="punish-title">⚡ ${pun.label}</div>
           <div class="punish-meta">Assigned because: ${label} missed ${total} times total · Assigned: ${new Date(pun.assigned).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</div>
           <div class="punish-desc">${pun.desc}</div>
+          ${proofHtml}
           <button class="p-btn p-btn-do" onclick="completePunishment('${cid}','${punStartDK}')">✓ Mark Punishment as Done</button>
         </div>`;
       }
@@ -5551,6 +5654,29 @@ function renderStreakTracker(){
 }
 
 function fmtD(d){ return d.toLocaleDateString('en-GB',{day:'numeric',month:'short'}); }
+
+// ── HONESTY CHECK ──
+function honestyAnswer(cheated){
+  const resEl=document.getElementById('honestyResult');
+  const yesBtn=document.getElementById('honestyYes');
+  const noBtn=document.getElementById('honestyNo');
+  if(!resEl) return;
+  resEl.style.display='block';
+  if(cheated){
+    resEl.innerHTML=`<div style="padding:13px 15px;background:rgba(229,83,83,.10);border:1px solid rgba(229,83,83,.35);border-left:3px solid var(--red);border-radius:9px;">
+      <div style="font-size:13px;font-weight:700;color:var(--red);margin-bottom:7px;">⚠️ Be honest. Apply an extra punishment manually.</div>
+      <div style="font-size:12px;color:var(--muted2);line-height:1.7;">Faking a punishment is worse than missing the task. It means you lied to yourself. Go back, choose the hardest item from the punishment pool above, and complete it fully — for real this time.<br><br><strong style="color:var(--text);">Discipline only works when it is real. You are only cheating yourself.</strong></div>
+    </div>`;
+    if(yesBtn){ yesBtn.style.background='rgba(229,83,83,.22)'; yesBtn.style.borderColor='var(--red)'; }
+    if(noBtn){ noBtn.style.opacity='0.35'; noBtn.disabled=true; }
+  } else {
+    resEl.innerHTML=`<div style="padding:11px 14px;background:rgba(61,220,151,.07);border:1px solid rgba(61,220,151,.28);border-left:3px solid var(--green);border-radius:9px;font-size:12px;color:var(--green);line-height:1.7;">
+      ✅ Good. Honesty is the foundation. Keep that standard every single day.
+    </div>`;
+    if(noBtn){ noBtn.style.background='rgba(61,220,151,.20)'; noBtn.style.borderColor='var(--green)'; }
+    if(yesBtn){ yesBtn.style.opacity='0.35'; yesBtn.disabled=true; }
+  }
+}
 
 // ── ALERT DOT on tab when any task has 3+ misses and active punishment ──
 function checkStreakAlert(){
