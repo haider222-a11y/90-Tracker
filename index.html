@@ -120,6 +120,47 @@ header{padding:34px 0 24px;border-bottom:1px solid var(--border2);display:flex;j
 .t-sleep{background:rgba(255,255,255,.07);color:var(--muted);}
 .t-research{background:rgba(6,182,212,.2);color:#67E8F9;}
 .t-family{background:rgba(236,72,153,.15);color:#F472B6;}
+.t-college{background:rgba(129,140,248,.15);color:#818CF8;}
+/* ── LIBRARY ── */
+.lib-stab{padding:9px 20px;font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,.02);color:var(--muted2);border-radius:12px;transition:all .2s;}
+.lib-stab.active{color:#EAF4FF;border-color:rgba(140,199,255,.35);background:linear-gradient(180deg,rgba(17,34,64,.95),rgba(10,20,38,.95));box-shadow:0 8px 24px rgba(0,0,0,.2);}
+.lib-cat-pill{padding:5px 14px;font-size:10px;font-family:'JetBrains Mono',monospace;letter-spacing:.8px;cursor:pointer;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.03);color:var(--muted2);border-radius:999px;transition:all .2s;white-space:nowrap;}
+.lib-cat-pill.active{border-color:rgba(212,168,67,.5);color:var(--gold);background:rgba(212,168,67,.09);}
+.lib-cat-pill:hover{color:var(--text);}
+.book-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;transition:border .2s;display:flex;flex-direction:column;}
+.book-card:hover{border-color:rgba(255,255,255,.13);}
+.book-cover{width:100%;height:160px;object-fit:cover;background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;font-size:48px;color:var(--muted);}
+.book-cover img{width:100%;height:160px;object-fit:cover;}
+.book-info{padding:12px;flex:1;display:flex;flex-direction:column;gap:5px;}
+.book-title-text{font-size:13px;font-weight:700;color:#F5F9FF;line-height:1.3;}
+.book-author{font-size:11px;color:var(--muted2);font-style:italic;}
+.book-prog-bar{height:4px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;margin:4px 0;}
+.book-prog-fill{height:100%;border-radius:3px;transition:width .4s;}
+.book-actions{display:flex;gap:6px;margin-top:auto;padding-top:8px;}
+.book-btn{flex:1;padding:5px;font-size:10px;font-family:'JetBrains Mono',monospace;border-radius:7px;cursor:pointer;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:var(--muted2);transition:all .15s;}
+.book-btn:hover{color:var(--text);border-color:rgba(255,255,255,.2);}
+.book-btn.danger{border-color:rgba(229,83,83,.25);color:var(--red);}
+.yt-cat-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:12px;margin-bottom:12px;overflow:hidden;}
+.yt-cat-header{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;cursor:pointer;gap:10px;}
+.yt-cat-title{font-size:13px;font-weight:700;color:#F5F9FF;}
+.yt-cat-count{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--muted);padding:2px 8px;background:rgba(255,255,255,.05);border-radius:6px;}
+.yt-cat-body{padding:0 16px 14px;border-top:1px solid rgba(255,255,255,.05);}
+.yt-channel-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.yt-channel-row:last-child{border-bottom:none;}
+.yt-channel-name{font-size:13px;font-weight:600;color:#F5F9FF;flex:1;}
+.yt-channel-link{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--cyan);text-decoration:none;}
+.yt-channel-link:hover{text-decoration:underline;}
+.lib-input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:var(--text);padding:9px 12px;border-radius:8px;font-size:13px;font-family:'Inter',sans-serif;outline:none;box-sizing:border-box;margin-bottom:8px;}
+.lib-input:focus{border-color:rgba(212,168,67,.4);}
+.lib-select{width:100%;background:rgba(15,20,35,.98);border:1px solid rgba(255,255,255,.12);color:var(--text);padding:9px 12px;border-radius:8px;font-size:13px;font-family:'Inter',sans-serif;outline:none;box-sizing:border-box;margin-bottom:8px;}
+.lib-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
+.lib-modal{background:linear-gradient(180deg,#0D1929,#07111E);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;width:100%;max-width:460px;max-height:85vh;overflow-y:auto;}
+.lib-modal-title{font-family:'Cinzel',serif;font-size:14px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase;margin-bottom:18px;}
+.lib-modal-btns{display:flex;gap:8px;margin-top:14px;}
+.status-badge{font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:2px 8px;border-radius:6px;letter-spacing:.5px;}
+.status-not-started{background:rgba(255,255,255,.06);color:var(--muted);}
+.status-reading{background:rgba(56,189,248,.12);color:var(--cyan);}
+.status-completed{background:rgba(46,204,113,.12);color:var(--green);}
 .t-mosque{background:rgba(212,168,67,.25);color:#FBBF24;}
 .t-shop{background:rgba(34,197,94,.2);color:#4ADE80;}
 .t-other{background:rgba(148,163,184,.15);color:#94A3B8;}
@@ -1513,7 +1554,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
     <p class="sub">Disciplined growth for 90 days &nbsp;·&nbsp; <span id="phaseShortHdr">Phase 1: Foundation</span></p>
   </div>
   <div class="h-right">
-    <div class="h-date" id="hdrDate">Monday, 20 April 2026</div>
+    <div class="h-date" id="hdrDate">Friday, 8 May 2026</div>
     <div class="h-hijri" id="hdrHijri">2 Dhū al-Qaʿdah 1447 AH</div>
     <div class="h-day" id="hdrDay">Day 1 of 90</div>
   </div>
@@ -1526,7 +1567,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
     <span class="pbar-phase" id="phaseLabel">Phase 1 — Foundation (Days 1–21)</span>
   </div>
   <div class="pbar-track"><div class="pbar-fill" id="phaseFill" style="width:1%"></div></div>
-  <div class="pbar-marks"><span>Apr 20</span><span>Phase 2 · May 11</span><span>Phase 3 · Jun 19</span><span>Jul 18</span></div>
+  <div class="pbar-marks"><span>May 8</span><span>Phase 2 · May 11</span><span>Phase 3 · Jun 19</span><span>Jul 18</span></div>
 </div>
 
 <!-- NAV -->
@@ -1534,17 +1575,19 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 
 
 <div class="nav-tabs">
+  <button class="nav-tab" onclick="navTo('dashboard',this)">🏠 Dashboard</button>
   <button class="nav-tab active" onclick="navTo('today',this)">📋 Today</button>
   <button class="nav-tab" onclick="navTo('weekly',this)">📊 Weekly Report</button>
   <button class="nav-tab" id="streakNavTab" onclick="navTo('streaks',this)">⚠️ Streak Tracker</button>
   <button class="nav-tab" onclick="navTo('islamic',this)">🌙 Islamic Calendar</button>
-  <button class="nav-tab" onclick="navTo('media',this)">📺 News & Lectures</button>
+  <button class="nav-tab" onclick="navTo('media',this)">📚 Library</button>
   <button class="nav-tab" onclick="navTo('telepathy',this)">💫 Telepathy</button>
   <button class="nav-tab" onclick="navTo('priorities',this)">🎯 Priorities</button>
   <button class="nav-tab" onclick="navTo('phases',this)">🗓 90-Day Phases</button>
   <button class="nav-tab" onclick="navTo('deepwork',this)">⚡ Deep Work</button>
   <button class="nav-tab" onclick="navTo('badhabits',this)">🚫 Bad Habits</button>
   <button class="nav-tab" onclick="navTo('mosque',this)">🕌 Mosque Project</button>
+  <button class="nav-tab" onclick="navTo('financial',this)">💰 Financial</button>
   <button class="nav-tab" onclick="navTo('portable',this)">☁ Portable Sync</button>
 </div>
 
@@ -1554,7 +1597,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 <div id="page-today" class="page active">
   <div class="date-nav">
     <div>
-      <div class="cur-date-display" id="curDateDisplay">Monday, 20 April 2026</div>
+      <div class="cur-date-display" id="curDateDisplay">Friday, 8 May 2026</div>
       <div class="cur-date-sub" id="curDateSub">Day 1 of 90 · Phase 1: Foundation</div>
     </div>
     <div class="date-nav-btns">
@@ -1900,63 +1943,222 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
      PAGE: NEWS & LECTURES
 ══════════════════════════════════════════ -->
 <div id="page-media" class="page">
-  <div class="two-col" style="margin-top:20px;">
-    <div>
-      <div class="card">
-        <div class="card-title">News & Media Schedule</div>
-        <div class="media-slot">
-          <div class="media-slot-title">📰 News Update — 1 Hour Daily</div>
-          <div class="media-slot-note">
-            <strong>Scheduled: 7:00–8:00 AM (after Fajr + Quran)</strong><br>
-            Watch current affairs, daily issues, world news. Limit strictly to 1 hour. Use this to stay informed — not to scroll endlessly. Recommended: ARY News, Geo, or BBC Urdu for Pakistan/world updates.
-          </div>
-        </div>
-        <div class="media-slot">
-          <div class="media-slot-title">🎥 YouTube — Lectures & Learning (1 Hour)</div>
-          <div class="media-slot-note">
-            <strong>Scheduled: 9:00–10:00 PM (after Isha, before wind-down)</strong><br>
-            Islamic lectures, motivational content, skill-related tutorials. No entertainment, no random browsing. Suggested channels: Dr. Zakir Naik, Nouman Ali Khan, Mufti Menk, AI/tech tutorials relevant to your $300 plan.
-          </div>
-        </div>
-        <div class="media-slot" style="border-left-color:var(--purple);background:rgba(139,92,246,.06);border-color:rgba(139,92,246,.2);">
-          <div class="media-slot-title" style="color:var(--purple);">📚 Seerah — Ar-Raheeq Al-Makhtum</div>
-          <div class="media-slot-note">
-            <strong>Scheduled: Friday evenings, 8:00–9:00 PM (after Isha)</strong><br>
-            Watch one video from the 29-video Seerah playlist. Take brief notes using MASTER method. This is a separate track — do not mix with general YouTube hour.
-          </div>
-        </div>
-        <div class="note-box">
-          ⚠️ <strong>Media Rules:</strong> Total screen time for news + YouTube = maximum 2 hours/day. If you go over, use StayFree to lock apps. Weekend research days are exempt from the news slot — those 2 hours go to Teleportation research instead.
+  <div style="margin-top:20px;">
+
+    <!-- Library Sub-tabs -->
+    <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
+      <button class="lib-stab active" id="lstab-books" onclick="libSwitchTab('books')">📚 Book Library</button>
+      <button class="lib-stab" id="lstab-youtube" onclick="libSwitchTab('youtube')">📺 YouTube Library</button>
+    </div>
+
+    <!-- ── BOOKS SECTION ── -->
+    <div id="lib-section-books">
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+        <div id="lib-book-catfilter" style="display:flex;gap:6px;flex-wrap:wrap;flex:1;"></div>
+        <button onclick="libPromptAddCategory('book')" class="btn btn-ghost" style="font-size:11px;padding:6px 12px;">＋ Category</button>
+        <button onclick="libOpenBookModal()" class="btn btn-primary" style="font-size:11px;padding:6px 14px;">＋ Add Book</button>
+      </div>
+      <div id="lib-book-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;"></div>
+      <div id="lib-book-empty" style="display:none;text-align:center;padding:50px 20px;color:var(--muted);font-style:italic;">No books yet. Add your first book above! 📚</div>
+    </div>
+
+    <!-- ── YOUTUBE SECTION ── -->
+    <div id="lib-section-youtube" style="display:none;">
+      <div style="display:flex;justify-content:flex-end;gap:8px;margin-bottom:14px;">
+        <button onclick="libPromptAddCategory('yt')" class="btn btn-ghost" style="font-size:11px;padding:6px 12px;">＋ Category</button>
+      </div>
+      <div id="lib-yt-cats-container"></div>
+      <!-- Mosque Project Videos -->
+      <div class="card" style="margin-top:16px;border-color:rgba(212,168,67,.3);background:rgba(212,168,67,.03);">
+        <div class="card-title" style="color:var(--gold);">🕌 Important Videos — Mosque Project</div>
+        <div id="lib-mosque-videos-list"></div>
+        <button onclick="libAddMosqueVideo()" class="btn btn-ghost" style="font-size:11px;padding:6px 14px;margin-top:10px;">＋ Add Video</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── BOOK MODAL ── -->
+<div class="lib-modal-overlay" id="libBookModal" style="display:none;" onclick="if(event.target===this)libCloseBookModal()">
+  <div class="lib-modal">
+    <div class="lib-modal-title" id="libBookModalTitle">📚 Add New Book</div>
+    <input class="lib-input" id="lbTitle" placeholder="Book Title *">
+    <input class="lib-input" id="lbAuthor" placeholder="Author Name *">
+    <select class="lib-select" id="lbCat"></select>
+    <div style="margin-bottom:8px;">
+      <div style="font-size:11px;color:var(--muted);margin-bottom:5px;font-family:'JetBrains Mono',monospace;">BOOK COVER</div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <div id="lbCoverPreview" style="width:60px;height:80px;border-radius:6px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;overflow:hidden;">📚</div>
+        <div style="flex:1;">
+          <input type="file" id="lbCoverFile" accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="libHandleCoverUpload(this)">
+          <button onclick="document.getElementById('lbCoverFile').click()" class="btn btn-ghost" style="font-size:11px;padding:6px 12px;width:100%;margin-bottom:6px;">📁 Upload JPG / PNG</button>
+          <input class="lib-input" id="lbCover" placeholder="Or paste image URL" style="margin-bottom:0;font-size:12px;" oninput="libPreviewCoverUrl(this.value)">
         </div>
       </div>
     </div>
-    <div class="col-stack">
-      <div class="card">
-        <div class="card-title">Adjusted Time Slots</div>
-        <div style="font-size:13px;line-height:2.2;color:var(--muted2);">
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">4:30 AM — Wake Up</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">5:30 AM — Fajr + Tasbih</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);color:var(--gold2);">6:00–6:45 — Quran (10 Ayats)</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);color:var(--gold2);">6:45–7:30 — Walk + Sunlight</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);color:var(--orange);font-weight:600;">7:30–8:00 — 📰 News (30 min)</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">8:00–8:30 — Breakfast</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">8:30–10:00 — ⚡ Deep Work 1</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">10:00–11:00 — Tajweed</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">11:00–1:30 — ⚡ Deep Work 2</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">1:30 PM — Dhuhr</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">1:30–2:30 — Lunch + Rest</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">2:30–3:30 — 📖 Book Reading</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">3:30–5:00 — ⚡ Deep Work 3</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">5:00 PM — Asr</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);color:var(--cyan);">5:15–6:15 — 💫 Telepathy</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">6:30 PM — Maghrib</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">7:00–7:30 — Dinner</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">7:30 PM — Isha</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);">8:00–8:30 — Reflection/Journal</div>
-          <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);color:var(--orange);font-weight:600;">8:30–9:30 — 🎥 YouTube / Lectures</div>
-          <div style="padding:6px 0;">9:30 PM — Sleep</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      <input class="lib-input" id="lbTotal" type="number" placeholder="Total Pages" min="1" style="margin-bottom:0;">
+      <input class="lib-input" id="lbRead" type="number" placeholder="Pages Read" min="0" style="margin-bottom:0;">
+    </div>
+    <div style="height:8px;"></div>
+    <select class="lib-select" id="lbStatus">
+      <option value="not-started">📌 Not Started</option>
+      <option value="reading">📖 Currently Reading</option>
+      <option value="completed">✅ Completed</option>
+    </select>
+    <textarea class="lib-input" id="lbNotes" placeholder="Notes / Key Lessons (optional)" rows="3" style="resize:vertical;"></textarea>
+    <div class="lib-modal-btns">
+      <button class="btn btn-ghost" onclick="libCloseBookModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="libSaveBook()">Save Book</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CHANNEL MODAL ── -->
+<div class="lib-modal-overlay" id="libChanModal" style="display:none;" onclick="if(event.target===this)libCloseChanModal()">
+  <div class="lib-modal">
+    <div class="lib-modal-title" id="libChanModalTitle">📺 Add Channel</div>
+    <input class="lib-input" id="lcName" placeholder="Channel Name *">
+    <input class="lib-input" id="lcUrl" placeholder="Channel URL *">
+    <input class="lib-input" id="lcNote" placeholder="Note / Why important (optional)">
+    <input type="hidden" id="lcCat">
+    <input type="hidden" id="lcEditIdx" value="-1">
+    <div class="lib-modal-btns">
+      <button class="btn btn-ghost" onclick="libCloseChanModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="libSaveChannel()">Save Channel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── MOSQUE VIDEO MODAL ── -->
+<div class="lib-modal-overlay" id="libMosqueModal" style="display:none;" onclick="if(event.target===this)document.getElementById('libMosqueModal').style.display='none'">
+  <div class="lib-modal">
+    <div class="lib-modal-title">🕌 Add Mosque Project Video</div>
+    <input class="lib-input" id="mvTitle" placeholder="Video Title *">
+    <input class="lib-input" id="mvUrl" placeholder="Video URL *">
+    <input class="lib-input" id="mvNote" placeholder="Why important / Notes">
+    <input type="hidden" id="mvEditIdx" value="-1">
+    <div class="lib-modal-btns">
+      <button class="btn btn-ghost" onclick="document.getElementById('libMosqueModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary" onclick="libSaveMosqueVideo()">Save Video</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE: DASHBOARD
+══════════════════════════════════════════ -->
+<div id="page-dashboard" class="page">
+  <div style="margin-top:20px;" id="dashboardContent">
+    <div style="text-align:center;padding:40px;color:var(--muted);">Loading dashboard...</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE: FINANCIAL
+══════════════════════════════════════════ -->
+<div id="page-financial" class="page">
+  <div style="margin-top:20px;">
+
+    <!-- Header -->
+    <div class="card" style="border-color:rgba(46,204,113,.3);background:linear-gradient(180deg,rgba(46,204,113,.04),rgba(10,19,35,.98));margin-bottom:16px;">
+      <div class="card-title" style="color:var(--green);">💰 Financial Game Plan</div>
+      <div style="font-size:12px;color:var(--muted);font-style:italic;">Based on Hope to Skill mentor guidance — your money game plan. Update as your plan evolves.</div>
+      <div id="finSummaryKpis" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:14px;"></div>
+    </div>
+
+    <div class="two-col" style="margin-top:0;">
+      <div>
+        <!-- Income Sources -->
+        <div class="card" style="margin-bottom:16px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div class="card-title" style="margin-bottom:0;color:var(--green);">💵 Income Sources</div>
+            <button onclick="finOpenModal('income')" class="btn btn-ghost" style="font-size:11px;padding:5px 10px;">＋ Add</button>
+          </div>
+          <div id="finIncomeList"></div>
+        </div>
+
+        <!-- Assets -->
+        <div class="card" style="margin-bottom:16px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div class="card-title" style="margin-bottom:0;color:var(--cyan);">🏦 Assets (What I Own)</div>
+            <button onclick="finOpenModal('asset')" class="btn btn-ghost" style="font-size:11px;padding:5px 10px;">＋ Add</button>
+          </div>
+          <div id="finAssetList"></div>
+        </div>
+
+        <!-- Debts & Loans -->
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div class="card-title" style="margin-bottom:0;color:var(--red);">💸 Debts & Loans</div>
+            <button onclick="finOpenModal('debt')" class="btn btn-ghost" style="font-size:11px;padding:5px 10px;">＋ Add</button>
+          </div>
+          <div id="finDebtList"></div>
         </div>
       </div>
+
+      <div class="col-stack">
+        <!-- 3-Month Target -->
+        <div class="card" style="border-color:rgba(212,168,67,.3);">
+          <div class="card-title" style="color:var(--gold);">🎯 3-Month Money Target</div>
+          <div id="fin3Month" style="font-size:13px;color:var(--muted2);line-height:1.8;min-height:60px;"></div>
+          <button onclick="finEditTarget('3month')" class="btn btn-ghost" style="font-size:11px;padding:5px 10px;margin-top:10px;">✏️ Edit</button>
+        </div>
+
+        <!-- 1-Year Target -->
+        <div class="card" style="border-color:rgba(245,158,11,.3);">
+          <div class="card-title" style="color:var(--orange);">🚀 1-Year Financial Target</div>
+          <div id="fin1Year" style="font-size:13px;color:var(--muted2);line-height:1.8;min-height:60px;"></div>
+          <button onclick="finEditTarget('1year')" class="btn btn-ghost" style="font-size:11px;padding:5px 10px;margin-top:10px;">✏️ Edit</button>
+        </div>
+
+        <!-- 5-Year Target -->
+        <div class="card" style="border-color:rgba(139,92,246,.3);">
+          <div class="card-title" style="color:#A78BFA;">🌟 5-Year Vision</div>
+          <div id="fin5Year" style="font-size:13px;color:var(--muted2);line-height:1.8;min-height:60px;"></div>
+          <button onclick="finEditTarget('5year')" class="btn btn-ghost" style="font-size:11px;padding:5px 10px;margin-top:10px;">✏️ Edit</button>
+        </div>
+
+        <!-- Mentor Note -->
+        <div class="note-box" style="border-left-color:var(--gold);">
+          🎓 <strong>Hope to Skill Guidance:</strong> Update these numbers as your mentor (Irfan Malik) gives you targets. Your financial system should connect directly to your skill development (Priority 5).
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINANCIAL ITEM MODAL -->
+<div class="lib-modal-overlay" id="finItemModal" style="display:none;" onclick="if(event.target===this)finCloseModal()">
+  <div class="lib-modal">
+    <div class="lib-modal-title" id="finModalTitle">Add Item</div>
+    <input class="lib-input" id="finItemName" placeholder="Name / Description *">
+    <input class="lib-input" id="finItemAmount" type="number" placeholder="Amount (PKR) *" min="0">
+    <input class="lib-input" id="finItemNote" placeholder="Note (optional)">
+    <select class="lib-select" id="finItemStatus">
+      <option value="active">Active</option>
+      <option value="pending">Pending</option>
+      <option value="paid">Paid / Cleared</option>
+    </select>
+    <input type="hidden" id="finItemType">
+    <input type="hidden" id="finItemEditId" value="">
+    <div class="lib-modal-btns">
+      <button class="btn btn-ghost" onclick="finCloseModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="finSaveItem()">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- FINANCIAL TARGET MODAL -->
+<div class="lib-modal-overlay" id="finTargetModal" style="display:none;" onclick="if(event.target===this)document.getElementById('finTargetModal').style.display='none'">
+  <div class="lib-modal">
+    <div class="lib-modal-title" id="finTargetModalTitle">Edit Target</div>
+    <textarea class="lib-input" id="finTargetText" rows="6" placeholder="Describe your financial target...&#10;e.g. Save 50,000 PKR · Start freelancing · Clear all debt"></textarea>
+    <input type="hidden" id="finTargetKey">
+    <div class="lib-modal-btns">
+      <button class="btn btn-ghost" onclick="document.getElementById('finTargetModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary" onclick="finSaveTarget()">Save Target</button>
     </div>
   </div>
 </div>
@@ -1971,7 +2173,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
       <div class="note-box note-cyan" style="margin-bottom:18px;">💫 Runs every day for 90 days. Weekdays: 5:15–6:15 PM. Weekends: part of full research day. Completely separate from all 7 priorities.</div>
 
       <div style="margin-bottom:20px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(212,168,67,.2);color:var(--gold);border:1px solid rgba(212,168,67,.4);font-family:'Cinzel',serif;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;">PHASE 1</span><div><div style="font-size:15px;font-weight:600;">Build the Foundation</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Days 1–21 · Apr 20–May 10 · Focus: Body + Routine + Energy</div></div></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(212,168,67,.2);color:var(--gold);border:1px solid rgba(212,168,67,.4);font-family:'Cinzel',serif;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;">PHASE 1</span><div><div style="font-size:15px;font-weight:600;">Build the Foundation</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Days 1–21 · May 8–May 28 · Focus: Body + Routine + Energy</div></div></div>
         <div style="line-height:2.3;font-size:13px;color:var(--muted2);padding-left:12px;">
           ✦ Walk 10–30 min daily — barefoot on grass if possible<br>
           ✦ Morning sunlight 10–15 min around sunrise<br>
@@ -2016,12 +2218,1031 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
      PAGE: PRIORITIES
 ══════════════════════════════════════════ -->
 <div id="page-priorities" class="page">
-  <div class="two-col" style="margin-top:20px;">
+
+  <!-- ── PRIORITY ANALYTICS DASHBOARD ── -->
+  <div class="card" style="margin-top:20px;margin-bottom:20px;border-color:rgba(212,168,67,.3);background:linear-gradient(180deg,rgba(12,20,40,.98),rgba(10,19,35,.98));">
+    <div class="card-title" style="color:var(--gold);">📊 Priority Analytics — Full System Report</div>
+    <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:16px;">Live stats from your actual tracked tasks · All 9 priorities + Research Track · Auto-updates daily</div>
+    <div id="priorityAnalyticsDash">
+      <div style="text-align:center;padding:30px;color:var(--muted);font-size:12px;font-family:'JetBrains Mono',monospace;">Loading analytics...</div>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top:0px;">
     <div>
       <div class="card" style="margin-bottom:16px;">
         <div class="card-title">Your 7 Priorities</div>
         <div id="priorityList"></div>
       </div>
+      <!-- PRIORITY 1 DETAILED BREAKDOWN CARD -->
+      <div class="card" style="margin-bottom:16px;border-color:rgba(212,168,67,.35);background:linear-gradient(180deg,rgba(212,168,67,.04),rgba(10,19,35,.98));">
+        <div class="card-title" style="color:var(--gold);">🕌 Priority 1: Allah — Quran &amp; Sunnah First</div>
+        <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:16px;">This is the highest priority. Everything else comes after Allah. These 9 tracks define your Islamic daily life.</div>
+
+        <!-- Item 1 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(212,168,67,.5);min-width:22px;margin-top:2px;">01</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🕌 Prayers</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(212,168,67,.15);color:var(--gold);">DAILY · CORE</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.65;">5 daily prayers, Jumu'ah, and improving prayer quality.</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(212,168,67,.5);min-width:22px;margin-top:2px;">02</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📖 Quran Recitation + Implementation</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(61,220,151,.12);color:var(--green);">10 AYAT/DAY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.65;">Read 10 ayat per day, or 1 ayah minimum on hard days, and apply at least one lesson from the Quran in real life.</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(212,168,67,.5);min-width:22px;margin-top:2px;">03</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🎵 Tajweed Classes</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(56,189,248,.12);color:var(--cyan);">LEARNING</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.65;">Learn and practice correct Quran recitation.</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(212,168,67,.5);min-width:22px;margin-top:2px;">04</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📚 Quran Tafsir</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(139,92,246,.15);color:#A78BFA;">DEEP STUDY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.65;">Study the meaning and explanation of Quran.</div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(212,168,67,.5);min-width:22px;margin-top:2px;">05</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📿 Tasbih / Dhikr</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(212,168,67,.15);color:var(--gold);">DAILY DHIKR</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.65;">Daily remembrance of Allah, including your tasbih target.</div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(212,168,67,.5);min-width:22px;margin-top:2px;">06</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🌙 Fasting According to Sunnah</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(245,158,11,.12);color:var(--orange);">MON · THU</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.65;">Sunnah fasting such as Mondays/Thursdays or other Sunnah fasts according to capacity.</div>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(212,168,67,.5);min-width:22px;margin-top:2px;">07</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">☪️ Seerah — Biography of Prophet ﷺ</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(139,92,246,.15);color:#A78BFA;">WEEKLY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.65;">Study the life, character, decisions, patience, struggle, and leadership of Prophet Muhammad ﷺ.</div>
+          </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(212,168,67,.5);min-width:22px;margin-top:2px;">08</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🎥 Islamic Lectures</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(56,189,248,.12);color:var(--cyan);">IMAN BOOST</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.65;">Lectures that strengthen iman, knowledge, manners, discipline, and understanding of Quran/Sunnah.</div>
+          </div>
+        </div>
+
+        <!-- Item 9 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(212,168,67,.5);min-width:22px;margin-top:2px;">09</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🤝 Islamic Networking / Visits</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(61,220,151,.12);color:var(--green);">3× / MONTH</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.65;">Attend Islamic events, classes, gatherings, or meet knowledgeable Islamic people to better understand religion, Muslims, and Islamic character. <strong style="color:var(--gold2);">Target: at least 3 Islamic visits per month.</strong></div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:14px;border-left-color:var(--gold);">🌟 <strong>Remember:</strong> These 9 tracks are all under one roof — your relationship with Allah. Do not treat them as separate checklists. They are one continuous act of worship and growth.</div>
+      </div>
+
+      <!-- PRIORITY 2 DETAILED BREAKDOWN CARD -->
+      <div class="card" style="margin-bottom:16px;border-color:rgba(46,204,113,.3);background:linear-gradient(180deg,rgba(46,204,113,.04),rgba(10,19,35,.98));">
+        <div class="card-title" style="color:var(--green);">🌿 Priority 2: Health — الصحة</div>
+        <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:6px;">Body as Amanah from Allah</div>
+        <div class="note-box" style="margin-bottom:16px;border-left-color:var(--green);background:rgba(46,204,113,.06);font-size:12px;">🔥 <strong>Core Rule:</strong> Health is NOT for aesthetics or comfort — it is to serve Allah better. Your body is an amanah (trust). You are responsible for it in front of Allah.</div>
+
+        <!-- Item 1 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(46,204,113,.5);min-width:22px;margin-top:2px;">01</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🏃 Movement &amp; Physical Strength</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(46,204,113,.12);color:var(--green);">DAILY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Daily walking (prefer barefoot on natural ground when possible)<br>
+              ✦ Light exercise or training — strength + mobility<br>
+              ✦ Avoid laziness and sitting too long
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(46,204,113,.07);border-radius:6px;color:var(--green);border-left:2px solid rgba(46,204,113,.4);">👉 Strong body = better prayer, focus, discipline</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(46,204,113,.5);min-width:22px;margin-top:2px;">02</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">☀️ Sunlight &amp; Natural Exposure</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(245,158,11,.12);color:var(--orange);">MORNING</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Daily sunlight — morning preferred<br>
+              ✦ Fresh air, reduce closed-room lifestyle
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(46,204,113,.07);border-radius:6px;color:var(--green);border-left:2px solid rgba(46,204,113,.4);">👉 Supports energy, mood, and sleep cycle</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(46,204,113,.5);min-width:22px;margin-top:2px;">03</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">💧 Hydration (Water Discipline)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(56,189,248,.12);color:var(--cyan);">8–10 GLASSES</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ 8–10 glasses daily<br>
+              ✦ Drink with intention — not just habit
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(46,204,113,.07);border-radius:6px;color:var(--green);border-left:2px solid rgba(46,204,113,.4);">👉 You already track this — keep it consistent</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(46,204,113,.5);min-width:22px;margin-top:2px;">04</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🍽 Nutrition (Halal &amp; Clean Eating)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(212,168,67,.15);color:var(--gold);">SUNNAH WAY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Eat clean, simple, and halal food<br>
+              ✦ Reduce junk, sugar, processed food<br>
+              ✦ Follow moderation — Sunnah eating style
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(46,204,113,.07);border-radius:6px;color:var(--green);border-left:2px solid rgba(46,204,113,.4);">👉 Connects directly to the teachings of Prophet ﷺ on eating</div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(46,204,113,.5);min-width:22px;margin-top:2px;">05</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">😴 Sleep System</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(139,92,246,.15);color:#A78BFA;">7–8 HRS</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ 7–8 hours proper sleep<br>
+              ✦ Sleep early — avoid late-night scrolling<br>
+              ✦ Align with natural rhythm — after Isha if possible
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(46,204,113,.07);border-radius:6px;color:var(--green);border-left:2px solid rgba(46,204,113,.4);">👉 Without sleep, your whole system breaks — focus, deen, deep work all collapse</div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(46,204,113,.5);min-width:22px;margin-top:2px;">06</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🌙 Fasting (Sunnah)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(212,168,67,.15);color:var(--gold);">OVERLAPS P1</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Sunnah fasting — Mon/Thu or when possible
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(212,168,67,.07);border-radius:6px;color:var(--gold2);border-left:2px solid rgba(212,168,67,.4);">👉 Overlaps with Priority 1 (Allah) — but also strengthens Health: Discipline · Detox · Self-control</div>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(46,204,113,.5);min-width:22px;margin-top:2px;">07</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📵 Digital Health</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.15);color:var(--red);">VERY IMPORTANT</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Limit unnecessary screen time<br>
+              ✦ Avoid useless scrolling<br>
+              ✦ Control dopamine — social media and entertainment
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(229,83,83,.07);border-radius:6px;color:var(--red);border-left:2px solid rgba(229,83,83,.4);">👉 Connects directly with your cheating problem in the tracking system — without digital discipline, all other habits are at risk</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:14px;border-left-color:var(--green);">💪 <strong>Health is Ibadah.</strong> Every glass of water, every walk, every early sleep — done with intention for Allah — is an act of worship. Treat your body the way a guardian protects a trust.</div>
+      </div>
+
+      <!-- PRIORITY 3: MINDSET -->
+      <div class="card" style="margin-bottom:16px;border-color:rgba(56,189,248,.3);background:linear-gradient(180deg,rgba(56,189,248,.04),rgba(10,19,35,.98));">
+        <div class="card-title" style="color:var(--cyan);">📖 Priority 3: Mindset — العقل</div>
+        <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:6px;">Knowledge that produces change, not just information</div>
+        <div class="note-box" style="margin-bottom:16px;border-left-color:var(--cyan);background:rgba(56,189,248,.06);font-size:12px;">⚠️ <strong>Critical Rule:</strong> Your Book Library should NOT be just a list. It must be a Tracking + Learning + Application system. If you learn something and don't apply it, it has zero value.</div>
+
+        <!-- Item 1 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(56,189,248,.5);min-width:22px;margin-top:2px;">01</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📚 Learning System (Book Library)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(56,189,248,.12);color:var(--cyan);">TRACKED</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Track for each book: Name · Category · Status (Not Started / Reading / Completed) · Progress % · Key Lessons<br>
+              <span style="color:var(--muted);font-style:italic;">Categories: Islamic · Self-Development · Business/Money · Skills (AI, Marketing) · History/Seerah</span>
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(56,189,248,.07);border-radius:6px;color:var(--cyan);border-left:2px solid rgba(56,189,248,.4);">👉 Create categories — connect Islamic books with Priority 1 (Allah)</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(56,189,248,.5);min-width:22px;margin-top:2px;">02</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🧠 MASTER Learning Method</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(139,92,246,.15);color:#A78BFA;">ANTI-FAKE LEARNING</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              <strong style="color:#F5F9FF;">M</strong> — Mind map / overview &nbsp;·&nbsp; <strong style="color:#F5F9FF;">A</strong> — Active reading &nbsp;·&nbsp; <strong style="color:#F5F9FF;">S</strong> — Summarize<br>
+              <strong style="color:#F5F9FF;">T</strong> — Teach (very important) &nbsp;·&nbsp; <strong style="color:#F5F9FF;">E</strong> — Experiment &nbsp;·&nbsp; <strong style="color:#F5F9FF;">R</strong> — Review
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(56,189,248,.07);border-radius:6px;color:var(--cyan);border-left:2px solid rgba(56,189,248,.4);">👉 Prevents fake learning — just reading without real change</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(56,189,248,.5);min-width:22px;margin-top:2px;">03</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📔 Journaling System</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(56,189,248,.12);color:var(--cyan);">DAILY + WEEKLY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              <strong style="color:var(--muted);">Daily:</strong> What I learned · What I did wrong · What I improve tomorrow<br>
+              <strong style="color:var(--muted);">Weekly:</strong> Patterns · Mistakes · Growth
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(56,189,248,.07);border-radius:6px;color:var(--cyan);border-left:2px solid rgba(56,189,248,.4);">👉 Your daily thinking mirror — connects strongly with discipline system</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(56,189,248,.5);min-width:22px;margin-top:2px;">04</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">⚡ Thinking Discipline</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.12);color:var(--red);">MISSING — ADD NOW</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ No overthinking without action<br>
+              ✦ No useless thoughts — fantasy, distractions<br>
+              ✦ Focus on solutions, not just problems
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(56,189,248,.07);border-radius:6px;color:var(--cyan);border-left:2px solid rgba(56,189,248,.4);">👉 This is what separates you from average people</div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(56,189,248,.5);min-width:22px;margin-top:2px;">05</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🎯 Knowledge → Action Rule</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(212,168,67,.15);color:var(--gold);">CRITICAL</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Every book must produce action<br>
+              ✦ Every idea must become implementation<br>
+              ✦ If you learn something and don't apply it — it has no value
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(212,168,67,.07);border-radius:6px;color:var(--gold2);border-left:2px solid rgba(212,168,67,.4);">👉 Advanced tracking: Categories · Progress · Notes · Lessons · Action Taken</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:14px;border-left-color:var(--cyan);">🧠 <strong>Mindset = Your thinking quality.</strong> Books without application, learning without change, thinking without action — all of these are traps. The real system is: Learn → Apply → Review → Teach.</div>
+      </div>
+
+      <!-- PRIORITY 4: HEART -->
+      <div class="card" style="margin-bottom:16px;border-color:rgba(139,92,246,.3);background:linear-gradient(180deg,rgba(139,92,246,.04),rgba(10,19,35,.98));">
+        <div class="card-title" style="color:#A78BFA;">💜 Priority 4: Heart — القلب</div>
+        <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:6px;">Intentions, emotions, desires, and spiritual state</div>
+        <div class="note-box" style="margin-bottom:16px;border-left-color:#A78BFA;background:rgba(139,92,246,.07);font-size:12px;">🔥 <strong>Core Insight:</strong> You don't have a time problem or a thinking problem. You have a <strong style="color:#A78BFA;">heart control problem</strong> — focus, desires, distractions. Fixing this priority will reduce cheating in your system, reduce bad habits, and increase discipline.</div>
+
+        <!-- Item 1 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(139,92,246,.5);min-width:22px;margin-top:2px;">01</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🎯 Niyyah (Intentions System)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(212,168,67,.15);color:var(--gold);">BEFORE EVERY ACTION</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Before actions: "Why am I doing this?"<br>
+              ✦ Align every intention with Allah
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(139,92,246,.07);border-radius:6px;color:#A78BFA;border-left:2px solid rgba(139,92,246,.4);">👉 Connects directly with Priority 1 — Allah</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(139,92,246,.5);min-width:22px;margin-top:2px;">02</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">😤 Emotional Discipline</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(139,92,246,.15);color:#A78BFA;">CONTROL</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Control: Anger · Laziness · Desire · Overexcitement<br>
+              <strong style="color:var(--muted);">Rule:</strong> Emotions should NOT control decisions
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(139,92,246,.07);border-radius:6px;color:#A78BFA;border-left:2px solid rgba(139,92,246,.4);">👉 Your reaction is your choice — even when emotions are strong</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(139,92,246,.5);min-width:22px;margin-top:2px;">03</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🛡 Nafs Control (Self-Control System)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.12);color:var(--red);">VERY IMPORTANT</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Control urges — phone, entertainment, bad habits<br>
+              ✦ Delay gratification<br>
+              ✦ Build patience
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(139,92,246,.07);border-radius:6px;color:#A78BFA;border-left:2px solid rgba(139,92,246,.4);">👉 Connects with your Bad Habit tracking system</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(139,92,246,.5);min-width:22px;margin-top:2px;">04</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🔍 Focus &amp; Presence</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(139,92,246,.15);color:#A78BFA;">DAILY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Be present in what you do<br>
+              ✦ Avoid distraction while working, praying, learning
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(139,92,246,.07);border-radius:6px;color:#A78BFA;border-left:2px solid rgba(139,92,246,.4);">👉 Links directly with your Deep Work system</div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(139,92,246,.5);min-width:22px;margin-top:2px;">05</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">✨ Tazkiyah (Inner Purification)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(212,168,67,.15);color:var(--gold);">PURIFY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              <strong style="color:var(--red);">Remove:</strong> Arrogance · Envy · Showing off (riya) · Pride<br>
+              <strong style="color:var(--green);">Develop:</strong> Humility · Sincerity · Patience · Gratitude
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(139,92,246,.07);border-radius:6px;color:#A78BFA;border-left:2px solid rgba(139,92,246,.4);">👉 Inner cleanliness is as important as outer worship</div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(139,92,246,.5);min-width:22px;margin-top:2px;">06</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📓 Emotional Reflection (Heart Journaling)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(139,92,246,.15);color:#A78BFA;">SEPARATE FROM MINDSET</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Track: What I felt today · Why I felt it · What triggered it · How I should respond next time
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(139,92,246,.07);border-radius:6px;color:#A78BFA;border-left:2px solid rgba(139,92,246,.4);">👉 Advanced: Daily emotional log · Trigger tracking · Patterns over time</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:14px;border-left-color:#A78BFA;">💜 <strong>The heart is the controller.</strong> When your heart is clean, disciplined, and aligned with Allah — everything else becomes easier. Neglect it and all systems will eventually fail.</div>
+      </div>
+
+      <!-- PRIORITY 5: SKILL DEVELOPMENT -->
+      <div class="card" style="margin-bottom:16px;border-color:rgba(245,158,11,.3);background:linear-gradient(180deg,rgba(245,158,11,.04),rgba(10,19,35,.98));">
+        <div class="card-title" style="color:var(--orange);">⚡ Priority 5: Skill Development — المهارة</div>
+        <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:6px;">4 categories — each needs a different system</div>
+        <div class="note-box" style="margin-bottom:16px;border-left-color:var(--orange);background:rgba(245,158,11,.06);font-size:12px;">⚠️ <strong>Big Mistake to Avoid:</strong> Do NOT use one formula for everything. AI Project, Skill Learning, Core Skills, and Business all need different systems. Only 1 main skill at a time — Python OR Marketing, not both deeply at once.</div>
+
+        <!-- Category A -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(245,158,11,.5);min-width:22px;margin-top:2px;">A</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🤖 AI Project (Execution-Based)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(245,158,11,.12);color:var(--orange);">BUILD DAILY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Real project — not just learning. Build something (e.g. discourse analysis AI).<br>
+              Track: Features completed · Progress % · Output
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(245,158,11,.07);border-radius:6px;color:var(--orange);border-left:2px solid rgba(245,158,11,.4);">👉 Output-focused, not learning-focused. Belongs partly to Deep Work system also.</div>
+          </div>
+        </div>
+
+        <!-- Category B -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(245,158,11,.5);min-width:22px;margin-top:2px;">B</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📘 Skill Learning (90-Day Roadmap)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(245,158,11,.12);color:var(--orange);">PHASE-BASED</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Python · Digital Marketing · Any future skill<br>
+              <strong style="color:var(--muted);">Phase 1 (Day 1–45):</strong> Learning — follow roadmap, 2 hrs daily → increase to 3–4 hrs<br>
+              <strong style="color:var(--muted);">Phase 2 (Day 46–90):</strong> Practice + Build — projects, real application, case studies<br>
+              <strong style="color:var(--orange);">Rule: No passive learning after Day 45</strong>
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(245,158,11,.07);border-radius:6px;color:var(--orange);border-left:2px solid rgba(245,158,11,.4);">👉 Your 90-day system applies here — just refined</div>
+          </div>
+        </div>
+
+        <!-- Category C -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(245,158,11,.5);min-width:22px;margin-top:2px;">C</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🗣 Core Skills (Life Skills)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(46,204,113,.12);color:var(--green);">ALWAYS ACTIVE</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Communication · Confidence · Presentation · Dressing / personal representation<br>
+              Track daily: Did I practice communication? Improve presentation? Apply confidence in real interaction?
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(245,158,11,.07);border-radius:6px;color:var(--orange);border-left:2px solid rgba(245,158,11,.4);">👉 Not course-based — always active. Talk to people, practice speaking, improve dressing.</div>
+          </div>
+        </div>
+
+        <!-- Category D -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(245,158,11,.5);min-width:22px;margin-top:2px;">D</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">💼 Business &amp; Entrepreneurship</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(245,158,11,.12);color:var(--orange);">WEEKLY STRATEGY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              InnoVesta · Entrepreneurs · People in your field<br>
+              Track: Weekly planning · Idea validation · Execution tasks · Market research<br>
+              <strong style="color:var(--orange);">Not daily "study" — real action only</strong>
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(245,158,11,.07);border-radius:6px;color:var(--orange);border-left:2px solid rgba(245,158,11,.4);">👉 Every week must produce: Something built + Something applied</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:14px;border-left-color:var(--orange);">⚡ <strong>Skill Rules:</strong> Focus Rule (1 main skill at a time) · Output Rule (weekly deliverable) · Deep Work Rule (focused + timed) · Roadmap Rule (no random learning — every skill has a clear path).</div>
+      </div>
+
+      <!-- PRIORITY 6: NETWORKING -->
+      <div class="card" style="margin-bottom:16px;border-color:rgba(61,220,151,.3);background:linear-gradient(180deg,rgba(61,220,151,.04),rgba(10,19,35,.98));">
+        <div class="card-title" style="color:var(--teal);">🤝 Priority 6: Networking — التواصل</div>
+        <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:6px;">Value-based relationships — not random meetings</div>
+        <div class="note-box" style="margin-bottom:16px;border-left-color:var(--teal);background:rgba(61,220,151,.06);font-size:12px;">⚠️ <strong>Real Rule:</strong> Networking is NOT "meeting people" — it is building value-based relationships. Never approach people empty. Always ask something meaningful OR offer something useful.</div>
+
+        <!-- Item 1 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(61,220,151,.5);min-width:22px;margin-top:2px;">01</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🕌 Islamic Networking (Foundation Layer)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(212,168,67,.15);color:var(--gold);">3× / MONTH MIN</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Attend Islamic events · Meet knowledgeable people · Build connection with practicing Muslims<br>
+              <span style="color:var(--muted);font-style:italic;">(Also tracked inside Priority 1 — Allah)</span>
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(61,220,151,.07);border-radius:6px;color:var(--teal);border-left:2px solid rgba(61,220,151,.4);">📌 Minimum 3 meaningful interactions per month</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(61,220,151,.5);min-width:22px;margin-top:2px;">02</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🎓 Learning / Mentorship Networking</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(61,220,151,.12);color:var(--teal);">1–2× / MONTH</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Connect with: Skilled people · Teachers · Mentors<br>
+              Track: Who you contacted · What you learned · Follow-up
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(61,220,151,.07);border-radius:6px;color:var(--teal);border-left:2px solid rgba(61,220,151,.4);">👉 This accelerates your growth massively</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(61,220,151,.5);min-width:22px;margin-top:2px;">03</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">💼 Business Networking</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(245,158,11,.12);color:var(--orange);">2–4× / MONTH</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              InnoVesta · Entrepreneurs · People in your field<br>
+              Track: Conversations · Opportunities · Collaborations
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(61,220,151,.07);border-radius:6px;color:var(--teal);border-left:2px solid rgba(61,220,151,.4);">👉 Follow-up rule: Reconnect after every interaction — most people fail here</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(61,220,151,.5);min-width:22px;margin-top:2px;">04</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📋 Relationship Building System</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(61,220,151,.12);color:var(--teal);">PEOPLE DATABASE</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              For each important person track: Name · Type (Islamic / Business / Mentor) · Last interaction · Value exchanged · Next follow-up<br>
+              <strong style="color:var(--red);">No Fake Networking:</strong> Avoid showing off · talking without purpose · time-wasting conversations
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(61,220,151,.07);border-radius:6px;color:var(--teal);border-left:2px solid rgba(61,220,151,.4);">👉 This turns networking into a system, not random talk</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:14px;border-left-color:var(--teal);">🤝 <strong>Monthly Targets:</strong> Islamic: 3 interactions · Business: 2–4 interactions · Mentorship: 1–2 meaningful connections. Never approach people empty-handed.</div>
+      </div>
+
+      <!-- PRIORITY 7: ENVIRONMENT -->
+      <div class="card" style="margin-bottom:16px;border-color:rgba(229,83,83,.3);background:linear-gradient(180deg,rgba(229,83,83,.04),rgba(10,19,35,.98));">
+        <div class="card-title" style="color:var(--red);">🛡️ Priority 7: Environment — البيئة</div>
+        <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:6px;">The most underrated priority — it controls everything silently</div>
+        <div class="note-box" style="margin-bottom:16px;border-left-color:var(--red);background:rgba(229,83,83,.06);font-size:12px;">🔥 <strong>First Truth:</strong> You don't fail because of lack of motivation. You fail because your <strong style="color:var(--red);">environment allows failure.</strong> This priority = the control system of your entire life. Control > Motivation — always.</div>
+
+        <!-- Item 1 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(229,83,83,.5);min-width:22px;margin-top:2px;">01</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📵 Digital Environment</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.15);color:var(--red);">MOST IMPORTANT</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Track &amp; control: Screen time · App usage · Social media access<br>
+              Tools: StayFree · Islam 360 · Tasbih app · Alarmy<br>
+              <strong style="color:var(--red);">Rules: App blocking · Time limits · No hidden usage</strong>
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(229,83,83,.07);border-radius:6px;color:var(--red);border-left:2px solid rgba(229,83,83,.4);">👉 Directly connects to your cheating problem — fix this and discipline improves everywhere</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(229,83,83,.5);min-width:22px;margin-top:2px;">02</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🏠 Physical Environment</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.12);color:var(--red);">DAILY SETUP</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Clean room · Organized workspace · No distractions around you<br>
+              <strong style="color:var(--muted);">Rule:</strong> Your room should push you to work, not relax
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(229,83,83,.07);border-radius:6px;color:var(--red);border-left:2px solid rgba(229,83,83,.4);">👉 Your physical space reflects your mental state</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(229,83,83,.5);min-width:22px;margin-top:2px;">03</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">⚡ Work Environment Setup</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.12);color:var(--red);">DEDICATED SPACE</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Dedicated place for: Deep work · Learning · Planning<br>
+              Even if small — must be consistent and used every day
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(229,83,83,.07);border-radius:6px;color:var(--red);border-left:2px solid rgba(229,83,83,.4);">👉 Same place = faster focus = better deep work</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(229,83,83,.5);min-width:22px;margin-top:2px;">04</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🎯 Trigger Control System</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.15);color:var(--red);">VERY POWERFUL</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Identify what causes distraction and what leads to bad habits, then remove or control the trigger:<br>
+              Phone near you → scrolling · Bed → laziness · Open tabs → distraction
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(229,83,83,.07);border-radius:6px;color:var(--red);border-left:2px solid rgba(229,83,83,.4);">👉 Friction Rule: Make bad habits harder. Ease Rule: Make good habits easier — Quran visible, water ready, workspace prepared.</div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(229,83,83,.5);min-width:22px;margin-top:2px;">05</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🕐 Routine Environment</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.12);color:var(--red);">FIXED SYSTEM</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Fixed wake-up system · Fixed work slots · Fixed sleep timing<br>
+              <strong style="color:var(--muted);">Anti-Cheat Rule:</strong> Your system must not depend only on clicking buttons — require proof or friction
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(229,83,83,.07);border-radius:6px;color:var(--red);border-left:2px solid rgba(229,83,83,.4);">👉 Environment supports routine automatically — you don't need willpower when your system is designed right</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:14px;border-left-color:var(--red);">🛡️ <strong>You don't rely on mood or motivation — you rely on a controlled environment.</strong> Build friction around every failure point. Build ease around every good habit.</div>
+      </div>
+
+      <!-- PRIORITY 8: FAMILY -->
+      <div class="card" style="margin-bottom:16px;border-color:rgba(252,211,77,.3);background:linear-gradient(180deg,rgba(252,211,77,.04),rgba(10,19,35,.98));">
+        <div class="card-title" style="color:#FCD34D;">👨‍👩‍👧 Priority 8: Family — الأسرة</div>
+        <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:6px;">Handled according to Quran and Sunnah — not emotions or culture only</div>
+        <div class="note-box" style="margin-bottom:16px;border-left-color:#FCD34D;background:rgba(252,211,77,.06);font-size:12px;">📌 <strong>Core Rule:</strong> You cannot build success while neglecting your family. Before leading a family, you must first control yourself. Respect over mood — always, even when tired or stressed.</div>
+
+        <!-- Item 1 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(252,211,77,.5);min-width:22px;margin-top:2px;">01</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🏠 Current Family (Parents &amp; Siblings)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(252,211,77,.12);color:#FCD34D;">HIGHEST INSIDE FAMILY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              <strong style="color:var(--muted);">Responsibilities:</strong> Respect and obedience to parents · Good behavior (no anger, no harsh tone) · Helping in responsibilities · Spending time with them<br>
+              <strong style="color:var(--muted);">Daily check:</strong> Did I speak respectfully? Did I help my family? Did I avoid arguments?
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(252,211,77,.07);border-radius:6px;color:#FCD34D;border-left:2px solid rgba(252,211,77,.4);">👉 Connects with Heart (emotional control) + Allah (obedience &amp; حقوق العباد)</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(252,211,77,.5);min-width:22px;margin-top:2px;">02</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">💍 Future Family Preparation</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(252,211,77,.12);color:#FCD34D;">BUILD NOW</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              <strong style="color:var(--muted);">A. Financial Readiness:</strong> Build halal income · Skill development → earning ability · Avoid dependency<br>
+              <strong style="color:var(--muted);">B. Character Building:</strong> Responsible · Patient · Emotionally controlled · Trustworthy<br>
+              <strong style="color:var(--muted);">C. Islamic Knowledge:</strong> حقوق الزوج / الزوجة · Responsibilities · Marriage understanding<br>
+              <span style="font-style:italic;color:var(--muted);">Learn before entering it — not after</span>
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(252,211,77,.07);border-radius:6px;color:#FCD34D;border-left:2px solid rgba(252,211,77,.4);">👉 Financial readiness connects with Priority 5 (Skill Development)</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(252,211,77,.5);min-width:22px;margin-top:2px;">03</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">❤️ Relationship Quality System</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(252,211,77,.12);color:#FCD34D;">TRACK</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              For both current &amp; future family track: Communication quality · Emotional control · Respect level · Conflict handling
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(252,211,77,.07);border-radius:6px;color:#FCD34D;border-left:2px solid rgba(252,211,77,.4);">👉 Money is useless without character — build both together</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(252,211,77,.5);min-width:22px;margin-top:2px;">04</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">⏰ Time Investment Rule</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(252,211,77,.12);color:#FCD34D;">NO NEGLECT</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Daily small interaction with family · Weekly proper quality time<br>
+              Family should never be ignored because of work or studies
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(252,211,77,.07);border-radius:6px;color:#FCD34D;border-left:2px solid rgba(252,211,77,.4);">👉 No Neglect Rule — success built on neglected family is not real success</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:14px;border-left-color:#FCD34D;">👨‍👩‍👧 <strong>Family is Priority 8 — valid and strong.</strong> Your parents, siblings, and future family all have rights upon you from Allah. Build yourself so you can be a blessing to them — not a burden.</div>
+      </div>
+
+      <!-- SPECIAL RESEARCH TRACK: TELEPORTATION -->
+      <div class="card" style="margin-bottom:16px;border-color:rgba(6,182,212,.25);background:linear-gradient(180deg,rgba(6,182,212,.03),rgba(10,19,35,.98));">
+        <div class="card-title" style="color:var(--cyan);">🔬 Special Research Track: Teleportation Study</div>
+        <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:6px;">Weekend Only — This is NOT a priority — it is a controlled research program</div>
+        <div class="note-box" style="margin-bottom:16px;border-left-color:var(--red);background:rgba(229,83,83,.06);font-size:12px;">⚠️ <strong>First Rule (Very Important):</strong> This research must NEVER affect your Salah · Obligations · Family · Skill Development · Real-life responsibilities. If it starts affecting those → it must be reduced or stopped immediately.</div>
+
+        <!-- Item 1 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(6,182,212,.5);min-width:22px;margin-top:2px;">01</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📅 Schedule Control (Strict)</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.12);color:var(--red);">SAT–SUN ONLY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Only Saturday &amp; Sunday · Fixed time — 1–2 hours max per day<br>
+              <strong style="color:var(--red);">❌ Not allowed:</strong> Weekday research · Random thinking during work hours
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(6,182,212,.07);border-radius:6px;color:var(--cyan);border-left:2px solid rgba(6,182,212,.4);">👉 Time-boxing protects your main priorities from this track</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(6,182,212,.5);min-width:22px;margin-top:2px;">02</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🧑‍🏫 Mentor-Guided Study</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(6,182,212,.12);color:var(--cyan);">STRUCTURED</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Mentor: <strong style="color:#F5F9FF;">Ahmad Rafiq Akhtar</strong><br>
+              Track: Topics assigned by mentor teachings · Lectures / materials studied · Concepts understood
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(6,182,212,.07);border-radius:6px;color:var(--cyan);border-left:2px solid rgba(6,182,212,.4);">👉 Mentor-based study prevents blind or unrealistic thinking</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(6,182,212,.5);min-width:22px;margin-top:2px;">03</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📂 Study Categories</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(6,182,212,.12);color:var(--cyan);">GROUNDED</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Philosophy / understanding of reality<br>
+              ✦ Psychology of perception<br>
+              ✦ Islamic understanding — Quran/Sunnah limits<br>
+              ✦ Scientific concepts — only grounded ones
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(6,182,212,.07);border-radius:6px;color:var(--cyan);border-left:2px solid rgba(6,182,212,.4);">👉 Prevents blind or unrealistic thinking by keeping topics grounded</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(6,182,212,.5);min-width:22px;margin-top:2px;">04</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📓 Study Log System</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(6,182,212,.12);color:var(--cyan);">EACH SESSION</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Each session track: What I studied · Key concepts · Questions I have · What I understood vs what is unclear
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(6,182,212,.07);border-radius:6px;color:var(--cyan);border-left:2px solid rgba(6,182,212,.4);">👉 Advanced: Session logs · Topics covered · Understanding level · Questions tracking · Categorization</div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(6,182,212,.5);min-width:22px;margin-top:2px;">05</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🧪 Reality Check Rule</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.15);color:var(--red);">CRITICAL</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Every study must answer: Is this <strong style="color:var(--green);">Proven</strong> · <strong style="color:var(--orange);">Theoretical</strong> · <strong style="color:var(--red);">Speculative</strong> · or <strong style="color:var(--muted);">Imagination</strong>?
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(6,182,212,.07);border-radius:6px;color:var(--cyan);border-left:2px solid rgba(6,182,212,.4);">👉 This keeps you grounded — classify every claim before accepting it</div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(6,182,212,.5);min-width:22px;margin-top:2px;">06</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🚫 No Application Without Proof</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.15);color:var(--red);">HARD RULE</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              You are NOT allowed to "try" or "practice" anything unrealistic. Only: Study · Understand · Reflect<br>
+              <strong style="color:var(--red);">❌ Not Allowed:</strong> Mixing with main priorities · Replacing real work · Believing unverified claims · Obsession<br>
+              <strong style="color:var(--green);">✅ Allowed:</strong> Structured learning · Critical thinking · Mentorship-based study · Weekend-only deep curiosity
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(6,182,212,.07);border-radius:6px;color:var(--cyan);border-left:2px solid rgba(6,182,212,.4);">👉 Curiosity is healthy — obsession is dangerous. Keep it in its lane.</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:14px;border-left-color:var(--cyan);">🔬 <strong>This is controlled curiosity — not a priority.</strong> The moment it affects your Salah, family, or real work, it stops. Mentor-guided, schedule-locked, reality-checked at every step.</div>
+      </div>
+
+      <!-- PRIORITY 9: COLLEGE -->
+      <div class="card" style="margin-bottom:16px;border-color:rgba(129,140,248,.3);background:linear-gradient(180deg,rgba(129,140,248,.04),rgba(10,19,35,.98));">
+        <div class="card-title" style="color:#818CF8;">🎓 Priority 9: College — ICS Degree</div>
+        <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:6px;">Intermediate in Computer Science — Your formal academic foundation</div>
+        <div class="note-box" style="margin-bottom:16px;border-left-color:#818CF8;background:rgba(129,140,248,.06);font-size:12px;">📌 <strong>Core Rule:</strong> College is not just a certificate — it is your structured foundation in Computer Science, Mathematics, and Physics. Treat every class, assignment, and exam as a step toward your tech and AI goals. Your degree and your self-learning must run together, not against each other.</div>
+
+        <!-- Item 1: Subjects -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">01</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📐 Core Subjects</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(129,140,248,.15);color:#818CF8;">ICS CURRICULUM</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;color:var(--muted2);line-height:1.8;">
+              <div style="padding:8px 10px;background:rgba(129,140,248,.07);border-radius:7px;border-left:2px solid rgba(129,140,248,.4);">💻 <strong style="color:#F5F9FF;">Computer Science</strong><br><span style="font-size:11px;">Programming · Hardware · Networking · Algorithms</span></div>
+              <div style="padding:8px 10px;background:rgba(56,189,248,.07);border-radius:7px;border-left:2px solid rgba(56,189,248,.4);">⚡ <strong style="color:#F5F9FF;">Physics</strong><br><span style="font-size:11px;">Mechanics · Waves · Electricity · Modern Physics</span></div>
+              <div style="padding:8px 10px;background:rgba(46,204,113,.07);border-radius:7px;border-left:2px solid rgba(46,204,113,.4);">🔢 <strong style="color:#F5F9FF;">Mathematics</strong><br><span style="font-size:11px;">Calculus · Algebra · Statistics · Trigonometry</span></div>
+              <div style="padding:8px 10px;background:rgba(245,158,11,.07);border-radius:7px;border-left:2px solid rgba(245,158,11,.4);">📝 <strong style="color:#F5F9FF;">English</strong><br><span style="font-size:11px;">Essays · Grammar · Comprehension · Communication</span></div>
+              <div style="padding:8px 10px;background:rgba(212,168,67,.07);border-radius:7px;border-left:2px solid rgba(212,168,67,.4);">☪️ <strong style="color:#F5F9FF;">Islamiat</strong><br><span style="font-size:11px;">Quran · Hadith · Islamic Studies · Seerah</span></div>
+              <div style="padding:8px 10px;background:rgba(139,92,246,.07);border-radius:7px;border-left:2px solid rgba(139,92,246,.4);">🌍 <strong style="color:#F5F9FF;">Pak Studies</strong><br><span style="font-size:11px;">History · Geography · Civics · Constitution</span></div>
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);margin-top:8px;">👉 Computer Science + Math are your most important subjects — they directly fuel your AI and tech goals</div>
+          </div>
+        </div>
+
+        <!-- Item 2: Classes & Attendance -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">02</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🏫 Daily Classes &amp; Attendance</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(46,204,113,.12);color:var(--green);">NON-NEGOTIABLE</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Attend every class — no skipping without valid reason<br>
+              ✦ Be present mentally, not just physically — phone away during class<br>
+              ✦ Take proper notes in every lecture<br>
+              ✦ Track attendance per subject — do not fall below 75%
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Missing class = missing knowledge = harder exams. Attendance is discipline in action.</div>
+          </div>
+        </div>
+
+        <!-- Item 3: Daily Study System -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">03</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📚 Daily Study System</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(129,140,248,.15);color:#818CF8;">1–2 HRS / DAY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Review today's class notes within 24 hours (before forgetting)<br>
+              ✦ 1 subject deep study per session — no multi-subject cramming<br>
+              ✦ Use MASTER Method: Mark → Add Notes → Summarize → Takeaways → Extract → Revisit<br>
+              ✦ Prioritize: Computer Science first · Math second · Physics third
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Daily review beats exam-week cramming every single time</div>
+          </div>
+        </div>
+
+        <!-- Item 4: Assignments -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">04</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📋 Assignments &amp; Homework</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.12);color:var(--red);">ZERO LATE POLICY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Log every assignment the day it is given — with subject and due date<br>
+              ✦ Start 2 days before deadline — never the night before<br>
+              ✦ Track status: Given · In Progress · Submitted<br>
+              ✦ CS assignments: Write code yourself — no copy-paste without understanding
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Assignments are practice for exams — treat them seriously, not as a burden</div>
+          </div>
+        </div>
+
+        <!-- Item 5: Exam Preparation -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">05</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🎯 Exam Preparation System</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(212,168,67,.15);color:var(--gold);">PLANNED · NOT PANICKED</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              <strong style="color:var(--muted);">3 Weeks Before Exam:</strong> Start topic-by-topic revision · Identify weak areas<br>
+              <strong style="color:var(--muted);">1 Week Before:</strong> Past papers · Practice questions · Timed mock tests<br>
+              <strong style="color:var(--muted);">Night Before:</strong> Light review only — no new topics — proper sleep<br>
+              ✦ Track: Syllabus coverage % · Past papers done · Weak topics list
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Exam grades directly affect your college completion + university options</div>
+          </div>
+        </div>
+
+        <!-- Item 6: Notes System -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">06</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📓 Notes &amp; Revision System</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(129,140,248,.15);color:#818CF8;">ORGANIZED</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Separate notes file/notebook per subject<br>
+              ✦ After every class: clean and complete the notes same day<br>
+              ✦ Weekly: revisit previous week's notes (spaced repetition)<br>
+              ✦ CS notes: include working code examples, not just theory
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Good notes = less panic later. Build your notes like a personal textbook.</div>
+          </div>
+        </div>
+
+        <!-- Item 7: CS Practical -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">07</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">💻 CS Practical &amp; Coding</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(56,189,248,.12);color:var(--cyan);">HANDS-ON</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              ✦ Lab work: complete all practicals — never skip<br>
+              ✦ Write actual code during CS class and at home<br>
+              ✦ Connect college CS theory directly to your AI/Python self-learning<br>
+              ✦ Build at least 1 small CS project per month using what you learn
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 This is the bridge between your degree and your AI goals — they are the same path</div>
+          </div>
+        </div>
+
+        <!-- Item 8: Grade Tracking -->
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">08</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📈 Grade &amp; Progress Tracking</span>
+              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(129,140,248,.15);color:#818CF8;">MONTHLY</span>
+            </div>
+            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
+              Track per subject: Test scores · Assignment marks · Class position · Target grade<br>
+              <strong style="color:var(--muted);">Target Grade:</strong> A or A+ in CS and Math as minimum goal<br>
+              <strong style="color:var(--muted);">Monthly Review:</strong> Where am I vs where I need to be?
+            </div>
+            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Grades are feedback — not identity. Use low marks as data, not as defeat.</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:14px;border-left-color:#818CF8;">🎓 <strong>College is Priority 9 — but never ignored.</strong> Your ICS degree is the formal structure that runs alongside everything else. CS → AI → Python → Projects — these are all the same thread. Follow your degree with discipline and intention.</div>
+      </div>
+
       <!-- FRIDAY DUTIES CARD -->
       <div class="card" style="border-color:rgba(212,168,67,.4);background:rgba(212,168,67,.03);">
         <div class="card-title" style="color:var(--gold);">🕌 Friday Duties — from Qur'an & Sunnah of Prophet ﷺ</div>
@@ -2192,7 +3413,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
     <div class="card">
       <div class="card-title">90-Day Phase Plan</div>
       <div style="margin-bottom:20px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="background:var(--gold);color:#000;font-family:'Cinzel',serif;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;">PHASE 1</div><div style="font-size:15px;font-weight:600;">Foundation <span style="color:var(--muted);font-size:12px;font-style:italic;">Days 1–21 · Apr 20–May 10</span></div></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="background:var(--gold);color:#000;font-family:'Cinzel',serif;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;">PHASE 1</div><div style="font-size:15px;font-weight:600;">Foundation <span style="color:var(--muted);font-size:12px;font-style:italic;">Days 1–21 · May 8–May 28</span></div></div>
         <div style="line-height:2.3;font-size:13px;color:var(--muted2);padding-left:12px;">
           ✦ Build 4:30 AM wake-up · 5 prayers without missing · Tajweed classes<br>
           ✦ Barefoot walk · Sunlight · 8–10 glasses water · Brain food · 7–8 hr sleep<br>
@@ -2389,6 +3610,7 @@ Send invoice"></textarea>
         <option value="t-research">🔬 Research</option>
         <option value="t-sleep">😴 Sleep / Rest</option>
         <option value="t-family">👨‍👩‍👧 Family Duty</option>
+        <option value="t-college">🎓 College</option>
         <option value="t-mosque">🕌 Mosque Project</option>
         <option value="t-shop">🛒 Help in Shop</option>
         <option value="t-travel">✈️ Travel</option>
@@ -2446,6 +3668,7 @@ Send invoice"></textarea>
         <option value="t-research">🔬 Research</option>
         <option value="t-sleep">😴 Sleep / Rest</option>
         <option value="t-family">👨‍👩‍👧 Family Duty</option>
+        <option value="t-college">🎓 College</option>
         <option value="t-mosque">🕌 Mosque Project</option>
         <option value="t-shop">🛒 Help in Shop</option>
         <option value="t-travel">✈️ Travel</option>
@@ -2476,7 +3699,7 @@ Send invoice"></textarea>
 // ══════════════════════════════════════════════════════
 //  CORE DATA & STORAGE
 // ══════════════════════════════════════════════════════
-const START = new Date('2026-04-20');
+const START = new Date('2026-05-08');
 const PRAYERS = [
   {name:'🌙 Fajr', time:'5:30 AM'},
   {name:'☀️ Dhuhr', time:'1:30 PM'},
@@ -2547,49 +3770,85 @@ const PRAYER_RAKAHS = [
 ];
 
 const WEEKDAY_TASKS = [
-  {id:'w01',label:'🌙 Wake Up',start:'04:30',end:'05:30',note:'Niyyah · Freshen up · Wudu',desc:'Niyyah · Freshen up · Wudu',details:['Wake up','1 Glass of Water','Do Wudu'],tag:'t-health'},
+  // ── P2 HEALTH ──
+  {id:'w01',label:'🌙 Wake Up + Wudu',start:'04:30',end:'05:30',desc:'Wake · Niyyah · Water · Wudu',note:'Start the day with intention',details:['Wake up immediately — no snoozing','Drink 1 full glass of water','Make Wudu properly','Set niyyah for the day'],tag:'t-health'},
+  // ── P1 ALLAH ──
   {id:'w02',label:'🕌 Fajr Prayer + Tasbih',start:'05:30',end:'06:00',desc:'Fajr Prayer + Tasbih',note:'1. 4 types 33,33,34: SubhanAllah · Alhamdulillah · Allahu Akbar · La ilaha illa Allah\n2. 2 Fard\n3. 2 Sunnah\n4. Ayatul Kursi',tag:'t-prayer'},
-  {id:'w02a',label:'👨‍👩‍👦 Family Duty — Hospital Drop',start:'05:45',end:'06:45',note:'Drop at hospital in the morning · Stay present · No phone distraction',desc:'Hospital drop in the morning',details:['Prepare before leaving','Drop at hospital','Return back on time'],tag:'t-family'},
-  {id:'w03',label:'📖 Quran Reading',start:'06:00',end:'06:45',note:'10 Ayats + Urdu translation · Reflect · No rushing',tag:'t-learn'},
-  {id:'w04',label:'🌿 Walk + Sunlight (Telepathy P1)',start:'06:45',end:'07:30',note:'30 min Sunlight Walk',desc:'30 min Sunlight Walk',details:['3500 Steps','30 Min Walk'],tag:'t-telep'},
-  {id:'w05',label:'📰 News Update',start:'07:30',end:'08:00',note:'ARY/Geo/BBC Urdu · Strictly 30 min · Daily issues + current affairs',tag:'t-media'},
-  {id:'w06',label:'🍳 Breakfast (Brain Food)',start:'08:00',end:'08:30',note:'Health Food Only',desc:'Health Food Only',details:['Breakfast Home Made'],tag:'t-health'},
-  {id:'w07',label:'⚡ Deep Work Block 1 — AI Project',start:'08:30',end:'10:00',note:'Phone airplane mode · AI project execution · Focused build work',desc:'AI Project — focused implementation and project progress',details:['AI project file organization','Build / improve one AI project feature','Ask Claude/ChatGPT for unclear AI project concepts','Write what changed today in the AI project'],tag:'t-work'},
-  {id:'w08',label:'📚 Tajweed Class (Physical)',start:'10:00',end:'11:00',note:'Tajweed Class — consistency and improvement',desc:'Tajweed Class # 1',details:['Review old lessons before going','Lesson #1','Lesson #2'],tag:'t-learn'},
-  {id:'w09',label:'⚡ Deep Work Block 2 — Entrepreneurship & Business',start:'11:00',end:'13:30',note:'Execution > Planning · Build real progress',desc:'Entrepreneurship and Business Development',details:['Read Lecture 5 → 12 notes (Hope to Skills)','Prepare notes for Lecture 13 → 17','Build AI for business helping (initial version)'],tag:'t-work'},
+  {id:'w03',label:'📖 Quran — 10 Ayats + Tafsir',start:'06:00',end:'06:50',desc:'Read 10 Ayats · Urdu translation · Tafsir notes',note:'Minimum 10 Ayats daily. 1 Ayah on hard days. Apply one lesson in real life.',details:['Read 10 Ayats with translation','Write 1 key lesson in journal','Apply 1 lesson in the day'],tag:'t-learn'},
+  // ── P2 HEALTH ──
+  {id:'w04',label:'🌿 Walk + Sunlight (Barefoot if possible)',start:'06:50',end:'07:30',desc:'30 min walk · morning sunlight · no phone',note:'Strong body = better prayer, focus, discipline',details:['3500+ steps minimum','Get sunlight on face and arms','Barefoot on grass/ground when possible','No phone during walk'],tag:'t-health'},
+  {id:'w05',label:'🍳 Breakfast — Halal & Clean',start:'07:30',end:'08:00',desc:'Healthy homemade breakfast · Sunnah eating',note:'Eat clean. Reduce sugar and junk. Follow Sunnah moderation.',details:['Homemade clean breakfast','Drink 2 glasses of water','No junk or processed food'],tag:'t-health'},
+  // ── P9 COLLEGE ──
+  {id:'w06',label:'🎓 College — Classes & Attendance',start:'08:00',end:'11:00',desc:'Attend classes · notes · be present mentally',note:'Attend every class. Phone away. Take proper notes.',details:['Attend all scheduled classes','Take notes for every lecture','Review previous class notes before entering','No phone during class'],tag:'t-college'},
+  // ── P1 ALLAH ──
+  {id:'w07',label:'📚 Tajweed Class',start:'11:00',end:'12:00',desc:'Tajweed — correct Quran recitation',note:'Learn and practice correct Quran recitation consistently.',details:['Review previous lesson','Complete new lesson','Practice recitation at home after class'],tag:'t-learn'},
+  // ── P5 SKILL DEV ──
+  {id:'w08',label:'⚡ Deep Work — AI Project / Python',start:'12:00',end:'13:30',desc:'AI Project execution · focused build work',note:'Phone airplane mode. Execution only. Build something real.',details:['AI project feature development','Write or improve Python code','Document what was built today','Ask Claude for unclear concepts only'],tag:'t-work'},
+  // ── P1 ALLAH ──
   {id:'w10',label:'🕌 Dhuhr Prayer',start:'13:30',end:'14:00',desc:'Dhuhr Prayer + Tasbih',note:'1. 4 types 33,33,34: SubhanAllah · Alhamdulillah · Allahu Akbar · La ilaha illa Allah\n2. 4 Sunnah\n3. 4 Fard\n4. 2 Sunnah\n5. 2 Nafil\n6. Ayatul Kursi',tag:'t-prayer'},
-  {id:'w11',label:'🍽 Lunch + Rest',start:'14:00',end:'14:30',note:'Healthy Meal 2',desc:'Healthy Meal 2',details:['Lunch Home Made'],tag:'t-health'},
-  {id:'w12',label:'📖 Book Reading — MASTER Method',start:'14:30',end:'15:30',note:'Mastering Communication · Mark → Notes → Summarize → Takeaways',tag:'t-learn'},
-  {id:'w13',label:'⚡ Deep Work Block 3 — Business Networking',start:'15:30',end:'17:00',note:'Business networking only · local society/business people · online outreach · meetings/calls',desc:'Networking for business growth — local people, society meetings, online outreach, calls',details:['Research 1 useful local/business contact','Send or prepare 1 business outreach message','Plan or follow up one meeting/call'],tag:'t-work'},
+  // ── P2 HEALTH ──
+  {id:'w11',label:'🍽 Lunch + Rest',start:'14:00',end:'14:30',desc:'Healthy halal lunch · short rest',note:'Eat clean. Moderate portions. Rest briefly.',details:['Homemade lunch only','Drink water','Rest 15 min — no screen'],tag:'t-health'},
+  // ── P9 COLLEGE ──
+  {id:'w12',label:'🎓 College — Study / Assignments',start:'14:30',end:'15:30',desc:'Daily study · notes review · assignments',note:'Review today\'s class. Start assignments 2 days before deadline.',details:['Review class notes from today','Work on any pending assignment','Study 1 subject deeply — CS / Math / Physics','Prepare questions for next class'],tag:'t-college'},
+  // ── P3 MINDSET ──
+  {id:'w13',label:'📚 Book Reading — MASTER Method',start:'15:30',end:'16:30',desc:'Read assigned book · MASTER method',note:'Mark → Add Notes → Summarize → Teach → Experiment → Review',details:['Read focused 45 min — no interruptions','Write 3 key lessons in journal','Summarize chapter in own words','Identify 1 action to apply today'],tag:'t-learn'},
+  // ── P6 NETWORKING ──
+  {id:'w13a',label:'🤝 Networking / Islamic Visit',start:'16:30',end:'17:00',desc:'Islamic or business networking · 3×/month minimum',note:'Connect with Islamic people, mentors, or business contacts. Never approach empty.',details:['Attend Islamic event OR reach out to 1 mentor/contact','If no event: send 1 meaningful message or follow-up','Log interaction: Who · What discussed · Next step'],tag:'t-mosque'},
+  // ── P1 ALLAH ──
   {id:'w14',label:'🕌 Asr Prayer',start:'17:00',end:'17:15',desc:'Asr Prayer + Tasbih',note:'1. 4 types 33,33,34: SubhanAllah · Alhamdulillah · Allahu Akbar · La ilaha illa Allah\n2. 4 Sunnah\n3. 4 Fard\n4. Ayatul Kursi',tag:'t-prayer'},
-  {id:'w15',label:'💫 Daily Telepathy Practice',start:'17:15',end:'18:15',note:'Phase 1: Breathing × 10–12',desc:'Phase 1: Breathing × 10–12',details:['5 Min Breathing 12 Times'],tag:'t-telep'},
+  // ── P1 ALLAH / P4 HEART ──
+  {id:'w15',label:'📿 Tasbih + Dhikr + Seerah',start:'17:15',end:'18:00',desc:'Daily dhikr · Seerah study',note:'Daily remembrance of Allah. Study the life of Prophet ﷺ.',details:['Complete daily Tasbih target (4×300)','Read 10–15 min of Seerah — Ar-Raheeq Al-Makhtum','Reflect: What did the Prophet ﷺ do in this situation?'],tag:'t-prayer'},
+  // ── P1 ALLAH ──
   {id:'w16',label:'🕌 Maghrib Prayer + Tasbih',start:'18:30',end:'19:00',desc:'Maghrib Prayer + Tasbih',note:'1. 4 types 33,33,34: SubhanAllah · Alhamdulillah · Allahu Akbar · La ilaha illa Allah\n2. 3 Fard\n3. 2 Sunnah\n4. 2 Nafil\n5. Ayatul Kursi',tag:'t-prayer'},
-  {id:'w17',label:'🍽 Dinner',start:'19:00',end:'19:30',note:'Healthy Food',desc:'Healthy Food',details:['Homemade Food'],tag:'t-health'},
+  // ── P8 FAMILY ──
+  {id:'w17',label:'👨‍👩‍👧 Family Time + Dinner',start:'19:00',end:'19:30',desc:'Family duty · dinner together',note:'Respect over mood. Be present. No phone at dinner.',details:['Eat dinner with family — no phone','Speak respectfully to parents and siblings','Help with one household responsibility','Ask parents if they need anything'],tag:'t-family'},
+  // ── P1 ALLAH ──
   {id:'w18',label:'🕌 Isha Prayer',start:'19:30',end:'20:00',desc:'Isha Prayer + Tasbih',note:'1. 4 types 33,33,34: SubhanAllah · Alhamdulillah · Allahu Akbar · La ilaha illa Allah\n2. 4 Sunnah\n3. 4 Fard\n4. 2 Sunnah\n5. 2 Nafil\n6. 3 Witr\n7. 2 Nafil\n8. Ayatul Kursi',tag:'t-prayer'},
-  {id:'w19',label:'📔 Reflection + Journaling',start:'20:00',end:'20:30',note:'Review MASTER notes · What did I do? What did I miss? Gratitude',tag:'t-learn'},
-  {id:'w20',label:'🎥 YouTube — Lectures & Learning',start:'20:30',end:'21:30',note:'Islamic lectures · AI/skill tutorials · No entertainment · No random browsing',tag:'t-media'},
-  {id:'w21',label:'🛡 Wind Down + App Review',start:'21:30',end:'21:30',note:'StayFree check · Log water + steps · Plan tomorrow',tag:'t-sleep'},
-  {id:'w22',label:'😴 Sleep',start:'21:30',end:'04:30',note:'Phone away · No screens · 7 hours',tag:'t-sleep'},
+  // ── P1 ALLAH ──
+  {id:'w18a',label:'🎥 Islamic Lecture',start:'20:00',end:'20:45',desc:'Islamic lecture · iman boost · Quran/Sunnah understanding',note:'Watch lecture that strengthens iman, knowledge, manners, or discipline. No entertainment.',details:['Watch 1 Islamic lecture (Nouman Ali Khan / Mufti Menk / similar)','Write 1 key point from the lecture','Apply or share one lesson'],tag:'t-learn'},
+  // ── P3 MINDSET / P4 HEART ──
+  {id:'w19',label:'📔 Daily Reflection + Journaling',start:'20:45',end:'21:15',desc:'Mindset · Heart · Review day',note:'What did I learn? What did I miss? What will I improve?',details:['Write what went well today','Write 1 mistake and how to fix it','Rate today: Allah / Health / Skill / College','Set top 3 priorities for tomorrow'],tag:'t-learn'},
+  // ── P7 ENVIRONMENT ──
+  {id:'w21',label:'🛡 Digital Health + Wind Down',start:'21:15',end:'21:30',desc:'App review · screen time check · prepare for sleep',note:'Limit unnecessary screen time. Control dopamine.',details:['Check StayFree screen time report','Log water count for the day','Turn off all notifications','Prepare clothes/bag for tomorrow'],tag:'t-sleep'},
+  // ── P2 HEALTH ──
+  {id:'w22',label:'😴 Sleep',start:'21:30',end:'04:30',desc:'7+ hours proper sleep · no phone',note:'Phone away. No screens. Align with natural rhythm.',tag:'t-sleep'},
 ];
 
 const WEEKEND_TASKS = [
-  {id:'s01',label:'🌙 Wake Up',start:'04:30',end:'05:30',note:'Niyyah · Freshen up · Wudu',desc:'Niyyah · Freshen up · Wudu',details:['Wake up','1 Glass of Water','Do Wudu'],tag:'t-health'},
+  // ── P2 HEALTH ──
+  {id:'s01',label:'🌙 Wake Up + Wudu',start:'04:30',end:'05:30',desc:'Wake · Niyyah · Water · Wudu',note:'Weekend — start with intention just like weekdays.',details:['Wake up — no snoozing','Drink 1 full glass of water','Make Wudu','Set weekend niyyah: Research Day'],tag:'t-health'},
+  // ── P1 ALLAH ──
   {id:'s02',label:'🕌 Fajr Prayer + Tasbih',start:'05:30',end:'06:00',desc:'Fajr Prayer + Tasbih',note:'1. 4 types 33,33,34: SubhanAllah · Alhamdulillah · Allahu Akbar · La ilaha illa Allah\n2. 2 Fard\n3. 2 Sunnah\n4. Ayatul Kursi',tag:'t-prayer'},
-  {id:'s03',label:'📖 Quran Reading',start:'06:00',end:'06:45',note:'10 Ayats · Focus on ayats related to research',tag:'t-learn'},
-  {id:'s04',label:'🌿 Barefoot Walk + Sunlight',start:'06:45',end:'07:30',note:'30 min Sunlight Walk',desc:'30 min Sunlight Walk',details:['3500 Steps','30 Min Walk'],tag:'t-telep'},
-  {id:'s05',label:'🍳 Breakfast — Brain Food Only',start:'07:30',end:'08:00',note:'Health Food Only',desc:'Health Food Only',details:['Breakfast Home Made'],tag:'t-health'},
-  {id:'s06',label:'🔬 Teleportation Research — Quran',start:'08:00',end:'10:00',note:'Research Quranic ayats related to movement, time, unseen forces, ruh, noor, and signs connected to teleportation',tag:'t-research'},
-  {id:'s07',label:'🔬 Teleportation Research — Science Link',start:'10:00',end:'12:00',note:'Connect Quranic notes with scientific ideas, consciousness, energy, and movement — no other work on weekends',tag:'t-research'},
-  {id:'s08',label:'☕ Break + Snack + Water',start:'12:00',end:'13:30',note:'Healthy Meal 2',desc:'Healthy Meal 2',details:['Lunch Home Made'],tag:'t-health'},
+  {id:'s03',label:'📖 Quran — 10 Ayats + Tafsir',start:'06:00',end:'06:50',desc:'Read 10 Ayats · Urdu translation · Tafsir notes',note:'Ayats related to research themes. Reflect and apply.',details:['Read 10 Ayats with translation','Find ayats related to today\'s research focus','Write 1 key lesson'],tag:'t-learn'},
+  // ── P2 HEALTH ──
+  {id:'s04',label:'🌿 Barefoot Walk + Sunlight',start:'06:50',end:'07:30',desc:'30 min walk · morning sunlight',note:'Strong body = clear mind = better research',details:['3500+ steps','Get morning sunlight','Barefoot on grass if possible'],tag:'t-health'},
+  {id:'s05',label:'🍳 Breakfast — Halal & Clean',start:'07:30',end:'08:00',desc:'Healthy homemade breakfast',note:'No junk. Eat clean.',details:['Homemade breakfast only','Drink 2 glasses of water'],tag:'t-health'},
+  // ── SPECIAL RESEARCH TRACK ──
+  {id:'s06',label:'🔬 Research Block 1 — Quran Study',start:'08:00',end:'10:00',desc:'Teleportation research — Quran angle',note:'Research Quranic ayats related to movement, time, unseen forces, ruh, noor, and signs. Mentor: Ahmad Rafiq Akhtar',details:['Open study notes from last session','Study assigned Quranic topics','Write key findings','List questions for mentor'],tag:'t-research'},
+  // ── P9 COLLEGE ──
+  {id:'s06a',label:'🎓 College — Weekend Study & Assignments',start:'10:00',end:'12:00',desc:'College assignments · exam prep · revision',note:'Use weekends for heavier college study. No procrastination.',details:['Complete any pending assignment','Revise weakest subject from this week','Past paper practice for upcoming exam','Prepare for Monday classes'],tag:'t-college'},
+  // ── P2 HEALTH ──
+  {id:'s08',label:'☕ Lunch + Break',start:'12:00',end:'13:30',desc:'Healthy lunch · short rest',note:'Rest properly. Screen-free.',details:['Homemade healthy lunch','Drink water','Rest 30 min — no phone'],tag:'t-health'},
+  // ── P1 ALLAH ──
   {id:'s09',label:'🕌 Dhuhr Prayer',start:'13:30',end:'14:00',desc:'Dhuhr Prayer + Tasbih',note:'1. 4 types 33,33,34: SubhanAllah · Alhamdulillah · Allahu Akbar · La ilaha illa Allah\n2. 4 Sunnah\n3. 4 Fard\n4. 2 Sunnah\n5. 2 Nafil\n6. Ayatul Kursi',tag:'t-prayer'},
-  {id:'s10',label:'🔬 Teleportation Research — Deep Synthesis',start:'14:00',end:'17:00',note:'Write findings for teleportation-through-Quran research · Summarize ayats, links, patterns, and questions',tag:'t-research'},
+  // ── P5 SKILL DEV ──
+  {id:'s10',label:'⚡ Deep Work — Skills & AI Project',start:'14:00',end:'17:00',desc:'AI Project · Python · Skills — weekend deep session',note:'Longer focus block on weekends. Build something real.',details:['AI project development — major feature or milestone','Python practice or Digital Marketing task','Review week\'s skill progress','Plan next week\'s skill goal'],tag:'t-work'},
+  // ── P1 ALLAH ──
   {id:'s11',label:'🕌 Asr Prayer',start:'17:00',end:'17:15',desc:'Asr Prayer + Tasbih',note:'1. 4 types 33,33,34: SubhanAllah · Alhamdulillah · Allahu Akbar · La ilaha illa Allah\n2. 4 Sunnah\n3. 4 Fard\n4. Ayatul Kursi',tag:'t-prayer'},
-  {id:'s12',label:'💫 Telepathy Practice Session',start:'17:15',end:'18:15',note:'Phase 1: Breathing × 10–12',desc:'Phase 1: Breathing × 10–12',details:['5 Min Breathing 12 Times'],tag:'t-telep'},
+  // ── P8 FAMILY ──
+  {id:'s11a',label:'👨‍👩‍👧 Quality Family Time',start:'17:15',end:'18:30',desc:'Dedicated family time · weekend duty',note:'No phone. Be present. Respect and care.',details:['Spend time with parents — talk, help, listen','Complete one household responsibility','Ask family: is there anything I can do?'],tag:'t-family'},
+  // ── P1 ALLAH ──
   {id:'s13',label:'🕌 Maghrib Prayer + Tasbih',start:'18:30',end:'19:00',desc:'Maghrib Prayer + Tasbih',note:'1. 4 types 33,33,34: SubhanAllah · Alhamdulillah · Allahu Akbar · La ilaha illa Allah\n2. 3 Fard\n3. 2 Sunnah\n4. 2 Nafil\n5. Ayatul Kursi',tag:'t-prayer'},
-  {id:'s14',label:'🍽 Dinner',start:'19:00',end:'19:30',note:'Healthy Food',desc:'Healthy Food',details:['Homemade Food'],tag:'t-health'},
+  // ── P2 HEALTH ──
+  {id:'s14',label:'🍽 Dinner + Family',start:'19:00',end:'19:30',desc:'Dinner with family · Sunnah eating',note:'Eat together. No phone. Be present.',details:['Homemade dinner','Eat with family','No screen at dinner table'],tag:'t-health'},
+  // ── P1 ALLAH ──
   {id:'s15',label:'🕌 Isha Prayer',start:'19:30',end:'20:00',desc:'Isha Prayer + Tasbih',note:'1. 4 types 33,33,34: SubhanAllah · Alhamdulillah · Allahu Akbar · La ilaha illa Allah\n2. 4 Sunnah\n3. 4 Fard\n4. 2 Sunnah\n5. 2 Nafil\n6. 3 Witr\n7. 2 Nafil\n8. Ayatul Kursi',tag:'t-prayer'},
-  {id:'s16',label:'📔 Teleportation Research Journal',start:'20:00',end:'21:00',note:'Document discoveries, Quran references, science links, and telepathy experiences from today',tag:'t-research'},
-  {id:'s17',label:'😴 Sleep',start:'21:30',end:'04:30',note:'Phone away · Rest deeply — research needs a rested mind',tag:'t-sleep'},
+  // ── P1 ALLAH ──
+  {id:'s16',label:'🎥 Seerah + Islamic Lecture',start:'20:00',end:'21:00',desc:'Seerah — Ar-Raheeq Al-Makhtum · or Islamic Lecture',note:'Study life of Prophet ﷺ. Take MASTER notes.',details:['Watch 1 Seerah video (29-video playlist)','OR watch 1 Islamic lecture','Write 2 key points in Seerah journal'],tag:'t-learn'},
+  // ── P3 MINDSET / P7 ENVIRONMENT ──
+  {id:'s16a',label:'📔 Weekly Review + Journaling',start:'21:00',end:'21:30',desc:'Week review · Mindset · Environment check',note:'What worked? What failed? What changes next week?',details:['Rate this week 1–10 for each priority','Write top 3 wins and top 3 failures','Plan next week: top 3 goals','StayFree review + digital health check'],tag:'t-sleep'},
+  // ── P2 HEALTH ──
+  {id:'s17',label:'😴 Sleep',start:'21:30',end:'04:30',desc:'7+ hours sleep · phone away',note:'Research needs a rested mind.',tag:'t-sleep'},
 ];
 
 // ── STATE ──
@@ -2610,8 +3869,8 @@ function getPKTTodayDate(){
 }
 function isWeekend(d){ const day=d.getDay(); return day===6||day===0; }
 function dayNum(d){
-  // Apr 20 2026 = Day 1, Apr 21 = Day 2, etc.
-  const s=new Date('2026-04-20'); s.setHours(0,0,0,0);
+  // May 8 2026 = Day 1, May 9 = Day 2, etc.
+  const s=new Date('2026-05-08'); s.setHours(0,0,0,0);
   const t=new Date(d); t.setHours(0,0,0,0);
   return Math.max(1, Math.floor((t-s)/86400000)+1);
 }
@@ -2624,7 +3883,7 @@ function getPhase(d){
 }
 
 // ── STORAGE ──
-const STORAGE_PREFIX='faith90_restart_2026_04_20_';
+const STORAGE_PREFIX='faith90_restart_2026_05_08_';
 const LEGACY_PURGE_FLAG=STORAGE_PREFIX+'legacy_purged';
 
 function prefixedKey(key){ return STORAGE_PREFIX+key; }
@@ -2713,7 +3972,7 @@ function getHygieneTaskForDay(d){
   return {id:'hygiene_daily',label:'🧼 Hygiene Routine',start:'07:25',end:'07:35',desc:'Brush, face wash, clean clothes, perfume, hair, and overall cleanliness',note:'Brush teeth · Wash face · Clean clothes · Perfume · Hair care · Overall cleanliness',details:HYGIENE_DAILY_DETAILS,tag:'t-health'};
 }
 function getAllHygieneTasks(){
-  const base=new Date('2026-04-20');
+  const base=new Date('2026-05-08');
   return [0,1,2,3,4,5,6].map(add=>{const d=new Date(base); d.setDate(base.getDate()+add); return getHygieneTaskForDay(d);});
 }
 
@@ -4455,13 +5714,15 @@ function addTask(){
 // ══════════════════════════════════════════════════════
 function renderPriorities(){
   const priorities=[
-    {num:'1',title:'Allah — الله',sub:'5 Prayers · Quran 10 Ayats/day · Tasbih 4×300 · Tajweed · Apply 10 Ayats/week',icon:'🕌'},
-    {num:'2',title:'Health — الصحة',sub:'Barefoot walk · Sunlight · 8–10 glasses water · Brain food · 7–8 hrs sleep',icon:'🌿'},
-    {num:'3',title:'Mindset — العقل',sub:'Books (MASTER) · Hope to Skill (Irfan Malik) · Seerah · Daily journal',icon:'📖'},
-    {num:'4',title:'Heart — القلب',sub:'Daily Telepathy 5:15 PM · Sat–Sun: Full Teleportation research (Quran + Science)',icon:'💫'},
-    {num:'5',title:'Networking — التواصل',sub:'Spiritual: Prof. Ahmad Rafiq Akhtar · Business: InnoVesta · Research first',icon:'🤝'},
-    {num:'6',title:'Skill Development — المهارة',sub:'$300 in 30 days (TOP FOCUS) → AI Project → Digital Marketing',icon:'⚡'},
-    {num:'7',title:'Environment — البيئة',sub:'StayFree · Islam 360 · Tasbih app · Water app · Pedometer · Alarmmy',icon:'🛡️'},
+    {num:'1',title:'Allah — الله',sub:'5 Prayers · Quran 10 Ayats/day · Tasbih 4×300 · Tajweed · Tafsir · Seerah · Islamic Lectures · Islamic Networking',icon:'🕌'},
+    {num:'2',title:'Health — الصحة',sub:'Barefoot walk · Sunlight · 8–10 glasses water · Clean eating · 7–8 hrs sleep · Digital Health',icon:'🌿'},
+    {num:'3',title:'Mindset — العقل',sub:'Books (MASTER) · Journaling · Thinking Discipline · Knowledge → Action Rule',icon:'📖'},
+    {num:'4',title:'Heart — القلب',sub:'Niyyah · Emotional Discipline · Nafs Control · Focus · Tazkiyah · Heart Journaling',icon:'💜'},
+    {num:'5',title:'Skill Development — المهارة',sub:'AI Project · 90-Day Skill Learning · Core Skills (Communication) · Business',icon:'⚡'},
+    {num:'6',title:'Networking — التواصل',sub:'Islamic: 3×/month · Mentorship: 1–2×/month · Business: 2–4×/month · Relationship System',icon:'🤝'},
+    {num:'7',title:'Environment — البيئة',sub:'Digital control (StayFree) · Physical space · Work setup · Trigger Control · Routine System',icon:'🛡️'},
+    {num:'8',title:'Family — الأسرة',sub:'Parents & siblings · Future family prep · Relationship quality · No neglect rule',icon:'👨‍👩‍👧'},
+    {num:'9',title:'College — ICS Degree',sub:'All subjects · Daily attendance · Study system · Assignments · Exam prep · CS Practicals · Grade tracking',icon:'🎓'},
   ];
   const list=document.getElementById('priorityList');
   list.innerHTML='';
@@ -4563,6 +5824,954 @@ function renderPriorities(){
       </div>
     `).join('');
   }
+
+  // Render analytics dashboard
+  renderPriorityAnalytics();
+}
+
+// ══════════════════════════════════════════════════════
+//  PRIORITY ANALYTICS DASHBOARD
+// ══════════════════════════════════════════════════════
+function renderPriorityAnalytics(){
+  const el=document.getElementById('priorityAnalyticsDash');
+  if(!el) return;
+
+  const PMAP=[
+    {num:1,name:'Allah',arabic:'الله',icon:'🕌',color:'var(--gold)',rgb:'212,168,67',
+     tags:['t-prayer','t-friday'],keys:['quran','tasbih','tajweed','fajr','dhuhr','asr','maghrib','isha','jumu','seerah','tafsir']},
+    {num:2,name:'Health',arabic:'الصحة',icon:'🌿',color:'var(--green)',rgb:'46,204,113',
+     tags:['t-health'],keys:['walk','water','sunlight','sleep','breakfast','lunch','dinner','hygiene','barefoot']},
+    {num:3,name:'Mindset',arabic:'العقل',icon:'📖',color:'var(--cyan)',rgb:'56,189,248',
+     tags:['t-learn'],keys:['book','reading','journal','reflection','master','irfan']},
+    {num:4,name:'Heart',arabic:'القلب',icon:'💜',color:'#A78BFA',rgb:'139,92,246',
+     tags:['t-telep'],keys:['telepathy','wind down','emotional','niyyah','dhikr']},
+    {num:5,name:'Skill Dev',arabic:'المهارة',icon:'⚡',color:'var(--orange)',rgb:'245,158,11',
+     tags:['t-work'],keys:['deep work','ai project','python','marketing','skill']},
+    {num:6,name:'Networking',arabic:'التواصل',icon:'🤝',color:'var(--teal)',rgb:'61,220,151',
+     tags:['t-mosque'],keys:['networking','innovesta','ahmad rafiq','mosque project']},
+    {num:7,name:'Environment',arabic:'البيئة',icon:'🛡️',color:'var(--red)',rgb:'229,83,83',
+     tags:[],keys:['wind down','stayfree','app review','screen']},
+    {num:8,name:'Family',arabic:'الأسرة',icon:'👨‍👩‍👧',color:'#FCD34D',rgb:'252,211,77',
+     tags:['t-family'],keys:['family','parent','sibling']},
+    {num:9,name:'College',arabic:'ICS',icon:'🎓',color:'#818CF8',rgb:'129,140,248',
+     tags:['t-college'],keys:['college','class','lecture','assignment','exam','physics','math','computer','english','islamiat','pak studies']},
+  ];
+
+  // Build stats over all tracked days
+  const today=new Date(); today.setHours(0,0,0,0);
+  const dayN=dayNum(today);
+  const totalDays=Math.min(Math.max(dayN,1),90);
+
+  const stats={};
+  PMAP.forEach(p=>{ stats[p.num]={done:0,missed:0,streak:0,bestStreak:0,_run:0}; });
+
+  // Iterate from day 1 up to today
+  for(let i=0;i<totalDays;i++){
+    const d=new Date(today);
+    d.setDate(d.getDate()-i);
+    const dayState=getDayState(d);
+    const tasks=getTasksForDay(d);
+
+    const dayDone={}, dayAny={};
+    PMAP.forEach(p=>{ dayDone[p.num]=0; dayAny[p.num]=0; });
+
+    tasks.forEach(task=>{
+      const status=dayState.statuses[task.id];
+      if(!status||status==='pending') return;
+      const lbl=(task.label||'').toLowerCase();
+      PMAP.forEach(p=>{
+        const hit=p.tags.includes(task.tag)||p.keys.some(k=>lbl.includes(k));
+        if(!hit) return;
+        dayAny[p.num]++;
+        if(status==='done'){ stats[p.num].done++; dayDone[p.num]++; }
+        if(status==='missed') stats[p.num].missed++;
+      });
+    });
+
+    // Streak (counting from today backwards)
+    PMAP.forEach(p=>{
+      if(i===0){
+        // today — just initialise run
+        stats[p.num]._run = (dayDone[p.num]>0 && stats[p.num].missed===0) ? 1 : 0;
+      } else {
+        if(dayDone[p.num]>0){
+          stats[p.num]._run++;
+          if(stats[p.num]._run>stats[p.num].bestStreak) stats[p.num].bestStreak=stats[p.num]._run;
+        } else if(dayAny[p.num]>0){
+          stats[p.num]._run=0;
+        }
+      }
+    });
+  }
+  PMAP.forEach(p=>{ stats[p.num].streak=stats[p.num]._run; });
+
+  // Totals
+  let tDone=0,tMiss=0;
+  PMAP.forEach(p=>{ tDone+=stats[p.num].done; tMiss+=stats[p.num].missed; });
+  const tTotal=tDone+tMiss;
+  const overallRate=tTotal>0?Math.round((tDone/tTotal)*100):0;
+
+  const badge=(rate)=>{
+    if(rate===null) return {lbl:'No Data',c:'var(--muted)'};
+    if(rate>=85) return {lbl:'Excellent',c:'var(--green)'};
+    if(rate>=70) return {lbl:'Good',c:'var(--teal)'};
+    if(rate>=50) return {lbl:'Needs Work',c:'var(--orange)'};
+    return {lbl:'Critical',c:'var(--red)'};
+  };
+
+  const grid=PMAP.map(p=>{
+    const s=stats[p.num];
+    const tracked=s.done+s.missed;
+    const rate=tracked>0?Math.round((s.done/tracked)*100):null;
+    const bd=badge(rate);
+    return `
+      <div style="background:rgba(${p.rgb},.06);border:1px solid rgba(${p.rgb},.22);border-radius:12px;padding:13px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;gap:4px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:7px;">
+            <span style="font-size:17px;">${p.icon}</span>
+            <div>
+              <div style="font-size:11px;font-weight:800;color:${p.color};font-family:'JetBrains Mono',monospace;letter-spacing:.5px;">P${p.num}</div>
+              <div style="font-size:11px;color:var(--muted2);font-weight:600;">${p.name}</div>
+            </div>
+          </div>
+          <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:2px 7px;border-radius:6px;background:rgba(${p.rgb},.14);color:${bd.c};white-space:nowrap;">${bd.lbl}</span>
+        </div>
+        <div style="height:5px;background:rgba(255,255,255,.06);border-radius:4px;margin-bottom:8px;overflow:hidden;">
+          <div style="height:100%;width:${rate||0}%;background:${p.color};border-radius:4px;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;font-family:'JetBrains Mono',monospace;margin-bottom:${s.streak>0?'5px':'0'};">
+          <span style="color:var(--green);">✓ ${s.done}</span>
+          <span style="color:${rate!==null?p.color:'var(--muted)'}; font-weight:700;">${rate!==null?rate+'%':'—'}</span>
+          <span style="color:var(--red);">✗ ${s.missed}</span>
+        </div>
+        ${s.streak>0?`<div style="font-size:9px;color:var(--gold);font-family:'JetBrains Mono',monospace;">🔥 ${s.streak}d streak · best ${s.bestStreak}d</div>`:''}
+      </div>`;
+  }).join('');
+
+  // KPI row
+  const kpi=(val,label,color,bg,border)=>`
+    <div style="background:${bg};border:1px solid ${border};border-radius:10px;padding:13px;text-align:center;">
+      <div style="font-size:24px;font-weight:800;color:${color};font-family:'Cinzel',serif;line-height:1;">${val}</div>
+      <div style="font-size:9px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:4px;letter-spacing:.5px;">${label}</div>
+    </div>`;
+
+  const rateColor=overallRate>=75?'var(--green)':overallRate>=50?'var(--orange)':'var(--red)';
+
+  el.innerHTML=`
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px;">
+      ${kpi(dayN+'/90','Day Progress','var(--gold)','rgba(212,168,67,.06)','rgba(212,168,67,.2)')}
+      ${kpi(tDone,'Total Done','var(--green)','rgba(46,204,113,.07)','rgba(46,204,113,.2)')}
+      ${kpi(tMiss,'Total Missed','var(--red)','rgba(229,83,83,.07)','rgba(229,83,83,.2)')}
+      ${kpi(overallRate+'%','Overall Rate',rateColor,'rgba(255,255,255,.03)','rgba(255,255,255,.08)')}
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px;">
+      ${grid}
+    </div>
+    <div style="margin-top:14px;font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;text-align:right;">
+      Last updated: ${new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})} · Based on ${totalDays} day(s) of data
+    </div>`;
+}
+
+// ══════════════════════════════════════════════════════
+//  BOOK & YOUTUBE LIBRARY SYSTEM
+// ══════════════════════════════════════════════════════
+
+/* ── Storage helpers ── */
+const LIB_BOOKS_KEY   = 'lib_books_v1';
+const LIB_BOOK_CATS_KEY = 'lib_book_cats_v1';
+const LIB_YT_KEY      = 'lib_yt_v1';
+const LIB_MOSQUE_KEY  = 'lib_mosque_videos_v1';
+
+function libGetBooks(){ return load(LIB_BOOKS_KEY)||[]; }
+function libSaveBooks(arr){ save(LIB_BOOKS_KEY,arr); }
+function libGetBookCats(){
+  const saved=load(LIB_BOOK_CATS_KEY);
+  return saved||['Islamic','Self-Development','Business/Money','History & Seerah','Skills','Psychology','AI & Tech'];
+}
+function libSaveBookCats(arr){ save(LIB_BOOK_CATS_KEY,arr); }
+function libGetYT(){
+  const saved=load(LIB_YT_KEY);
+  if(saved) return saved;
+  const cats=['Islamic Category','History Category','Skills','Global News','Book Summaries','Psychology','Podcast','Tech','Islamic Videos','Pakistan Education'];
+  const obj={};
+  cats.forEach(c=>{ obj[c]=[]; });
+  return obj;
+}
+function libSaveYT(obj){ save(LIB_YT_KEY,obj); }
+function libGetMosque(){ return load(LIB_MOSQUE_KEY)||[]; }
+function libSaveMosque(arr){ save(LIB_MOSQUE_KEY,arr); }
+
+/* ── State ── */
+let libActiveCat='all';
+let libCurrentBookId=null;
+let libCurrentTab='books';
+
+/* ── Tab switching ── */
+function libSwitchTab(tab){
+  libCurrentTab=tab;
+  document.getElementById('lib-section-books').style.display=tab==='books'?'':'none';
+  document.getElementById('lib-section-youtube').style.display=tab==='youtube'?'':'none';
+  document.getElementById('lstab-books').classList.toggle('active',tab==='books');
+  document.getElementById('lstab-youtube').classList.toggle('active',tab==='youtube');
+  if(tab==='books') libRenderBooks();
+  if(tab==='youtube') libRenderYoutube();
+}
+
+/* ── Main render ── */
+function renderLibrary(){
+  if(libCurrentTab==='books') libRenderBooks();
+  else libRenderYoutube();
+}
+
+/* ════════════════════════════
+   BOOK LIBRARY
+════════════════════════════ */
+function libRenderBooks(){
+  const cats=libGetBookCats();
+  const books=libGetBooks();
+
+  /* Category filter pills */
+  const filterEl=document.getElementById('lib-book-catfilter');
+  if(filterEl){
+    const all=[{id:'all',label:'All ('+books.length+')'},...cats.map(c=>({id:c,label:c+' ('+books.filter(b=>b.category===c).length+')'}))];
+    filterEl.innerHTML=all.map(c=>`
+      <button class="lib-cat-pill${libActiveCat===c.id?' active':''}" onclick="libSetCat('${c.id.replace(/'/g,"\\'")}')">
+        ${c.label}
+      </button>
+    `).join('');
+    /* Add remove-category button for non-all */
+    if(libActiveCat!=='all' && cats.includes(libActiveCat)){
+      filterEl.innerHTML+=`<button onclick="libDeleteBookCategory('${libActiveCat.replace(/'/g,"\\'")}',this)" class="lib-cat-pill" style="color:var(--red);border-color:rgba(229,83,83,.3);padding:5px 10px;" title="Delete category">✕</button>`;
+    }
+  }
+
+  /* Book grid */
+  const filtered=libActiveCat==='all'?books:books.filter(b=>b.category===libActiveCat);
+  const grid=document.getElementById('lib-book-grid');
+  const empty=document.getElementById('lib-book-empty');
+  if(!grid) return;
+
+  if(filtered.length===0){
+    grid.innerHTML='';
+    if(empty) empty.style.display='block';
+    return;
+  }
+  if(empty) empty.style.display='none';
+
+  const statusMap={
+    'not-started':{label:'Not Started',cls:'status-not-started'},
+    'reading':     {label:'Reading',    cls:'status-reading'},
+    'completed':   {label:'Completed',  cls:'status-completed'},
+  };
+  const colorForCat=(cat)=>{
+    const h={
+      'Islamic':'var(--gold)','Self-Development':'var(--cyan)',
+      'Business/Money':'var(--orange)','History & Seerah':'#A78BFA',
+      'Skills':'var(--green)','Psychology':'#F472B6',
+      'AI & Tech':'var(--teal)','Book Summaries':'var(--red)',
+    };
+    return h[cat]||'var(--muted2)';
+  };
+
+  grid.innerHTML=filtered.map(b=>{
+    const pct=b.totalPages&&b.totalPages>0?Math.min(100,Math.round((b.pagesRead||0)/b.totalPages*100)):0;
+    const st=statusMap[b.status||'not-started'];
+    const catColor=colorForCat(b.category);
+    const coverHtml=b.cover
+      ?`<div class="book-cover"><img src="${b.cover}" alt="cover" onerror="this.parentElement.innerHTML='📚'"></div>`
+      :`<div class="book-cover" style="font-size:52px;">📚</div>`;
+    return `
+      <div class="book-card">
+        ${coverHtml}
+        <div class="book-info">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px;">
+            <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:2px 7px;border-radius:5px;background:rgba(255,255,255,.06);color:${catColor};">${b.category||'—'}</span>
+            <span class="status-badge ${st.cls}">${st.label}</span>
+          </div>
+          <div class="book-title-text">${b.title}</div>
+          <div class="book-author">by ${b.author||'Unknown'}</div>
+          <div style="margin-top:6px;">
+            <div style="display:flex;justify-content:space-between;font-size:10px;font-family:'JetBrains Mono',monospace;margin-bottom:3px;">
+              <span style="color:var(--muted);">${b.pagesRead||0} / ${b.totalPages||'?'} pages</span>
+              <span style="color:${catColor};font-weight:700;">${pct}%</span>
+            </div>
+            <div class="book-prog-bar"><div class="book-prog-fill" style="width:${pct}%;background:${catColor};"></div></div>
+          </div>
+          ${b.notes?`<div style="font-size:11px;color:var(--muted);font-style:italic;margin-top:5px;line-height:1.5;overflow:hidden;max-height:48px;">${b.notes}</div>`:''}
+          <div class="book-actions">
+            <button class="book-btn" onclick="libEditBook('${b.id}')">✏️ Edit</button>
+            <button class="book-btn" onclick="libUpdateProgress('${b.id}')">📄 Progress</button>
+            <button class="book-btn danger" onclick="libDeleteBook('${b.id}')">🗑</button>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function libSetCat(cat){
+  libActiveCat=cat;
+  libRenderBooks();
+}
+
+function libDeleteBookCategory(cat,btn){
+  const books=libGetBooks().filter(b=>b.category===cat);
+  if(books.length>0){alert('Remove all books in "'+cat+'" before deleting this category.');return;}
+  if(!confirm('Delete category "'+cat+'"?')) return;
+  const cats=libGetBookCats().filter(c=>c!==cat);
+  libSaveBookCats(cats);
+  if(libActiveCat===cat) libActiveCat='all';
+  libRenderBooks();
+}
+
+/* Book Modal */
+function libOpenBookModal(id){
+  libCurrentBookId=id||null;
+  const cats=libGetBookCats();
+  const catSel=document.getElementById('lbCat');
+  catSel.innerHTML=cats.map(c=>`<option value="${c}">${c}</option>`).join('');
+  if(id){
+    const book=libGetBooks().find(b=>b.id===id);
+    if(!book) return;
+    document.getElementById('libBookModalTitle').textContent='✏️ Edit Book';
+    document.getElementById('lbTitle').value=book.title||'';
+    document.getElementById('lbAuthor').value=book.author||'';
+    catSel.value=book.category||cats[0];
+    document.getElementById('lbCover').value=book.cover||'';
+    document.getElementById('lbTotal').value=book.totalPages||'';
+    document.getElementById('lbRead').value=book.pagesRead||'';
+    document.getElementById('lbStatus').value=book.status||'not-started';
+    document.getElementById('lbNotes').value=book.notes||'';
+  } else {
+    document.getElementById('libBookModalTitle').textContent='📚 Add New Book';
+    ['lbTitle','lbAuthor','lbCover','lbNotes'].forEach(i=>document.getElementById(i).value='');
+    document.getElementById('lbTotal').value='';
+    document.getElementById('lbRead').value='';
+    document.getElementById('lbStatus').value='not-started';
+    catSel.value=libActiveCat!=='all'&&cats.includes(libActiveCat)?libActiveCat:cats[0];
+  }
+  document.getElementById('libBookModal').style.display='flex';
+}
+function libCloseBookModal(){ document.getElementById('libBookModal').style.display='none'; }
+function libEditBook(id){ libOpenBookModal(id); }
+
+function libSaveBook(){
+  const title=document.getElementById('lbTitle').value.trim();
+  const author=document.getElementById('lbAuthor').value.trim();
+  if(!title){alert('Please enter a book title.');return;}
+  const books=libGetBooks();
+  const book={
+    id:libCurrentBookId||(Date.now().toString(36)),
+    title,author,
+    category:document.getElementById('lbCat').value,
+    cover:document.getElementById('lbCover').value.trim(),
+    totalPages:parseInt(document.getElementById('lbTotal').value)||0,
+    pagesRead:parseInt(document.getElementById('lbRead').value)||0,
+    status:document.getElementById('lbStatus').value,
+    notes:document.getElementById('lbNotes').value.trim(),
+    dateAdded:libCurrentBookId?undefined:new Date().toISOString(),
+  };
+  if(libCurrentBookId){
+    const idx=books.findIndex(b=>b.id===libCurrentBookId);
+    if(idx>=0){book.dateAdded=books[idx].dateAdded;books[idx]=book;}
+  } else {
+    books.push(book);
+  }
+  libSaveBooks(books);
+  libCloseBookModal();
+  libRenderBooks();
+}
+
+function libDeleteBook(id){
+  if(!confirm('Delete this book?')) return;
+  libSaveBooks(libGetBooks().filter(b=>b.id!==id));
+  libRenderBooks();
+}
+
+function libUpdateProgress(id){
+  const book=libGetBooks().find(b=>b.id===id);
+  if(!book) return;
+  const val=prompt('Pages read for "'+book.title+'" (currently '+book.pagesRead+'/'+(book.totalPages||'?')+'):',''+book.pagesRead);
+  if(val===null) return;
+  const n=Math.max(0,parseInt(val)||0);
+  const books=libGetBooks();
+  const idx=books.findIndex(b=>b.id===id);
+  if(idx<0) return;
+  books[idx].pagesRead=n;
+  if(book.totalPages&&n>=book.totalPages) books[idx].status='completed';
+  else if(n>0) books[idx].status='reading';
+  libSaveBooks(books);
+  libRenderBooks();
+}
+
+function libPromptAddCategory(type){
+  const name=prompt(type==='book'?'New book category name:':'New YouTube category name:','');
+  if(!name||!name.trim()) return;
+  const n=name.trim();
+  if(type==='book'){
+    const cats=libGetBookCats();
+    if(cats.includes(n)){alert('Category already exists.');return;}
+    cats.push(n);
+    libSaveBookCats(cats);
+    libRenderBooks();
+  } else {
+    const yt=libGetYT();
+    if(yt[n]!==undefined){alert('Category already exists.');return;}
+    yt[n]=[];
+    libSaveYT(yt);
+    libRenderYoutube();
+  }
+}
+
+/* ════════════════════════════
+   YOUTUBE LIBRARY
+════════════════════════════ */
+function libRenderYoutube(){
+  const yt=libGetYT();
+  const container=document.getElementById('lib-yt-cats-container');
+  if(!container) return;
+
+  const catColors=['var(--gold)','var(--teal)','var(--orange)','var(--cyan)','var(--green)',
+                   '#A78BFA','#F472B6','var(--red)','rgba(212,168,67,.8)','#60A5FA'];
+  const cats=Object.keys(yt);
+
+  container.innerHTML=cats.map((cat,ci)=>{
+    const channels=yt[cat]||[];
+    const color=catColors[ci%catColors.length];
+    const chanRows=channels.map((ch,idx)=>`
+      <div class="yt-channel-row">
+        <div style="width:8px;height:8px;border-radius:50%;background:${color};flex-shrink:0;"></div>
+        <div style="flex:1;min-width:0;">
+          <div class="yt-channel-name">${ch.name}</div>
+          ${ch.note?`<div style="font-size:11px;color:var(--muted);font-style:italic;">${ch.note}</div>`:''}
+        </div>
+        ${ch.url?`<a href="${ch.url}" target="_blank" class="yt-channel-link">Open ↗</a>`:''}
+        <button onclick="libEditChannel('${cat.replace(/'/g,"\\'")}',${idx})" style="background:none;border:none;cursor:pointer;font-size:12px;color:var(--muted);padding:2px 6px;" title="Edit">✏️</button>
+        <button onclick="libDeleteChannel('${cat.replace(/'/g,"\\'")}',${idx})" style="background:none;border:none;cursor:pointer;font-size:12px;color:var(--red);padding:2px 6px;" title="Delete">✕</button>
+      </div>`).join('');
+
+    return `
+      <div class="yt-cat-card">
+        <div class="yt-cat-header" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'':'none'">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:10px;height:10px;border-radius:50%;background:${color};"></div>
+            <span class="yt-cat-title">${cat}</span>
+            <span class="yt-cat-count">${channels.length} channel${channels.length!==1?'s':''}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <button onclick="event.stopPropagation();libOpenChanModal('${cat.replace(/'/g,"\\'")}');" class="btn btn-ghost" style="font-size:10px;padding:4px 10px;">＋ Channel</button>
+            <button onclick="event.stopPropagation();libDeleteYTCategory('${cat.replace(/'/g,"\\'")}');" style="background:none;border:none;cursor:pointer;font-size:12px;color:var(--red);padding:2px 6px;" title="Delete category">🗑</button>
+            <span style="color:var(--muted);font-size:14px;">▾</span>
+          </div>
+        </div>
+        <div class="yt-cat-body" style="${channels.length===0?'display:none':''}">
+          ${chanRows||'<div style="font-size:12px;color:var(--muted);padding:10px 0;font-style:italic;">No channels yet. Click "+ Channel" to add.</div>'}
+        </div>
+      </div>`;
+  }).join('');
+
+  /* Mosque videos */
+  const mosqueList=document.getElementById('lib-mosque-videos-list');
+  if(mosqueList){
+    const vids=libGetMosque();
+    if(vids.length===0){
+      mosqueList.innerHTML='<div style="font-size:12px;color:var(--muted);font-style:italic;padding:8px 0;">No videos added yet.</div>';
+    } else {
+      mosqueList.innerHTML=vids.map((v,i)=>`
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="flex:1;min-width:0;">
+            <div style="font-size:13px;font-weight:600;color:#F5F9FF;">${v.title}</div>
+            ${v.note?`<div style="font-size:11px;color:var(--muted);font-style:italic;margin-top:2px;">${v.note}</div>`:''}
+            ${v.url?`<a href="${v.url}" target="_blank" style="font-size:10px;color:var(--gold);font-family:'JetBrains Mono',monospace;margin-top:3px;display:inline-block;">Open Video ↗</a>`:''}
+          </div>
+          <button onclick="libEditMosqueVideo(${i})" style="background:none;border:none;cursor:pointer;font-size:12px;color:var(--muted);" title="Edit">✏️</button>
+          <button onclick="libDeleteMosqueVideo(${i})" style="background:none;border:none;cursor:pointer;font-size:12px;color:var(--red);" title="Delete">✕</button>
+        </div>`).join('');
+    }
+  }
+}
+
+function libDeleteYTCategory(cat){
+  const yt=libGetYT();
+  if((yt[cat]||[]).length>0){
+    if(!confirm('Category "'+cat+'" has channels. Delete anyway?')) return;
+  } else {
+    if(!confirm('Delete category "'+cat+'"?')) return;
+  }
+  delete yt[cat];
+  libSaveYT(yt);
+  libRenderYoutube();
+}
+
+/* Channel Modal */
+function libOpenChanModal(cat,editIdx){
+  document.getElementById('libChanModalTitle').textContent=editIdx>=0?'✏️ Edit Channel':'📺 Add Channel — '+cat;
+  document.getElementById('lcCat').value=cat;
+  document.getElementById('lcEditIdx').value=editIdx>=0?editIdx:-1;
+  if(editIdx>=0){
+    const ch=(libGetYT()[cat]||[])[editIdx];
+    if(ch){
+      document.getElementById('lcName').value=ch.name||'';
+      document.getElementById('lcUrl').value=ch.url||'';
+      document.getElementById('lcNote').value=ch.note||'';
+    }
+  } else {
+    ['lcName','lcUrl','lcNote'].forEach(i=>document.getElementById(i).value='');
+  }
+  document.getElementById('libChanModal').style.display='flex';
+}
+function libCloseChanModal(){ document.getElementById('libChanModal').style.display='none'; }
+function libEditChannel(cat,idx){ libOpenChanModal(cat,idx); }
+
+function libSaveChannel(){
+  const name=document.getElementById('lcName').value.trim();
+  const url=document.getElementById('lcUrl').value.trim();
+  if(!name){alert('Channel name is required.');return;}
+  const cat=document.getElementById('lcCat').value;
+  const editIdx=parseInt(document.getElementById('lcEditIdx').value);
+  const note=document.getElementById('lcNote').value.trim();
+  const yt=libGetYT();
+  if(!yt[cat]) yt[cat]=[];
+  const ch={name,url,note};
+  if(editIdx>=0) yt[cat][editIdx]=ch;
+  else yt[cat].push(ch);
+  libSaveYT(yt);
+  libCloseChanModal();
+  libRenderYoutube();
+}
+
+function libDeleteChannel(cat,idx){
+  if(!confirm('Delete this channel?')) return;
+  const yt=libGetYT();
+  yt[cat].splice(idx,1);
+  libSaveYT(yt);
+  libRenderYoutube();
+}
+
+/* Mosque Videos */
+function libAddMosqueVideo(){ libOpenMosqueModal(); }
+function libEditMosqueVideo(idx){ libOpenMosqueModal(idx); }
+function libOpenMosqueModal(editIdx){
+  const i=editIdx>=0?editIdx:-1;
+  document.getElementById('mvEditIdx').value=i;
+  if(i>=0){
+    const v=libGetMosque()[i]||{};
+    document.getElementById('mvTitle').value=v.title||'';
+    document.getElementById('mvUrl').value=v.url||'';
+    document.getElementById('mvNote').value=v.note||'';
+  } else {
+    ['mvTitle','mvUrl','mvNote'].forEach(f=>document.getElementById(f).value='');
+  }
+  document.getElementById('libMosqueModal').style.display='flex';
+}
+function libSaveMosqueVideo(){
+  const title=document.getElementById('mvTitle').value.trim();
+  const url=document.getElementById('mvUrl').value.trim();
+  if(!title){alert('Video title is required.');return;}
+  const note=document.getElementById('mvNote').value.trim();
+  const editIdx=parseInt(document.getElementById('mvEditIdx').value);
+  const vids=libGetMosque();
+  const v={title,url,note};
+  if(editIdx>=0) vids[editIdx]=v;
+  else vids.push(v);
+  libSaveMosque(vids);
+  document.getElementById('libMosqueModal').style.display='none';
+  libRenderYoutube();
+}
+function libDeleteMosqueVideo(idx){
+  if(!confirm('Delete this video?')) return;
+  const vids=libGetMosque();
+  vids.splice(idx,1);
+  libSaveMosque(vids);
+  libRenderYoutube();
+}
+
+// ══════════════════════════════════════════════════════
+//  BOOK COVER UPLOAD HELPERS
+// ══════════════════════════════════════════════════════
+function libHandleCoverUpload(input){
+  const file=input.files[0];
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const b64=e.target.result;
+    document.getElementById('lbCover').value=b64;
+    const prev=document.getElementById('lbCoverPreview');
+    if(prev) prev.innerHTML=`<img src="${b64}" style="width:100%;height:100%;object-fit:cover;border-radius:5px;">`;
+  };
+  reader.readAsDataURL(file);
+}
+function libPreviewCoverUrl(url){
+  const prev=document.getElementById('lbCoverPreview');
+  if(!prev) return;
+  if(url&&url.length>4) prev.innerHTML=`<img src="${url}" style="width:100%;height:100%;object-fit:cover;border-radius:5px;" onerror="this.parentElement.innerHTML='📚'">`;
+  else prev.innerHTML='📚';
+}
+// Patch libOpenBookModal to set cover preview
+const _origLibOpenBookModal=window.libOpenBookModal;
+window.libOpenBookModal=function(id){
+  _origLibOpenBookModal&&_origLibOpenBookModal(id);
+  setTimeout(()=>{
+    const prev=document.getElementById('lbCoverPreview');
+    const val=document.getElementById('lbCover')&&document.getElementById('lbCover').value;
+    if(prev) prev.innerHTML=val&&val.length>4?`<img src="${val}" style="width:100%;height:100%;object-fit:cover;border-radius:5px;" onerror="this.parentElement.innerHTML='📚'">`: '📚';
+    const fi=document.getElementById('lbCoverFile');
+    if(fi) fi.value='';
+  },50);
+};
+
+// ══════════════════════════════════════════════════════
+//  FINANCIAL SYSTEM
+// ══════════════════════════════════════════════════════
+const FIN_KEY='fin_data_v1';
+function finGet(){ return load(FIN_KEY)||{income:[],assets:[],debts:[],targets:{}}; }
+function finSave(d){ save(FIN_KEY,d); }
+
+function renderFinancial(){
+  const d=finGet();
+  // KPI summary
+  const totalIncome=d.income.filter(i=>i.status==='active').reduce((s,i)=>s+(Number(i.amount)||0),0);
+  const totalAssets=d.assets.reduce((s,i)=>s+(Number(i.amount)||0),0);
+  const totalDebt=d.debts.filter(i=>i.status!=='paid').reduce((s,i)=>s+(Number(i.amount)||0),0);
+  const netWorth=totalAssets-totalDebt;
+  const kpis=[
+    {label:'Monthly Income',val:'PKR '+totalIncome.toLocaleString(),color:'var(--green)'},
+    {label:'Total Assets',val:'PKR '+totalAssets.toLocaleString(),color:'var(--cyan)'},
+    {label:'Total Debt',val:'PKR '+totalDebt.toLocaleString(),color:'var(--red)'},
+    {label:'Net Worth',val:'PKR '+netWorth.toLocaleString(),color:netWorth>=0?'var(--green)':'var(--red)'},
+  ];
+  const kpiEl=document.getElementById('finSummaryKpis');
+  if(kpiEl) kpiEl.innerHTML=kpis.map(k=>`
+    <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px;text-align:center;">
+      <div style="font-size:16px;font-weight:700;color:${k.color};font-family:'JetBrains Mono',monospace;">${k.val}</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:.5px;">${k.label}</div>
+    </div>`).join('');
+
+  const renderList=(elId,items,type)=>{
+    const el=document.getElementById(elId);
+    if(!el) return;
+    const colors={income:'var(--green)',asset:'var(--cyan)',debt:'var(--red)'};
+    const c=colors[type]||'var(--muted2)';
+    if(!items||items.length===0){
+      el.innerHTML=`<div style="font-size:12px;color:var(--muted);font-style:italic;padding:8px 0;">No entries yet. Click + Add to start.</div>`;
+      return;
+    }
+    el.innerHTML=items.map((item,i)=>`
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);">
+        <div style="width:8px;height:8px;border-radius:50%;background:${item.status==='paid'?'rgba(255,255,255,.2)':c};flex-shrink:0;"></div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13px;font-weight:600;color:${item.status==='paid'?'var(--muted)':'#F5F9FF'};${item.status==='paid'?'text-decoration:line-through;':''}">${item.name}</div>
+          ${item.note?`<div style="font-size:11px;color:var(--muted);font-style:italic;">${item.note}</div>`:''}
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div style="font-size:13px;font-weight:700;color:${item.status==='paid'?'var(--muted)':c};font-family:'JetBrains Mono',monospace;">PKR ${Number(item.amount||0).toLocaleString()}</div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;">${item.status}</div>
+        </div>
+        <button onclick="finOpenModal('${type}',${i})" style="background:none;border:none;cursor:pointer;font-size:12px;color:var(--muted);padding:2px 4px;">✏️</button>
+        <button onclick="finDeleteItem('${type}',${i})" style="background:none;border:none;cursor:pointer;font-size:12px;color:var(--red);padding:2px 4px;">✕</button>
+      </div>`).join('');
+  };
+
+  renderList('finIncomeList',d.income,'income');
+  renderList('finAssetList',d.assets,'asset');
+  renderList('finDebtList',d.debts,'debt');
+
+  const targets={
+    '3month':{el:'fin3Month',placeholder:'Update from Hope to Skill / Irfan Malik mentor sessions.\ne.g. Save 50,000 PKR · Start 1 income stream · Clear small debts'},
+    '1year':{el:'fin1Year',placeholder:'e.g. Monthly income 50,000 PKR · Build AI product · Debt free'},
+    '5year':{el:'fin5Year',placeholder:'e.g. Business earning 200,000/month · Own assets · Financial independence'},
+  };
+  Object.entries(targets).forEach(([k,v])=>{
+    const el=document.getElementById(v.el);
+    if(!el) return;
+    const txt=d.targets&&d.targets[k];
+    el.innerHTML=txt?txt.replace(/\n/g,'<br>'):
+      `<span style="color:rgba(255,255,255,.2);font-style:italic;font-size:12px;">${v.placeholder}</span>`;
+  });
+}
+
+function finOpenModal(type,editIdx){
+  const d=finGet();
+  const lists={income:d.income,asset:d.assets,debt:d.debts};
+  const typeLabels={income:'Income Source',asset:'Asset',debt:'Debt / Loan'};
+  document.getElementById('finModalTitle').textContent=(editIdx>=0?'✏️ Edit ':'＋ Add ')+typeLabels[type];
+  document.getElementById('finItemType').value=type;
+  document.getElementById('finItemEditId').value=editIdx>=0?editIdx:'';
+  if(editIdx>=0){
+    const it=(lists[type]||[])[editIdx]||{};
+    document.getElementById('finItemName').value=it.name||'';
+    document.getElementById('finItemAmount').value=it.amount||'';
+    document.getElementById('finItemNote').value=it.note||'';
+    document.getElementById('finItemStatus').value=it.status||'active';
+  } else {
+    ['finItemName','finItemAmount','finItemNote'].forEach(f=>document.getElementById(f).value='');
+    document.getElementById('finItemStatus').value='active';
+  }
+  // Show/hide status for income (no paid status for income)
+  document.getElementById('finItemStatus').style.display=type==='income'?'none':'block';
+  document.getElementById('finItemModal').style.display='flex';
+}
+function finCloseModal(){ document.getElementById('finItemModal').style.display='none'; }
+function finSaveItem(){
+  const name=document.getElementById('finItemName').value.trim();
+  const amount=parseFloat(document.getElementById('finItemAmount').value)||0;
+  if(!name){alert('Name is required.');return;}
+  const type=document.getElementById('finItemType').value;
+  const editId=document.getElementById('finItemEditId').value;
+  const note=document.getElementById('finItemNote').value.trim();
+  const status=document.getElementById('finItemStatus').value||'active';
+  const d=finGet();
+  const lists={income:d.income,asset:d.assets,debt:d.debts};
+  const item={name,amount,note,status};
+  if(editId!=='') lists[type][parseInt(editId)]=item;
+  else lists[type].push(item);
+  finSave(d);
+  finCloseModal();
+  renderFinancial();
+}
+function finDeleteItem(type,idx){
+  if(!confirm('Delete this entry?')) return;
+  const d=finGet();
+  const lists={income:d.income,asset:d.assets,debt:d.debts};
+  lists[type].splice(idx,1);
+  finSave(d);
+  renderFinancial();
+}
+function finEditTarget(key){
+  const d=finGet();
+  const labels={'3month':'3-Month Money Target','1year':'1-Year Financial Target','5year':'5-Year Vision'};
+  document.getElementById('finTargetModalTitle').textContent='✏️ Edit — '+labels[key];
+  document.getElementById('finTargetKey').value=key;
+  document.getElementById('finTargetText').value=(d.targets&&d.targets[key])||'';
+  document.getElementById('finTargetModal').style.display='flex';
+}
+function finSaveTarget(){
+  const key=document.getElementById('finTargetKey').value;
+  const txt=document.getElementById('finTargetText').value.trim();
+  const d=finGet();
+  if(!d.targets) d.targets={};
+  d.targets[key]=txt;
+  finSave(d);
+  document.getElementById('finTargetModal').style.display='none';
+  renderFinancial();
+}
+
+// ══════════════════════════════════════════════════════
+//  DASHBOARD
+// ══════════════════════════════════════════════════════
+function renderDashboard(){
+  const el=document.getElementById('dashboardContent');
+  if(!el) return;
+
+  const today=new Date(); today.setHours(0,0,0,0);
+  const dayN=dayNum(today);
+  const phase=getPhase(today);
+  const dayState=getDayState(today);
+  const tasks=getTasksForDay(today);
+
+  // Task stats
+  let done=0,missed=0,pending=0;
+  tasks.forEach(t=>{
+    const s=dayState.statuses&&dayState.statuses[t.id]||'pending';
+    if(s==='done') done++;
+    else if(s==='missed') missed++;
+    else pending++;
+  });
+  const total=tasks.length;
+  const compRate=total>0?Math.round((done/total)*100):0;
+
+  // Prayer stats
+  const prayers=['fajr','dhuhr','asr','maghrib','isha'];
+  const prayerState=getPrayerState(today);
+  const pDone=prayers.filter(p=>prayerState&&prayerState[p]==='done').length;
+
+  // Water
+  const wData=load('water_'+dateKey(today))||{count:0};
+  const waterCount=wData.count||0;
+
+  // Financial snapshot
+  const fin=finGet();
+  const totalIncome=fin.income.filter(i=>i.status==='active').reduce((s,i)=>s+(Number(i.amount)||0),0);
+  const totalDebt=fin.debts.filter(i=>i.status!=='paid').reduce((s,i)=>s+(Number(i.amount)||0),0);
+
+  // Priority analytics mini
+  const PMAP=[
+    {num:1,name:'Allah',icon:'🕌',color:'var(--gold)',rgb:'212,168,67',tags:['t-prayer'],keys:['quran','tasbih','tajweed','seerah','lecture']},
+    {num:2,name:'Health',icon:'🌿',color:'var(--green)',rgb:'46,204,113',tags:['t-health'],keys:['walk','water','sunlight','breakfast','lunch','dinner']},
+    {num:3,name:'Mindset',icon:'📖',color:'var(--cyan)',rgb:'56,189,248',tags:['t-learn'],keys:['book','journal','reflection','master']},
+    {num:4,name:'Heart',icon:'💜',color:'#A78BFA',rgb:'139,92,246',tags:['t-telep'],keys:['reflection','journal','wind down']},
+    {num:5,name:'Skill',icon:'⚡',color:'var(--orange)',rgb:'245,158,11',tags:['t-work'],keys:['deep work','ai project','python']},
+    {num:6,name:'Network',icon:'🤝',color:'var(--teal)',rgb:'61,220,151',tags:['t-mosque'],keys:['networking','visit']},
+    {num:7,name:'Environ.',icon:'🛡️',color:'var(--red)',rgb:'229,83,83',tags:[],keys:['wind down','app review']},
+    {num:8,name:'Family',icon:'👨‍👩‍👧',color:'#FCD34D',rgb:'252,211,77',tags:['t-family'],keys:['family','dinner']},
+    {num:9,name:'College',icon:'🎓',color:'#818CF8',rgb:'129,140,248',tags:['t-college'],keys:['college','class','assignment','study']},
+  ];
+
+  // Today's priority progress
+  const todayPStats={};
+  PMAP.forEach(p=>{ todayPStats[p.num]={done:0,total:0}; });
+  tasks.forEach(t=>{
+    const s=dayState.statuses&&dayState.statuses[t.id]||'pending';
+    const lbl=(t.label||'').toLowerCase();
+    PMAP.forEach(p=>{
+      if(p.tags.includes(t.tag)||p.keys.some(k=>lbl.includes(k))){
+        todayPStats[p.num].total++;
+        if(s==='done') todayPStats[p.num].done++;
+      }
+    });
+  });
+
+  // Books reading
+  const books=libGetBooks();
+  const readingBooks=books.filter(b=>b.status==='reading');
+  const completedBooks=books.filter(b=>b.status==='completed').length;
+
+  // Bad habits today
+  const badHabits=load('bad_habits_list')||[];
+  const bhState=load('bhstate_'+dateKey(today))||{};
+  const bhBroken=badHabits.filter(h=>bhState[h.id]==='broken').length;
+
+  // Hijri date
+  const hijriDate=(()=>{
+    try{
+      return new Intl.DateTimeFormat('en-TN-u-ca-islamic',{day:'numeric',month:'long',year:'numeric'}).format(today);
+    }catch(e){return '';}
+  })();
+
+  const dayLabel=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][today.getDay()];
+
+  el.innerHTML=`
+    <!-- Top greeting -->
+    <div class="card" style="background:linear-gradient(135deg,rgba(212,168,67,.08),rgba(10,19,35,.98));border-color:rgba(212,168,67,.25);margin-bottom:16px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--gold2);margin-bottom:4px;">بسم الله الرحمن الرحيم</div>
+          <div style="font-size:14px;color:#F5F9FF;font-weight:600;">${dayLabel}, ${today.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</div>
+          ${hijriDate?`<div style="font-size:11px;color:var(--muted);margin-top:2px;">${hijriDate}</div>`:''}
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:36px;font-weight:800;color:var(--gold);font-family:'Cinzel',serif;line-height:1;">${dayN}</div>
+          <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Day of 90 · Phase ${phase}</div>
+        </div>
+      </div>
+      <div style="height:6px;background:rgba(255,255,255,.05);border-radius:4px;margin-top:14px;overflow:hidden;">
+        <div style="height:100%;width:${Math.min(100,Math.round(dayN/90*100))}%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:4px;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--muted);margin-top:4px;"><span>Day 1 · May 8</span><span>${Math.min(100,Math.round(dayN/90*100))}% Complete</span><span>Day 90 · Aug 5</span></div>
+    </div>
+
+    <!-- KPI row -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:16px;">
+      ${[
+        {v:compRate+'%',l:"Today's Rate",c:compRate>=75?'var(--green)':compRate>=50?'var(--orange)':'var(--red)',bg:'rgba(255,255,255,.03)'},
+        {v:done+'/'+total,l:'Tasks Done',c:'var(--green)',bg:'rgba(46,204,113,.06)'},
+        {v:pDone+'/5',l:'Prayers Done',c:'var(--gold)',bg:'rgba(212,168,67,.06)'},
+        {v:waterCount+'/10',l:'Water Glasses',c:'var(--cyan)',bg:'rgba(56,189,248,.06)'},
+        {v:readingBooks.length,l:'Books Reading',c:'#A78BFA',bg:'rgba(139,92,246,.06)'},
+        {v:bhBroken+' broken',l:'Bad Habits',c:bhBroken>0?'var(--red)':'var(--green)',bg:'rgba(229,83,83,.06)'},
+      ].map(k=>`
+        <div style="background:${k.bg};border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px;text-align:center;">
+          <div style="font-size:18px;font-weight:800;color:${k.c};font-family:'JetBrains Mono',monospace;">${k.v}</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:.3px;">${k.l}</div>
+        </div>`).join('')}
+    </div>
+
+    <div class="two-col" style="margin-top:0;">
+      <div>
+        <!-- Today's Priority Progress -->
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-title">🎯 Today's Priority Progress</div>
+          ${PMAP.map(p=>{
+            const s=todayPStats[p.num];
+            const r=s.total>0?Math.round(s.done/s.total*100):null;
+            return `
+              <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);">
+                <span style="font-size:14px;">${p.icon}</span>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;">
+                    <span style="color:var(--muted2);">P${p.num} ${p.name}</span>
+                    <span style="color:${p.color};font-family:'JetBrains Mono',monospace;font-size:10px;">${r!==null?r+'%':'—'}</span>
+                  </div>
+                  <div style="height:4px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;">
+                    <div style="height:100%;width:${r||0}%;background:${p.color};border-radius:3px;"></div>
+                  </div>
+                </div>
+                <span style="font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;">${s.done}/${s.total}</span>
+              </div>`;
+          }).join('')}
+        </div>
+
+        <!-- Currently Reading -->
+        ${readingBooks.length>0?`
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-title">📚 Currently Reading</div>
+          ${readingBooks.slice(0,3).map(b=>{
+            const pct=b.totalPages>0?Math.min(100,Math.round((b.pagesRead||0)/b.totalPages*100)):0;
+            return `
+              <div style="display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);">
+                <div style="width:36px;height:48px;border-radius:4px;background:rgba(255,255,255,.05);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;">
+                  ${b.cover?`<img src="${b.cover}" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='📚'">`:'📚'}
+                </div>
+                <div style="flex:1;min-width:0;">
+                  <div style="font-size:12px;font-weight:600;color:#F5F9FF;">${b.title}</div>
+                  <div style="font-size:10px;color:var(--muted);">by ${b.author||'—'}</div>
+                  <div style="height:3px;background:rgba(255,255,255,.06);border-radius:2px;margin-top:5px;overflow:hidden;">
+                    <div style="height:100%;width:${pct}%;background:var(--cyan);border-radius:2px;"></div>
+                  </div>
+                  <div style="font-size:10px;color:var(--cyan);font-family:'JetBrains Mono',monospace;margin-top:2px;">${b.pagesRead||0}/${b.totalPages||'?'} pages · ${pct}%</div>
+                </div>
+              </div>`;
+          }).join('')}
+        </div>`:''}
+      </div>
+
+      <div class="col-stack">
+        <!-- Prayer ring -->
+        <div class="card" style="margin-bottom:0;">
+          <div class="card-title">🕌 Prayers Today</div>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;text-align:center;">
+            ${[['fajr','Fajr'],['dhuhr','Dhuhr'],['asr','Asr'],['maghrib','Maghr'],['isha','Isha']].map(([k,lbl])=>{
+              const done2=prayerState&&prayerState[k]==='done';
+              return `<div style="padding:8px 4px;border-radius:8px;background:${done2?'rgba(212,168,67,.15)':'rgba(255,255,255,.03)'};border:1px solid ${done2?'rgba(212,168,67,.4)':'rgba(255,255,255,.07)'};">
+                <div style="font-size:16px;">${done2?'✅':'⬜'}</div>
+                <div style="font-size:9px;color:${done2?'var(--gold)':'var(--muted)'};margin-top:2px;font-family:'JetBrains Mono',monospace;">${lbl}</div>
+              </div>`;
+            }).join('')}
+          </div>
+        </div>
+
+        <!-- Financial Snapshot -->
+        <div class="card">
+          <div class="card-title">💰 Financial Snapshot</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div style="background:rgba(46,204,113,.07);border:1px solid rgba(46,204,113,.2);border-radius:8px;padding:10px;text-align:center;">
+              <div style="font-size:14px;font-weight:700;color:var(--green);font-family:'JetBrains Mono',monospace;">PKR ${totalIncome.toLocaleString()}</div>
+              <div style="font-size:10px;color:var(--muted);">Monthly Income</div>
+            </div>
+            <div style="background:rgba(229,83,83,.07);border:1px solid rgba(229,83,83,.2);border-radius:8px;padding:10px;text-align:center;">
+              <div style="font-size:14px;font-weight:700;color:var(--red);font-family:'JetBrains Mono',monospace;">PKR ${totalDebt.toLocaleString()}</div>
+              <div style="font-size:10px;color:var(--muted);">Active Debts</div>
+            </div>
+          </div>
+          <button onclick="navTo('financial',document.querySelector('[onclick*=financial]'))" class="btn btn-ghost" style="font-size:11px;padding:5px 10px;margin-top:10px;width:100%;">Open Financial Page →</button>
+        </div>
+
+        <!-- Quick links -->
+        <div class="card">
+          <div class="card-title">⚡ Quick Actions</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            ${[
+              {lbl:'📋 Today',page:'today'},
+              {lbl:'🎯 Priorities',page:'priorities'},
+              {lbl:'📚 Library',page:'media'},
+              {lbl:'⚡ Deep Work',page:'deepwork'},
+              {lbl:'🚫 Bad Habits',page:'badhabits'},
+              {lbl:'🕌 Mosque',page:'mosque'},
+            ].map(q=>`<button onclick="navTo('${q.page}',null)" class="btn btn-ghost" style="font-size:11px;padding:6px;text-align:left;">${q.lbl}</button>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 // ══════════════════════════════════════════════════════
@@ -5255,7 +7464,10 @@ function navTo(page, btn){
   }
   if(page==='weekly') renderWeeklyReport();
   if(page==='priorities') renderPriorities();
+  if(page==='media') renderLibrary();
   if(page==='islamic') isCalGoNow();
+  if(page==='dashboard') renderDashboard();
+  if(page==='financial') renderFinancial();
   if(page==='streaks') renderStreakTracker();
   if(page==='deepwork') renderDeepWorkDashboard();
   if(page==='badhabits') renderBadHabitTracker();
@@ -5377,7 +7589,7 @@ function startPunishmentTimer(taskId, streakStartDK, durationMins){
 // ── DATA: scan all days and collect missed entries ──
 function buildStreakData(){
   const today=new Date(); today.setHours(0,0,0,0);
-  const start=new Date('2026-04-20'); start.setHours(0,0,0,0);
+  const start=new Date('2026-05-08'); start.setHours(0,0,0,0);
 
   // Build a canonical label map so weekday/weekend versions of the same task merge.
   const idToLabel={};
