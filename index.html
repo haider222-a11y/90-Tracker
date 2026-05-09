@@ -7358,7 +7358,7 @@ function finDeleteRow(section,idx){
   finRenderCalculator();
 }
 
-function fmt(n){ return 'PKR '+Math.abs(Math.round(n)).toLocaleString(); }
+function fmtMoney(n){ return 'PKR '+Math.abs(Math.round(n)).toLocaleString(); }
 
 function finCalcTotals(){
   const d=finGet();
@@ -7372,17 +7372,17 @@ function finCalcTotals(){
 
   // Update total cells
   const set=(id,val,color)=>{const el=document.getElementById(id);if(el){el.textContent=val;if(color)el.style.color=color;}};
-  set('fin-total-income',fmt(totalIncome),'var(--green)');
-  set('fin-total-expense',fmt(totalExpense),'var(--red)');
-  set('fin-total-asset',fmt(totalAsset),'var(--cyan)');
-  set('fin-total-liability',fmt(totalLiability),'var(--orange)');
+  set('fin-total-income',fmtMoney(totalIncome),'var(--green)');
+  set('fin-total-expense',fmtMoney(totalExpense),'var(--red)');
+  set('fin-total-asset',fmtMoney(totalAsset),'var(--cyan)');
+  set('fin-total-liability',fmtMoney(totalLiability),'var(--orange)');
 
   // Balance bar
   const balEl=document.getElementById('fin-balance-val');
   const balBar=document.getElementById('fin-balance-bar');
   if(balEl){
     const pos=balance>=0;
-    balEl.textContent=(pos?'+ ':' ̶ ')+fmt(balance);
+    balEl.textContent=(pos?'+ ':' ̶ ')+fmtMoney(balance);
     balEl.style.color=pos?'var(--green)':'var(--red)';
     if(balBar){
       balBar.style.background=pos?'rgba(46,204,113,.07)':'rgba(229,83,83,.07)';
@@ -7399,7 +7399,7 @@ function finCalcTotals(){
   const nwBar=document.getElementById('fin-networth-bar');
   if(nwEl){
     const pos=netWorth>=0;
-    nwEl.textContent=(pos?'+ ':'')+fmt(netWorth)+(netWorth<0?' (Negative)':'');
+    nwEl.textContent=(pos?'+ ':'')+fmtMoney(netWorth)+(netWorth<0?' (Negative)':'');
     nwEl.style.color=pos?'var(--cyan)':'var(--red)';
     if(nwBar){nwBar.style.background=pos?'rgba(56,189,248,.07)':'rgba(229,83,83,.07)';nwBar.style.borderColor=pos?'rgba(56,189,248,.2)':'rgba(229,83,83,.2)';}
   }
@@ -7437,12 +7437,12 @@ function finCalcTotals(){
   // KPI row
   const kpiEl=document.getElementById('finKpiRow');
   if(kpiEl) kpiEl.innerHTML=[
-    {l:'Monthly Income',v:fmt(totalIncome),c:'var(--green)'},
-    {l:'Monthly Expenses',v:fmt(totalExpense),c:'var(--red)'},
-    {l:'Balance',v:(balance>=0?'+ ':'')+fmt(balance),c:balance>=0?'var(--green)':'var(--red)'},
-    {l:'Total Assets',v:fmt(totalAsset),c:'var(--cyan)'},
-    {l:'Total Liabilities',v:fmt(totalLiability),c:'var(--orange)'},
-    {l:'Net Worth',v:(netWorth>=0?'+ ':'')+fmt(netWorth),c:netWorth>=0?'var(--cyan)':'var(--red)'},
+    {l:'Monthly Income',v:fmtMoney(totalIncome),c:'var(--green)'},
+    {l:'Monthly Expenses',v:fmtMoney(totalExpense),c:'var(--red)'},
+    {l:'Balance',v:(balance>=0?'+ ':'')+fmtMoney(balance),c:balance>=0?'var(--green)':'var(--red)'},
+    {l:'Total Assets',v:fmtMoney(totalAsset),c:'var(--cyan)'},
+    {l:'Total Liabilities',v:fmtMoney(totalLiability),c:'var(--orange)'},
+    {l:'Net Worth',v:(netWorth>=0?'+ ':'')+fmtMoney(netWorth),c:netWorth>=0?'var(--cyan)':'var(--red)'},
   ].map(k=>`
     <div style="background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px;text-align:center;">
       <div style="font-size:14px;font-weight:800;color:${k.c};font-family:'JetBrains Mono',monospace;line-height:1.2;">${k.v}</div>
