@@ -191,8 +191,38 @@ header{padding:34px 0 24px;border-bottom:1px solid var(--border2);display:flex;j
 .lib-book-card-hot{border-color:rgba(245,158,11,.26)!important;background:linear-gradient(180deg,rgba(245,158,11,.055),rgba(255,255,255,.018));}
 .lib-book-card-done{border-color:rgba(61,220,151,.28)!important;background:linear-gradient(180deg,rgba(61,220,151,.06),rgba(255,255,255,.018));}
 .lib-storage-note{margin-top:10px;font-size:11px;line-height:1.6;color:#AFC0DA;background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.16);border-radius:14px;padding:10px 12px;}
-@media(max-width:900px){.lib-reading-hub{grid-template-columns:1fr;}.lib-kpi-grid{grid-template-columns:repeat(2,1fr);}.lib-target-row{grid-template-columns:repeat(2,1fr);}.lib-plan-tools{grid-template-columns:1fr;}}
-@media(max-width:560px){.lib-calendar-grid{gap:4px;}.lib-cal-day{min-height:52px;border-radius:11px;padding:6px 5px;}.lib-target-row,.lib-kpi-grid{grid-template-columns:1fr 1fr;}}
+.lib-book-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.lib-month-card{margin-top:14px;border-radius:24px;padding:15px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.10);}
+.lib-month-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+.lib-month-title{font-size:16px;font-weight:900;color:#F8FBFF;letter-spacing:-.02em;}
+.lib-month-sub{font-size:10px;color:#93A7C9;font-family:'JetBrains Mono',monospace;margin-top:3px;line-height:1.45;}
+.lib-calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin-top:10px;}
+.lib-cal-head{text-align:center;font-size:9px;color:#7E8CA5;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.8px;padding-bottom:4px;}
+.lib-cal-day{min-height:82px;border-radius:18px;padding:8px 7px;background:linear-gradient(180deg,rgba(255,255,255,.048),rgba(255,255,255,.015));border:1px solid rgba(140,199,255,.09);cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;}
+.lib-cal-day:hover{transform:translateY(-2px);border-color:rgba(96,165,250,.38);background:rgba(59,130,246,.075);}
+.lib-cal-day.empty{opacity:.25;cursor:default;transform:none!important;}
+.lib-cal-day.today{border-color:#60A5FA;box-shadow:0 0 0 2px rgba(96,165,250,.14);}
+.lib-cal-day.selected{border-color:#A78BFA;box-shadow:0 0 0 2px rgba(167,139,250,.22),0 14px 28px rgba(0,0,0,.18);}
+.lib-cal-day.has-work{background:linear-gradient(180deg,rgba(56,189,248,.13),rgba(255,255,255,.018));border-color:rgba(56,189,248,.24);}
+.lib-cal-day.has-complete{background:linear-gradient(180deg,rgba(61,220,151,.13),rgba(255,255,255,.018));border-color:rgba(61,220,151,.28);}
+.lib-cal-num{font-size:11px;font-family:'JetBrains Mono',monospace;color:#DCEBFF;font-weight:900;display:flex;justify-content:space-between;align-items:center;}
+.lib-cal-dot{width:7px;height:7px;border-radius:50%;background:#38BDF8;box-shadow:0 0 12px rgba(56,189,248,.45);}
+.lib-cal-day.has-complete .lib-cal-dot{background:#3DDC97;box-shadow:0 0 12px rgba(61,220,151,.45);}
+.lib-cal-meta{font-size:9px;color:#9FB2D2;line-height:1.35;margin-top:7px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.lib-day-detail{margin-top:12px;border-radius:18px;padding:12px;background:rgba(0,0,0,.16);border:1px solid rgba(140,199,255,.10);}
+.lib-detail-title{font-size:12px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;color:#7DD3FC;font-weight:900;margin-bottom:8px;}
+.lib-detail-row{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.055);font-size:12px;line-height:1.55;color:#DCEBFF;}
+.lib-detail-row:last-child{border-bottom:none;}
+.lib-report-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;}
+.lib-report-box{border-radius:16px;padding:11px;background:rgba(255,255,255,.03);border:1px solid rgba(140,199,255,.09);}
+.lib-report-num{font-size:21px;font-weight:900;color:#F8FBFF;letter-spacing:-.04em;}
+.lib-report-label{font-size:9px;color:#93A7C9;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.8px;margin-top:3px;line-height:1.35;}
+.lib-lessons-box{margin-top:12px;border-radius:18px;padding:12px;background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.16);}
+.lib-bulk-help{font-size:11px;line-height:1.65;color:#AFC0DA;background:rgba(56,189,248,.055);border:1px solid rgba(56,189,248,.16);border-radius:14px;padding:10px 12px;margin-bottom:10px;}
+.lib-bulk-textarea{width:100%;min-height:190px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:var(--text);padding:12px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.6;resize:vertical;outline:none;}
+.lib-bulk-textarea:focus{border-color:#60A5FA;background:rgba(59,130,246,.06);}
+@media(max-width:900px){.lib-reading-hub{grid-template-columns:1fr;}.lib-kpi-grid{grid-template-columns:repeat(2,1fr);}.lib-target-row{grid-template-columns:repeat(2,1fr);}.lib-plan-tools{grid-template-columns:1fr;}.lib-report-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.lib-calendar-grid{gap:4px;}.lib-cal-day{min-height:66px;border-radius:13px;padding:6px 5px;}.lib-target-row,.lib-kpi-grid,.lib-report-grid{grid-template-columns:1fr 1fr;}}
 
 /* ── FINANCIAL CALCULATOR ── */
 .fin-stab{padding:8px 18px;font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,.02);color:var(--muted2);border-radius:10px;transition:all .2s;}
@@ -1594,6 +1624,169 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 /* ── DEEP WORK SECTION (added only; existing system preserved) ── */
 .deep-wrap{display:flex;flex-direction:column;gap:16px;margin-top:20px;}.deep-hero{position:relative;overflow:hidden;border-radius:28px;padding:22px;background:radial-gradient(circle at 0% 0%,rgba(56,189,248,.22),transparent 32%),radial-gradient(circle at 100% 0%,rgba(124,58,237,.18),transparent 34%),linear-gradient(145deg,rgba(8,22,45,.98),rgba(3,8,20,.98));border:1px solid rgba(140,199,255,.20);box-shadow:0 24px 62px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.045);}.deep-hero::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,#38BDF8,#7C3AED,#22C55E,transparent);}.deep-hero-title{font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-.045em;color:#F8FBFF;margin-bottom:8px;}.deep-hero-sub{font-size:13px;line-height:1.8;color:#B8C8E4;max-width:980px;}.deep-kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}.deep-kpi{position:relative;overflow:hidden;border-radius:22px;padding:15px 13px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.065),rgba(255,255,255,.018));border:1px solid rgba(140,199,255,.13);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}.deep-kpi::after{content:'';position:absolute;right:-24px;bottom:-28px;width:86px;height:86px;border-radius:24px;border:1px solid rgba(56,189,248,.11);transform:rotate(18deg);}.deep-kpi-num{position:relative;z-index:1;font-size:26px;font-weight:900;color:#F8FBFF;letter-spacing:-.04em;}.deep-kpi-label{position:relative;z-index:1;font-size:10px;color:#93A7C9;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;margin-top:5px;line-height:1.35;}.deep-main-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:16px;}.deep-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}.deep-rule{border-radius:18px;padding:13px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.016));border:1px solid rgba(140,199,255,.11);}.deep-rule-top{display:flex;align-items:center;gap:9px;margin-bottom:6px;font-size:13px;font-weight:900;color:#F8FBFF;}.deep-rule-icon{width:30px;height:30px;border-radius:11px;display:grid;place-items:center;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.24);}.deep-rule-text{font-size:11px;line-height:1.6;color:#AFC0DA;}.deep-timer-box{border-radius:24px;padding:16px;background:radial-gradient(circle at 100% 0%,rgba(34,197,94,.14),transparent 32%),linear-gradient(145deg,rgba(9,21,42,.96),rgba(4,10,22,.98));border:1px solid rgba(61,220,151,.20);}.deep-timer-display{font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:900;color:#EFFFF7;letter-spacing:-.04em;text-align:center;margin:8px 0 12px;text-shadow:0 0 24px rgba(61,220,151,.18);}.deep-timer-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;}.deep-timer-actions .btn{width:100%;padding:10px 12px;}.deep-manual-row{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:10px;}.deep-manual-row input{min-width:0;}.deep-calendar-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;}.deep-calendar-title{font-size:16px;font-weight:900;color:#F8FBFF;letter-spacing:-.02em;}.deep-calendar-sub{font-size:11px;color:#93A7C9;font-family:'JetBrains Mono',monospace;margin-top:3px;line-height:1.5;}.deep-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;}.deep-cal-head{font-size:10px;color:#7E8CA5;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;text-align:center;padding:4px 0;}.deep-cal-day{min-height:90px;border-radius:18px;padding:10px 8px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.016));border:1px solid rgba(140,199,255,.08);cursor:pointer;transition:all .18s;}.deep-cal-day:hover{transform:translateY(-2px);border-color:rgba(96,165,250,.28);}.deep-cal-day.is-empty{opacity:.28;cursor:default;}.deep-cal-day.is-active{border-color:#60A5FA;box-shadow:0 0 0 2px rgba(96,165,250,.18);}.deep-cal-day.is-good{background:linear-gradient(180deg,rgba(61,220,151,.16),rgba(255,255,255,.018));border-color:rgba(61,220,151,.30);}.deep-cal-day.is-mid{background:linear-gradient(180deg,rgba(245,158,11,.14),rgba(255,255,255,.018));border-color:rgba(245,158,11,.28);}.deep-cal-day.is-low{background:linear-gradient(180deg,rgba(255,107,107,.12),rgba(255,255,255,.014));border-color:rgba(255,107,107,.22);}.deep-cal-day.is-bonus{background:linear-gradient(180deg,rgba(124,58,237,.12),rgba(255,255,255,.016));border-color:rgba(124,58,237,.24);}.deep-cal-num{font-family:'JetBrains Mono',monospace;font-size:12px;color:#DCEBFF;font-weight:900;}.deep-cal-hours{font-size:18px;font-weight:900;color:#F8FBFF;margin-top:8px;letter-spacing:-.03em;}.deep-cal-meta{font-size:10px;color:#93A7C9;font-family:'JetBrains Mono',monospace;margin-top:3px;line-height:1.4;}.deep-block-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}.deep-block-card{position:relative;overflow:hidden;border-radius:26px;padding:16px;background:radial-gradient(circle at 100% 0%,rgba(56,189,248,.14),transparent 34%),linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}.deep-block-card::before{content:'';position:absolute;left:16px;right:16px;top:0;height:2px;border-radius:99px;background:linear-gradient(90deg,transparent,var(--block-accent,#38BDF8),transparent);}.deep-block-card.ai{--block-accent:#38BDF8;}.deep-block-card.business{--block-accent:#F59E0B;}.deep-block-card.networking{--block-accent:#22C55E;}.deep-block-card.skill{--block-accent:#A78BFA;}.deep-block-label{font-size:10px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1.3px;color:var(--block-accent,#38BDF8);font-weight:900;margin-bottom:8px;}.deep-block-title{font-size:17px;font-weight:900;color:#F8FBFF;line-height:1.3;letter-spacing:-.03em;}.deep-block-sub{font-size:11px;color:#AFC0DA;line-height:1.55;margin-top:7px;min-height:50px;}.deep-block-stat{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;font-size:11px;color:#93A7C9;font-family:'JetBrains Mono',monospace;}.deep-block-bar{height:7px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:9px;}.deep-block-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--block-accent,#38BDF8),#3B82F6);box-shadow:0 0 16px rgba(56,189,248,.22);}.deep-task-list{display:flex;flex-direction:column;gap:10px;}.deep-task-card{border-radius:20px;padding:13px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.10);}.deep-task-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;}.deep-task-title{font-size:14px;font-weight:900;color:#F8FBFF;line-height:1.4;}.deep-task-pill{white-space:nowrap;font-size:10px;font-family:'JetBrains Mono',monospace;padding:5px 9px;border-radius:999px;background:rgba(56,189,248,.11);border:1px solid rgba(56,189,248,.22);color:#CFE6FF;}.deep-task-meta{font-size:11px;color:#93A7C9;font-family:'JetBrains Mono',monospace;margin-top:6px;line-height:1.45;}.deep-empty{font-size:13px;color:#8FA2C2;font-style:italic;line-height:1.7;padding:12px 0;text-align:center;}@media(max-width:1050px){.deep-kpi-grid{grid-template-columns:repeat(3,1fr);}.deep-main-grid,.deep-block-grid{grid-template-columns:1fr 1fr;}.deep-rules{grid-template-columns:1fr;}}@media(max-width:650px){.deep-kpi-grid,.deep-main-grid,.deep-block-grid{grid-template-columns:1fr;}.deep-cal-grid{gap:5px;}.deep-cal-day{min-height:76px;padding:8px 6px;border-radius:14px;}.deep-cal-hours{font-size:15px;}.deep-timer-display{font-size:28px;}}
 
+
+
+/* ── COMPACT CLEAN BOOK LIBRARY v3 (smaller, cleaner, less messy) ── */
+#page-media{--lib-soft:rgba(140,199,255,.11);--lib-panel:rgba(8,17,33,.72);}
+#page-media .lib-book-subtabs{display:inline-flex;gap:6px;margin:0 0 14px;padding:4px;border:1px solid rgba(140,199,255,.12);background:rgba(255,255,255,.025);border-radius:14px;}
+#page-media .lib-dash-tab{padding:8px 13px;border-radius:10px;border:0;background:transparent;color:#9FB2D2;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.8px;cursor:pointer;transition:all .18s;}
+#page-media .lib-dash-tab.active{background:linear-gradient(135deg,rgba(59,130,246,.28),rgba(56,189,248,.12));color:#F3F8FF;box-shadow:0 6px 16px rgba(0,0,0,.18);}
+#page-media .lib-book-tools.clean{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:0 0 14px;padding:12px;border-radius:16px;background:rgba(255,255,255,.022);border:1px solid rgba(140,199,255,.09);}
+#page-media .lib-filter-card{min-width:min(360px,100%);flex:1;}
+#page-media .lib-filter-card .field-label{font-size:9px;margin-bottom:5px;color:#7EA2D6;letter-spacing:1.2px;}
+#page-media .lib-cat-select{width:100%;height:38px;padding:0 12px;border-radius:11px;border:1px solid rgba(140,199,255,.18);background:linear-gradient(180deg,rgba(9,18,34,.98),rgba(5,12,25,.98));color:#EAF3FF;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;outline:none;}
+#page-media .lib-book-tool-buttons{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;}
+#page-media .lib-book-tool-buttons .btn{min-height:38px;border-radius:11px!important;padding:0 12px!important;font-size:10px!important;}
+#page-media .lib-clean-book-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(158px,1fr))!important;gap:12px!important;align-items:stretch;}
+#page-media .book-card{border-radius:15px;background:linear-gradient(180deg,rgba(10,20,38,.82),rgba(5,12,24,.92));border:1px solid rgba(140,199,255,.09);box-shadow:0 12px 28px rgba(0,0,0,.20);overflow:hidden;transition:transform .18s,border-color .18s,box-shadow .18s;}
+#page-media .book-card:hover{transform:translateY(-2px);border-color:rgba(96,165,250,.35);box-shadow:0 16px 34px rgba(0,0,0,.28);}
+#page-media .book-cover,#page-media .book-cover img{height:118px!important;}
+#page-media .book-cover{font-size:34px!important;background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(124,58,237,.06));}
+#page-media .book-info{padding:9px!important;gap:4px!important;}
+#page-media .book-title-text{font-size:12px!important;line-height:1.25!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:30px;}
+#page-media .book-author{font-size:10px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#page-media .status-badge{font-size:8px!important;padding:2px 6px!important;border-radius:999px!important;}
+#page-media .book-prog-bar{height:4px!important;margin:3px 0!important;}
+#page-media .lib-card-meta{display:none!important;}
+#page-media .lib-mini-stat{display:none!important;}
+#page-media .book-actions{gap:5px!important;padding-top:6px!important;}
+#page-media .book-btn{font-size:9px!important;padding:6px 4px!important;border-radius:8px!important;}
+#page-media .lib-book-card-hot,#page-media .lib-book-card-done{box-shadow:0 12px 28px rgba(0,0,0,.22)!important;}
+#page-media .lib-reading-hub{display:grid;grid-template-columns:1fr!important;gap:12px!important;margin-bottom:12px!important;}
+#page-media .lib-reading-panel{border-radius:16px!important;padding:13px!important;background:linear-gradient(180deg,rgba(8,18,35,.88),rgba(4,10,22,.94))!important;border:1px solid rgba(140,199,255,.10)!important;box-shadow:0 12px 30px rgba(0,0,0,.24)!important;}
+#page-media .lib-reading-panel::before{height:2px!important;opacity:.75!important;}
+#page-media .lib-reading-title{font-size:15px!important;margin-bottom:3px!important;}
+#page-media .lib-reading-sub{font-size:11px!important;line-height:1.55!important;margin-bottom:9px!important;}
+#page-media .lib-kpi-grid{grid-template-columns:repeat(4,1fr)!important;gap:7px!important;}
+#page-media .lib-kpi{border-radius:12px!important;padding:9px 7px!important;background:rgba(255,255,255,.027)!important;}
+#page-media .lib-kpi-num{font-size:19px!important;}
+#page-media .lib-kpi-label{font-size:8px!important;letter-spacing:.7px!important;}
+#page-media .lib-target-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr))!important;gap:7px!important;margin-top:9px!important;}
+#page-media .lib-target-pill{border-radius:11px!important;padding:8px!important;font-size:9px!important;}
+#page-media .lib-target-pill strong{font-size:13px!important;display:inline-block!important;margin-right:5px!important;}
+#page-media .lib-plan-tools{margin-top:9px!important;}
+#page-media .lib-storage-note{font-size:10px!important;line-height:1.45!important;border-radius:11px!important;padding:8px 10px!important;}
+#page-media .lib-month-card{border-radius:16px!important;padding:12px!important;margin-top:12px!important;background:rgba(255,255,255,.022)!important;}
+#page-media .lib-month-title{font-size:14px!important;}
+#page-media .lib-month-sub{font-size:9px!important;}
+#page-media .lib-calendar-grid{gap:5px!important;margin-top:8px!important;}
+#page-media .lib-cal-head{font-size:8px!important;padding:5px 2px!important;border-radius:8px;background:rgba(255,255,255,.025);cursor:pointer;}
+#page-media .lib-cal-day{min-height:58px!important;border-radius:12px!important;padding:6px!important;background:rgba(255,255,255,.025)!important;}
+#page-media .lib-cal-day:hover{transform:none!important;border-color:rgba(96,165,250,.35)!important;}
+#page-media .lib-cal-num{font-size:10px!important;}
+#page-media .lib-cal-meta{font-size:8px!important;line-height:1.25!important;margin-top:4px!important;-webkit-line-clamp:2!important;}
+#page-media .lib-day-detail{border-radius:13px!important;padding:10px!important;}
+#page-media .lib-report-grid{grid-template-columns:repeat(3,1fr)!important;gap:7px!important;}
+#page-media .lib-report-box{border-radius:12px!important;padding:9px!important;}
+#page-media .lib-report-num{font-size:18px!important;}
+#page-media .lib-report-label{font-size:8px!important;}
+#page-media .lib-lessons-box{border-radius:13px!important;padding:10px!important;}
+@media(max-width:720px){
+  #page-media .lib-book-tools.clean{align-items:stretch;flex-direction:column;}
+  #page-media .lib-book-tool-buttons{justify-content:stretch;display:grid;grid-template-columns:1fr 1fr;}
+  #page-media .lib-book-tool-buttons .btn:first-child{grid-column:1 / -1;}
+  #page-media .lib-clean-book-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))!important;}
+  #page-media .lib-kpi-grid,#page-media .lib-report-grid{grid-template-columns:repeat(2,1fr)!important;}
+}
+
+
+
+/* ── DAILY BOOK LESSON CALENDAR (compact dashboard add-on) ── */
+.lib-rd-compact{display:grid;grid-template-columns:1.05fr .95fr;gap:14px;}
+.lib-lesson-panel{border:1px solid rgba(140,199,255,.12);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));padding:14px;margin-top:12px;}
+.lib-lesson-title{font-size:13px;font-weight:900;color:#F8FBFF;letter-spacing:-.02em;margin-bottom:4px;}
+.lib-lesson-sub{font-size:11px;color:#93A7C9;line-height:1.5;margin-bottom:10px;}
+.lib-lesson-form{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+.lib-lesson-form .full{grid-column:1 / -1;}
+.lib-lesson-list{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
+.lib-lesson-entry{border:1px solid rgba(140,199,255,.11);border-radius:14px;background:rgba(255,255,255,.025);padding:10px 11px;}
+.lib-lesson-entry-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:5px;}
+.lib-lesson-book{font-size:12px;font-weight:900;color:#F8FBFF;line-height:1.35;}
+.lib-lesson-date{font-family:'JetBrains Mono',monospace;font-size:9px;color:#7DD3FC;white-space:nowrap;}
+.lib-lesson-line{font-size:12px;color:#DCEBFF;line-height:1.55;margin-top:4px;}
+.lib-lesson-line strong{color:#93C5FD;}
+.lib-lesson-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
+.lib-mini-danger{border-color:rgba(255,107,107,.25)!important;color:#FFB4B4!important;}
+.lib-complete-chip{display:inline-flex;padding:3px 7px;border-radius:999px;background:rgba(61,220,151,.10);border:1px solid rgba(61,220,151,.22);color:#9CF2C3;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:800;margin-top:6px;}
+.lib-cal-day.has-lesson{border-color:rgba(125,211,252,.35)!important;background:linear-gradient(180deg,rgba(56,189,248,.13),rgba(255,255,255,.018))!important;}
+.lib-cal-day.has-finish{border-color:rgba(61,220,151,.35)!important;background:linear-gradient(180deg,rgba(61,220,151,.14),rgba(255,255,255,.018))!important;}
+.lib-day-report-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0;}
+.lib-day-report-box{border:1px solid rgba(140,199,255,.10);border-radius:14px;background:rgba(255,255,255,.025);padding:10px;text-align:center;}
+.lib-day-report-num{font-size:20px;font-weight:900;color:#F8FBFF;}
+.lib-day-report-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:#8FA2C2;text-transform:uppercase;letter-spacing:.8px;margin-top:3px;}
+.lib-year-summary{margin-top:12px;border:1px solid rgba(140,199,255,.12);border-radius:18px;padding:12px;background:rgba(255,255,255,.02);}
+.lib-year-summary-title{font-size:12px;font-weight:900;color:#CFE6FF;margin-bottom:8px;}
+.lib-check-row{display:flex;align-items:center;gap:8px;font-size:11px;color:#AFC0DA;line-height:1.4;}
+.lib-check-row input{width:16px;height:16px;accent-color:#3DDC97;}
+@media(max-width:900px){.lib-rd-compact{grid-template-columns:1fr;}.lib-lesson-form{grid-template-columns:1fr;}.lib-lesson-form .full{grid-column:auto;}.lib-day-report-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.lib-day-report-grid{grid-template-columns:1fr;}.lib-lesson-entry-head{flex-direction:column;}.lib-lesson-date{white-space:normal;}}
+
+
+/* ── MANUAL BOOK ORDERING ADD-ON ── */
+#page-media .lib-order-help{
+  margin:0 0 12px;
+  padding:9px 11px;
+  border-radius:13px;
+  background:rgba(56,189,248,.055);
+  border:1px solid rgba(56,189,248,.14);
+  color:#AFC0DA;
+  font-size:11px;
+  line-height:1.55;
+}
+#page-media .book-card{position:relative;}
+#page-media .book-card[draggable="true"]{cursor:grab;}
+#page-media .book-card.lib-book-dragging{opacity:.45;transform:scale(.985);border-color:#60A5FA!important;}
+#page-media .book-card.lib-book-drop-before{box-shadow:-4px 0 0 #60A5FA,0 18px 34px rgba(0,0,0,.30)!important;border-color:rgba(96,165,250,.45)!important;}
+#page-media .book-card.lib-book-drop-after{box-shadow:4px 0 0 #60A5FA,0 18px 34px rgba(0,0,0,.30)!important;border-color:rgba(96,165,250,.45)!important;}
+#page-media .book-order-handle{
+  position:absolute;
+  top:7px;
+  left:7px;
+  z-index:4;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  padding:4px 7px;
+  border-radius:999px;
+  background:rgba(2,8,23,.72);
+  border:1px solid rgba(140,199,255,.18);
+  color:#CFE6FF;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.4px;
+  backdrop-filter:blur(8px);
+  cursor:grab;
+}
+#page-media .book-order-handle:active{cursor:grabbing;}
+#page-media .book-order-tools{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px;}
+#page-media .book-order-tools .book-btn{font-size:8px!important;padding:5px 3px!important;}
+
+
+
+/* ── BOOK FILTER DROPDOWN READABILITY FIX ── */
+#page-media .lib-cat-select{
+  color-scheme:dark;
+  background-color:#081326!important;
+  color:#F3F8FF!important;
+  border-color:rgba(96,165,250,.36)!important;
+  box-shadow:0 8px 22px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.04);
+}
+#page-media .lib-cat-select option{
+  background-color:#081326!important;
+  color:#EAF3FF!important;
+  font-weight:700;
+}
+#page-media .lib-cat-select option:checked{
+  background-color:#2563EB!important;
+  color:#FFFFFF!important;
+}
+#page-media .lib-cat-select option:hover,
+#page-media .lib-cat-select option:focus{
+  background-color:#12335F!important;
+  color:#FFFFFF!important;
+}
+
 </style>
 <!-- PWA APP SUPPORT -->
 <link rel="manifest" href="manifest.json">
@@ -2013,14 +2206,30 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 
     <!-- ── BOOKS SECTION ── -->
     <div id="lib-section-books">
-      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
-        <div id="lib-book-catfilter" style="display:flex;gap:6px;flex-wrap:wrap;flex:1;"></div>
-        <button onclick="libPromptAddCategory('book')" class="btn btn-ghost" style="font-size:11px;padding:6px 12px;">＋ Category</button>
-        <button onclick="libOpenBookModal()" class="btn btn-primary" style="font-size:11px;padding:6px 14px;">＋ Add Book</button>
+      <div class="lib-book-subtabs">
+        <button class="lib-dash-tab active" id="libTabBooks" onclick="libSwitchBookView('books')">📚 My Books</button>
+        <button class="lib-dash-tab" id="libTabDashboard" onclick="libSwitchBookView('dashboard')">📊 Reading Dashboard</button>
       </div>
-      <div id="lib-reading-dashboard"></div>
-      <div id="lib-book-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;"></div>
-      <div id="lib-book-empty" style="display:none;text-align:center;padding:50px 20px;color:var(--muted);font-style:italic;">No books yet. Add your first book above! 📚</div>
+
+      <div id="lib-books-view">
+        <div class="lib-book-tools clean">
+          <div class="lib-filter-card">
+            <div class="field-label">Book filter</div>
+            <div id="lib-book-catfilter"></div>
+          </div>
+          <div class="lib-book-tool-buttons">
+            <button onclick="libOpenBulkBooksModal()" class="btn btn-primary" style="font-size:11px;padding:8px 14px;">⚡ Bulk Import</button>
+            <button onclick="libPromptAddCategory('book')" class="btn btn-ghost" style="font-size:11px;padding:8px 12px;">＋ Category</button>
+            <button onclick="libOpenBookModal()" class="btn btn-primary" style="font-size:11px;padding:8px 14px;">＋ Add Book</button>
+          </div>
+        </div>
+        <div id="lib-book-grid" class="lib-clean-book-grid"></div>
+        <div id="lib-book-empty" style="display:none;text-align:center;padding:50px 20px;color:var(--muted);font-style:italic;">No books yet. Add your first book above! 📚</div>
+      </div>
+
+      <div id="lib-dashboard-view" style="display:none;">
+        <div id="lib-reading-dashboard"></div>
+      </div>
     </div>
 
     <!-- ── YOUTUBE SECTION ── -->
@@ -2086,6 +2295,31 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
     <div class="lib-modal-btns">
       <button class="btn btn-ghost" onclick="libCloseBookModal()">Cancel</button>
       <button class="btn btn-primary" onclick="libSaveBook()">Save Book</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── BULK BOOK IMPORT MODAL ── -->
+<div class="lib-modal-overlay" id="libBulkBookModal" style="display:none;" onclick="if(event.target===this)libCloseBulkBooksModal()">
+  <div class="lib-modal" style="max-width:760px;">
+    <div class="lib-modal-title">⚡ Bulk Import Books</div>
+    <div class="lib-bulk-help">Fast format: one book per line. Use <strong>Title | Author | Category | Pages | Cover URL</strong>. Category is optional now: if you leave it blank, the app auto-detects the best category from the title/author and creates that category automatically. You can also select many cover images below; the app will try to match image filenames with book titles.</div>
+    <textarea class="lib-bulk-textarea" id="libBulkText" placeholder="Atomic Habits | James Clear |  | 320 | https://...cover.jpg&#10;Deep Work | Cal Newport |  | 304 |&#10;The Psychology of Money | Morgan Housel |  | 256 |"></textarea>
+    <div style="height:10px;"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div>
+        <div class="field-label">Default category if empty</div>
+        <select class="lib-select" id="libBulkDefaultCat"></select>
+      </div>
+      <div>
+        <div class="field-label">Bulk cover images</div>
+        <input class="lib-input" id="libBulkCovers" type="file" accept="image/jpeg,image/png,image/webp" multiple onchange="libPrepareBulkCoverFiles(this)">
+      </div>
+    </div>
+    <div class="lib-storage-note" id="libBulkCoverStatus">Tip: for 20–30 books, image URLs are fastest and use less browser storage. Uploaded covers are compressed, but URLs are still best.</div>
+    <div class="lib-modal-btns">
+      <button class="btn btn-ghost" onclick="libCloseBulkBooksModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="libImportBulkBooks()">Import Books</button>
     </div>
   </div>
 </div>
@@ -6775,6 +7009,223 @@ function libUpdateProgress(id){
 }
 
 // ══════════════════════════════════════════════════════
+//  BOOK LIBRARY BULK IMPORT + BETTER CALENDAR / REPORTS
+//  Added as a safe override; no other app sections changed.
+// ══════════════════════════════════════════════════════
+let libCalendarMonthDate=new Date();
+let libSelectedCalendarISO=libTodayISO();
+let libBulkCoverMap={};
+function libStartOfMonth(d){return new Date(d.getFullYear(),d.getMonth(),1);}
+function libEndOfMonth(d){return new Date(d.getFullYear(),d.getMonth()+1,0);}
+function libMonthLabel(d){return d.toLocaleDateString(undefined,{month:'long',year:'numeric'});}
+function libMonthKey(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;}
+function libSameMonthISO(iso,d){return iso&&iso.slice(0,7)===libMonthKey(d);}
+function libCompactName(v){return String(v||'').toLowerCase().replace(/(book|cover|front|final)/g,'').replace(/\.[a-z0-9]+$/,'').replace(/[^a-z0-9]+/g,'').trim();}
+function libOpenBulkBooksModal(){
+  const cats=libGetBookCats(); const sel=document.getElementById('libBulkDefaultCat');
+  if(sel) sel.innerHTML=cats.map(c=>`<option value="${libEscape(c)}">${libEscape(c)}</option>`).join('');
+  const txt=document.getElementById('libBulkText'); if(txt&&!txt.value.trim()) txt.value='';
+  libBulkCoverMap={}; const st=document.getElementById('libBulkCoverStatus'); if(st) st.textContent='Tip: for 20–30 books, image URLs are fastest and use less browser storage. Uploaded covers are compressed, but URLs are still best.';
+  const m=document.getElementById('libBulkBookModal'); if(m) m.style.display='flex';
+}
+function libCloseBulkBooksModal(){const m=document.getElementById('libBulkBookModal'); if(m)m.style.display='none';}
+function libCompressedImageDataUrlPromise(file){return new Promise(resolve=>libCompressedImageDataUrl(file,resolve));}
+async function libPrepareBulkCoverFiles(input){
+  const files=Array.from(input.files||[]); const st=document.getElementById('libBulkCoverStatus'); libBulkCoverMap={};
+  if(!files.length){if(st)st.textContent='No cover images selected.';return;}
+  if(st)st.textContent='Compressing '+files.length+' covers...';
+  for(const f of files){
+    const key=libCompactName(f.name); if(!key) continue;
+    try{libBulkCoverMap[key]=await libCompressedImageDataUrlPromise(f);}catch(e){}
+  }
+  if(st)st.textContent='Ready: '+Object.keys(libBulkCoverMap).length+' compressed cover images. Matching works best when filename is close to book title, e.g. atomic-habits.jpg.';
+}
+
+function libTitleHasAny(text, words){
+  const t=String(text||'').toLowerCase();
+  return words.some(w=>t.includes(String(w).toLowerCase()));
+}
+function libInferBookCategory(title, author){
+  const text=(String(title||'')+' '+String(author||'')).toLowerCase();
+  const rules=[
+    {cat:'Islamic Studies',words:['quran','qur\'an','hadith','sunnah','seerah','islam','muslim','allah','prophet','muhammad','fiqh','tafsir','tawheed','dua','dhikr','salah','namaz','ramadan','jannah','akhirah']},
+    {cat:'Self-Development',words:['atomic habits','habit','discipline','mindset','confidence','productivity','success','focus','deep work','mind','psychology','emotional','grit','motivation','willpower','power of now','ego','subtle art']},
+    {cat:'Business & Money',words:['money','wealth','rich','business','startup','entrepreneur','marketing','sales','profit','invest','investment','finance','financial','economics','capital','millionaire','cashflow','psychology of money']},
+    {cat:'AI & Technology',words:['artificial intelligence',' ai ','chatgpt','machine learning','deep learning','data science','python','coding','programming','software','technology','algorithm','computer','robot','automation']},
+    {cat:'Communication & Relationships',words:['communication','relationship','influence','friends','people','persuasion','negotiation','conversation','marriage','love','social','charisma','public speaking']},
+    {cat:'Health & Fitness',words:['health','fitness','body','diet','nutrition','sleep','exercise','gym','fat loss','muscle','breath','breathing','brain','dopamine','biology','medical']},
+    {cat:'History & Biography',words:['history','biography','autobiography','memoir','life of','churchill','lincoln','mandela','steve jobs','elon musk','napoleon','empire','war','civilization']},
+    {cat:'Spirituality & Philosophy',words:['philosophy','stoic','stoicism','meditations','meaning','soul','spiritual','wisdom','ethics','plato','aristotle','nietzsche','socrates']},
+    {cat:'Fiction & Literature',words:['novel','story','stories','fiction','poems','poetry','literature','alchemist','1984','animal farm','kite runner','harry potter']},
+    {cat:'Education & Learning',words:['learn','learning','study','student','memory','exam','teaching','education','mastery','skill','ultralearning','course']}
+  ];
+  for(const r of rules){ if(libTitleHasAny(text,r.words)) return r.cat; }
+  return 'General Reading';
+}
+function libLooksLikePages(v){return /^\d{1,5}$/.test(String(v||'').trim());}
+function libLooksLikeCover(v){return /^(https?:|data:image|file:)/i.test(String(v||'').trim()) || /\.(jpg|jpeg|png|webp|gif)(\?|$)/i.test(String(v||'').trim());}
+function libParseBulkBookLine(line, defaultCat){
+  const raw=line.trim(); if(!raw||raw.startsWith('#')) return null;
+  let parts=raw.includes('|')?raw.split('|'):(raw.includes('\t')?raw.split('\t'):raw.split(','));
+  parts=parts.map(x=>x.trim());
+  const title=parts[0]||''; if(!title) return null;
+  const author=parts[1]||'Unknown';
+
+  // Flexible formats supported:
+  // Title | Author | Category | Pages | Cover URL
+  // Title | Author | Pages | Cover URL
+  // Title | Author | Cover URL
+  // Title | Author  => category is auto-detected
+  let categoryRaw=parts[2]||'';
+  let pagesRaw=parts[3]||'';
+  let coverParts=parts.slice(4);
+  if(categoryRaw && libLooksLikePages(categoryRaw)){
+    pagesRaw=categoryRaw;
+    categoryRaw='';
+    coverParts=parts.slice(3);
+  }else if(categoryRaw && libLooksLikeCover(categoryRaw)){
+    coverParts=parts.slice(2);
+    categoryRaw='';
+    pagesRaw='';
+  }else if(pagesRaw && libLooksLikeCover(pagesRaw)){
+    coverParts=parts.slice(3);
+    pagesRaw='';
+  }
+  const inferred=libInferBookCategory(title,author);
+  const category=(categoryRaw||inferred||defaultCat||'General Reading').trim();
+  const pages=parseInt(pagesRaw)||0;
+  const cover=coverParts.join('|').trim();
+  return {title,author,category,totalPages:pages,cover,inferredCategory:!categoryRaw};
+}
+function libFindBulkCover(title,author){
+  const t=libCompactName(title), a=libCompactName(author); let best='';
+  Object.keys(libBulkCoverMap).forEach(k=>{if(!best&&(k.includes(t)||t.includes(k)||k.includes(a+t)||k.includes(t+a))) best=k;});
+  return best?libBulkCoverMap[best]:'';
+}
+function libImportBulkBooks(){
+  const text=(document.getElementById('libBulkText')&&document.getElementById('libBulkText').value)||'';
+  const defaultCat=(document.getElementById('libBulkDefaultCat')&&document.getElementById('libBulkDefaultCat').value)||'Self-Development';
+  const rows=text.split(/\n+/).map(x=>libParseBulkBookLine(x,defaultCat)).filter(Boolean);
+  if(!rows.length){alert('Paste at least one book line first. Format: Title | Author | Category | Pages | Cover URL');return;}
+  const books=libGetBooks(); const existing=new Set(books.map(b=>libCompactName(b.title+' '+b.author)));
+  const cats=libGetBookCats(); const catSet=new Set(cats.map(c=>String(c).toLowerCase()));
+  let added=0, skipped=0, newCats=0, autoCats=0;
+  rows.forEach(r=>{
+    const key=libCompactName(r.title+' '+r.author); if(existing.has(key)){skipped++;return;}
+    if(!catSet.has(String(r.category).toLowerCase())){
+      cats.push(r.category); catSet.add(String(r.category).toLowerCase()); newCats++;
+    }
+    if(r.inferredCategory) autoCats++;
+    books.push(libNormalizeBook({id:Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,7),title:r.title,author:r.author,category:r.category,cover:r.cover||libFindBulkCover(r.title,r.author),totalPages:r.totalPages,pagesRead:0,status:'not-started',notes:'',action:'',startDate:'',targetDate:'',weeklyTarget:0,mastery:0,dateAdded:new Date().toISOString(),lastUpdated:new Date().toISOString()}));
+    existing.add(key); added++;
+  });
+  libSaveBookCats(cats);
+  if(libSaveBooks(books)){libCloseBulkBooksModal();libRenderBooks();alert('Imported '+added+' books. Auto-categorized '+autoCats+' books and created '+newCats+' new categories.'+(skipped?' Skipped '+skipped+' duplicates.':''));}
+}
+function libSaveReadingTargets(){
+  const yr=Math.max(1,parseInt(document.getElementById('libYearTarget')&&document.getElementById('libYearTarget').value)||12);
+  const wk=Math.max(1,parseInt(document.getElementById('libWeekTarget')&&document.getElementById('libWeekTarget').value)||80);
+  libSaveReadingSettings({yearTarget:yr,weekTarget:wk,calendarWeeks:12}); libRenderBooks();
+}
+function libRenderReadingDashboard(){
+  const el=document.getElementById('lib-reading-dashboard'); if(!el) return;
+  const st=libReadingStats(); const settings=libGetReadingSettings();
+  const total=st.books.length, done=st.completed.length, reading=st.reading.length;
+  const yearTarget=Number(settings.yearTarget)||12;
+  const fiveTarget=yearTarget*5, twentyTarget=yearTarget*20, quarterTarget=Math.ceil(yearTarget/4), weekTarget=Number(settings.weekTarget)||80;
+  const currentBooks=st.reading.slice(0,3);
+  const activePlan=currentBooks.length?currentBooks.map(b=>`${libEscape(b.title)}: ${libBookWeeklyNeed(b)} pages/wk`).join('<br>'):'Start one book to generate a weekly plan.';
+  const monthBooks=st.completed.filter(b=>libSameMonthISO(b.completedAt||b.lastUpdated||b.dateAdded,libCalendarMonthDate));
+  const monthLessons=monthBooks.map(b=>b.notes).filter(Boolean).slice(0,4);
+  el.innerHTML=`
+    <div class="lib-reading-hub">
+      <div class="lib-reading-panel">
+        <div class="lib-reading-title">Reading Execution Dashboard</div>
+        <div class="lib-reading-sub">Built to stop collecting books and start finishing, understanding, applying, and reviewing them.</div>
+        <div class="lib-kpi-grid">
+          <div class="lib-kpi"><div class="lib-kpi-num">${total}</div><div class="lib-kpi-label">Books Stored</div></div>
+          <div class="lib-kpi"><div class="lib-kpi-num">${reading}</div><div class="lib-kpi-label">Currently Reading</div></div>
+          <div class="lib-kpi"><div class="lib-kpi-num">${done}</div><div class="lib-kpi-label">Completed Total</div></div>
+          <div class="lib-kpi"><div class="lib-kpi-num">${st.masteryAvg}%</div><div class="lib-kpi-label">Avg Mastery</div></div>
+        </div>
+        <div class="lib-target-row">
+          <div class="lib-target-pill"><strong>${weekTarget}</strong>pages / week target</div>
+          <div class="lib-target-pill"><strong>${quarterTarget}</strong>3-month books</div>
+          <div class="lib-target-pill"><strong>${yearTarget}</strong>1-year books</div>
+          <div class="lib-target-pill"><strong>${fiveTarget}</strong>5-year books</div>
+          <div class="lib-target-pill"><strong>${twentyTarget}</strong>20-year books</div>
+        </div>
+        <div class="lib-plan-tools">
+          <div class="field-group"><div class="field-label">Year book target</div><input class="field-input" id="libYearTarget" type="number" min="1" value="${yearTarget}" onchange="libSaveReadingTargets()"></div>
+          <div class="field-group"><div class="field-label">Weekly page target</div><input class="field-input" id="libWeekTarget" type="number" min="1" value="${weekTarget}" onchange="libSaveReadingTargets()"></div>
+        </div>
+        <div class="lib-storage-note">Fastest method for 20–30 books: use <strong>⚡ Bulk Import</strong>. Paste title, author, optional category, pages, and optional cover URL. Blank categories are auto-detected. Use cover URLs for the largest library, or select many cover files at once.</div>
+      </div>
+      <div class="lib-reading-panel">
+        <div class="lib-reading-title">This Week</div>
+        <div class="lib-reading-sub">${activePlan}</div>
+        <div class="lib-kpi-grid" style="grid-template-columns:repeat(2,1fr);">
+          <div class="lib-kpi"><div class="lib-kpi-num">${st.monthCompleted}</div><div class="lib-kpi-label">Completed This Month</div></div>
+          <div class="lib-kpi"><div class="lib-kpi-num">${st.yearCompleted}</div><div class="lib-kpi-label">Completed This Year</div></div>
+        </div>
+        <div class="lib-report-grid">
+          <div class="lib-report-box"><div class="lib-report-num">${monthBooks.length}</div><div class="lib-report-label">${libMonthLabel(libCalendarMonthDate)} completed</div></div>
+          <div class="lib-report-box"><div class="lib-report-num">${st.yearCompleted}/${yearTarget}</div><div class="lib-report-label">Year progress</div></div>
+          <div class="lib-report-box"><div class="lib-report-num">${monthLessons.length}</div><div class="lib-report-label">Lessons captured</div></div>
+        </div>
+        ${monthLessons.length?`<div class="lib-lessons-box"><div class="lib-detail-title">Month lessons taken</div>${monthLessons.map(x=>`<div class="lib-detail-row">${libEscape(x)}</div>`).join('')}</div>`:''}
+      </div>
+    </div>
+    <div id="lib-reading-calendar"></div>`;
+  libRenderReadingCalendar();
+}
+function libMoveReadingMonth(delta){libCalendarMonthDate=new Date(libCalendarMonthDate.getFullYear(),libCalendarMonthDate.getMonth()+delta,1);libRenderReadingDashboard();}
+function libGoReadingMonthToday(){libCalendarMonthDate=new Date();libSelectedCalendarISO=libTodayISO();libRenderReadingDashboard();}
+function libSelectReadingDay(iso){libSelectedCalendarISO=iso;libRenderReadingCalendar();}
+function libReadingDayItems(iso){
+  const books=libGetBooks();
+  const completed=books.filter(b=>(b.completedAt||'').slice(0,10)===iso);
+  const due=books.filter(b=>b.targetDate===iso&&b.status!=='completed');
+  const started=books.filter(b=>b.startDate===iso);
+  const reading=books.filter(b=>b.status==='reading').slice(0,4).map(b=>({title:b.title,pages:Math.ceil(libBookWeeklyNeed(b)/7)}));
+  return {completed,due,started,reading};
+}
+function libRenderSelectedDayDetail(){
+  const iso=libSelectedCalendarISO||libTodayISO(); const it=libReadingDayItems(iso);
+  const rows=[];
+  it.started.forEach(b=>rows.push(`Started: <strong>${libEscape(b.title)}</strong>`));
+  it.due.forEach(b=>rows.push(`Target finish: <strong>${libEscape(b.title)}</strong>`));
+  it.completed.forEach(b=>rows.push(`Completed: <strong>${libEscape(b.title)}</strong>${b.notes?`<br><span style="color:#AFC0DA;">Lesson: ${libEscape(b.notes)}</span>`:''}${b.action?`<br><span style="color:#9CF2C3;">Applied: ${libEscape(b.action)}</span>`:''}`));
+  if(!rows.length&&it.reading.length) rows.push(...it.reading.map(x=>`Read <strong>${x.pages}</strong> pages from <strong>${libEscape(x.title)}</strong>`));
+  if(!rows.length) rows.push('No book task for this day yet. Set a start date, target finish date, or mark a book completed.');
+  return `<div class="lib-day-detail"><div class="lib-detail-title">${iso} reading report</div>${rows.map(r=>`<div class="lib-detail-row">${r}</div>`).join('')}</div>`;
+}
+function libRenderReadingCalendar(){
+  const el=document.getElementById('lib-reading-calendar'); if(!el) return;
+  const month=libStartOfMonth(libCalendarMonthDate); const end=libEndOfMonth(libCalendarMonthDate);
+  const st=libReadingStats();
+  const monthCompleted=st.completed.filter(b=>libSameMonthISO(b.completedAt||b.lastUpdated||b.dateAdded,month));
+  const monthPages=st.books.filter(b=>libSameMonthISO(b.lastUpdated||b.dateAdded,month)).reduce((s,b)=>s+(Number(b.pagesRead)||0),0);
+  const startOffset=(month.getDay()+6)%7;
+  let html=`<div class="lib-month-card"><div class="lib-month-head"><div><div class="lib-month-title">${libMonthLabel(month)} Book Calendar</div><div class="lib-month-sub">Click any day to see reading targets, completed books, lessons, and applied actions.</div></div><div class="mosque-calendar-nav"><button class="dnav-btn" onclick="libMoveReadingMonth(-1)">← Prev</button><button class="dnav-btn today-btn" onclick="libGoReadingMonthToday()">Today</button><button class="dnav-btn" onclick="libMoveReadingMonth(1)">Next →</button></div></div>`;
+  html+=`<div class="lib-report-grid"><div class="lib-report-box"><div class="lib-report-num">${monthCompleted.length}</div><div class="lib-report-label">Books completed this month</div></div><div class="lib-report-box"><div class="lib-report-num">${st.yearCompleted}</div><div class="lib-report-label">Books completed this year</div></div><div class="lib-report-box"><div class="lib-report-num">${monthCompleted.filter(b=>b.notes||b.action).length}</div><div class="lib-report-label">Books with lessons/actions</div></div></div>`;
+  html+='<div class="lib-calendar-grid">'+['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>`<div class="lib-cal-head">${d}</div>`).join('');
+  for(let i=0;i<startOffset;i++) html+='<div class="lib-cal-day empty"></div>';
+  for(let day=1;day<=end.getDate();day++){
+    const d=new Date(month.getFullYear(),month.getMonth(),day); const iso=libDateISO(d); const it=libReadingDayItems(iso);
+    const labels=[];
+    if(it.completed.length) labels.push('✅ '+it.completed.length+' completed');
+    if(it.due.length) labels.push('🎯 '+it.due[0].title);
+    if(it.started.length) labels.push('▶ '+it.started[0].title);
+    if(!labels.length&&it.reading.length) labels.push('📖 '+it.reading.slice(0,2).map(x=>x.title+': '+x.pages+'p').join(' · '));
+    const cls=[iso===libTodayISO()?'today':'',iso===libSelectedCalendarISO?'selected':'',(it.completed.length?'has-complete':(labels.length?'has-work':''))].join(' ');
+    html+=`<div class="lib-cal-day ${cls}" onclick="libSelectReadingDay('${iso}')"><div class="lib-cal-num"><span>${day}</span>${labels.length?'<span class="lib-cal-dot"></span>':''}</div><div class="lib-cal-meta">${libEscape(labels.join(' · '))}</div></div>`;
+  }
+  html+='</div>'+libRenderSelectedDayDetail()+'</div>'; el.innerHTML=html;
+}
+
+
+// ══════════════════════════════════════════════════════
 //  FINANCIAL CALCULATOR SYSTEM
 // ══════════════════════════════════════════════════════
 const FIN_KEY='fin_calc_v3';
@@ -9600,6 +10051,298 @@ window.cloudSaveNow = cloudSaveNow;
     }
   };
 })();
+
+
+
+
+
+// ── MANUAL BOOK ORDERING ADD-ON ──
+(function(){
+  window.libBookDragId=null;
+  function safeId(v){return String(v||'').replace(/'/g,"\'");}
+  function currentVisibleBooks(){
+    const books=(typeof libGetBooks==='function'?libGetBooks():[]);
+    return (libActiveCat==='all'||!libActiveCat)?books:books.filter(b=>b.category===libActiveCat);
+  }
+  function clearDropMarks(){
+    document.querySelectorAll('#lib-book-grid .book-card').forEach(c=>c.classList.remove('lib-book-drop-before','lib-book-drop-after'));
+  }
+  function moveId(ids, draggedId, targetId, after){
+    const next=ids.filter(id=>id!==draggedId);
+    if(!targetId){ next.push(draggedId); return next; }
+    let at=next.indexOf(targetId);
+    if(at<0){ next.push(draggedId); return next; }
+    if(after) at+=1;
+    next.splice(at,0,draggedId);
+    return next;
+  }
+  window.libMoveBookManual=function(draggedId,targetId,after){
+    if(!draggedId) return;
+    const books=(typeof libGetBooks==='function'?libGetBooks():[]);
+    const visible=currentVisibleBooks();
+    if(!visible.some(b=>b.id===draggedId)) return;
+    const visibleIds=moveId(visible.map(b=>b.id),draggedId,targetId,!!after);
+    const byId=Object.fromEntries(books.map(b=>[b.id,b]));
+    const visibleSet=new Set(visible.map(b=>b.id));
+    const orderedVisible=visibleIds.map(id=>byId[id]).filter(Boolean);
+    let i=0;
+    const reordered=books.map(b=>visibleSet.has(b.id)?orderedVisible[i++]:b);
+    if(typeof libSaveBooks==='function') libSaveBooks(reordered);
+    if(typeof showToast==='function') showToast('Book order saved');
+    if(typeof libRenderBooks==='function') libRenderBooks();
+  };
+  window.libBookDragStart=function(e,id){
+    window.libBookDragId=id;
+    const card=e.currentTarget;
+    card.classList.add('lib-book-dragging');
+    try{e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',id);}catch(err){}
+  };
+  window.libBookDragEnd=function(){
+    window.libBookDragId=null;
+    clearDropMarks();
+    document.querySelectorAll('#lib-book-grid .book-card').forEach(c=>c.classList.remove('lib-book-dragging'));
+  };
+  window.libBookDragOver=function(e,id){
+    if(!window.libBookDragId||window.libBookDragId===id) return;
+    e.preventDefault();
+    const card=e.currentTarget;
+    const r=card.getBoundingClientRect();
+    const after=(e.clientX-r.left)>r.width/2;
+    clearDropMarks();
+    card.classList.add(after?'lib-book-drop-after':'lib-book-drop-before');
+    card.dataset.dropAfter=after?'1':'0';
+  };
+  window.libBookDrop=function(e,id){
+    e.preventDefault();
+    const dragged=window.libBookDragId||(e.dataTransfer&&e.dataTransfer.getData('text/plain'));
+    const after=e.currentTarget&&e.currentTarget.dataset.dropAfter==='1';
+    clearDropMarks();
+    if(dragged&&dragged!==id) libMoveBookManual(dragged,id,after);
+    window.libBookDragId=null;
+  };
+  window.libBookGridDropEnd=function(e){
+    if(e.target&&e.target.closest&&e.target.closest('.book-card')) return;
+    e.preventDefault();
+    const dragged=window.libBookDragId||(e.dataTransfer&&e.dataTransfer.getData('text/plain'));
+    if(dragged) libMoveBookManual(dragged,null,true);
+  };
+  window.libBookMoveStep=function(id,step){
+    const visible=currentVisibleBooks();
+    const ids=visible.map(b=>b.id);
+    const idx=ids.indexOf(id);
+    if(idx<0) return;
+    const targetIdx=Math.max(0,Math.min(ids.length-1,idx+step));
+    if(targetIdx===idx) return;
+    const targetId=ids[targetIdx];
+    libMoveBookManual(id,targetId,step>0);
+  };
+})();
+
+
+// ── COMPACT CLEAN BOOK LIBRARY v3 OVERRIDE ──
+(function(){
+  function esc(v){return String(v||'').replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));}
+  function safeId(v){return String(v||'').replace(/'/g,"\\'");}
+  function catColor(cat){return ({'Islamic':'var(--gold)','Self-Development':'var(--cyan)','Business/Money':'var(--orange)','History & Seerah':'#A78BFA','Skills':'var(--green)','Psychology':'#F472B6','AI & Tech':'#7CC7FF','Book Summaries':'var(--red)','Business & Money':'var(--orange)','Islamic Studies':'var(--gold)','AI & Technology':'#7CC7FF'}[cat]||'#9FB2D2');}
+  function statusInfo(st){return ({'not-started':{label:'Not Started',cls:'status-not-started'},reading:{label:'Reading',cls:'status-reading'},completed:{label:'Completed',cls:'status-completed'}})[st||'not-started']||{label:'Not Started',cls:'status-not-started'};}
+  window.libRenderBooks=function(){
+    const books=(typeof libGetBooks==='function'?libGetBooks():[]);
+    const cats=(typeof libGetBookCats==='function'?libGetBookCats():[]);
+    const filterEl=document.getElementById('lib-book-catfilter');
+    if(filterEl){
+      const options=[`<option value="all">All books (${books.length})</option>`].concat(cats.map(c=>`<option value="${esc(c)}" ${libActiveCat===c?'selected':''}>${esc(c)} (${books.filter(b=>b.category===c).length})</option>`)).join('');
+      filterEl.innerHTML=`<select class="lib-cat-select" onchange="libActiveCat=this.value; libRenderBooks();">${options}</select>${libActiveCat&&libActiveCat!=='all'&&cats.includes(libActiveCat)?`<button onclick="libDeleteBookCategory('${String(libActiveCat).replace(/'/g,"\\'")}',this)" class="book-btn danger" style="margin-top:7px;width:auto;padding:6px 10px!important;">Delete category</button>`:''}`;
+    }
+    const grid=document.getElementById('lib-book-grid'); const empty=document.getElementById('lib-book-empty'); if(!grid) return;
+    grid.setAttribute('ondragover','event.preventDefault()');
+    grid.setAttribute('ondrop','libBookGridDropEnd(event)');
+    const filtered=(libActiveCat==='all'||!libActiveCat)?books:books.filter(b=>b.category===libActiveCat);
+    if(!filtered.length){grid.innerHTML=''; if(empty) empty.style.display='block'; return;} if(empty) empty.style.display='none';
+    grid.innerHTML=`<div class="lib-order-help" style="grid-column:1/-1;">↕ Drag any book card to reorder your reading priority. Drop it before/after another book, or use Move ↑ / Move ↓ on phones.</div>`+filtered.map(b=>{
+      const pct=b.totalPages>0?Math.min(100,Math.round((Number(b.pagesRead)||0)/Number(b.totalPages)*100)):0;
+      const st=statusInfo(b.status); const color=catColor(b.category); const left=Math.max(0,(Number(b.totalPages)||0)-(Number(b.pagesRead)||0));
+      const overdue=b.targetDate&&b.status!=='completed'&&typeof libDaysBetween==='function'&&libDaysBetween(new Date(),b.targetDate)<0;
+      const cardCls=b.status==='completed'?' lib-book-card-done':(overdue?' lib-book-card-hot':'');
+      const cover=b.cover?`<div class="book-cover"><img src="${b.cover}" alt="cover" onerror="this.parentElement.innerHTML='📚'"></div>`:`<div class="book-cover">📚</div>`;
+      return `<div class="book-card${cardCls}" draggable="true" data-book-id="${esc(b.id)}" ondragstart="libBookDragStart(event,'${safeId(b.id)}')" ondragend="libBookDragEnd(event)" ondragover="libBookDragOver(event,'${safeId(b.id)}')" ondrop="libBookDrop(event,'${safeId(b.id)}')"><div class="book-order-handle" title="Drag to reorder">↕ Move</div>${cover}<div class="book-info">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:5px;margin-bottom:2px;">
+          <span style="font-size:8px;font-family:'JetBrains Mono',monospace;font-weight:800;padding:2px 6px;border-radius:999px;background:rgba(255,255,255,.055);color:${color};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:84px;">${esc(b.category||'General')}</span>
+          <span class="status-badge ${st.cls}">${st.label}</span>
+        </div>
+        <div class="book-title-text" title="${esc(b.title)}">${esc(b.title)}</div>
+        <div class="book-author" title="${esc(b.author||'Unknown')}">by ${esc(b.author||'Unknown')}</div>
+        <div style="display:flex;justify-content:space-between;font-size:9px;font-family:'JetBrains Mono',monospace;margin-top:4px;"><span style="color:#8FA2C2;">${Number(b.pagesRead)||0}/${b.totalPages||'?'}p</span><span style="color:${color};font-weight:900;">${pct}%</span></div>
+        <div class="book-prog-bar"><div class="book-prog-fill" style="width:${pct}%;background:${color};"></div></div>
+        <div style="display:flex;justify-content:space-between;font-size:9px;color:#8FA2C2;font-family:'JetBrains Mono',monospace;"><span>${left} left</span><span>${b.mastery||0}% mastery</span></div>
+        <div class="book-actions"><button class="book-btn" onclick="libEditBook('${b.id}')">Edit</button><button class="book-btn" onclick="libUpdateProgress('${b.id}')">Progress</button><button class="book-btn danger" onclick="libDeleteBook('${b.id}')">×</button></div>
+        <div class="book-order-tools"><button class="book-btn" onclick="libBookMoveStep('${safeId(b.id)}',-1)">Move ↑</button><button class="book-btn" onclick="libBookMoveStep('${safeId(b.id)}',1)">Move ↓</button></div>
+      </div></div>`;
+    }).join('');
+  };
+  const oldSwitch=window.libSwitchBookView;
+  window.libSwitchBookView=function(view){
+    if(typeof oldSwitch==='function') oldSwitch(view);
+    const books=document.getElementById('lib-books-view'); const dash=document.getElementById('lib-dashboard-view');
+    const tb=document.getElementById('libTabBooks'); const td=document.getElementById('libTabDashboard');
+    if(books&&dash){books.style.display=view==='dashboard'?'none':'block'; dash.style.display=view==='dashboard'?'block':'none';}
+    if(tb&&td){tb.classList.toggle('active',view!=='dashboard'); td.classList.toggle('active',view==='dashboard');}
+    if(view==='dashboard'&&typeof libRenderReadingDashboard==='function') setTimeout(libRenderReadingDashboard,20);
+    if(view!=='dashboard') setTimeout(libRenderBooks,20);
+  };
+})();
+
+
+
+// ── DAILY BOOK LESSONS ON CALENDAR v4 ──
+(function(){
+  const oldNormalize = window.libNormalizeBook || (typeof libNormalizeBook==='function'?libNormalizeBook:null);
+  function esc(v){return String(v||'').replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));}
+  function todayISO(){return (typeof libTodayISO==='function'?libTodayISO():new Date().toISOString().slice(0,10));}
+  function dateISO(d){return (typeof libDateISO==='function'?libDateISO(d):new Date(d).toISOString().slice(0,10));}
+  function getBooks(){return typeof libGetBooks==='function'?libGetBooks():[];}
+  function saveBooks(books){return typeof libSaveBooks==='function'?libSaveBooks(books):false;}
+  function normalizeLog(x){return {id:x&&x.id?String(x.id):(Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,6)),date:(x&&x.date)||todayISO(),chapter:(x&&x.chapter)||'',lesson:(x&&x.lesson)||'',action:(x&&x.action)||'',pages:Number(x&&x.pages)||0,createdAt:(x&&x.createdAt)||new Date().toISOString()};}
+  window.libNormalizeBook=function(b){
+    const base = oldNormalize ? oldNormalize(b||{}) : (b||{});
+    return {...base,lessonLogs:Array.isArray(base.lessonLogs)?base.lessonLogs.map(normalizeLog):[]};
+  };
+  function allLessonLogs(){
+    return getBooks().flatMap(b=>(b.lessonLogs||[]).map(l=>({...l,bookId:b.id,bookTitle:b.title,bookAuthor:b.author,completedAt:b.completedAt||''})));
+  }
+  function dayLogs(iso){return allLessonLogs().filter(l=>l.date===iso);}
+  function monthKey(iso){return String(iso||'').slice(0,7);}
+  function sameMonth(iso,d){return monthKey(iso)===dateISO(d).slice(0,7);}
+  function yearOf(iso){return String(iso||'').slice(0,4);}
+  function selectedISO(){return window.libSelectedCalendarISO||todayISO();}
+  function selectedDateLabel(iso){try{return new Date(iso+'T00:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}catch(e){return iso;}}
+  window.libSaveDailyBookLesson=function(){
+    const iso=selectedISO();
+    const bookId=(document.getElementById('libLessonBook')||{}).value||'';
+    const chapter=(document.getElementById('libLessonChapter')||{}).value||'';
+    const lesson=(document.getElementById('libLessonText')||{}).value||'';
+    const action=(document.getElementById('libLessonAction')||{}).value||'';
+    const pages=Number((document.getElementById('libLessonPages')||{}).value)||0;
+    const complete=!!((document.getElementById('libLessonCompleteBook')||{}).checked);
+    if(!bookId){alert('Choose a book first.');return;}
+    if(!chapter.trim()&&!lesson.trim()&&!action.trim()&&!pages&&!complete){alert('Add chapter, lesson, pages, action, or mark the book completed.');return;}
+    const books=getBooks(); const idx=books.findIndex(b=>b.id===bookId); if(idx<0)return;
+    const b=books[idx]; const logs=Array.isArray(b.lessonLogs)?b.lessonLogs:[];
+    logs.push(normalizeLog({date:iso,chapter:chapter.trim(),lesson:lesson.trim(),action:action.trim(),pages}));
+    b.lessonLogs=logs;
+    if(pages>0) b.pagesRead=Math.min(Number(b.totalPages)||Number(b.pagesRead||0)+pages, Number(b.pagesRead||0)+pages);
+    if(complete){
+      b.status='completed';
+      b.completedAt=iso+'T12:00:00.000Z';
+      if(Number(b.totalPages)>0) b.pagesRead=Number(b.totalPages);
+      b.mastery=Math.max(Number(b.mastery)||0,75);
+    }else if(Number(b.pagesRead)>0 && b.status==='not-started') b.status='reading';
+    b.lastUpdated=new Date().toISOString();
+    books[idx]=b;
+    if(saveBooks(books)){
+      ['libLessonChapter','libLessonText','libLessonAction','libLessonPages'].forEach(id=>{const x=document.getElementById(id); if(x) x.value='';});
+      const cb=document.getElementById('libLessonCompleteBook'); if(cb) cb.checked=false;
+      if(typeof libRenderReadingDashboard==='function') libRenderReadingDashboard();
+      if(typeof libRenderBooks==='function') libRenderBooks();
+    }
+  };
+  window.libDeleteDailyBookLesson=function(bookId,logId){
+    if(!confirm('Delete this lesson entry?'))return;
+    const books=getBooks(); const idx=books.findIndex(b=>b.id===bookId); if(idx<0)return;
+    books[idx].lessonLogs=(books[idx].lessonLogs||[]).filter(l=>l.id!==logId);
+    books[idx].lastUpdated=new Date().toISOString();
+    if(saveBooks(books) && typeof libRenderReadingDashboard==='function') libRenderReadingDashboard();
+  };
+  window.libSelectReadingDay=function(iso){window.libSelectedCalendarISO=iso; if(typeof libRenderReadingCalendar==='function') libRenderReadingCalendar();};
+  window.libRenderDailyLessonForm=function(){
+    const iso=selectedISO(); const books=getBooks();
+    const active=books.filter(b=>b.status!=='completed');
+    const options=(active.length?active:books).map(b=>`<option value="${esc(b.id)}">${esc(b.title)}${b.author?' — '+esc(b.author):''}</option>`).join('');
+    return `<div class="lib-lesson-panel">
+      <div class="lib-lesson-title">Add chapter / lesson for ${esc(selectedDateLabel(iso))}</div>
+      <div class="lib-lesson-sub">Use this after reading. Later, when you click this date, the dashboard shows what chapter you read, what lesson you took, and how you applied it.</div>
+      <div class="lib-lesson-form">
+        <select class="field-input" id="libLessonBook">${options||'<option value="">No books yet</option>'}</select>
+        <input class="field-input" id="libLessonChapter" placeholder="Chapter / pages, e.g. Ch. 3 or p. 45–62">
+        <textarea class="field-input full" id="libLessonText" placeholder="Lesson learned from this reading session" rows="2"></textarea>
+        <textarea class="field-input full" id="libLessonAction" placeholder="How will I apply this lesson?" rows="2"></textarea>
+        <input class="field-input" id="libLessonPages" type="number" min="0" placeholder="Pages read today">
+        <label class="lib-check-row"><input type="checkbox" id="libLessonCompleteBook"> Finished this book on this date</label>
+      </div>
+      <button class="btn btn-primary" style="margin-top:10px;font-size:11px;padding:8px 14px;" onclick="libSaveDailyBookLesson()">＋ Save lesson to this date</button>
+    </div>`;
+  };
+  window.libRenderSelectedDayDetail=function(){
+    const iso=selectedISO();
+    const books=getBooks();
+    const logs=dayLogs(iso);
+    const completed=books.filter(b=>(b.completedAt||'').slice(0,10)===iso);
+    const started=books.filter(b=>b.startDate===iso);
+    const due=books.filter(b=>b.targetDate===iso&&b.status!=='completed');
+    let html=`<div class="lib-day-detail"><div class="lib-detail-title">${esc(selectedDateLabel(iso))}</div>`;
+    html+=`<div class="lib-day-report-grid"><div class="lib-day-report-box"><div class="lib-day-report-num">${logs.length}</div><div class="lib-day-report-label">lesson entries</div></div><div class="lib-day-report-box"><div class="lib-day-report-num">${completed.length}</div><div class="lib-day-report-label">books finished</div></div><div class="lib-day-report-box"><div class="lib-day-report-num">${logs.reduce((s,l)=>s+(Number(l.pages)||0),0)}</div><div class="lib-day-report-label">pages logged</div></div></div>`;
+    if(started.length) html+=`<div class="lib-detail-row">▶ Started: ${started.map(b=>`<strong>${esc(b.title)}</strong>`).join(', ')}</div>`;
+    if(due.length) html+=`<div class="lib-detail-row">🎯 Target finish: ${due.map(b=>`<strong>${esc(b.title)}</strong>`).join(', ')}</div>`;
+    if(completed.length){
+      html+=completed.map(b=>`<div class="lib-lesson-entry"><div class="lib-lesson-entry-head"><div class="lib-lesson-book">✅ Finished: ${esc(b.title)}</div><div class="lib-lesson-date">completed</div></div>${b.notes?`<div class="lib-lesson-line"><strong>Final lesson:</strong> ${esc(b.notes)}</div>`:''}${b.action?`<div class="lib-lesson-line"><strong>Applied action:</strong> ${esc(b.action)}</div>`:''}<span class="lib-complete-chip">Book completed on this date</span></div>`).join('');
+    }
+    if(logs.length){
+      html+=`<div class="lib-lesson-list">${logs.map(l=>`<div class="lib-lesson-entry"><div class="lib-lesson-entry-head"><div class="lib-lesson-book">📖 ${esc(l.bookTitle)}</div><div class="lib-lesson-date">${esc(l.date)}</div></div>${l.chapter?`<div class="lib-lesson-line"><strong>Chapter:</strong> ${esc(l.chapter)}</div>`:''}${l.pages?`<div class="lib-lesson-line"><strong>Pages:</strong> ${esc(l.pages)}</div>`:''}${l.lesson?`<div class="lib-lesson-line"><strong>Lesson:</strong> ${esc(l.lesson)}</div>`:''}${l.action?`<div class="lib-lesson-line"><strong>Application:</strong> ${esc(l.action)}</div>`:''}<div class="lib-lesson-actions"><button class="book-btn lib-mini-danger" onclick="libDeleteDailyBookLesson('${esc(l.bookId)}','${esc(l.id)}')">Delete</button></div></div>`).join('')}</div>`;
+    }else if(!completed.length&&!started.length&&!due.length){
+      html+=`<div class="lib-detail-row">No lesson saved for this date yet. Add one below after reading a chapter.</div>`;
+    }
+    html+='</div>'+libRenderDailyLessonForm();
+    return html;
+  };
+  function yearSummaryHtml(yearTarget){
+    const books=getBooks(); const nowYear=String(new Date().getFullYear());
+    const completed=books.filter(b=>b.status==='completed' && yearOf((b.completedAt||b.lastUpdated||b.dateAdded))===nowYear);
+    const logs=allLessonLogs().filter(l=>yearOf(l.date)===nowYear);
+    const applied=logs.filter(l=>l.action).length + completed.filter(b=>b.action).length;
+    const recent=logs.slice(-6).reverse();
+    return `<div class="lib-year-summary"><div class="lib-year-summary-title">Year report · ${nowYear}</div><div class="lib-day-report-grid"><div class="lib-day-report-box"><div class="lib-day-report-num">${completed.length}/${yearTarget}</div><div class="lib-day-report-label">books completed</div></div><div class="lib-day-report-box"><div class="lib-day-report-num">${logs.length}</div><div class="lib-day-report-label">lessons saved</div></div><div class="lib-day-report-box"><div class="lib-day-report-num">${applied}</div><div class="lib-day-report-label">applications</div></div></div>${recent.length?`<div class="lib-lesson-list">${recent.map(l=>`<div class="lib-lesson-entry"><div class="lib-lesson-entry-head"><div class="lib-lesson-book">${esc(l.bookTitle)}</div><div class="lib-lesson-date">${esc(l.date)}</div></div>${l.chapter?`<div class="lib-lesson-line"><strong>Chapter:</strong> ${esc(l.chapter)}</div>`:''}${l.lesson?`<div class="lib-lesson-line"><strong>Lesson:</strong> ${esc(l.lesson)}</div>`:''}</div>`).join('')}</div>`:'<div class="lib-detail-row">No lesson entries saved this year yet.</div>'}</div>`;
+  }
+  window.libRenderReadingDashboard=function(){
+    const el=document.getElementById('lib-reading-dashboard'); if(!el)return;
+    const st=(typeof libReadingStats==='function'?libReadingStats():{books:getBooks(),completed:[],reading:[],masteryAvg:0,monthCompleted:0,yearCompleted:0});
+    const settings=(typeof libGetReadingSettings==='function'?libGetReadingSettings():{yearTarget:12,weekTarget:80});
+    const yearTarget=Number(settings.yearTarget)||12, weekTarget=Number(settings.weekTarget)||80;
+    const quarterTarget=Math.ceil(yearTarget/4), fiveTarget=yearTarget*5, twentyTarget=yearTarget*20;
+    const current=(st.reading||[]).slice(0,3);
+    const activePlan=current.length?current.map(b=>`${esc(b.title)}: ${typeof libBookWeeklyNeed==='function'?libBookWeeklyNeed(b):0} pages/wk`).join('<br>'):'Start one book to generate a weekly plan.';
+    el.innerHTML=`<div class="lib-rd-compact"><div class="lib-reading-panel"><div class="lib-reading-title">Reading Dashboard</div><div class="lib-reading-sub">Calendar now tracks daily chapter lessons, book finish dates, and application notes.</div><div class="lib-kpi-grid"><div class="lib-kpi"><div class="lib-kpi-num">${st.books.length}</div><div class="lib-kpi-label">Books Stored</div></div><div class="lib-kpi"><div class="lib-kpi-num">${st.reading.length}</div><div class="lib-kpi-label">Currently Reading</div></div><div class="lib-kpi"><div class="lib-kpi-num">${st.completed.length}</div><div class="lib-kpi-label">Completed Total</div></div><div class="lib-kpi"><div class="lib-kpi-num">${st.masteryAvg||0}%</div><div class="lib-kpi-label">Avg Mastery</div></div></div><div class="lib-target-row"><div class="lib-target-pill"><strong>${weekTarget}</strong>pages / week</div><div class="lib-target-pill"><strong>${quarterTarget}</strong>3-month books</div><div class="lib-target-pill"><strong>${yearTarget}</strong>1-year books</div><div class="lib-target-pill"><strong>${fiveTarget}</strong>5-year books</div><div class="lib-target-pill"><strong>${twentyTarget}</strong>20-year books</div></div><div class="lib-plan-tools"><div class="field-group"><div class="field-label">Year book target</div><input class="field-input" id="libYearTarget" type="number" min="1" value="${yearTarget}" onchange="libSaveReadingTargets()"></div><div class="field-group"><div class="field-label">Weekly page target</div><input class="field-input" id="libWeekTarget" type="number" min="1" value="${weekTarget}" onchange="libSaveReadingTargets()"></div></div>${yearSummaryHtml(yearTarget)}</div><div class="lib-reading-panel"><div class="lib-reading-title">This Week</div><div class="lib-reading-sub">${activePlan}</div><div class="lib-kpi-grid" style="grid-template-columns:repeat(2,1fr);"><div class="lib-kpi"><div class="lib-kpi-num">${st.monthCompleted||0}</div><div class="lib-kpi-label">Completed This Month</div></div><div class="lib-kpi"><div class="lib-kpi-num">${st.yearCompleted||0}</div><div class="lib-kpi-label">Completed This Year</div></div></div></div></div><div id="lib-reading-calendar"></div>`;
+    if(typeof libRenderReadingCalendar==='function') libRenderReadingCalendar();
+  };
+  window.libRenderReadingCalendar=function(){
+    const el=document.getElementById('lib-reading-calendar'); if(!el)return;
+    const month=(typeof libStartOfMonth==='function'?libStartOfMonth(window.libCalendarMonthDate||new Date()):new Date(new Date().getFullYear(),new Date().getMonth(),1));
+    const end=(typeof libEndOfMonth==='function'?libEndOfMonth(month):new Date(month.getFullYear(),month.getMonth()+1,0));
+    const books=getBooks(); const st=(typeof libReadingStats==='function'?libReadingStats():{completed:books.filter(b=>b.status==='completed'),yearCompleted:0});
+    const logs=allLessonLogs().filter(l=>sameMonth(l.date,month));
+    const monthCompleted=(st.completed||[]).filter(b=>sameMonth((b.completedAt||b.lastUpdated||b.dateAdded),month));
+    const startOffset=(month.getDay()+6)%7;
+    let html=`<div class="lib-month-card"><div class="lib-month-head"><div><div class="lib-month-title">${typeof libMonthLabel==='function'?libMonthLabel(month):month.toLocaleDateString('en-GB',{month:'long',year:'numeric'})} Book Calendar</div><div class="lib-month-sub">Click a date. Save the chapter, lesson, and application from that exact reading day.</div></div><div class="mosque-calendar-nav"><button class="dnav-btn" onclick="libMoveReadingMonth(-1)">← Prev</button><button class="dnav-btn today-btn" onclick="libGoReadingMonthToday()">Today</button><button class="dnav-btn" onclick="libMoveReadingMonth(1)">Next →</button></div></div>`;
+    html+=`<div class="lib-report-grid"><div class="lib-report-box"><div class="lib-report-num">${monthCompleted.length}</div><div class="lib-report-label">books completed this month</div></div><div class="lib-report-box"><div class="lib-report-num">${logs.length}</div><div class="lib-report-label">chapter lessons saved</div></div><div class="lib-report-box"><div class="lib-report-num">${logs.filter(l=>l.action).length}</div><div class="lib-report-label">applied actions</div></div></div>`;
+    html+='<div class="lib-calendar-grid">'+['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>`<div class="lib-cal-head" onclick="libSelectReadingDay('${dateISO(month)}')" title="Click dates below to see daily lessons">${d}</div>`).join('');
+    for(let i=0;i<startOffset;i++) html+='<div class="lib-cal-day empty"></div>';
+    for(let day=1;day<=end.getDate();day++){
+      const d=new Date(month.getFullYear(),month.getMonth(),day); const iso=dateISO(d);
+      const dlogs=dayLogs(iso);
+      const complete=books.filter(b=>(b.completedAt||'').slice(0,10)===iso);
+      const started=books.filter(b=>b.startDate===iso);
+      const due=books.filter(b=>b.targetDate===iso&&b.status!=='completed');
+      const labels=[];
+      if(dlogs.length) labels.push('📝 '+dlogs.length+' lesson'+(dlogs.length>1?'s':''));
+      if(complete.length) labels.push('✅ '+complete.length+' finished');
+      if(started.length) labels.push('▶ '+started[0].title);
+      if(due.length) labels.push('🎯 '+due[0].title);
+      const cls=[iso===todayISO()?'today':'',iso===selectedISO()?'selected':'',dlogs.length?'has-lesson':'',complete.length?'has-finish':'',labels.length?'has-work':''].join(' ');
+      html+=`<div class="lib-cal-day ${cls}" onclick="libSelectReadingDay('${iso}')"><div class="lib-cal-num"><span>${day}</span>${labels.length?'<span class="lib-cal-dot"></span>':''}</div><div class="lib-cal-meta">${esc(labels.join(' · '))}</div></div>`;
+    }
+    html+='</div>'+libRenderSelectedDayDetail()+'</div>';
+    el.innerHTML=html;
+  };
+})();
+
 
 // ── INIT ──
 purgeLegacyTrackerData();
