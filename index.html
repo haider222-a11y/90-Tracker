@@ -161,6 +161,39 @@ header{padding:34px 0 24px;border-bottom:1px solid var(--border2);display:flex;j
 .status-not-started{background:rgba(255,255,255,.06);color:var(--muted);}
 .status-reading{background:rgba(56,189,248,.12);color:var(--cyan);}
 .status-completed{background:rgba(46,204,113,.12);color:var(--green);}
+
+/* ── BOOK LIBRARY TRACKING UPGRADE (added only; other sections preserved) ── */
+.lib-reading-hub{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;margin-bottom:16px;}
+.lib-reading-panel{position:relative;overflow:hidden;border-radius:24px;padding:16px;background:radial-gradient(circle at 0% 0%,rgba(56,189,248,.16),transparent 34%),radial-gradient(circle at 100% 10%,rgba(124,58,237,.13),transparent 30%),linear-gradient(145deg,rgba(9,21,42,.98),rgba(4,10,22,.98));border:1px solid rgba(140,199,255,.16);box-shadow:0 20px 48px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,.04);}
+.lib-reading-panel::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,#38BDF8,#7C3AED,#22C55E,transparent);}
+.lib-reading-title{font-size:18px;font-weight:900;color:#F8FBFF;letter-spacing:-.03em;margin-bottom:5px;}
+.lib-reading-sub{font-size:12px;color:#AFC0DA;line-height:1.6;margin-bottom:12px;}
+.lib-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.lib-kpi{border-radius:16px;padding:12px 10px;text-align:center;background:rgba(255,255,255,.035);border:1px solid rgba(140,199,255,.10);}
+.lib-kpi-num{font-size:23px;font-weight:900;color:#F8FBFF;letter-spacing:-.04em;}
+.lib-kpi-label{font-size:9px;color:#93A7C9;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.9px;margin-top:4px;line-height:1.35;}
+.lib-target-row{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:12px;}
+.lib-target-pill{border-radius:14px;padding:10px 8px;background:rgba(255,255,255,.028);border:1px solid rgba(140,199,255,.09);font-size:10px;font-family:'JetBrains Mono',monospace;color:#AFC0DA;line-height:1.45;}
+.lib-target-pill strong{display:block;color:#EAF6FF;font-size:15px;font-family:'Inter',sans-serif;letter-spacing:-.02em;margin-bottom:2px;}
+.lib-plan-tools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+.lib-plan-tools .field-group{margin-bottom:0;}
+.lib-calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px;}
+.lib-cal-head{text-align:center;font-size:9px;color:#7E8CA5;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.8px;}
+.lib-cal-day{min-height:58px;border-radius:14px;padding:7px 6px;background:rgba(255,255,255,.028);border:1px solid rgba(140,199,255,.08);}
+.lib-cal-day.today{border-color:#60A5FA;box-shadow:0 0 0 2px rgba(96,165,250,.12);}
+.lib-cal-day.has-work{background:linear-gradient(180deg,rgba(56,189,248,.12),rgba(255,255,255,.018));border-color:rgba(56,189,248,.22);}
+.lib-cal-num{font-size:10px;font-family:'JetBrains Mono',monospace;color:#DCEBFF;font-weight:900;}
+.lib-cal-meta{font-size:9px;color:#9FB2D2;line-height:1.35;margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.lib-card-meta{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px;}
+.lib-mini-stat{border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.055);padding:6px 7px;font-size:10px;color:#AFC0DA;line-height:1.35;}
+.lib-mini-stat strong{display:block;color:#F3F8FF;font-size:11px;}
+.lib-mastery-box{margin-top:7px;padding:8px 9px;border-radius:11px;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.18);font-size:11px;color:#CFC7FF;line-height:1.45;}
+.lib-book-card-hot{border-color:rgba(245,158,11,.26)!important;background:linear-gradient(180deg,rgba(245,158,11,.055),rgba(255,255,255,.018));}
+.lib-book-card-done{border-color:rgba(61,220,151,.28)!important;background:linear-gradient(180deg,rgba(61,220,151,.06),rgba(255,255,255,.018));}
+.lib-storage-note{margin-top:10px;font-size:11px;line-height:1.6;color:#AFC0DA;background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.16);border-radius:14px;padding:10px 12px;}
+@media(max-width:900px){.lib-reading-hub{grid-template-columns:1fr;}.lib-kpi-grid{grid-template-columns:repeat(2,1fr);}.lib-target-row{grid-template-columns:repeat(2,1fr);}.lib-plan-tools{grid-template-columns:1fr;}}
+@media(max-width:560px){.lib-calendar-grid{gap:4px;}.lib-cal-day{min-height:52px;border-radius:11px;padding:6px 5px;}.lib-target-row,.lib-kpi-grid{grid-template-columns:1fr 1fr;}}
+
 /* ── FINANCIAL CALCULATOR ── */
 .fin-stab{padding:8px 18px;font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,.02);color:var(--muted2);border-radius:10px;transition:all .2s;}
 .fin-stab.active{color:#EAF4FF;border-color:rgba(140,199,255,.32);background:linear-gradient(180deg,rgba(17,34,64,.95),rgba(10,20,38,.95));}
@@ -1985,6 +2018,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
         <button onclick="libPromptAddCategory('book')" class="btn btn-ghost" style="font-size:11px;padding:6px 12px;">＋ Category</button>
         <button onclick="libOpenBookModal()" class="btn btn-primary" style="font-size:11px;padding:6px 14px;">＋ Add Book</button>
       </div>
+      <div id="lib-reading-dashboard"></div>
       <div id="lib-book-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;"></div>
       <div id="lib-book-empty" style="display:none;text-align:center;padding:50px 20px;color:var(--muted);font-style:italic;">No books yet. Add your first book above! 📚</div>
     </div>
@@ -2034,7 +2068,21 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
       <option value="reading">📖 Currently Reading</option>
       <option value="completed">✅ Completed</option>
     </select>
-    <textarea class="lib-input" id="lbNotes" placeholder="Notes / Key Lessons (optional)" rows="3" style="resize:vertical;"></textarea>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      <input class="lib-input" id="lbStart" type="date" title="Start date" style="margin-bottom:0;">
+      <input class="lib-input" id="lbTarget" type="date" title="Target finish date" style="margin-bottom:0;">
+    </div>
+    <div style="height:8px;"></div>
+    <input class="lib-input" id="lbWeekly" type="number" min="1" placeholder="Weekly page target (auto if empty)">
+    <select class="lib-select" id="lbMastery">
+      <option value="0">Mastery: Not Reviewed</option>
+      <option value="25">Mastery 25%: Understood main idea</option>
+      <option value="50">Mastery 50%: Notes made</option>
+      <option value="75">Mastery 75%: Applied one lesson</option>
+      <option value="100">Mastery 100%: Can teach / review it</option>
+    </select>
+    <textarea class="lib-input" id="lbNotes" placeholder="Key lessons / understanding notes" rows="3" style="resize:vertical;"></textarea>
+    <textarea class="lib-input" id="lbAction" placeholder="Applied knowledge: what action did you take from this book?" rows="2" style="resize:vertical;"></textarea>
     <div class="lib-modal-btns">
       <button class="btn btn-ghost" onclick="libCloseBookModal()">Cancel</button>
       <button class="btn btn-primary" onclick="libSaveBook()">Save Book</button>
@@ -6550,6 +6598,181 @@ window.libOpenBookModal=function(id){
     if(fi) fi.value='';
   },50);
 };
+
+
+
+// ══════════════════════════════════════════════════════
+//  BOOK LIBRARY TRACKING UPGRADE — storage fix + reading calendar
+//  Added as an override so the rest of the app stays unchanged.
+// ══════════════════════════════════════════════════════
+const LIB_READING_SETTINGS_KEY='lib_reading_settings_v1';
+function libGetReadingSettings(){return load(LIB_READING_SETTINGS_KEY)||{yearTarget:12,weekTarget:80,calendarWeeks:12};}
+function libSaveReadingSettings(st){save(LIB_READING_SETTINGS_KEY,st);}
+function libDateISO(d){const x=new Date(d);if(isNaN(x))return '';return x.toISOString().slice(0,10);}
+function libTodayISO(){return libDateISO(new Date());}
+function libDaysBetween(a,b){const A=new Date(a);const B=new Date(b);A.setHours(0,0,0,0);B.setHours(0,0,0,0);return Math.ceil((B-A)/86400000);}
+function libEscape(v){return String(v||'').replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));}
+function libNormalizeBook(b){
+  const total=Number(b.totalPages)||0, read=Number(b.pagesRead)||0;
+  let status=b.status||'not-started';
+  if(total>0&&read>=total) status='completed'; else if(read>0&&status==='not-started') status='reading';
+  return {...b,status,totalPages:total,pagesRead:Math.min(read,total||read),startDate:b.startDate||'',targetDate:b.targetDate||'',weeklyTarget:Number(b.weeklyTarget)||0,mastery:Number(b.mastery)||0,action:b.action||'',dateAdded:b.dateAdded||new Date().toISOString(),lastUpdated:b.lastUpdated||new Date().toISOString()};
+}
+function libGetBooks(){return (load(LIB_BOOKS_KEY)||[]).map(libNormalizeBook);}
+function libSaveBooks(arr){
+  const cleaned=(arr||[]).map(libNormalizeBook);
+  try{localStorage.setItem(prefixedKey(LIB_BOOKS_KEY),JSON.stringify(cleaned));showToast();return true;}
+  catch(e){
+    try{
+      const slim=cleaned.map(b=>({...b,cover:(b.cover&&b.cover.startsWith('data:'))?'':b.cover}));
+      localStorage.setItem(prefixedKey(LIB_BOOKS_KEY),JSON.stringify(slim));showToast();
+      alert('Storage was full because uploaded cover images are large. I saved all book data and removed heavy embedded covers. Use smaller covers or image URLs for a larger library.');
+      return true;
+    }catch(err){alert('Storage is full. Export/backup from Portable Sync, then remove large images or old screenshots before adding more books.');return false;}
+  }
+}
+function libCompressedImageDataUrl(file, cb){
+  const img=new Image(); const reader=new FileReader();
+  reader.onload=e=>{img.onload=()=>{const max=320;let w=img.width,h=img.height;if(w>h&&w>max){h=Math.round(h*max/w);w=max;}else if(h>=w&&h>max){w=Math.round(w*max/h);h=max;}const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');ctx.drawImage(img,0,0,w,h);cb(c.toDataURL('image/jpeg',0.72));};img.onerror=()=>cb(e.target.result);img.src=e.target.result;};
+  reader.readAsDataURL(file);
+}
+function libHandleCoverUpload(input){
+  const file=input.files&&input.files[0]; if(!file) return;
+  libCompressedImageDataUrl(file,function(data){
+    document.getElementById('lbCover').value=data;
+    const prev=document.getElementById('lbCoverPreview');
+    if(prev) prev.innerHTML=`<img src="${data}" style="width:100%;height:100%;object-fit:cover;border-radius:5px;">`;
+  });
+}
+function libMonthKeyFromISO(iso){return iso?iso.slice(0,7):'';}
+function libReadingStats(){
+  const books=libGetBooks(); const today=new Date(); today.setHours(0,0,0,0);
+  const monthKey=libMonthKeyFromISO(libTodayISO()); const year=String(today.getFullYear());
+  const completed=books.filter(b=>b.status==='completed');
+  const reading=books.filter(b=>b.status==='reading');
+  const pagesLeft=books.reduce((s,b)=>s+Math.max(0,(Number(b.totalPages)||0)-(Number(b.pagesRead)||0)),0);
+  const monthCompleted=completed.filter(b=>libMonthKeyFromISO(b.completedAt||b.lastUpdated||b.dateAdded)===monthKey).length;
+  const yearCompleted=completed.filter(b=>String(new Date(b.completedAt||b.lastUpdated||b.dateAdded).getFullYear())===year).length;
+  const masteryAvg=books.length?Math.round(books.reduce((s,b)=>s+(Number(b.mastery)||0),0)/books.length):0;
+  return {books,completed,reading,pagesLeft,monthCompleted,yearCompleted,masteryAvg};
+}
+function libBookWeeklyNeed(b){
+  const total=Number(b.totalPages)||0, read=Number(b.pagesRead)||0, left=Math.max(0,total-read);
+  if(!left) return 0; if(Number(b.weeklyTarget)>0) return Number(b.weeklyTarget);
+  if(b.targetDate){const days=Math.max(1,libDaysBetween(new Date(),b.targetDate));return Math.max(1,Math.ceil(left/(days/7)));}
+  return Math.max(1,Math.ceil(left/12));
+}
+function libRenderReadingDashboard(){
+  const el=document.getElementById('lib-reading-dashboard'); if(!el) return;
+  const st=libReadingStats(); const settings=libGetReadingSettings();
+  const total=st.books.length, done=st.completed.length, reading=st.reading.length;
+  const yearTarget=Number(settings.yearTarget)||12;
+  const fiveTarget=yearTarget*5, twentyTarget=yearTarget*20, quarterTarget=Math.ceil(yearTarget/4), weekTarget=Number(settings.weekTarget)||80;
+  const currentBooks=st.reading.slice(0,3);
+  const activePlan=currentBooks.length?currentBooks.map(b=>`${libEscape(b.title)}: ${libBookWeeklyNeed(b)} pages/wk`).join('<br>'):'Start one book to generate a weekly plan.';
+  el.innerHTML=`
+    <div class="lib-reading-hub">
+      <div class="lib-reading-panel">
+        <div class="lib-reading-title">Reading Execution Dashboard</div>
+        <div class="lib-reading-sub">Built to stop collecting books and start finishing, understanding, applying, and reviewing them.</div>
+        <div class="lib-kpi-grid">
+          <div class="lib-kpi"><div class="lib-kpi-num">${total}</div><div class="lib-kpi-label">Books Stored</div></div>
+          <div class="lib-kpi"><div class="lib-kpi-num">${reading}</div><div class="lib-kpi-label">Currently Reading</div></div>
+          <div class="lib-kpi"><div class="lib-kpi-num">${done}</div><div class="lib-kpi-label">Completed Total</div></div>
+          <div class="lib-kpi"><div class="lib-kpi-num">${st.masteryAvg}%</div><div class="lib-kpi-label">Avg Mastery</div></div>
+        </div>
+        <div class="lib-target-row">
+          <div class="lib-target-pill"><strong>${weekTarget}</strong>pages / week target</div>
+          <div class="lib-target-pill"><strong>${quarterTarget}</strong>3-month books</div>
+          <div class="lib-target-pill"><strong>${yearTarget}</strong>1-year books</div>
+          <div class="lib-target-pill"><strong>${fiveTarget}</strong>5-year books</div>
+          <div class="lib-target-pill"><strong>${twentyTarget}</strong>20-year books</div>
+        </div>
+        <div class="lib-plan-tools">
+          <div class="field-group"><div class="field-label">Year book target</div><input class="field-input" id="libYearTarget" type="number" min="1" value="${yearTarget}" onchange="libSaveReadingTargets()"></div>
+          <div class="field-group"><div class="field-label">Weekly page target</div><input class="field-input" id="libWeekTarget" type="number" min="1" value="${weekTarget}" onchange="libSaveReadingTargets()"></div>
+        </div>
+        <div class="lib-storage-note">Storage upgrade: uploaded covers are now compressed before saving. If browser storage still fills up, the app keeps your book data and removes only heavy embedded cover images instead of losing the 21st/22nd book.</div>
+      </div>
+      <div class="lib-reading-panel">
+        <div class="lib-reading-title">This Week</div>
+        <div class="lib-reading-sub">${activePlan}</div>
+        <div class="lib-kpi-grid" style="grid-template-columns:repeat(2,1fr);">
+          <div class="lib-kpi"><div class="lib-kpi-num">${st.monthCompleted}</div><div class="lib-kpi-label">Completed This Month</div></div>
+          <div class="lib-kpi"><div class="lib-kpi-num">${st.yearCompleted}</div><div class="lib-kpi-label">Completed This Year</div></div>
+        </div>
+        <div id="lib-reading-calendar"></div>
+      </div>
+    </div>`;
+  libRenderReadingCalendar();
+}
+function libSaveReadingTargets(){
+  const yr=Math.max(1,parseInt(document.getElementById('libYearTarget')&&document.getElementById('libYearTarget').value)||12);
+  const wk=Math.max(1,parseInt(document.getElementById('libWeekTarget')&&document.getElementById('libWeekTarget').value)||80);
+  libSaveReadingSettings({yearTarget:yr,weekTarget:wk,calendarWeeks:12}); libRenderBooks();
+}
+function libRenderReadingCalendar(){
+  const el=document.getElementById('lib-reading-calendar'); if(!el) return;
+  const books=libGetBooks().filter(b=>b.status==='reading'); const today=new Date(); today.setHours(0,0,0,0);
+  const start=new Date(today); start.setDate(today.getDate()-((today.getDay()+6)%7));
+  let html='<div class="lib-calendar-grid">'+['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>`<div class="lib-cal-head">${d}</div>`).join('');
+  for(let i=0;i<35;i++){
+    const d=new Date(start); d.setDate(start.getDate()+i); const iso=libDateISO(d);
+    const due=books.filter(b=>b.targetDate===iso);
+    const work=books.slice(0,2).map(b=>{const weekly=libBookWeeklyNeed(b);return weekly?`${b.title}: ${Math.ceil(weekly/7)}p`:'';}).filter(Boolean);
+    html+=`<div class="lib-cal-day ${iso===libTodayISO()?'today':''} ${due.length||work.length?'has-work':''}"><div class="lib-cal-num">${d.getDate()}</div><div class="lib-cal-meta">${due.length?'Finish: '+libEscape(due[0].title):libEscape(work.join(' · '))}</div></div>`;
+  }
+  html+='</div>'; el.innerHTML=html;
+}
+function libRenderBooks(){
+  const cats=libGetBookCats(); const books=libGetBooks(); libRenderReadingDashboard();
+  const filterEl=document.getElementById('lib-book-catfilter');
+  if(filterEl){
+    const all=[{id:'all',label:'All ('+books.length+')'},...cats.map(c=>({id:c,label:c+' ('+books.filter(b=>b.category===c).length+')'}))];
+    filterEl.innerHTML=all.map(c=>`<button class="lib-cat-pill${libActiveCat===c.id?' active':''}" onclick="libSetCat('${c.id.replace(/'/g,"\\'")}')">${c.label}</button>`).join('');
+    if(libActiveCat!=='all'&&cats.includes(libActiveCat))filterEl.innerHTML+=`<button onclick="libDeleteBookCategory('${libActiveCat.replace(/'/g,"\\'")}',this)" class="lib-cat-pill" style="color:var(--red);border-color:rgba(229,83,83,.3);padding:5px 10px;" title="Delete category">✕</button>`;
+  }
+  const filtered=libActiveCat==='all'?books:books.filter(b=>b.category===libActiveCat); const grid=document.getElementById('lib-book-grid'); const empty=document.getElementById('lib-book-empty'); if(!grid)return;
+  if(filtered.length===0){grid.innerHTML=''; if(empty) empty.style.display='block'; return;} if(empty) empty.style.display='none';
+  const statusMap={'not-started':{label:'Not Started',cls:'status-not-started'},reading:{label:'Reading',cls:'status-reading'},completed:{label:'Completed',cls:'status-completed'}};
+  const colorForCat=(cat)=>({'Islamic':'var(--gold)','Self-Development':'var(--cyan)','Business/Money':'var(--orange)','History & Seerah':'#A78BFA','Skills':'var(--green)','Psychology':'#F472B6','AI & Tech':'var(--teal)','Book Summaries':'var(--red)'}[cat]||'var(--muted2)');
+  grid.innerHTML=filtered.map(b=>{
+    const pct=b.totalPages>0?Math.min(100,Math.round((b.pagesRead||0)/b.totalPages*100)):0; const st=statusMap[b.status||'not-started']; const catColor=colorForCat(b.category); const weekly=libBookWeeklyNeed(b); const left=Math.max(0,(b.totalPages||0)-(b.pagesRead||0));
+    const overdue=b.targetDate&&b.status!=='completed'&&libDaysBetween(new Date(),b.targetDate)<0; const cls=b.status==='completed'?' lib-book-card-done':(overdue?' lib-book-card-hot':'');
+    const coverHtml=b.cover?`<div class="book-cover"><img src="${b.cover}" alt="cover" onerror="this.parentElement.innerHTML='📚'"></div>`:`<div class="book-cover" style="font-size:52px;">📚</div>`;
+    return `<div class="book-card${cls}">${coverHtml}<div class="book-info">
+      <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px;"><span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:2px 7px;border-radius:5px;background:rgba(255,255,255,.06);color:${catColor};">${libEscape(b.category||'—')}</span><span class="status-badge ${st.cls}">${st.label}</span></div>
+      <div class="book-title-text">${libEscape(b.title)}</div><div class="book-author">by ${libEscape(b.author||'Unknown')}</div>
+      <div style="margin-top:6px;"><div style="display:flex;justify-content:space-between;font-size:10px;font-family:'JetBrains Mono',monospace;margin-bottom:3px;"><span style="color:var(--muted);">${b.pagesRead||0} / ${b.totalPages||'?'} pages</span><span style="color:${catColor};font-weight:700;">${pct}%</span></div><div class="book-prog-bar"><div class="book-prog-fill" style="width:${pct}%;background:${catColor};"></div></div></div>
+      <div class="lib-card-meta"><div class="lib-mini-stat"><strong>${left}</strong>pages left</div><div class="lib-mini-stat"><strong>${weekly||'—'}</strong>pages / week</div><div class="lib-mini-stat"><strong>${b.targetDate||'No date'}</strong>finish target</div><div class="lib-mini-stat"><strong>${b.mastery||0}%</strong>mastery</div></div>
+      ${b.notes?`<div style="font-size:11px;color:var(--muted);font-style:italic;margin-top:7px;line-height:1.5;overflow:hidden;max-height:48px;">${libEscape(b.notes)}</div>`:''}
+      ${b.action?`<div class="lib-mastery-box"><strong>Applied:</strong> ${libEscape(b.action)}</div>`:''}
+      <div class="book-actions"><button class="book-btn" onclick="libEditBook('${b.id}')">✏️ Edit</button><button class="book-btn" onclick="libUpdateProgress('${b.id}')">📄 Progress</button><button class="book-btn danger" onclick="libDeleteBook('${b.id}')">🗑</button></div>
+    </div></div>`;
+  }).join('');
+}
+function libOpenBookModal(id){
+  libCurrentBookId=id||null; const cats=libGetBookCats(); const catSel=document.getElementById('lbCat'); catSel.innerHTML=cats.map(c=>`<option value="${libEscape(c)}">${libEscape(c)}</option>`).join('');
+  const set=(id,val)=>{const e=document.getElementById(id); if(e)e.value=val||'';};
+  if(id){const book=libGetBooks().find(b=>b.id===id); if(!book)return; document.getElementById('libBookModalTitle').textContent='✏️ Edit Book'; set('lbTitle',book.title);set('lbAuthor',book.author);catSel.value=book.category||cats[0];set('lbCover',book.cover);set('lbTotal',book.totalPages||'');set('lbRead',book.pagesRead||'');set('lbStatus',book.status||'not-started');set('lbStart',book.startDate||'');set('lbTarget',book.targetDate||'');set('lbWeekly',book.weeklyTarget||'');set('lbMastery',String(book.mastery||0));set('lbNotes',book.notes);set('lbAction',book.action);}
+  else{document.getElementById('libBookModalTitle').textContent='📚 Add New Book';['lbTitle','lbAuthor','lbCover','lbNotes','lbAction','lbWeekly','lbStart','lbTarget'].forEach(i=>set(i,''));set('lbTotal','');set('lbRead','');set('lbStatus','not-started');set('lbMastery','0');catSel.value=libActiveCat!=='all'&&cats.includes(libActiveCat)?libActiveCat:cats[0];}
+  document.getElementById('libBookModal').style.display='flex'; setTimeout(()=>libPreviewCoverUrl(document.getElementById('lbCover').value),30);
+}
+function libSaveBook(){
+  const title=document.getElementById('lbTitle').value.trim(); const author=document.getElementById('lbAuthor').value.trim(); if(!title){alert('Please enter a book title.');return;}
+  const books=libGetBooks(); const old=libCurrentBookId?books.find(b=>b.id===libCurrentBookId):null; const total=parseInt(document.getElementById('lbTotal').value)||0; const read=Math.min(parseInt(document.getElementById('lbRead').value)||0,total||999999);
+  let status=document.getElementById('lbStatus').value; if(total&&read>=total) status='completed'; else if(read>0&&status==='not-started') status='reading';
+  const book={id:libCurrentBookId||(Date.now().toString(36)),title,author,category:document.getElementById('lbCat').value,cover:document.getElementById('lbCover').value.trim(),totalPages:total,pagesRead:read,status,notes:document.getElementById('lbNotes').value.trim(),startDate:document.getElementById('lbStart').value,targetDate:document.getElementById('lbTarget').value,weeklyTarget:parseInt(document.getElementById('lbWeekly').value)||0,mastery:parseInt(document.getElementById('lbMastery').value)||0,action:document.getElementById('lbAction').value.trim(),dateAdded:old?old.dateAdded:new Date().toISOString(),lastUpdated:new Date().toISOString(),completedAt:status==='completed'?(old&&old.completedAt?old.completedAt:new Date().toISOString()):''};
+  if(libCurrentBookId){const idx=books.findIndex(b=>b.id===libCurrentBookId); if(idx>=0)books[idx]=book;} else books.push(book);
+  if(libSaveBooks(books)){libCloseBookModal();libRenderBooks();}
+}
+function libUpdateProgress(id){
+  const books=libGetBooks(); const idx=books.findIndex(b=>b.id===id); if(idx<0)return; const book=books[idx];
+  const val=prompt('Pages read for "'+book.title+'" (currently '+book.pagesRead+'/'+(book.totalPages||'?')+'):',String(book.pagesRead)); if(val===null)return;
+  const n=Math.max(0,parseInt(val)||0); books[idx].pagesRead=book.totalPages?Math.min(n,book.totalPages):n; books[idx].lastUpdated=new Date().toISOString();
+  if(book.totalPages&&books[idx].pagesRead>=book.totalPages){books[idx].status='completed';books[idx].completedAt=books[idx].completedAt||new Date().toISOString();books[idx].mastery=Math.max(Number(books[idx].mastery)||0,75);} else if(n>0) books[idx].status='reading';
+  libSaveBooks(books); libRenderBooks();
+}
 
 // ══════════════════════════════════════════════════════
 //  FINANCIAL CALCULATOR SYSTEM
