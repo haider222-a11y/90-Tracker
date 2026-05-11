@@ -1787,6 +1787,116 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   color:#FFFFFF!important;
 }
 
+
+/* ── PRAYER PANEL WIDTH FIX (prevents clipped labels in sidebar/mobile) ── */
+#prayerPanel{
+  width:100%;
+  max-width:100%;
+  overflow:hidden;
+}
+#prayerPanel .prayer-panel-wrap,
+.prayer-panel-wrap{
+  width:100%;
+  max-width:100%;
+}
+#prayerPanel .prayer-card{
+  width:100%;
+  max-width:100%;
+  align-items:stretch;
+  padding:16px 14px 14px;
+  overflow:hidden;
+}
+#prayerPanel .prayer-top{
+  align-items:flex-start;
+  gap:8px;
+}
+#prayerPanel .prayer-main-title{
+  min-width:0;
+  flex:1;
+}
+#prayerPanel .prayer-main-name{
+  font-size:20px;
+  line-height:1.2;
+  min-width:0;
+}
+#prayerPanel .prayer-score-badge{
+  flex-shrink:0;
+  padding:7px 10px;
+  font-size:11px;
+}
+#prayerPanel .prayer-groups{
+  width:100%;
+  max-width:100%;
+  gap:8px;
+}
+#prayerPanel .prayer-group-row{
+  width:100%;
+  max-width:100%;
+  grid-template-columns:minmax(0,1fr) auto minmax(30px,auto);
+  gap:7px;
+  padding:9px 8px;
+  overflow:hidden;
+}
+#prayerPanel .prayer-group-label{
+  min-width:0;
+  overflow:visible;
+  text-overflow:clip;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  font-size:12px;
+  line-height:1.2;
+}
+#prayerPanel .prayer-count-shell{
+  gap:6px;
+  flex-shrink:0;
+}
+#prayerPanel .prayer-count-btn{
+  width:30px;
+  height:30px;
+  border-radius:11px;
+  font-size:18px;
+}
+#prayerPanel .prayer-count-pill{
+  min-width:56px;
+  padding:6px 8px;
+  border-radius:13px;
+  font-size:14px;
+}
+#prayerPanel .prayer-group-fill{
+  min-width:30px;
+  font-size:10px;
+  text-align:right;
+}
+#prayerPanel .prayer-mode-row{
+  display:block;
+}
+#prayerPanel .prayer-mode-label{
+  margin-bottom:8px;
+}
+#prayerPanel .prayer-mode-options{
+  display:flex;
+  gap:8px;
+}
+#prayerPanel .prayer-mode-btn{
+  flex:0 1 auto;
+  padding:8px 11px;
+  font-size:11px;
+  white-space:nowrap;
+}
+#prayerPanel .prayer-note{
+  font-size:11px;
+  line-height:1.55;
+  overflow-wrap:anywhere;
+}
+@media(max-width:420px){
+  #prayerPanel .prayer-top{flex-direction:column;}
+  #prayerPanel .prayer-score-badge{align-self:flex-start;}
+  #prayerPanel .prayer-group-row{grid-template-columns:minmax(0,1fr) auto;align-items:center;}
+  #prayerPanel .prayer-group-fill{grid-column:1 / -1;text-align:left;padding-left:2px;}
+  #prayerPanel .prayer-count-btn{width:28px;height:28px;}
+  #prayerPanel .prayer-count-pill{min-width:50px;}
+}
+
 </style>
 <!-- PWA APP SUPPORT -->
 <link rel="manifest" href="manifest.json">
@@ -3920,56 +4030,6 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
           <div class="portable-stat-label">Storage Records</div>
         </div>
       </div>
-
-      <div class="portable-info">
-        <div class="portable-info-card">
-          <div class="portable-info-title">What each button does</div>
-          <div class="portable-info-text">
-            Use <strong>Export Progress</strong> to save your tracker data as a JSON backup.
-            Use <strong>Download Portable Copy</strong> to create one HTML file that already includes your saved progress inside it.
-            Use <strong>Import Progress</strong> on another device to load your backup back into the tracker.
-          </div>
-        </div>
-
-        <div class="portable-info-card">
-          <div class="portable-info-title">Current storage status</div>
-          <div class="portable-mini-list">
-            <div class="portable-mini-row"><span class="portable-mini-key">Storage mode</span><span class="portable-mini-val" id="syncModeText">Browser Local + Cloud Sync</span></div>
-            <div class="portable-mini-row"><span class="portable-mini-key">Last export</span><span class="portable-mini-val" id="syncLastExport">Not yet</span></div>
-            <div class="portable-mini-row"><span class="portable-mini-key">Last import</span><span class="portable-mini-val" id="syncLastImport">Not yet</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="portable-status" id="syncStatus">Cloud sync is active. Use Export/Import as backup. To force download latest cloud data, open Console and run: cloudSyncNow()</div>
-    </div>
-  </div>
-</div>
-
-
-      <div class="sync-info">
-        <div class="sync-info-card">
-          <div class="sync-info-title">What each button does</div>
-          <div class="sync-info-text">
-            Use <strong>Export Progress</strong> to save your tracker data as a JSON backup.
-            Use <strong>Download Portable Copy</strong> to create one HTML file that already includes your saved progress inside it.
-            Use <strong>Import Progress</strong> on another device to load your backup back into the tracker.
-          </div>
-        </div>
-        <div class="sync-info-card">
-          <div class="sync-info-title">Current storage status</div>
-          <div class="sync-mini-list">
-            <div class="sync-mini-row"><span class="sync-mini-key">Storage mode</span><span class="sync-mini-val" id="syncModeText">Browser Local + Cloud Sync</span></div>
-            <div class="sync-mini-row"><span class="sync-mini-key">Last export</span><span class="sync-mini-val" id="syncLastExport">Not yet</span></div>
-            <div class="sync-mini-row"><span class="sync-mini-key">Last import</span><span class="sync-mini-val" id="syncLastImport">Not yet</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sync-status" id="syncStatus">Cloud sync is active. Use Export/Import as backup. To force download latest cloud data, open Console and run: cloudSyncNow()</div>
-    </div>
-  </div>
-</div>
 
 
 <!-- EDIT MODAL -->
