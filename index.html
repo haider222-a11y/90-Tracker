@@ -312,6 +312,7 @@ header{padding:34px 0 24px;border-bottom:1px solid var(--border2);display:flex;j
 
 .task-actions{display:flex;gap:4px;opacity:0;transition:opacity .2s;flex-shrink:0;}
 .task-item:hover .task-actions{opacity:1;}
+@media (hover:none),(pointer:coarse){.task-actions{opacity:1;}.task-action-btn{padding:6px 10px;}}
 .task-action-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--muted2);font-size:10px;padding:3px 8px;border-radius:4px;cursor:pointer;font-family:'JetBrains Mono',monospace;transition:all .15s;}
 .task-action-btn:hover{background:rgba(212,168,67,.15);border-color:var(--gold);color:var(--gold);}
 .task-action-btn.miss-btn:hover{background:rgba(229,83,83,.15);border-color:var(--red);color:var(--red);}
@@ -5405,9 +5406,9 @@ function renderTaskList(){
     `;
 
     item.querySelector('.task-body').onclick=(e)=>{
-      if(e.target.closest('.subtask-list')||e.target.closest('.st-btn')) return;
+      if(e.target.closest('.subtask-list')||e.target.closest('.st-btn')||e.target.closest('.task-actions')) return;
       e.stopPropagation();
-      if(status==='pending') cycleStatus(task.id,e);
+      openEditModal(task.id,e);
     };
 
     item.addEventListener('dragstart',(e)=>{
@@ -6066,8 +6067,16 @@ function renderIslamicCal(){
 // ══════════════════════════════════════════════════════
 //  EDIT & ADD MODALS
 // ══════════════════════════════════════════════════════
+function ensureTaskModalsOnBody(){
+  ['editModal','addModal'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el && el.parentElement!==document.body) document.body.appendChild(el);
+  });
+}
+
 function openEditModal(taskId, e){
   if(e) e.stopPropagation();
+  ensureTaskModalsOnBody();
   const tasks=getTasksForDay(viewDate);
   const task=tasks.find(t=>t.id===taskId);
   if(!task)return;
@@ -6085,6 +6094,7 @@ function openEditModal(taskId, e){
 }
 
 function openAddModal(){
+  ensureTaskModalsOnBody();
   document.getElementById('addLabel').value='';
   document.getElementById('addStart').value='';
   document.getElementById('addEnd').value='';
