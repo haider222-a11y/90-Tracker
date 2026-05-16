@@ -1897,6 +1897,123 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   #prayerPanel .prayer-count-pill{min-width:50px;}
 }
 
+
+
+/* ── PROFESSIONAL RESEARCH TRACKER + READING DASHBOARD UPGRADE ── */
+#page-research .research-pro-wrap{display:flex;flex-direction:column;gap:16px;margin-top:20px;}
+.research-pro-hero{position:relative;overflow:hidden;border-radius:30px;padding:24px;background:radial-gradient(circle at 0% 0%,rgba(56,189,248,.20),transparent 34%),radial-gradient(circle at 100% 0%,rgba(124,58,237,.16),transparent 32%),linear-gradient(145deg,rgba(8,22,45,.98),rgba(3,8,20,.98));border:1px solid rgba(140,199,255,.20);box-shadow:0 24px 62px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.045);}
+.research-pro-hero::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,#38BDF8,#7C3AED,#22C55E,transparent);}
+.research-pro-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#7DD3FC;font-weight:900;margin-bottom:8px;}
+.research-pro-title{font-size:clamp(24px,3.2vw,38px);font-weight:900;letter-spacing:-.045em;color:#F8FBFF;margin-bottom:8px;}
+.research-pro-sub{font-size:13px;line-height:1.8;color:#B8C8E4;max-width:980px;}
+.research-pro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.research-pro-stat{position:relative;overflow:hidden;border-radius:22px;padding:15px 13px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.065),rgba(255,255,255,.018));border:1px solid rgba(140,199,255,.13);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}
+.research-pro-num{font-size:26px;font-weight:900;color:#F8FBFF;letter-spacing:-.04em;}
+.research-pro-label{font-size:10px;color:#93A7C9;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;margin-top:5px;line-height:1.35;}
+.research-pro-main{display:grid;grid-template-columns:minmax(320px,1.08fr) minmax(300px,.92fr);gap:16px;}
+.research-card-pro{position:relative;overflow:hidden;border-radius:26px;padding:18px;background:radial-gradient(circle at 100% 0%,rgba(56,189,248,.12),transparent 34%),linear-gradient(145deg,rgba(9,21,42,.98),rgba(4,10,22,.98));border:1px solid rgba(140,199,255,.15);box-shadow:0 18px 44px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.04);}
+.research-card-pro::before{content:'';position:absolute;left:18px;right:18px;top:0;height:2px;border-radius:99px;background:linear-gradient(90deg,transparent,#38BDF8,#7C3AED,transparent);}
+.research-section-title{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#93C5FD;font-weight:900;margin-bottom:12px;}
+.research-phase-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(59,130,246,.14);border:1px solid rgba(147,197,253,.24);color:#BFDBFE;font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:800;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px;}
+.research-phase-name{font-size:21px;font-weight:900;color:#F8FBFF;letter-spacing:-.03em;margin-bottom:5px;}
+.research-phase-focus{font-size:12px;color:#AFC0DA;line-height:1.7;margin-bottom:14px;}
+.research-checks-pro{display:flex;flex-direction:column;gap:8px;}
+.research-check-pro{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:flex-start;padding:11px 12px;border-radius:15px;border:1px solid rgba(140,199,255,.12);background:rgba(255,255,255,.025);cursor:pointer;transition:all .18s;}
+.research-check-pro:hover{border-color:rgba(96,165,250,.35);background:rgba(59,130,246,.07);transform:translateY(-1px);}
+.research-check-pro.done{background:rgba(61,220,151,.09);border-color:rgba(61,220,151,.27);}
+.research-check-dot{width:22px;height:22px;border-radius:8px;border:1.5px solid rgba(125,211,252,.28);display:grid;place-items:center;font-size:12px;color:#04110A;}
+.research-check-pro.done .research-check-dot{background:#3DDC97;border-color:#3DDC97;}
+.research-check-text{font-size:13px;line-height:1.5;color:#EAF3FF;}
+.research-progress-meta{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:12px;font-size:11px;font-family:'JetBrains Mono',monospace;color:#9FB2D2;}
+.research-progress-bar{height:8px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:8px;border:1px solid rgba(140,199,255,.08);}
+.research-progress-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#38BDF8,#3B82F6,#7C3AED,#22C55E);box-shadow:0 0 18px rgba(56,189,248,.28);}
+.research-log-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.research-log-grid .full{grid-column:1 / -1;}
+.research-input,.research-select,.research-textarea{width:100%;border-radius:13px;border:1px solid rgba(140,199,255,.14);background:linear-gradient(180deg,rgba(10,20,38,.88),rgba(5,12,24,.94));color:#F3F8FF;padding:10px 12px;font-family:'Inter',sans-serif;font-size:12px;outline:none;}
+.research-input:focus,.research-select:focus,.research-textarea:focus{border-color:#60A5FA;box-shadow:0 0 0 3px rgba(96,165,250,.11);}
+.research-select{color-scheme:dark;appearance:auto;-webkit-appearance:menulist;background-color:#081326;color:#F3F8FF;}
+.research-select option{background:#081326!important;color:#F3F8FF!important;}
+.research-select option:checked{background:#2563EB!important;color:#FFFFFF!important;}
+.research-select option:disabled{background:#081326!important;color:#7E8CA5!important;}
+.research-textarea{min-height:82px;resize:vertical;line-height:1.6;}
+.research-mini-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:#7EA2D6;margin-bottom:5px;font-weight:900;}
+.research-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.research-phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+.research-phase-card{border-radius:20px;padding:14px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.10);}
+.research-phase-card.active{border-color:rgba(96,165,250,.42);box-shadow:0 0 0 2px rgba(96,165,250,.12),0 14px 30px rgba(0,0,0,.18);}
+.research-phase-card.done{border-color:rgba(61,220,151,.28);background:linear-gradient(145deg,rgba(61,220,151,.08),rgba(255,255,255,.014));}
+.research-phase-range{font-size:10px;font-family:'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;color:#7DD3FC;font-weight:900;}
+.research-phase-card-title{font-size:14px;font-weight:900;color:#F8FBFF;line-height:1.35;margin-top:6px;}
+.research-phase-card-sub{font-size:11px;line-height:1.55;color:#AFC0DA;margin-top:6px;}
+.research-off-box{padding:14px;border-radius:18px;border:1px solid rgba(245,158,11,.24);background:rgba(245,158,11,.07);color:#FFE7C2;font-size:13px;line-height:1.65;margin-top:10px;}
+.research-archive-list{display:flex;flex-direction:column;gap:9px;margin-top:10px;}
+.research-archive-row{border-radius:16px;padding:11px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(140,199,255,.09);}
+.research-archive-head{display:flex;justify-content:space-between;gap:8px;font-size:10px;font-family:'JetBrains Mono',monospace;color:#93C5FD;margin-bottom:5px;}
+.research-archive-text{font-size:12px;color:#DCEBFF;line-height:1.55;}
+@media(max-width:900px){.research-pro-main{grid-template-columns:1fr;}.research-pro-grid{grid-template-columns:repeat(2,1fr);}.research-log-grid{grid-template-columns:1fr;}.research-log-grid .full{grid-column:auto;}}
+@media(max-width:540px){.research-pro-grid{grid-template-columns:1fr 1fr;}.research-pro-hero{padding:18px;border-radius:24px;}.research-card-pro{padding:15px;border-radius:22px;}}
+
+
+/* ── RESEARCH FULL DETAIL + BOOK NOTES ARCHIVE ADD-ON ── */
+.research-full-detail{margin-top:16px;}
+.research-full-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px;}
+.research-detail-card{border-radius:20px;padding:14px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.10);}
+.research-detail-kicker{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:#7DD3FC;font-weight:900;margin-bottom:6px;}
+.research-detail-title{font-size:15px;font-weight:900;color:#F8FBFF;line-height:1.35;margin-bottom:7px;}
+.research-detail-text{font-size:12px;color:#B8C8E4;line-height:1.7;}
+.research-detail-list{margin-top:8px;display:flex;flex-direction:column;gap:6px;}
+.research-detail-li{font-size:12px;color:#DCEBFF;line-height:1.55;padding:8px 9px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid rgba(140,199,255,.07);}
+.research-detail-li strong{color:#93C5FD;}
+.research-module{border-radius:22px;padding:15px;background:radial-gradient(circle at 100% 0%,rgba(56,189,248,.10),transparent 34%),linear-gradient(145deg,rgba(255,255,255,.046),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.10);}
+.research-module-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px;}
+.research-module-title{font-size:15px;font-weight:900;color:#F8FBFF;line-height:1.35;}
+.research-module-tag{font-family:'JetBrains Mono',monospace;font-size:9px;color:#C4B5FD;padding:4px 8px;border-radius:999px;background:rgba(124,58,237,.12);border:1px solid rgba(167,139,250,.20);white-space:nowrap;}
+.research-resource-row{font-size:11px;color:#AFC0DA;line-height:1.55;margin-top:6px;padding-left:10px;border-left:2px solid rgba(56,189,248,.22);}
+.research-template-box{border-radius:18px;padding:13px;background:rgba(34,197,94,.065);border:1px solid rgba(34,197,94,.18);font-size:12px;color:#DFFFEF;line-height:1.7;margin-top:12px;}
+.research-original-details{margin-top:14px;border-radius:20px;background:rgba(255,255,255,.025);border:1px solid rgba(140,199,255,.10);overflow:hidden;}
+.research-original-details summary{cursor:pointer;padding:14px 16px;font-size:12px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;color:#93C5FD;font-weight:900;}
+.research-original-text{max-height:520px;overflow:auto;white-space:pre-wrap;font-family:'Inter',sans-serif;font-size:12px;line-height:1.7;color:#DCEBFF;background:rgba(0,0,0,.16);padding:14px 16px;border-top:1px solid rgba(140,199,255,.09);}
+#page-media .lib-notes-archive{display:flex;flex-direction:column;gap:10px;}
+#page-media .lib-note-book-card{border-radius:20px;padding:13px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.10);}
+#page-media .lib-note-book-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px;}
+#page-media .lib-note-book-title{font-size:13px;font-weight:900;color:#F8FBFF;line-height:1.35;}
+#page-media .lib-note-book-meta{font-family:'JetBrains Mono',monospace;font-size:9px;color:#7DD3FC;white-space:nowrap;}
+#page-media .lib-note-row{padding:9px 0;border-top:1px solid rgba(255,255,255,.055);font-size:12px;color:#DCEBFF;line-height:1.6;}
+#page-media .lib-note-date{display:inline-flex;margin-right:8px;margin-bottom:4px;padding:3px 7px;border-radius:999px;background:rgba(59,130,246,.11);border:1px solid rgba(96,165,250,.18);color:#CFE6FF;font-family:'JetBrains Mono',monospace;font-size:9px;}
+#page-media .lib-note-chip{display:inline-flex;margin-right:6px;margin-bottom:4px;padding:3px 7px;border-radius:999px;background:rgba(124,58,237,.10);border:1px solid rgba(167,139,250,.16);color:#DDD6FE;font-family:'JetBrains Mono',monospace;font-size:9px;}
+#page-media .lib-note-text strong{color:#93C5FD;}
+
+#page-media .lib-rd-upgrade{display:flex;flex-direction:column;gap:14px;}
+#page-media .lib-rd-hero{position:relative;overflow:hidden;border-radius:26px;padding:18px;background:radial-gradient(circle at 0% 0%,rgba(56,189,248,.18),transparent 34%),radial-gradient(circle at 100% 0%,rgba(34,197,94,.13),transparent 32%),linear-gradient(145deg,rgba(8,22,45,.98),rgba(3,8,20,.98));border:1px solid rgba(140,199,255,.18);box-shadow:0 20px 52px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.04);}
+#page-media .lib-rd-title{font-size:24px;font-weight:900;color:#F8FBFF;letter-spacing:-.04em;margin-bottom:6px;}
+#page-media .lib-rd-sub{font-size:12px;color:#AFC0DA;line-height:1.7;}
+#page-media .lib-rd-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:14px;}
+#page-media .lib-rd-kpi{border-radius:18px;padding:12px 10px;text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(140,199,255,.10);}
+#page-media .lib-rd-kpi-num{font-size:22px;font-weight:900;color:#F8FBFF;letter-spacing:-.04em;}
+#page-media .lib-rd-kpi-label{font-size:9px;color:#93A7C9;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.8px;margin-top:4px;line-height:1.35;}
+#page-media .lib-shelf-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+#page-media .lib-shelf-card{border-radius:24px;padding:15px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.11);box-shadow:0 14px 34px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.035);}
+#page-media .lib-shelf-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px;}
+#page-media .lib-shelf-title{font-size:15px;font-weight:900;color:#F8FBFF;line-height:1.35;}
+#page-media .lib-shelf-sub{font-size:11px;color:#93A7C9;line-height:1.5;margin-top:3px;}
+#page-media .lib-shelf-count{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;padding:6px 10px;border-radius:999px;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.22);color:#CFE6FF;white-space:nowrap;}
+#page-media .lib-book-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;}
+#page-media .lib-mini-book{display:grid;grid-template-columns:54px 1fr;gap:10px;align-items:start;border-radius:18px;padding:10px;background:rgba(255,255,255,.03);border:1px solid rgba(140,199,255,.08);transition:transform .18s,border-color .18s;}
+#page-media .lib-mini-book:hover{transform:translateY(-2px);border-color:rgba(96,165,250,.28);}
+#page-media .lib-mini-cover{width:54px;height:72px;border-radius:11px;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,rgba(56,189,248,.11),rgba(124,58,237,.08));border:1px solid rgba(140,199,255,.10);font-size:24px;}
+#page-media .lib-mini-cover img{width:100%;height:100%;object-fit:cover;display:block;}
+#page-media .lib-mini-title{font-size:12px;font-weight:900;color:#F8FBFF;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+#page-media .lib-mini-author{font-size:10px;color:#93A7C9;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#page-media .lib-mini-meta{font-size:10px;color:#AFC0DA;font-family:'JetBrains Mono',monospace;margin-top:5px;line-height:1.45;}
+#page-media .lib-mini-bar{height:5px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:6px;}
+#page-media .lib-mini-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#38BDF8,#22C55E);}
+#page-media .lib-mini-actions{display:flex;gap:5px;margin-top:7px;}
+#page-media .lib-mini-actions .book-btn{font-size:8px!important;padding:5px 6px!important;border-radius:8px!important;}
+#page-media .lib-empty-shelf{border-radius:16px;padding:18px;text-align:center;color:#8FA2C2;font-size:12px;font-style:italic;background:rgba(255,255,255,.025);border:1px dashed rgba(140,199,255,.12);}
+#page-media .lib-rd-tools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+@media(max-width:900px){#page-media .lib-rd-kpis{grid-template-columns:repeat(2,1fr);}#page-media .lib-rd-tools{grid-template-columns:1fr;}}
+@media(max-width:560px){#page-media .lib-book-strip{grid-template-columns:1fr;}#page-media .lib-rd-kpis{grid-template-columns:1fr 1fr;}}
+
 </style>
 <!-- PWA APP SUPPORT -->
 <link rel="manifest" href="manifest.json">
@@ -2072,11 +2189,6 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
           </div>
         </div>
         <div class="day-ribbon" id="ringRibbon" style="justify-content:center;margin-top:8px;"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Research Weekend Focus</div>
-        <div id="researchPanel"></div>
       </div>
 
       <div class="card">
@@ -2685,68 +2797,1125 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
      PAGE: RESEARCH
 ══════════════════════════════════════════ -->
 <div id="page-research" class="page">
-  <div style="margin-top:20px;">
-    <div class="card">
-      <div class="card-title" style="color:var(--cyan);">Research Plan — Chat &amp; Naml Foundations</div>
-      <div class="note-box note-cyan" style="margin-bottom:18px;">🔬 Research runs only on Saturday and Sunday during the 90-day tracker. Weekdays stay focused on your normal priorities, deen, health, and deep work.</div>
+  <div class="research-pro-wrap">
+    <div class="research-pro-hero">
+      <div class="research-pro-kicker">Weekend-only research lab</div>
+      <div class="research-pro-title">Chat &amp; Naml Research Tracker</div>
+      <div class="research-pro-sub">A professional, trackable system for your 90-day research path: philosophy first, Islamic worldview and Amanah, layered reality, biology as information, AI/coding/decoding, signal systems, then a careful return to Surah An-Naml 27:38–40. No overclaiming — track evidence, questions, and progress.</div>
+    </div>
+    <div id="researchDashboardPanel"></div>
+    <div class="research-pro-main">
+      <div id="researchPanel"></div>
+      <div id="researchArchivePanel"></div>
+    </div>
+    <div id="researchPhaseMap"></div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:18px;">
-        <div class="rstat"><div class="rstat-num">90</div><div class="rstat-label">Total Days</div></div>
-        <div class="rstat"><div class="rstat-num">Sat/Sun</div><div class="rstat-label">Research Days Only</div></div>
-        <div class="rstat"><div class="rstat-num">7</div><div class="rstat-label">Study Phases</div></div>
-        <div class="rstat"><div class="rstat-num">27:38–40</div><div class="rstat-label">Final Quran Focus</div></div>
+    <div id="researchFullDetailPanel" class="research-card-pro research-full-detail">
+      <div class="research-section-title">Full Detailed Research Syllabus — What to Study, Where, How, and Notes</div>
+      <div class="research-phase-focus">This is the expanded version of your pasted research direction. It keeps the full framework inside the Research section so you can study from one place, track the weekend checklist above, and save your own notes below each session.</div>
+
+      <div class="research-full-grid">
+        <div class="research-detail-card">
+          <div class="research-detail-kicker">Core instruction</div>
+          <div class="research-detail-title">Start by fixing the worldview lens</div>
+          <div class="research-detail-text">Study existentialism and Sartre not to accept them, but to understand the modern materialist mindset that says humans create their own meaning. Compare that with Islam, where humans are created with purpose, responsibility, and accountability.</div>
+          <div class="research-detail-list">
+            <div class="research-detail-li"><strong>Study:</strong> Existentialism, Jean-Paul Sartre, “existence precedes essence,” freedom, bad faith, responsibility, meaning without God.</div>
+            <div class="research-detail-li"><strong>Write notes:</strong> How does Islam answer Sartre’s claim that man creates his own meaning?</div>
+          </div>
+        </div>
+        <div class="research-detail-card">
+          <div class="research-detail-kicker">Islamic foundation</div>
+          <div class="research-detail-title">Amanah before advanced knowledge</div>
+          <div class="research-detail-text">The Amanah discussion is the moral foundation: knowledge without responsibility is dangerous. Before studying powerful phenomena, understand human limits, arrogance, ignorance, obedience, and accountability.</div>
+          <div class="research-detail-list">
+            <div class="research-detail-li"><strong>Study:</strong> Surah Al-Ahzab 33:72, tafsir of Amanah, faith vs survival, human limitation.</div>
+            <div class="research-detail-li"><strong>Write notes:</strong> What kind of person is safe to carry powerful knowledge?</div>
+          </div>
+        </div>
+        <div class="research-detail-card">
+          <div class="research-detail-kicker">Reality model</div>
+          <div class="research-detail-title">Reality may be layered, not only material</div>
+          <div class="research-detail-text">Study Plato and Plotinus as philosophy training. Use them to understand how thinkers imagined levels of reality, soul, intellect, and higher/lower existence. Do not treat Greek philosophy as Islamic aqidah; compare it carefully.</div>
+          <div class="research-detail-list">
+            <div class="research-detail-li"><strong>Study:</strong> Plato’s Forms, Allegory of the Cave, Plotinus, Enneads, higher intelligences.</div>
+            <div class="research-detail-li"><strong>Write notes:</strong> Which ideas help thinking beyond materialism, and which must be rejected Islamically?</div>
+          </div>
+        </div>
+        <div class="research-detail-card">
+          <div class="research-detail-kicker">Science tools</div>
+          <div class="research-detail-title">Information, coding, decoding, and systems</div>
+          <div class="research-detail-text">Study biology, microbiology, AI, signal processing, and communication systems because they teach how information can be encoded, transmitted, decoded, and reconstructed. This is an analogy and language for careful thinking, not proof of teleportation.</div>
+          <div class="research-detail-list">
+            <div class="research-detail-li"><strong>Study:</strong> DNA, gene expression, signal processing, AI translation, encoding/decoding, animal communication.</div>
+            <div class="research-detail-li"><strong>Write notes:</strong> What is a real scientific mechanism, what is only a conceptual analogy?</div>
+          </div>
+        </div>
       </div>
 
-      <div style="font-size:13px;color:var(--muted2);line-height:1.8;margin-bottom:18px;">
-        The research direction from your notes is not to rush directly into claims about teleportation. The foundation is: fix the philosophical lens, understand Islamic worldview and Amanah, study layered reality through classical philosophy, learn biology as information, learn AI/coding/decoding and signal systems, then return carefully to Surah An-Naml 27:38–40.
+      <div class="research-full-grid" style="margin-top:14px;">
+        <div class="research-module">
+          <div class="research-module-head"><div class="research-module-title">Phase 1 — Existentialism & Sartre</div><div class="research-module-tag">Mind</div></div>
+          <div class="research-detail-text">Goal: understand modern thinking that rejects unseen realities, fixed purpose, and divine order.</div>
+          <div class="research-resource-row"><strong>Videos:</strong> Crash Course Philosophy — Existentialism; The School of Life — Sartre.</div>
+          <div class="research-resource-row"><strong>Read online:</strong> Stanford Encyclopedia of Philosophy — Existentialism; Internet Encyclopedia of Philosophy — Existentialism; IEP/SEP on Sartre.</div>
+          <div class="research-resource-row"><strong>Books:</strong> Thomas Flynn — <em>Existentialism: A Very Short Introduction</em>; Sartre — <em>Existentialism Is a Humanism</em>; Sartre — <em>Nausea</em>; advanced later: <em>Being and Nothingness</em>.</div>
+          <div class="research-resource-row"><strong>Notes:</strong> Define existentialism, existence precedes essence, freedom, bad faith, anxiety, and the Islamic response: purpose before existence.</div>
+        </div>
+        <div class="research-module">
+          <div class="research-module-head"><div class="research-module-title">Phase 2 — Islamic Worldview & Amanah</div><div class="research-module-tag">Aqidah lens</div></div>
+          <div class="research-detail-text">Goal: understand human responsibility before studying powerful knowledge or Quranic advanced phenomena.</div>
+          <div class="research-resource-row"><strong>Quran:</strong> Surah Al-Ahzab 33:72; focus on Amanah, ẓalūm, jahūl.</div>
+          <div class="research-resource-row"><strong>Tafsir:</strong> Ibn Kathir, Ma‘arif al-Qur’an, Tafhim al-Qur’an, IslamQA summary on Amanah.</div>
+          <div class="research-resource-row"><strong>Books/articles:</strong> Maududi — <em>Towards Understanding the Qur’an</em>; Mufti Muhammad Shafi — <em>Ma‘arif al-Qur’an</em>; Yaqeen Institute on human nature, God’s existence, and naturalism.</div>
+          <div class="research-resource-row"><strong>Notes:</strong> What is Amanah? Why are humans described as unjust and ignorant? What is the danger of knowledge without accountability?</div>
+        </div>
+        <div class="research-module">
+          <div class="research-module-head"><div class="research-module-title">Phase 3 — Plato, Plotinus & Levels of Reality</div><div class="research-module-tag">Reality</div></div>
+          <div class="research-detail-text">Goal: train the mind to think beyond sensory materialism while staying careful with Islamic boundaries.</div>
+          <div class="research-resource-row"><strong>Plato:</strong> <em>The Republic</em> — Cave and Forms; <em>Phaedo</em> — soul and immortality; <em>Timaeus</em> — cosmology later.</div>
+          <div class="research-resource-row"><strong>Plotinus:</strong> SEP/IEP Plotinus; selected <em>Enneads</em>; Lloyd P. Gerson — <em>Plotinus</em>; O’Meara — <em>Plotinus: An Introduction to the Enneads</em>.</div>
+          <div class="research-resource-row"><strong>Notes:</strong> What does it mean that reality has levels? How is this only philosophical training, not Islamic proof by itself?</div>
+        </div>
+        <div class="research-module">
+          <div class="research-module-head"><div class="research-module-title">Phase 4 — Biology, Microbiology & Quranic Communication</div><div class="research-module-tag">Life as info</div></div>
+          <div class="research-detail-text">Goal: understand life as organized information and study natural communication examples linked to Quranic reflection.</div>
+          <div class="research-resource-row"><strong>Biology:</strong> Khan Academy DNA structure/function, gene expression, DNA sequencing; <em>Campbell Biology</em>; Alberts — <em>Molecular Biology of the Cell</em>.</div>
+          <div class="research-resource-row"><strong>Quran examples:</strong> Bees — Surah An-Nahl 16:68–69; ants — Surah An-Naml 27:18–19; birds — Surah An-Naml 27:16.</div>
+          <div class="research-resource-row"><strong>Animal communication:</strong> Honeybee waggle dance, ant pheromones, animal cognition, bioacoustics and machine learning.</div>
+          <div class="research-resource-row"><strong>Notes:</strong> How does information organize life? What is communication in nature beyond human language?</div>
+        </div>
+        <div class="research-module">
+          <div class="research-module-head"><div class="research-module-title">Phase 5 — AI, Coding/Decoding & Signal Processing</div><div class="research-module-tag">Systems</div></div>
+          <div class="research-detail-text">Goal: learn the technical language of encoding, transmission, decoding, pattern recognition, and reconstruction.</div>
+          <div class="research-resource-row"><strong>AI:</strong> Harvard CS50 AI with Python; Russell & Norvig — <em>Artificial Intelligence: A Modern Approach</em>; Chollet — <em>Deep Learning with Python</em>.</div>
+          <div class="research-resource-row"><strong>Signals:</strong> MIT OpenCourseWare Signals and Systems; MIT 6.003 YouTube playlist; Oppenheim & Willsky — <em>Signals and Systems</em>; Haykin — <em>Communication Systems</em>.</div>
+          <div class="research-resource-row"><strong>Notes:</strong> Explain input → encoding → transmission → decoding → output. Separate analogy from evidence.</div>
+        </div>
+        <div class="research-module">
+          <div class="research-module-head"><div class="research-module-title">Phase 6 — Surah An-Naml 27:38–40</div><div class="research-module-tag">Application</div></div>
+          <div class="research-detail-text">Goal: return to the throne of Bilqis carefully after building philosophical, Islamic, and scientific language.</div>
+          <div class="research-resource-row"><strong>Quran:</strong> Surah An-Naml 27:38–40 — jinn, the one with knowledge of the Book, and Sulayman’s gratitude.</div>
+          <div class="research-resource-row"><strong>Tafsir:</strong> Quran.com tafsir, Ibn Kathir, Maududi/Tafhim al-Qur’an, Ma‘arif al-Qur’an, The Study Quran.</div>
+          <div class="research-resource-row"><strong>Questions:</strong> Who had knowledge of the Book? Why was knowledge faster than jinn strength? Was it physical movement, metaphysical means, or Allah’s direct command? Why did Sulayman say this is from the grace of my Lord?</div>
+          <div class="research-resource-row"><strong>Notes:</strong> Do not begin by claiming technology. Begin with tafsir, humility, divine permission, and what is proven vs unknown.</div>
+        </div>
       </div>
 
-      <div style="margin-bottom:20px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(59,130,246,.18);color:#BFDBFE;border:1px solid rgba(147,197,253,.28);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 1 · DAYS 1–14</span><div><div style="font-size:16px;font-weight:800;">Existentialism &amp; Sartre</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Modern thinking · existence precedes essence · freedom and responsibility</div></div></div>
-        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Study existentialism as a modern worldview, not to accept it<br>✦ Study Jean-Paul Sartre: freedom, bad faith, anxiety, meaning without God<br>✦ Compare “man creates meaning” with Islam: man is created with purpose</div>
+      <div class="research-template-box">
+        <strong>Research note template:</strong><br>
+        1) Source studied today · 2) Exact concept/ayah/book chapter · 3) What I understood in my own words · 4) What is proven · 5) What is only conceptual/analogy · 6) Islamic boundary or warning · 7) Question to ask mentor · 8) Next action for next Saturday/Sunday.
       </div>
 
-      <div class="sect-div">✦ ✦ ✦</div>
-
-      <div style="margin:18px 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(61,220,151,.13);color:#9CF2C3;border:1px solid rgba(61,220,151,.28);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 2 · DAYS 15–28</span><div><div style="font-size:16px;font-weight:800;">Islamic Worldview &amp; Amanah</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Human responsibility · belief vs survival · limits before ambition</div></div></div>
-        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Study Surah Al-Ahzab 33:72 and the concept of Amanah<br>✦ Understand why humans are described as unjust and ignorant<br>✦ Compare Islamic purpose with materialism and naturalism<br>✦ Main principle: knowledge without responsibility is dangerous</div>
+      <div class="research-full-grid">
+        <div class="research-detail-card">
+          <div class="research-detail-kicker">Suggested 6-month order</div>
+          <div class="research-detail-list">
+            <div class="research-detail-li"><strong>Month 1:</strong> Existentialism, Sartre, “existence precedes essence,” Islamic response.</div>
+            <div class="research-detail-li"><strong>Month 2:</strong> Amanah, human responsibility, Islamic view of human nature.</div>
+            <div class="research-detail-li"><strong>Month 3:</strong> Plato, Plotinus, levels of reality, soul/intellect.</div>
+            <div class="research-detail-li"><strong>Month 4:</strong> Biology, DNA, life as information, Quranic bees/ants examples.</div>
+            <div class="research-detail-li"><strong>Month 5:</strong> AI, coding/decoding, signal processing, translation systems.</div>
+            <div class="research-detail-li"><strong>Month 6:</strong> Surah An-Naml 27:38–40, tafsir, compare power vs knowledge.</div>
+          </div>
+        </div>
+        <div class="research-detail-card">
+          <div class="research-detail-kicker">Questions to ask after studying</div>
+          <div class="research-detail-list">
+            <div class="research-detail-li">Was existentialism mentioned to warn against materialist thinking?</div>
+            <div class="research-detail-li">Is the throne event about power, knowledge, divine permission, or all three?</div>
+            <div class="research-detail-li">Does “knowledge of the Book” mean spiritual knowledge, revealed knowledge, or hidden laws?</div>
+            <div class="research-detail-li">Why did the jinn rely on strength while the other person relied on knowledge?</div>
+            <div class="research-detail-li">Is coding/decoding useful only as communication analogy, or can it help think about matter carefully?</div>
+          </div>
+        </div>
       </div>
 
-      <div class="sect-div">✦ ✦ ✦</div>
+      <details class="research-original-details">
+        <summary>Open the full original research text you gave me</summary>
+        <pre class="research-original-text">📚 1. Things he explicitly told you to STUDY / READ
+🧠 A. Existentialism
 
-      <div style="margin:18px 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(124,58,237,.15);color:#C4B5FD;border:1px solid rgba(124,58,237,.32);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 3 · DAYS 29–42</span><div><div style="font-size:16px;font-weight:800;">Plato, Plotinus &amp; Layers of Reality</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Soul · intellect · higher/lower reality · classical philosophy</div></div></div>
-        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Study Plato: Forms, soul, Allegory of the Cave<br>✦ Study Plotinus: hierarchy of reality and higher intellects<br>✦ Keep Islamic aqidah separate; use philosophy as mental training, not belief replacement</div>
-      </div>
+He very clearly said:
 
-      <div class="sect-div">✦ ✦ ✦</div>
+“Let me write down the word for you, study it: Existentialism.”
 
-      <div style="margin:18px 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(245,158,11,.15);color:#FDBA74;border:1px solid rgba(245,158,11,.32);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 4 · DAYS 43–56</span><div><div style="font-size:16px;font-weight:800;">Biology, Microbiology &amp; Quranic Communication</div><div style="font-size:11px;color:var(--muted);font-style:italic;">DNA as information · bees · ants · coded systems in nature</div></div></div>
-        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Study DNA structure, gene expression, and life as coded information<br>✦ Study Surah An-Nahl 16:68–69 about bees<br>✦ Study Surah An-Naml 27:18–19 and 27:16 about ants and birds<br>✦ Learn that communication is not only human language</div>
-      </div>
+👉 This is the main thing he wants you to study.
 
-      <div class="sect-div">✦ ✦ ✦</div>
+He also emphasized:
 
-      <div style="margin:18px 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(56,189,248,.15);color:#7DD3FC;border:1px solid rgba(56,189,248,.32);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 5 · DAYS 57–70</span><div><div style="font-size:16px;font-weight:800;">AI, Coding/Decoding &amp; Signal Systems</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Pattern recognition · encoding · decoding · transmission · reconstruction</div></div></div>
-        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Study CS50 AI basics and practical machine learning ideas<br>✦ Study signal processing: signals, systems, Fourier thinking, noise, transmission<br>✦ Connect this only as an analogy: information can be encoded, sent, decoded, and reconstructed</div>
-      </div>
+It dominates modern thinking
+It influences Muslims (especially those exposed to the West)
+Islamic scholars don’t properly address it (his opinion)
+👤 B. Jean-Paul Sartre
 
-      <div class="sect-div">✦ ✦ ✦</div>
+He said:
 
-      <div style="margin:18px 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(212,168,67,.16);color:var(--gold2);border:1px solid rgba(212,168,67,.32);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 6 · DAYS 71–84</span><div><div style="font-size:16px;font-weight:800;">Surah An-Naml 27:38–40</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Bilqis throne · jinn power · one with knowledge of the Book</div></div></div>
-        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Read Quran.com, Ibn Kathir, Maududi, Ma‘arif al-Qur’an, and The Study Quran notes<br>✦ Ask: what is “knowledge of the Book”? Why was knowledge faster than strength?<br>✦ End every study with Sulayman’s lesson: “This is from the grace of my Lord”</div>
-      </div>
+“There are one or two French thinkers, such as Jean-Paul Sartre.”
 
-      <div class="sect-div">✦ ✦ ✦</div>
+👉 Meaning:
 
-      <div style="margin-top:18px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(255,107,107,.13);color:#FFB4B4;border:1px solid rgba(255,107,107,.30);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 7 · DAYS 85–90</span><div><div style="font-size:16px;font-weight:800;">Synthesis &amp; Mentor Questions</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Balanced conclusion · no overclaiming · prepare better questions</div></div></div>
-        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Write a final balanced report: what is direct, indirect, conceptual, and unproven<br>✦ Prepare questions for your mentor about materialism, knowledge of the Book, and coding/decoding as analogy<br>✦ Keep the goal: understand the framework behind advanced Quranic phenomena, not make careless claims</div>
-      </div>
+Study Sartre as a representative of existentialism
+🧠 C. “Matter precedes essence” (core existentialist idea)
+
+He gave you a key concept:
+
+“Matter precedes essence.”
+
+(Proper philosophical phrase is actually: “existence precedes essence”)
+
+👉 He wants you to understand:
+
+Humans define themselves
+There is no fixed purpose (in existentialism)
+📖 2. Philosophies he told you to UNDERSTAND (directly or indirectly)
+🧠 A. Plotinus and “Nine Intelligences”
+
+He explained:
+
+A theory of nine intelligences
+Spiritual hierarchy
+Humans as unique beings who can “rise”
+
+👉 He didn’t explicitly say “study it,” but:
+
+He spent time explaining it → important in his framework
+🧠 B. Greek philosophical lineage
+
+He mentioned:
+
+Plato
+Plotinus as continuation
+
+👉 Implicit instruction:
+
+Understand classical philosophy about soul and intellect
+🧬 3. Scientific / research directions he hinted at
+🔬 A. Biology / Microbiology
+
+He said:
+
+“You can do research when you are working in biology, microbiology…”
+
+👉 Meaning:
+
+If you want to explore Quran scientifically → use biological sciences
+🐝 B. Quran + Science examples (Bees, Ants)
+
+He gave examples:
+
+Bees being inspired
+Ants hearing
+
+👉 What he wants you to learn:
+
+Quran may contain hidden scientific truths
+Science later confirms them
+🤖 4. Technology direction he guided you toward
+💻 A. AI and communication systems
+
+When you said AI, he responded seriously.
+
+👉 He accepts:
+
+Your path = technology + AI
+🐕 B. Animal communication via coding/decoding
+
+He said:
+
+“Study how to code their sounds… your speech will be converted…”
+
+👉 What he wants:
+
+Learn:
+Signal processing
+AI translation systems
+Communication modeling
+🕌 5. Religious concepts he emphasized understanding
+📖 A. The “Trust” (Amanah) verse
+
+He explained deeply:
+
+Human responsibility
+Overconfidence
+Ignorance
+
+👉 He wants you to:
+
+Understand human limitation vs ambition
+🧠 B. Faith vs survival question
+
+He asked:
+
+“What is more important, to live or to believe?”
+
+👉 This is philosophical training:
+
+Testing your worldview
+🧭 6. What he DID NOT actually teach (important)
+
+Let’s be very clear:
+
+❌ He did NOT explain:
+
+Surah An-Naml 38–40 in detail
+Mechanism of throne transfer
+Any theory of teleportation
+
+👉 Your original question was about teleportation
+👉 He redirected you to:
+
+Philosophy
+Society
+AI
+Belief systems
+🧩 7. Hidden structure of his advice (very important insight)
+
+What he’s actually doing is this:
+
+Step 1: Fix your worldview
+
+→ Study existentialism
+→ Understand modern الفكر (thinking)
+
+Step 2: Understand الإنسان (human)
+
+→ Amanah
+→ Responsibility
+→ Limits
+
+Step 3: Learn systems
+
+→ AI
+→ Coding/decoding
+→ Biology
+
+Step 4: THEN maybe research Quran scientifically
+🧠 Final Summary (Simple)
+He told you to focus on:
+📚 Core Studies:
+Existentialism
+Jean-Paul Sartre
+Plotinus
+🔬 Scientific Direction:
+Biology / Microbiology
+AI
+Coding systems
+🧠 Concepts to understand:
+Human responsibility (Amanah)
+Faith vs survival
+Modern disbelief trends
+
+🧠 What he was likely doing (deeper interpretation)
+
+He did not answer teleportation directly—but that doesn’t mean it’s irrelevant.
+
+It suggests:
+
+👉 He believes:
+“You are not ready to understand teleportation yet.”
+
+So instead, he redirected you to foundations.
+
+🔑 Hidden connection to teleportation (important insight)
+
+Let’s connect his topics to your goal:
+
+1. Existentialism
+
+At first glance: ❌ unrelated
+But deeper:
+
+Existentialism says:
+
+Reality = material existence
+No unseen (ghayb)
+No divine intervention
+
+👉 Problem:
+Teleportation in Surah An-Naml:
+
+Involves non-material or unknown laws
+Possibly beyond current physics
+🔥 So his message:
+
+If your mind is influenced by:
+
+Materialism
+Western فلسفہ
+
+👉 You will reject or misunderstand Quranic phenomena like teleportation.
+
+2. Jean-Paul Sartre
+
+Sartre represents:
+
+الإنسان is self-defined
+No higher authority
+No divine النظام
+
+👉 But teleportation in Quran:
+
+Happens through “knowledge given by Allah”
+Not human استقلال (independence)
+🔥 Hidden message:
+
+Before studying teleportation:
+👉 Fix your philosophical lens
+
+3. Plotinus &amp; “higher intelligences”
+
+This is actually VERY interesting.
+
+Plotinus believed:
+
+Reality has levels
+Higher realms control lower ones
+
+👉 Now compare with:
+
+Jinn offering transport
+A man with “knowledge of the Book” doing it instantly
+🔥 Possible connection:
+
+He is hinting:
+👉 Reality may have layers beyond physical space
+
+And teleportation might involve:
+
+Accessing a higher level of reality
+4. Biology / Microbiology
+
+At first: ❌ unrelated
+But think deeper:
+
+Modern teleportation theories (science) involve:
+
+Breaking matter into particles
+Reconstructing it
+
+👉 Biology studies:
+
+Complex systems
+Information encoding (DNA)
+🔥 Hidden hint:
+
+To understand teleportation:
+👉 You must understand how information creates structure
+
+5. AI &amp; Coding / Decoding
+
+This is one of the strongest hints.
+
+He said:
+
+convert speech → encode → decode → reconstruct meaning
+
+Now think carefully:
+
+👉 What is teleportation (scientifically)?
+
+Convert object → information
+Transfer information
+Reconstruct object
+🔥 This is VERY close conceptually
+
+He might be hinting:
+
+Teleportation = ultimate encoding/decoding of matter
+
+6. Amanah (Trust) &amp; human limitation
+
+He emphasized:
+
+Humans are ignorant
+Humans underestimate responsibility
+🔥 Why relevant?
+
+Teleportation is:
+
+Extremely powerful
+Potentially dangerous
+
+👉 Message:
+Before gaining such knowledge:
+
+Understand responsibility
+Understand limits
+🧩 Putting it all together (this is the real answer)
+
+He did NOT give you teleportation directly.
+
+Instead, he gave you a framework:
+
+🧠 Step 1: Clean your mind
+Remove materialist فلسفہ
+Study existentialism
+🧠 Step 2: Understand reality is layered
+Plotinus-type thinking
+Not just physical world
+🧠 Step 3: Learn systems of information
+AI
+Coding / decoding
+🧠 Step 4: Study life systems
+Biology
+Complexity
+🧠 Step 5: Understand responsibility
+Amanah
+
+👉 THEN you may approach:
+
+Surah An-Naml
+⚠️ But here’s the honest truth (important)
+
+Even if he is very intelligent:
+
+👉 He did NOT explicitly prove:
+
+That teleportation = scientifically achievable
+Or that Surah An-Naml describes technology
+
+He only gave:
+
+فلسفی direction
+علمی preparation
+🧭 Final balanced conclusion
+
+You are not wrong to think:
+
+“There must be something deeper”
+
+✔️ There is something deeper
+
+BUT:
+
+❗ The connection is:
+
+Indirect
+Conceptual
+Preparatory
+
+NOT:
+
+Direct explanation of teleportation
+
+🎓 COURSE TITLE
+
+“Foundations for Understanding Advanced Quranic Phenomena (Including Surah An-Naml)”
+
+🧭 OVERALL STRUCTURE
+
+You will study in 5 phases:
+
+Mind &amp; Philosophy (Fix your thinking)
+Islamic Worldview (Correct your lens)
+Reality &amp; Consciousness (Beyond materialism)
+Science &amp; Systems (Tools for understanding)
+Application to Quran (Return to Surah An-Naml)
+🧠 PHASE 1: PHILOSOPHY (VERY IMPORTANT)
+📚 Module 1.1 — Introduction to Existentialism
+What to study:
+What is existentialism?
+Why does it deny God?
+How it affects modern الإنسان
+Key concept:
+“Existence precedes essence”
+Goal:
+
+👉 Understand how modern thinking rejects unseen realities
+
+📚 Module 1.2 — Study Jean-Paul Sartre
+Focus on:
+Freedom vs responsibility
+No fixed human purpose
+الإنسان creates meaning
+Goal:
+
+👉 Recognize the philosophy dominating the modern world
+
+📚 Module 1.3 — Critical Thinking Exercise
+
+Answer:
+
+Is survival more important than belief?
+Can morality exist without God?
+
+👉 (He asked you this indirectly)
+
+🕌 PHASE 2: ISLAMIC WORLDVIEW
+📖 Module 2.1 — The Concept of Amanah (Trust)
+
+Study:
+
+Quranic idea of human responsibility
+Focus:
+Why humans are called:
+unjust
+ignorant
+Goal:
+
+👉 Understand:
+
+Human limitations
+Dangers of overconfidence
+📖 Module 2.2 — Faith vs Materialism
+
+Compare:
+
+Islamic worldview vs existentialism
+Questions:
+Does existence come before purpose?
+Or purpose before existence?
+Goal:
+
+👉 Build a stable belief system
+
+🌌 PHASE 3: REALITY &amp; CONSCIOUSNESS
+🧠 Module 3.1 — Study Plotinus
+Topics:
+Levels of reality
+“Nine intelligences”
+Higher vs lower existence
+Goal:
+
+👉 Understand:
+
+Reality may not be purely physical
+🧠 Module 3.2 — Classical Philosophy Basics
+
+Study:
+
+Plato ideas
+
+Focus:
+
+عالم (world) of forms vs physical world
+Goal:
+
+👉 Train your mind to think:
+
+Beyond material limits
+🔬 PHASE 4: SCIENCE &amp; TECHNOLOGY
+🧬 Module 4.1 — Biology &amp; Microbiology
+Focus:
+Structure of life
+DNA = information system
+Goal:
+
+👉 Understand:
+
+Life = coded information
+🐝 Module 4.2 — Quran &amp; Science Examples
+
+Study:
+
+Bees (inspiration)
+Ants (communication)
+Goal:
+
+👉 Learn:
+
+Quran may describe realities before discovery
+🤖 Module 4.3 — AI &amp; Information Systems
+Core topics:
+Encoding / decoding
+Signal processing
+Pattern recognition
+Goal:
+
+👉 Understand:
+
+Information can be:
+encoded
+transmitted
+reconstructed
+🐕 Module 4.4 — Communication Systems
+
+Based on what he said:
+
+Human ↔ animal communication model
+Learn:
+Language translation systems
+Input → processing → output
+Goal:
+
+👉 Build thinking for:
+
+complex system transformation
+🔗 PHASE 5: CONNECTION TO TELEPORTATION
+
+(Only AFTER completing above)
+
+📖 Module 5.1 — Study Surah An-Naml (27:38–40)
+Focus:
+Throne of Bilqis
+Two agents:
+Jinn
+Man with knowledge
+🧠 Module 5.2 — Deep Reflection
+
+Ask:
+
+What is “knowledge of the Book”?
+Why was it faster than a jinn?
+Was it:
+physical movement?
+or something else?
+🔬 Module 5.3 — Conceptual Connection
+
+Now connect:
+
+Field	Connection
+AI	encoding/decoding
+Biology	structure of matter
+Philosophy	nature of reality
+Quran	unseen laws
+📅 STUDY PLAN (Simple Timeline)
+Month 1:
+Existentialism + Sartre
+Month 2:
+Islamic worldview + Amanah
+Month 3:
+Plotinus + Plato
+Month 4:
+Biology + Quran &amp; science
+Month 5:
+AI + coding systems
+Month 6:
+Surah An-Naml deep study
+🎯 FINAL GOAL
+
+By the end, you should be able to:
+
+Think beyond materialism
+Understand modern فلسفہ
+Understand information systems
+Approach Quran intellectually
+⚠️ Important Advice
+
+Don’t rush to say:
+
+“This proves teleportation”
+
+Instead, aim for:
+
+“I understand the framework behind such phenomena”
+Phase 1 — Philosophy: Understand Modern Thinking
+Module 1.1 — Existentialism
+Start with videos
+Crash Course Philosophy — “Existentialism”
+Good first introduction. It explains essentialism vs existentialism and Sartre’s idea that humans must create meaning.
+The School of Life — “PHILOSOPHY: Sartre”
+Simple explanation of Sartre’s freedom, responsibility, and anxiety.
+Read online
+Stanford Encyclopedia of Philosophy — Existentialism
+This is serious but reliable. It explains existentialism as a philosophy of human freedom, self-definition, anxiety, and meaning.
+Internet Encyclopedia of Philosophy — Existentialism
+Easier than Stanford. Good for beginners.
+Books
+
+Read in this order:
+
+Thomas Flynn — Existentialism: A Very Short Introduction
+Best beginner book.
+Walter Kaufmann — Existentialism from Dostoevsky to Sartre
+A classic collection.
+Robert C. Solomon — Existentialism
+Good if you want deeper explanation.
+What to understand
+
+You are not studying existentialism to accept it. You are studying it to understand the modern worldview that says:
+
+Human beings exist first, then create their own meaning.
+
+That directly conflicts with the Islamic worldview, where human beings are created with purpose.
+
+Phase 2 — Sartre Specifically
+Module 1.2 — Jean-Paul Sartre
+Start with
+Internet Encyclopedia of Philosophy — Sartre
+Good overview of Sartre’s philosophy of existence, freedom, selfhood, and ethics.
+Stanford Encyclopedia of Philosophy — Sartre
+More advanced. Use it after the IEP article.
+Books
+
+Read in this order:
+
+Jean-Paul Sartre — Existentialism Is a Humanism
+This is the key text. Short, direct, and important.
+Jean-Paul Sartre — Nausea
+A novel, but it shows existential thinking emotionally.
+Jean-Paul Sartre — Being and Nothingness
+Advanced. Do not start here.
+What to understand
+
+Focus on these concepts:
+
+“Existence precedes essence”
+Freedom
+Responsibility
+Bad faith
+Meaning without God
+Anxiety caused by unlimited freedom
+Your research question
+
+Ask yourself:
+
+If Sartre says man creates his own meaning, what does Islam say man was created for?
+
+This will prepare you for the “Amanah” discussion.
+
+Phase 3 — Islamic Worldview and Amanah
+Module 2.1 — Amanah: Human Responsibility
+Quran passage
+
+Study:
+
+Surah Al-Ahzab 33:72
+The word Amanah
+Why humans are described as ẓalūm and jahūl: unjust and ignorant
+
+Quran.com gives the verse and tafsir material. The verse says the Trust was offered to the heavens, earth, and mountains, but humanity assumed it.
+
+Tafsir
+Ibn Kathir on Surah Al-Ahzab 33:72
+Ibn Kathir reports explanations that Amanah refers to obedience, obligations, and religious duties.
+Ma‘arif al-Qur’an on 33:72
+Useful for understanding Amanah as something connected to the heart, obligations, and moral responsibility.
+IslamQA — Meaning of Amanah in 33:72
+Gives a traditional summary: religion, obligations, limits, and entrusted duties.
+Books
+Abul A‘la Maududi — Towards Understanding the Qur’an
+Read commentary on 33:72 and 27:38–40.
+Mufti Muhammad Shafi — Ma‘arif al-Qur’an
+Read the sections on Surah Al-Ahzab and Surah An-Naml.
+Ibn Kathir — Tafsir Ibn Kathir
+Read selected passages, not necessarily the whole tafsir.
+What to understand
+
+Your elder likely wanted you to understand this before advanced knowledge:
+
+Knowledge without responsibility is dangerous.
+
+So before thinking about something like teleportation, you need to understand human limits, moral responsibility, and spiritual accountability.
+
+Phase 4 — Islamic Response to Materialism
+Module 2.2 — Islam vs Materialism / Naturalism
+Read online
+Yaqeen Institute — “A Path Straightened Out: Perspectives on Human Nature in the Qur’an”
+This is directly connected to the question: What is the human being according to Islam? It discusses human nature, limits, ambitions, and Qur’anic anthropology.
+Yaqeen Institute — “Proving God’s Existence”
+Useful for understanding belief in God not merely as abstract theory, but as a deep human need and ontological truth.
+Yaqeen Institute — “Human Origins Part 2: Evolution and the Failures of Naturalism”
+Useful because it distinguishes scientific investigation from philosophical naturalism.
+Books
+Seyyed Hossein Nasr — Man and Nature
+Good for understanding modern science, nature, and spirituality.
+Seyyed Hossein Nasr — Knowledge and the Sacred
+Advanced but powerful.
+Hamza Andreas Tzortzis — The Divine Reality
+Good beginner-to-intermediate Islamic response to atheism and naturalism.
+What to understand
+
+Materialism says:
+
+Only matter is real.
+
+Islam says:
+
+Matter is real, but it is not all of reality.
+
+This matters because Surah An-Naml 27:38–40 may involve realities beyond ordinary material explanation.
+
+Phase 5 — Classical Philosophy: Plato and Plotinus
+Module 3.1 — Plato
+Videos
+Crash Course Philosophy — Plato / Forms-related episodes
+Use this only as a beginner introduction.
+Gregory B. Sadler — Plato lectures on YouTube
+Slower, deeper, and better for serious study.
+Books
+
+Read in this order:
+
+Plato — The Republic
+Focus on the Allegory of the Cave and theory of Forms.
+Plato — Phaedo
+Important for soul, body, and immortality.
+Plato — Timaeus
+More advanced; relates to cosmology.
+What to understand
+
+Plato helps you think in layers:
+
+Physical world
+Intellectual world
+Forms
+Soul
+Reality beyond sensory perception
+
+This prepares your mind for Plotinus.
+
+Module 3.2 — Plotinus and Higher Intelligences
+Read online
+Stanford Encyclopedia of Philosophy — Plotinus
+Best serious introduction.
+Internet Encyclopedia of Philosophy — Plotinus
+Easier starting point.
+Books
+Plotinus — The Enneads
+Do not read all at once. Start with selections.
+Lloyd P. Gerson — Plotinus
+Good secondary explanation.
+Dominic J. O’Meara — Plotinus: An Introduction to the Enneads
+Very useful for beginners.
+What to understand
+
+Your elder mentioned “nine intelligences” or a hierarchy of intellects. This belongs to a broader philosophical idea:
+
+Reality has levels, and lower realities may be governed by higher realities.
+
+Be careful: this is not Islamic aqidah by itself. Study it as philosophy, then compare it with Islamic theology.
+
+Phase 6 — Biology and Microbiology
+Module 4.1 — Biology as Information
+Start with videos/courses
+Khan Academy — DNA structure and function
+Good beginner explanation of DNA as genetic information.
+Khan Academy — Gene expression and regulation
+Learn how information in DNA becomes biological structure and function.
+Khan Academy — DNA sequencing
+Important for understanding how biological information is read, broken into pieces, and reconstructed computationally.
+Books
+Campbell Biology
+Standard biology textbook.
+Bruce Alberts — Molecular Biology of the Cell
+More advanced.
+Watson et al. — Molecular Biology of the Gene
+Strong for DNA, coding, and gene expression.
+What to understand
+
+Focus on this idea:
+
+Life is not just matter. It is matter organized by information.
+
+This connects to your elder’s hints about coding, decoding, and systems.
+
+Phase 7 — AI, Coding, Decoding, and Signal Processing
+Module 4.3 — Artificial Intelligence
+Courses
+Harvard CS50 AI with Python
+Strong beginner course. It covers search, classification, optimization, machine learning, reinforcement learning, and modern AI concepts.
+CS50 AI official course site
+Use this for lectures, notes, assignments, and projects.
+Books
+Stuart Russell and Peter Norvig — Artificial Intelligence: A Modern Approach
+The standard AI textbook.
+François Chollet — Deep Learning with Python
+Good for practical deep learning.
+Christopher Bishop — Pattern Recognition and Machine Learning
+Advanced, mathematical.
+What to understand
+
+Your elder’s “coding/decoding” hint connects strongly here.
+
+Study:
+
+Encoding
+Decoding
+Pattern recognition
+Translation systems
+Machine learning
+Information reconstruction
+Module 4.4 — Signal Processing
+Courses
+MIT OpenCourseWare — Signals and Systems
+This is one of the most important technical resources for your path. It teaches signals, systems, Fourier analysis, Laplace transforms, sampling, and frequency representations.
+MIT OCW Signals and Systems lecture notes
+Use these when the videos become difficult. The notes include topics like discrete-time systems, convolution, frequency response, Fourier series, and Fourier transform.
+MIT 6.003 Signals and Systems YouTube playlist
+Video version of the course.
+Books
+Alan V. Oppenheim, Alan S. Willsky — Signals and Systems
+Classic textbook.
+Alan V. Oppenheim, Ronald Schafer — Discrete-Time Signal Processing
+More advanced.
+Simon Haykin — Communication Systems
+Good for transmission, noise, encoding, and decoding.
+What to understand
+
+This is central:
+
+A signal can carry information from one form to another.
+
+For your long-term research, this matters because any scientific idea of “teleportation” would require information, structure, transmission, and reconstruction. That does not prove Quranic teleportation is technology, but it gives you the language to think carefully.
+
+Phase 8 — Animal Communication and Quranic Examples
+Module 4.2 — Bees, Ants, and Communication
+Quran passages
+
+Study:
+
+Surah An-Naml 27:18–19 — the ant
+Surah An-Nahl 16:68–69 — the bee
+Surah An-Naml 27:16 — Sulayman taught the speech of birds
+Books
+Thomas D. Seeley — Honeybee Democracy
+Excellent book on bee communication and collective behavior.
+Bert Hölldobler and Edward O. Wilson — The Ants
+Advanced, but the classic work on ants.
+Donald R. Griffin — Animal Minds
+Useful for animal cognition.
+Videos / lectures
+
+Search these topics on YouTube or university channels:
+
+Honeybee waggle dance
+Ant pheromone communication
+Animal cognition lectures
+Bioacoustics and machine learning
+What to understand
+
+Your elder’s point was probably:
+
+Communication is not only human language. Nature contains coded systems.
+
+That connects to AI, signal processing, and Quranic stories of Sulayman.
+
+Phase 9 — Surah An-Naml 27:38–40
+Module 5.1 — The Throne of Bilqis
+Quran text
+
+Start here:
+
+Quran.com — Surah An-Naml 27:38–40
+Read the Arabic, translation, and tafsir layers. The passage mentions Sulayman asking who can bring the throne, a powerful jinn offering to bring it before Sulayman rises, and the one with knowledge of the Book bringing it before the glance returns.
+Legacy Quran.com — Surah 27:38–40
+Useful for another translation layout.
+Tafsir
+Quran.com tafsir on 27:40
+It specifically groups the tafsir as 27:38–40 and labels the event as the throne being brought.
+Maududi — Tafhim al-Qur’an on 27:38–40
+Very useful because it gives explanatory notes around the throne, the jinn, and the person with knowledge of the Book.
+Ibn Kathir — Surah An-Naml
+Read the section titled around “How the Throne of Bilqis was brought in an instant.”
+Books
+Tafsir Ibn Kathir — Surah An-Naml
+Ma‘arif al-Qur’an — Surah An-Naml
+Tafhim al-Qur’an — Surah An-Naml
+The Study Quran — commentary on 27:38–40
+What to understand
+
+Do not begin by saying “this proves teleportation technology.”
+
+Begin with these questions:
+
+Who was the one with knowledge of the Book?
+What does “knowledge of the Book” mean?
+Why was knowledge faster than jinn power?
+Was the throne moved through physical means, metaphysical means, or by Allah’s direct command?
+Why did Sulayman immediately say: “This is from the grace of my Lord”?
+
+That last point is very important. The verse itself points the reader toward gratitude, testing, and divine grace, not technological pride.
+
+Suggested 6-Month Study Order
+Month 1
+
+Study:
+
+Existentialism
+Sartre
+“Existence precedes essence”
+Islamic response: purpose before existence
+
+Main resources:
+
+Crash Course Existentialism
+Sartre: Existentialism Is a Humanism
+Stanford/IEP articles
+Month 2
+
+Study:
+
+Amanah
+Human responsibility
+Islamic view of human nature
+
+Main resources:
+
+Surah Al-Ahzab 33:72
+Ibn Kathir on Amanah
+Yaqeen article on human nature
+Month 3
+
+Study:
+
+Plato
+Plotinus
+Levels of reality
+Soul/intellect/world beyond matter
+
+Main resources:
+
+Plato: Republic, Allegory of the Cave
+Plotinus: selected Enneads
+SEP/IEP articles
+Month 4
+
+Study:
+
+Biology
+DNA
+Gene expression
+Life as information
+
+Main resources:
+
+Khan Academy DNA
+Campbell Biology
+Molecular Biology of the Cell
+Month 5
+
+Study:
+
+AI
+Coding/decoding
+Signal processing
+Translation systems
+
+Main resources:
+
+Harvard CS50 AI
+MIT Signals and Systems
+Oppenheim: Signals and Systems
+Month 6
+
+Study:
+
+Surah An-Naml 27:38–40
+Tafsir Ibn Kathir
+Maududi
+Ma‘arif al-Qur’an
+Compare “power” vs “knowledge”
+
+Main resources:
+
+Quran.com 27:38–40
+Ibn Kathir
+Tafhim al-Qur’an
+The Study Quran
+What to Ask Him After Studying
+
+When you go back to him, ask deeper questions like:
+
+“When you told me to study existentialism, were you pointing me toward the problem of materialist thinking?”
+“Is the throne event in Surah An-Naml about power, knowledge, or divine permission?”
+“Does ‘knowledge of the Book’ mean spiritual knowledge, revealed knowledge, or knowledge of hidden laws?”
+“Why did the jinn rely on strength, while the other person relied on knowledge?”
+“Is coding/decoding a useful analogy for understanding matter, or only communication?”
+
+That will show him you actually studied what he gave you.</pre>
+      </details>
     </div>
   </div>
 </div>
@@ -10304,6 +11473,235 @@ window.cloudSaveNow = cloudSaveNow;
 })();
 
 
+
+
+/* ── PROFESSIONAL RESEARCH TRACKER OVERRIDE ── */
+(function(){
+  const RESEARCH_RESOURCES = [
+    'Primary text / Quran & Tafsir','Book chapter','Lecture / video','Article / encyclopedia','AI / coding practice','Biology / signal systems','Mentor question / synthesis'
+  ];
+  function rEsc(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+  function rState(d){const st=typeof getResearchState==='function'?getResearchState(d):(load('research_'+dateKey(d))||{});return st||{};}
+  function rSave(d,st){if(typeof saveResearchState==='function')saveResearchState(d,st);else save('research_'+dateKey(d),st);}
+  function rAllDays(){let out=[];const end=new Date(START);end.setDate(START.getDate()+89);const today=new Date();today.setHours(0,0,0,0);const stop=today<end?today:end;for(let d=new Date(START);d<=stop;d.setDate(d.getDate()+1)){out.push(new Date(d));}return out;}
+  function rCompletionFor(d){if(typeof getResearchCompletion==='function')return getResearchCompletion(d);if(!isWeekend(d))return{done:0,total:0,pct:100};const phase=getResearchPhaseData(d);const st=rState(d);const items=phase.items||[];const done=items.filter((_,i)=>st.checks&&st.checks[i]).length;return{done,total:items.length,pct:items.length?Math.round(done/items.length*100):0};}
+  function rSaveField(field,val){const st=rState(viewDate);st[field]=val;st.updatedAt=new Date().toISOString();rSave(viewDate,st);if(field==='minutes'||field==='finding'||field==='evidence'||field==='nextAction'||field==='sourceType'||field==='confidence')renderResearchDashboardOnly();showToast();}
+  function rSaveAllFields(){
+    const st=rState(viewDate);
+    ['minutes','sourceType','confidence','finding','evidence','nextAction'].forEach(id=>{const el=document.getElementById('research_'+id);if(el)st[id]=el.value;});
+    const j=document.getElementById('researchJournalInput'); if(j) st.journal=j.value;
+    st.updatedAt=new Date().toISOString(); rSave(viewDate,st); renderResearchPanel(); renderResearchDashboardOnly(); showToast();
+  }
+  window.researchSaveAllFields=rSaveAllFields;
+  window.researchSaveField=rSaveField;
+  window.toggleResearchCheck=function(idx){const st=rState(viewDate);if(!st.checks)st.checks={};st.checks[idx]=!st.checks[idx];st.updatedAt=new Date().toISOString();rSave(viewDate,st);renderResearchPanel();renderResearchDashboardOnly();if(typeof renderProgressRing==='function')renderProgressRing();if(typeof renderRingRibbon==='function')renderRingRibbon();if(typeof renderImprovementPanel==='function')renderImprovementPanel();showToast();};
+  window.saveResearchJournal=function(){const st=rState(viewDate);st.journal=document.getElementById('researchJournalInput')?.value||'';st.updatedAt=new Date().toISOString();rSave(viewDate,st);showToast();};
+  function renderResearchDashboardOnly(){
+    const panel=document.getElementById('researchDashboardPanel'); if(!panel)return;
+    const days=rAllDays(); const weekendDays=days.filter(isWeekend);
+    const activeDays=weekendDays.filter(d=>{const st=rState(d);return (st.checks&&Object.values(st.checks).some(Boolean))||st.journal||st.finding||st.evidence||st.nextAction||Number(st.minutes)>0;});
+    const completed=weekendDays.filter(d=>rCompletionFor(d).pct>=100).length;
+    const avg=activeDays.length?Math.round(activeDays.reduce((s,d)=>s+rCompletionFor(d).pct,0)/activeDays.length):0;
+    const minutes=days.reduce((s,d)=>s+(Number(rState(d).minutes)||0),0);
+    panel.innerHTML=`<div class="research-pro-grid">
+      <div class="research-pro-stat"><div class="research-pro-num">${avg}%</div><div class="research-pro-label">Active research average</div></div>
+      <div class="research-pro-stat"><div class="research-pro-num">${activeDays.length}</div><div class="research-pro-label">Research sessions saved</div></div>
+      <div class="research-pro-stat"><div class="research-pro-num">${completed}/${weekendDays.length}</div><div class="research-pro-label">Weekend days completed</div></div>
+      <div class="research-pro-stat"><div class="research-pro-num">${minutes}</div><div class="research-pro-label">Minutes logged</div></div>
+    </div>`;
+  }
+  function renderResearchArchive(){
+    const panel=document.getElementById('researchArchivePanel'); if(!panel)return;
+    const entries=rAllDays().map(d=>({d,st:rState(d),c:rCompletionFor(d)})).filter(x=>x.st.journal||x.st.finding||x.st.evidence||x.st.nextAction||Number(x.st.minutes)>0||x.c.done>0).slice(-6).reverse();
+    panel.innerHTML=`<div class="research-card-pro"><div class="research-section-title">Saved Research Progress</div>${entries.length?`<div class="research-archive-list">${entries.map(x=>`<div class="research-archive-row"><div class="research-archive-head"><span>${rEsc(fmtDateLong(x.d))}</span><span>${x.c.done}/${x.c.total||0} · ${x.c.pct}% · ${Number(x.st.minutes)||0}m</span></div><div class="research-archive-text">${rEsc(x.st.finding||x.st.journal||x.st.nextAction||'Progress saved.')}</div></div>`).join('')}</div>`:`<div class="lib-empty-shelf">No research progress saved yet. Use the tracker on Saturday/Sunday and write a finding or question.</div>`}</div>`;
+  }
+  function renderResearchPhaseMap(){
+    const el=document.getElementById('researchPhaseMap'); if(!el||typeof RESEARCH_WEEKEND_PHASES==='undefined')return;
+    const dn=dayNum(viewDate);
+    el.innerHTML=`<div class="research-card-pro"><div class="research-section-title">90-Day Research Roadmap</div><div class="research-phase-grid">${RESEARCH_WEEKEND_PHASES.map((p,i)=>{const ranges=(p.range.match(/\d+/g)||[]).map(Number);const active=dn>=ranges[0]&&dn<=ranges[1];const done=dn>ranges[1];return `<div class="research-phase-card ${active?'active':''} ${done?'done':''}"><div class="research-phase-range">${rEsc(p.range)}</div><div class="research-phase-card-title">${rEsc(p.title)}</div><div class="research-phase-card-sub">${rEsc(p.focus)}</div></div>`;}).join('')}</div></div>`;
+  }
+  window.renderResearchPanel=function(){
+    const panel=document.getElementById('researchPanel'); if(!panel)return;
+    const weekend=isWeekend(viewDate); const phase=getResearchPhaseData(viewDate); const st=rState(viewDate); const items=phase.items||[];
+    const done=items.filter((_,i)=>st.checks&&st.checks[i]).length; const pct=items.length?Math.round(done/items.length*100):0;
+    const sourceOpts=RESEARCH_RESOURCES.map(x=>`<option value="${rEsc(x)}" ${st.sourceType===x?'selected':''}>${rEsc(x)}</option>`).join('');
+    panel.innerHTML=`<div class="research-card-pro">
+      <div class="research-section-title">Current Research Session</div>
+      <span class="research-phase-pill">${weekend?'Weekend active':'Weekday protected'} · ${rEsc(phase.range)}</span>
+      <div class="research-phase-name">${rEsc(phase.title)}</div>
+      <div class="research-phase-focus">${rEsc(phase.focus)}</div>
+      ${weekend?`<div class="research-checks-pro">${items.map((item,i)=>`<div class="research-check-pro ${st.checks&&st.checks[i]?'done':''}" onclick="toggleResearchCheck(${i})"><div class="research-check-dot">${st.checks&&st.checks[i]?'✓':''}</div><div class="research-check-text">${rEsc(item)}</div></div>`).join('')}</div><div class="research-progress-meta"><span>${done}/${items.length} checklist items complete</span><span>${pct}% saved</span></div><div class="research-progress-bar"><div class="research-progress-fill" style="width:${pct}%"></div></div>`:`<div class="research-off-box">Research is intentionally locked to Saturday and Sunday. Weekdays stay clean for salah, family, health, skill, deep work, and normal duties.</div>`}
+      <div style="height:14px;"></div>
+      <div class="research-log-grid">
+        <div><div class="research-mini-label">Minutes studied</div><input class="research-input" id="research_minutes" type="number" min="0" value="${rEsc(st.minutes||'')}" oninput="researchSaveField('minutes',this.value)" placeholder="Example: 90"></div>
+        <div><div class="research-mini-label">Source type</div><select class="research-select" id="research_sourceType" onchange="researchSaveField('sourceType',this.value)"><option value="">Select source</option>${sourceOpts}</select></div>
+        <div><div class="research-mini-label">Confidence</div><select class="research-select" id="research_confidence" onchange="researchSaveField('confidence',this.value)"><option value="">Not rated</option><option ${st.confidence==='Low'?'selected':''}>Low</option><option ${st.confidence==='Medium'?'selected':''}>Medium</option><option ${st.confidence==='High'?'selected':''}>High</option></select></div>
+        <div><div class="research-mini-label">Next action</div><input class="research-input" id="research_nextAction" value="${rEsc(st.nextAction||'')}" oninput="researchSaveField('nextAction',this.value)" placeholder="What will you study next?"></div>
+        <div class="full"><div class="research-mini-label">Main finding</div><textarea class="research-textarea" id="research_finding" oninput="researchSaveField('finding',this.value)" placeholder="Write the clearest thing you understood today...">${rEsc(st.finding||'')}</textarea></div>
+        <div class="full"><div class="research-mini-label">Evidence / reference / warning</div><textarea class="research-textarea" id="research_evidence" oninput="researchSaveField('evidence',this.value)" placeholder="Write source, ayah/tafsir note, book/video reference, or what is still unproven...">${rEsc(st.evidence||'')}</textarea></div>
+        <div class="full"><div class="research-mini-label">Research journal</div><textarea class="research-textarea" id="researchJournalInput" oninput="saveResearchJournal()" placeholder="Questions, tafsir notes, AI/biology links, mentor questions...">${rEsc(st.journal||'')}</textarea></div>
+      </div>
+      <div class="research-actions"><button class="btn btn-primary" onclick="researchSaveAllFields()">💾 Save Research Progress</button><button class="btn btn-ghost" onclick="navTo('today',document.querySelector('.nav-tab[onclick*=today]'))">Open Today Plan</button></div>
+      <div class="note-box note-cyan" style="margin-top:12px;">Balanced rule: understand the framework first. Do not claim Surah An-Naml proves technology unless the evidence is clear.</div>
+    </div>`;
+    renderResearchDashboardOnly(); renderResearchArchive(); renderResearchPhaseMap();
+  };
+})();
+
+/* ── PROFESSIONAL READING DASHBOARD OVERRIDE ── */
+(function(){
+  function esc(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+  function pct(b){const total=Number(b.totalPages)||0, read=Number(b.pagesRead)||0;return total?Math.min(100,Math.round(read/total*100)):0;}
+  function bookMini(b){
+    const p=pct(b); const cover=b.cover?`<img src="${esc(b.cover)}" onerror="this.parentElement.innerHTML='📚'">`:'📚';
+    const left=Math.max(0,(Number(b.totalPages)||0)-(Number(b.pagesRead)||0));
+    return `<div class="lib-mini-book"><div class="lib-mini-cover">${cover}</div><div><div class="lib-mini-title">${esc(b.title)}</div><div class="lib-mini-author">by ${esc(b.author||'Unknown')}</div><div class="lib-mini-meta">${Number(b.pagesRead)||0}/${Number(b.totalPages)||'?'} pages · ${p}%${left?` · ${left} left`:''}</div><div class="lib-mini-bar"><div class="lib-mini-fill" style="width:${p}%"></div></div><div class="lib-mini-actions"><button class="book-btn" onclick="libEditBook('${esc(b.id)}')">Edit</button><button class="book-btn" onclick="libUpdateProgress('${esc(b.id)}')">Progress</button></div></div></div>`;
+  }
+  function shelf(title,sub,books,empty){
+    return `<div class="lib-shelf-card"><div class="lib-shelf-head"><div><div class="lib-shelf-title">${title}</div><div class="lib-shelf-sub">${sub}</div></div><div class="lib-shelf-count">${books.length}</div></div>${books.length?`<div class="lib-book-strip">${books.map(bookMini).join('')}</div>`:`<div class="lib-empty-shelf">${empty}</div>`}</div>`;
+  }
+  window.libRenderReadingDashboard=function(){
+    const el=document.getElementById('lib-reading-dashboard'); if(!el)return;
+    const books=(typeof libGetBooks==='function'?libGetBooks():[]);
+    const settings=(typeof libGetReadingSettings==='function'?libGetReadingSettings():{yearTarget:12,weekTarget:80});
+    const reading=books.filter(b=>(b.status||'not-started')==='reading');
+    const notStarted=books.filter(b=>(b.status||'not-started')==='not-started');
+    const completed=books.filter(b=>(b.status||'not-started')==='completed');
+    const totalPages=books.reduce((s,b)=>s+(Number(b.totalPages)||0),0);
+    const pagesRead=books.reduce((s,b)=>s+(Number(b.pagesRead)||0),0);
+    const overall=totalPages?Math.round(pagesRead/totalPages*100):0;
+    const yearTarget=Number(settings.yearTarget)||12, weekTarget=Number(settings.weekTarget)||80;
+    const thisWeek=reading.length?reading.slice(0,3).map(b=>`${esc(b.title)} — ${typeof libBookWeeklyNeed==='function'?libBookWeeklyNeed(b):0} pages/wk`).join('<br>'):'Choose a book from Not Started and set it to Reading.';
+    el.innerHTML=`<div class="lib-rd-upgrade">
+      <div class="lib-rd-hero"><div class="lib-rd-title">Reading Dashboard</div><div class="lib-rd-sub">A cleaner view of your library: what you are reading right now, what you own but have not started, and your full book inventory. Update progress from here and keep lessons in the calendar below.</div><div class="lib-rd-kpis"><div class="lib-rd-kpi"><div class="lib-rd-kpi-num">${books.length}</div><div class="lib-rd-kpi-label">Books I Have</div></div><div class="lib-rd-kpi"><div class="lib-rd-kpi-num">${reading.length}</div><div class="lib-rd-kpi-label">Currently Reading</div></div><div class="lib-rd-kpi"><div class="lib-rd-kpi-num">${notStarted.length}</div><div class="lib-rd-kpi-label">Not Reading Yet</div></div><div class="lib-rd-kpi"><div class="lib-rd-kpi-num">${completed.length}</div><div class="lib-rd-kpi-label">Completed</div></div><div class="lib-rd-kpi"><div class="lib-rd-kpi-num">${overall}%</div><div class="lib-rd-kpi-label">Library Progress</div></div></div><div class="lib-rd-tools"><div class="field-group"><div class="field-label">Year book target</div><input class="field-input" id="libYearTarget" type="number" min="1" value="${yearTarget}" onchange="libSaveReadingTargets()"></div><div class="field-group"><div class="field-label">Weekly page target</div><input class="field-input" id="libWeekTarget" type="number" min="1" value="${weekTarget}" onchange="libSaveReadingTargets()"></div></div></div>
+      ${shelf('📖 Currently Reading','Books active right now. Keep this list small and finish them.',reading,'No active book yet. Edit a book and set status to Currently Reading.')}
+      ${shelf('📌 Not Reading Yet','Books you own but have not started. Pick the next one from here.',notStarted,'No unread books waiting.')}
+      ${shelf('📚 Books I Have','Full inventory: reading, not started, and completed books together.',books,'No books added yet.')}
+      <div class="lib-shelf-card"><div class="lib-shelf-head"><div><div class="lib-shelf-title">🗓 Reading Plan & Daily Lessons</div><div class="lib-shelf-sub">This week: ${thisWeek}</div></div><div class="lib-shelf-count">MASTER</div></div><div id="lib-reading-calendar"></div></div>
+    </div>`;
+    if(typeof libRenderReadingCalendar==='function')libRenderReadingCalendar();
+  };
+})();
+
+
+
+/* ── READING DASHBOARD NOTES ARCHIVE OVERRIDE ── */
+(function(){
+  function esc(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+  function js(v){return String(v||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
+  function domId(v){return String(v||'').replace(/[^a-zA-Z0-9_-]/g,'_');}
+  function pct(b){const total=Number(b.totalPages)||0, read=Number(b.pagesRead)||0;return total?Math.min(100,Math.round(read/total*100)):0;}
+  function getBooks(){return typeof libGetBooks==='function'?libGetBooks():[];}
+  function saveBooks(books){return typeof libSaveBooks==='function'?libSaveBooks(books):false;}
+  function todayISO(){return (typeof libTodayISO==='function'?libTodayISO():new Date().toISOString().slice(0,10));}
+  function normalizeDate(d){return d||'No date saved';}
+  function bookStatusLabel(b){const s=b.status||'not-started';return s==='reading'?'Currently Reading':s==='completed'?'Completed':'Not Reading Yet';}
+  function makeLog(data){return {id:(data&&data.id)||('note_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,7)),date:(data&&data.date)||todayISO(),chapter:(data&&data.chapter)||'',lesson:(data&&data.lesson)||'',action:(data&&data.action)||'',pages:Number(data&&data.pages)||0,createdAt:(data&&data.createdAt)||new Date().toISOString(),updatedAt:new Date().toISOString()};}
+  function bookMini(b){
+    const p=pct(b); const cover=b.cover?`<img src="${esc(b.cover)}" onerror="this.parentElement.innerHTML='📚'">`:'📚';
+    const left=Math.max(0,(Number(b.totalPages)||0)-(Number(b.pagesRead)||0));
+    return `<div class="lib-mini-book"><div class="lib-mini-cover">${cover}</div><div><div class="lib-mini-title">${esc(b.title)}</div><div class="lib-mini-author">by ${esc(b.author||'Unknown')}</div><div class="lib-mini-meta">${bookStatusLabel(b)} · ${Number(b.pagesRead)||0}/${Number(b.totalPages)||'?'} pages · ${p}%${left?` · ${left} left`:''}</div><div class="lib-mini-bar"><div class="lib-mini-fill" style="width:${p}%"></div></div><div class="lib-mini-actions"><button class="book-btn" onclick="libEditBook('${js(b.id)}')">Edit</button><button class="book-btn" onclick="libUpdateProgress('${js(b.id)}')">Progress</button></div></div></div>`;
+  }
+  function shelf(title,sub,books,empty){
+    return `<div class="lib-shelf-card"><div class="lib-shelf-head"><div><div class="lib-shelf-title">${title}</div><div class="lib-shelf-sub">${sub}</div></div><div class="lib-shelf-count">${books.length}</div></div>${books.length?`<div class="lib-book-strip">${books.map(bookMini).join('')}</div>`:`<div class="lib-empty-shelf">${empty}</div>`}</div>`;
+  }
+  function collectBookNotes(books){
+    return books.map(b=>{
+      const logs=Array.isArray(b.lessonLogs)?b.lessonLogs.slice():[];
+      const entries=[];
+      if(b.notes){entries.push({kind:'Book note',date:b.completedDate||b.finishDate||b.updatedAt||b.createdAt||'',chapter:'General / final notes',lesson:b.notes,action:b.action||'',pages:'',bookId:b.id,isBookNote:true});}
+      logs.forEach(l=>entries.push({kind:'Daily lesson',date:l.date||'',chapter:l.chapter||'',lesson:l.lesson||'',action:l.action||'',pages:l.pages||'',id:l.id,bookId:b.id,isBookNote:false}));
+      entries.sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')));
+      return {...b,_noteEntries:entries};
+    }).filter(b=>b._noteEntries && b._noteEntries.length);
+  }
+  window.libSaveCurrentBookNote=function(){
+    const bookId=(document.getElementById('libQuickNoteBook')||{}).value||'';
+    const date=(document.getElementById('libQuickNoteDate')||{}).value||todayISO();
+    const chapter=(document.getElementById('libQuickNoteChapter')||{}).value||'';
+    const pages=Number((document.getElementById('libQuickNotePages')||{}).value)||0;
+    const lesson=(document.getElementById('libQuickNoteLesson')||{}).value||'';
+    const action=(document.getElementById('libQuickNoteAction')||{}).value||'';
+    if(!bookId){alert('Choose the current book first.');return;}
+    if(!chapter.trim()&&!lesson.trim()&&!action.trim()&&!pages){alert('Add a chapter, pages, lesson, or action before saving.');return;}
+    const books=getBooks(); const idx=books.findIndex(b=>String(b.id)===String(bookId)); if(idx<0)return;
+    const b=books[idx]; const logs=Array.isArray(b.lessonLogs)?b.lessonLogs:[];
+    logs.push(makeLog({date,chapter:chapter.trim(),pages,lesson:lesson.trim(),action:action.trim()}));
+    b.lessonLogs=logs;
+    if(pages>0) b.pagesRead=Math.min(Number(b.totalPages)||Number(b.pagesRead||0)+pages, Number(b.pagesRead||0)+pages);
+    if((b.status||'not-started')==='not-started') b.status='reading';
+    b.lastUpdated=new Date().toISOString(); books[idx]=b;
+    if(saveBooks(books)){
+      ['libQuickNoteChapter','libQuickNotePages','libQuickNoteLesson','libQuickNoteAction'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+      if(typeof libRenderReadingDashboard==='function')libRenderReadingDashboard();
+      if(typeof libRenderBooks==='function')libRenderBooks();
+      if(typeof showToast==='function')showToast();
+    }
+  };
+  window.libStartEditBookNote=function(bookId,logId){window.libBookNoteEditing={bookId:String(bookId),logId:String(logId)}; if(typeof libRenderReadingDashboard==='function')libRenderReadingDashboard();};
+  window.libCancelEditBookNote=function(){window.libBookNoteEditing=null; if(typeof libRenderReadingDashboard==='function')libRenderReadingDashboard();};
+  window.libSaveEditedBookNote=function(bookId,logId){
+    const sid=domId(logId); const books=getBooks(); const idx=books.findIndex(b=>String(b.id)===String(bookId)); if(idx<0)return;
+    const logs=Array.isArray(books[idx].lessonLogs)?books[idx].lessonLogs:[]; const li=logs.findIndex(l=>String(l.id)===String(logId)); if(li<0)return;
+    const oldPages=Number(logs[li].pages)||0;
+    const date=(document.getElementById('libEditNoteDate_'+sid)||{}).value||logs[li].date||todayISO();
+    const chapter=(document.getElementById('libEditNoteChapter_'+sid)||{}).value||'';
+    const pages=Number((document.getElementById('libEditNotePages_'+sid)||{}).value)||0;
+    const lesson=(document.getElementById('libEditNoteLesson_'+sid)||{}).value||'';
+    const action=(document.getElementById('libEditNoteAction_'+sid)||{}).value||'';
+    logs[li]={...logs[li],date,chapter:chapter.trim(),pages,lesson:lesson.trim(),action:action.trim(),updatedAt:new Date().toISOString()};
+    books[idx].lessonLogs=logs;
+    if(pages!==oldPages && Number(books[idx].pagesRead)>=0){books[idx].pagesRead=Math.max(0,Number(books[idx].pagesRead||0)-oldPages+pages);}
+    books[idx].lastUpdated=new Date().toISOString();
+    if(saveBooks(books)){window.libBookNoteEditing=null; if(typeof libRenderReadingDashboard==='function')libRenderReadingDashboard(); if(typeof libRenderBooks==='function')libRenderBooks(); if(typeof showToast==='function')showToast();}
+  };
+  window.libDeleteBookGeneralNote=function(bookId){
+    if(!confirm('Delete this book note?'))return;
+    const books=getBooks(); const idx=books.findIndex(b=>String(b.id)===String(bookId)); if(idx<0)return;
+    books[idx].notes=''; books[idx].action=''; books[idx].lastUpdated=new Date().toISOString();
+    if(saveBooks(books)){if(typeof libRenderReadingDashboard==='function')libRenderReadingDashboard(); if(typeof libRenderBooks==='function')libRenderBooks(); if(typeof showToast==='function')showToast();}
+  };
+  function quickCurrentBookNoteForm(reading,books){
+    const options=(reading.length?reading:books).map(b=>`<option value="${esc(b.id)}">${esc(b.title)}${b.author?' — '+esc(b.author):''}</option>`).join('');
+    return `<div class="lib-shelf-card"><div class="lib-shelf-head"><div><div class="lib-shelf-title">➕ Save Note for Current Book</div><div class="lib-shelf-sub">Choose the book you are reading, save date, chapter/pages, lesson, and your action. The note will appear in the archive below and on the reading calendar.</div></div><div class="lib-shelf-count">NOTE</div></div>${books.length?`<div class="lib-note-edit-form"><div class="field-row"><div class="field-group"><div class="field-label">Current book</div><select class="field-input" id="libQuickNoteBook">${options}</select></div><div class="field-group"><div class="field-label">Date</div><input class="field-input" id="libQuickNoteDate" type="date" value="${todayISO()}"></div></div><div class="field-row"><div class="field-group"><div class="field-label">Chapter / Topic</div><input class="field-input" id="libQuickNoteChapter" placeholder="Chapter 3, pages 44-50..."></div><div class="field-group"><div class="field-label">Pages read</div><input class="field-input" id="libQuickNotePages" type="number" min="0" placeholder="0"></div></div><div class="field-group"><div class="field-label">Lesson / Note</div><textarea class="field-input" id="libQuickNoteLesson" placeholder="What did this book teach you today?"></textarea></div><div class="field-group"><div class="field-label">Application / Action</div><textarea class="field-input" id="libQuickNoteAction" placeholder="How will you apply this lesson?"></textarea></div><button class="btn btn-primary" onclick="libSaveCurrentBookNote()">💾 Save Book Note</button></div>`:`<div class="lib-empty-shelf">Add a book first, then you can save notes here.</div>`}</div>`;
+  }
+  function noteRow(n){
+    const editing=window.libBookNoteEditing && String(window.libBookNoteEditing.bookId)===String(n.bookId) && String(window.libBookNoteEditing.logId)===String(n.id);
+    const sid=domId(n.id||'booknote');
+    if(editing){
+      return `<div class="lib-note-row"><div class="lib-note-edit-form" style="width:100%;"><div class="field-row"><div class="field-group"><div class="field-label">Date</div><input class="field-input" id="libEditNoteDate_${sid}" type="date" value="${esc(n.date||todayISO())}"></div><div class="field-group"><div class="field-label">Pages</div><input class="field-input" id="libEditNotePages_${sid}" type="number" min="0" value="${Number(n.pages)||0}"></div></div><div class="field-group"><div class="field-label">Chapter / Topic</div><input class="field-input" id="libEditNoteChapter_${sid}" value="${esc(n.chapter||'')}"></div><div class="field-group"><div class="field-label">Lesson / Note</div><textarea class="field-input" id="libEditNoteLesson_${sid}">${esc(n.lesson||'')}</textarea></div><div class="field-group"><div class="field-label">Application / Action</div><textarea class="field-input" id="libEditNoteAction_${sid}">${esc(n.action||'')}</textarea></div><div class="lib-lesson-actions"><button class="book-btn" onclick="libSaveEditedBookNote('${js(n.bookId)}','${js(n.id)}')">Save edit</button><button class="book-btn" onclick="libCancelEditBookNote()">Cancel</button></div></div></div>`;
+    }
+    return `<div class="lib-note-row"><span class="lib-note-date">${esc(normalizeDate(n.date))}</span><span class="lib-note-chip">${esc(n.kind)}</span>${n.pages?`<span class="lib-note-chip">${esc(n.pages)} pages</span>`:''}<div class="lib-note-text">${n.chapter?`<strong>Chapter:</strong> ${esc(n.chapter)}<br>`:''}${n.lesson?`<strong>Lesson/Note:</strong> ${esc(n.lesson)}<br>`:''}${n.action?`<strong>Application:</strong> ${esc(n.action)}`:''}</div><div class="lib-lesson-actions">${n.id?`<button class="book-btn" onclick="libStartEditBookNote('${js(n.bookId)}','${js(n.id)}')">Edit note</button><button class="book-btn lib-mini-danger" onclick="libDeleteDailyBookLesson('${js(n.bookId)}','${js(n.id)}')">Delete note</button>`:`<button class="book-btn" onclick="libEditBook('${js(n.bookId)}')">Edit book note</button><button class="book-btn lib-mini-danger" onclick="libDeleteBookGeneralNote('${js(n.bookId)}')">Delete note</button>`}</div></div>`;
+  }
+  function notesArchive(books){
+    const withNotes=collectBookNotes(books);
+    const total=withNotes.reduce((s,b)=>s+b._noteEntries.length,0);
+    return `<div class="lib-shelf-card"><div class="lib-shelf-head"><div><div class="lib-shelf-title">📝 Book Notes Archive</div><div class="lib-shelf-sub">Edit, delete, and review every saved note by book and date. Daily notes are saved directly to your current books and calendar.</div></div><div class="lib-shelf-count">${total} notes</div></div>${withNotes.length?`<div class="lib-notes-archive">${withNotes.map(b=>`<div class="lib-note-book-card"><div class="lib-note-book-head"><div><div class="lib-note-book-title">${esc(b.title)}</div><div class="lib-mini-author">${esc(bookStatusLabel(b))} · by ${esc(b.author||'Unknown')}</div></div><div class="lib-note-book-meta">${b._noteEntries.length} note${b._noteEntries.length>1?'s':''}</div></div>${b._noteEntries.map(noteRow).join('')}</div>`).join('')}</div>`:`<div class="lib-empty-shelf">No saved book notes yet. Use “Save Note for Current Book” above, or click a date in the reading calendar and save chapter, lesson, and application.</div>`}</div>`;
+  }
+  window.libRenderReadingDashboard=function(){
+    const el=document.getElementById('lib-reading-dashboard'); if(!el)return;
+    const books=getBooks();
+    const settings=(typeof libGetReadingSettings==='function'?libGetReadingSettings():{yearTarget:12,weekTarget:80});
+    const reading=books.filter(b=>(b.status||'not-started')==='reading');
+    const notStarted=books.filter(b=>(b.status||'not-started')==='not-started');
+    const completed=books.filter(b=>(b.status||'not-started')==='completed');
+    const totalPages=books.reduce((s,b)=>s+(Number(b.totalPages)||0),0);
+    const pagesRead=books.reduce((s,b)=>s+(Number(b.pagesRead)||0),0);
+    const overall=totalPages?Math.round(pagesRead/totalPages*100):0;
+    const yearTarget=Number(settings.yearTarget)||12, weekTarget=Number(settings.weekTarget)||80;
+    const thisWeek=reading.length?reading.slice(0,3).map(b=>`${esc(b.title)} — ${typeof libBookWeeklyNeed==='function'?libBookWeeklyNeed(b):0} pages/wk`).join('<br>'):'Choose a book from Not Reading Yet and set it to Currently Reading.';
+    el.innerHTML=`<div class="lib-rd-upgrade">
+      <div class="lib-rd-hero"><div class="lib-rd-title">Reading Dashboard</div><div class="lib-rd-sub">A cleaner view of your library: what you are reading right now, what you own but have not started, your full book inventory, and a dedicated notes archive by book and date.</div><div class="lib-rd-kpis"><div class="lib-rd-kpi"><div class="lib-rd-kpi-num">${books.length}</div><div class="lib-rd-kpi-label">Books I Have</div></div><div class="lib-rd-kpi"><div class="lib-rd-kpi-num">${reading.length}</div><div class="lib-rd-kpi-label">Currently Reading</div></div><div class="lib-rd-kpi"><div class="lib-rd-kpi-num">${notStarted.length}</div><div class="lib-rd-kpi-label">Not Reading Yet</div></div><div class="lib-rd-kpi"><div class="lib-rd-kpi-num">${completed.length}</div><div class="lib-rd-kpi-label">Completed</div></div><div class="lib-rd-kpi"><div class="lib-rd-kpi-num">${overall}%</div><div class="lib-rd-kpi-label">Library Progress</div></div></div><div class="lib-rd-tools"><div class="field-group"><div class="field-label">Year book target</div><input class="field-input" id="libYearTarget" type="number" min="1" value="${yearTarget}" onchange="libSaveReadingTargets()"></div><div class="field-group"><div class="field-label">Weekly page target</div><input class="field-input" id="libWeekTarget" type="number" min="1" value="${weekTarget}" onchange="libSaveReadingTargets()"></div></div></div>
+      ${shelf('📖 Currently Reading','Books active right now. Keep this list small and finish them.',reading,'No active book yet. Edit a book and set status to Currently Reading.')}
+      ${quickCurrentBookNoteForm(reading,books)}
+      ${shelf('📌 Not Reading Yet','Books you own but have not started. Pick the next one from here.',notStarted,'No unread books waiting.')}
+      ${shelf('📚 Books I Have','Full inventory: reading, not started, and completed books together.',books,'No books added yet.')}
+      ${notesArchive(books)}
+      <div class="lib-shelf-card"><div class="lib-shelf-head"><div><div class="lib-shelf-title">🗓 Reading Plan & Daily Lessons</div><div class="lib-shelf-sub">This week: ${thisWeek}</div></div><div class="lib-shelf-count">MASTER</div></div><div id="lib-reading-calendar"></div></div>
+    </div>`;
+    if(typeof libRenderReadingCalendar==='function')libRenderReadingCalendar();
+  };
+})();
 // ── INIT ──
 purgeLegacyTrackerData();
 importEmbeddedProgressOnOpen();
