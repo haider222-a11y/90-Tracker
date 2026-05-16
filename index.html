@@ -115,12 +115,11 @@ header{padding:34px 0 24px;border-bottom:1px solid var(--border2);display:flex;j
 .t-work{background:rgba(59,130,246,.15);color:#60A5FA;}
 .t-health{background:rgba(46,204,113,.15);color:var(--green);}
 .t-learn{background:rgba(139,92,246,.15);color:#A78BFA;}
-.t-telep{background:rgba(6,182,212,.15);color:var(--cyan);}
+.t-legacy-focus{background:rgba(6,182,212,.15);color:var(--cyan);}
 .t-media{background:rgba(245,158,11,.15);color:var(--orange);}
 .t-sleep{background:rgba(255,255,255,.07);color:var(--muted);}
 .t-research{background:rgba(6,182,212,.2);color:#67E8F9;}
 .t-family{background:rgba(236,72,153,.15);color:#F472B6;}
-.t-college{background:rgba(129,140,248,.15);color:#818CF8;}
 /* ── LIBRARY ── */
 .lib-stab{padding:9px 20px;font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,.02);color:var(--muted2);border-radius:12px;transition:all .2s;}
 .lib-stab.active{color:#EAF4FF;border-color:rgba(140,199,255,.35);background:linear-gradient(180deg,rgba(17,34,64,.95),rgba(10,20,38,.95));box-shadow:0 8px 24px rgba(0,0,0,.2);}
@@ -1945,7 +1944,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   <button class="nav-tab" id="streakNavTab" onclick="navTo('streaks',this)">⚠️ Streak Tracker</button>
   <button class="nav-tab" onclick="navTo('islamic',this)">🌙 Islamic Calendar</button>
   <button class="nav-tab" onclick="navTo('media',this)">📚 Library</button>
-  <button class="nav-tab" onclick="navTo('telepathy',this)">💫 Telepathy</button>
+  <button class="nav-tab" onclick="navTo('research',this)">🔬 Research</button>
   <button class="nav-tab" onclick="navTo('priorities',this)">🎯 Priorities</button>
   <button class="nav-tab" onclick="navTo('phases',this)">🗓 90-Day Phases</button>
   <button class="nav-tab" onclick="navTo('deepwork',this)">⚡ Deep Work</button>
@@ -2013,8 +2012,8 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
             <textarea class="report-textarea" id="rpt-fix" placeholder="What will you do differently tomorrow? Any time adjustments?" style="min-height:80px;" oninput="autoSaveReport()"></textarea>
           </div>
           <div style="margin-bottom:10px;">
-            <div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;">💫 Inner State / Reflection</div>
-            <textarea class="report-textarea" id="rpt-inner" placeholder="How do you feel? Any Telepathy experiences? Gratitude..." style="min-height:80px;" oninput="autoSaveReport()"></textarea>
+            <div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;">🔬 Inner State / Research Reflection</div>
+            <textarea class="report-textarea" id="rpt-inner" placeholder="How do you feel? What did you understand from today’s research, study, or reflection? Gratitude..." style="min-height:80px;" oninput="autoSaveReport()"></textarea>
           </div>
           <div class="report-saved-text" id="rptSavedText"></div>
         </div>
@@ -2047,7 +2046,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
             <div class="report-entry-view" id="view-fix"></div>
           </div>
           <div style="margin-bottom:14px;">
-            <div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--cyan);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;">💫 Inner State</div>
+            <div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--cyan);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;">🔬 Inner State</div>
             <div class="report-entry-view" id="view-inner"></div>
           </div>
           <div id="view-screenshots" style="margin-top:10px;"></div>
@@ -2076,8 +2075,8 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
       </div>
 
       <div class="card">
-        <div class="card-title">Telepathy Today</div>
-        <div id="telepathyPanel"></div>
+        <div class="card-title">Research Weekend Focus</div>
+        <div id="researchPanel"></div>
       </div>
 
       <div class="card">
@@ -2683,51 +2682,70 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 </div>
 
 <!-- ══════════════════════════════════════════
-     PAGE: TELEPATHY
+     PAGE: RESEARCH
 ══════════════════════════════════════════ -->
-<div id="page-telepathy" class="page">
+<div id="page-research" class="page">
   <div style="margin-top:20px;">
     <div class="card">
-      <div class="card-title" style="color:var(--cyan);">Telepathy Plan — All 3 Phases</div>
-      <div class="note-box note-cyan" style="margin-bottom:18px;">💫 Runs every day for 90 days. Weekdays: 5:15–6:15 PM. Weekends: part of full research day. Completely separate from all 7 priorities.</div>
+      <div class="card-title" style="color:var(--cyan);">Research Plan — Chat &amp; Naml Foundations</div>
+      <div class="note-box note-cyan" style="margin-bottom:18px;">🔬 Research runs only on Saturday and Sunday during the 90-day tracker. Weekdays stay focused on your normal priorities, deen, health, and deep work.</div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:18px;">
+        <div class="rstat"><div class="rstat-num">90</div><div class="rstat-label">Total Days</div></div>
+        <div class="rstat"><div class="rstat-num">Sat/Sun</div><div class="rstat-label">Research Days Only</div></div>
+        <div class="rstat"><div class="rstat-num">7</div><div class="rstat-label">Study Phases</div></div>
+        <div class="rstat"><div class="rstat-num">27:38–40</div><div class="rstat-label">Final Quran Focus</div></div>
+      </div>
+
+      <div style="font-size:13px;color:var(--muted2);line-height:1.8;margin-bottom:18px;">
+        The research direction from your notes is not to rush directly into claims about teleportation. The foundation is: fix the philosophical lens, understand Islamic worldview and Amanah, study layered reality through classical philosophy, learn biology as information, learn AI/coding/decoding and signal systems, then return carefully to Surah An-Naml 27:38–40.
+      </div>
 
       <div style="margin-bottom:20px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(212,168,67,.2);color:var(--gold);border:1px solid rgba(212,168,67,.4);font-family:'Cinzel',serif;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;">PHASE 1</span><div><div style="font-size:15px;font-weight:600;">Build the Foundation</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Days 1–21 · May 11–May 31 · Focus: Body + Routine + Energy</div></div></div>
-        <div style="line-height:2.3;font-size:13px;color:var(--muted2);padding-left:12px;">
-          ✦ Walk 10–30 min daily — barefoot on grass if possible<br>
-          ✦ Morning sunlight 10–15 min around sunrise<br>
-          ✦ Hydration: 8–10 glasses water<br>
-          ✦ Diet: almonds, walnuts, pistachios, fruits, fish/protein — avoid sugar, junk, cold drinks<br>
-          ✦ Sleep 7–8 hours, no phone 1 hour before bed<br>
-          ✦ <strong style="color:var(--text);">Breathing Practice 5–10 min:</strong> Inhale deeply → Hold → Exhale slowly × 10–12 times
-        </div>
-        <div style="background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);border-radius:7px;padding:10px 14px;margin-top:10px;font-size:12px;color:var(--cyan);">🎯 Goal: Improve energy, focus, sleep, mental clarity — physical foundation for all deeper work</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(59,130,246,.18);color:#BFDBFE;border:1px solid rgba(147,197,253,.28);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 1 · DAYS 1–14</span><div><div style="font-size:16px;font-weight:800;">Existentialism &amp; Sartre</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Modern thinking · existence precedes essence · freedom and responsibility</div></div></div>
+        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Study existentialism as a modern worldview, not to accept it<br>✦ Study Jean-Paul Sartre: freedom, bad faith, anxiety, meaning without God<br>✦ Compare “man creates meaning” with Islam: man is created with purpose</div>
       </div>
 
       <div class="sect-div">✦ ✦ ✦</div>
 
       <div style="margin:18px 0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(6,182,212,.15);color:var(--cyan);border:1px solid rgba(6,182,212,.4);font-family:'Cinzel',serif;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;">PHASE 2</span><div><div style="font-size:15px;font-weight:600;">Focus & Mind Training</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Days 22–60 · Jun 1–Jul 9 · Focus: Concentration + Awareness</div></div></div>
-        <div style="line-height:2.3;font-size:13px;color:var(--muted2);padding-left:12px;">
-          ✦ Sit quietly · Eyes closed · Feet flat on ground<br>
-          ✦ Heartbeat awareness — feel it, stay calm, don't control it<br>
-          ✦ Focus training — ONE object: a dot (•), light, the moon, or the word "Allah"<br>
-          ✦ Visualization 5 min — light spreading from heart → whole body<br>
-          ✦ Mental messaging (optional) — think of someone, mentally send a thought
-        </div>
-        <div style="background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);border-radius:7px;padding:10px 14px;margin-top:10px;font-size:12px;color:var(--cyan);">🎯 Goal: Improve focus, imagination, emotional awareness, ability to send/receive mental signals</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(61,220,151,.13);color:#9CF2C3;border:1px solid rgba(61,220,151,.28);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 2 · DAYS 15–28</span><div><div style="font-size:16px;font-weight:800;">Islamic Worldview &amp; Amanah</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Human responsibility · belief vs survival · limits before ambition</div></div></div>
+        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Study Surah Al-Ahzab 33:72 and the concept of Amanah<br>✦ Understand why humans are described as unjust and ignorant<br>✦ Compare Islamic purpose with materialism and naturalism<br>✦ Main principle: knowledge without responsibility is dangerous</div>
+      </div>
+
+      <div class="sect-div">✦ ✦ ✦</div>
+
+      <div style="margin:18px 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(124,58,237,.15);color:#C4B5FD;border:1px solid rgba(124,58,237,.32);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 3 · DAYS 29–42</span><div><div style="font-size:16px;font-weight:800;">Plato, Plotinus &amp; Layers of Reality</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Soul · intellect · higher/lower reality · classical philosophy</div></div></div>
+        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Study Plato: Forms, soul, Allegory of the Cave<br>✦ Study Plotinus: hierarchy of reality and higher intellects<br>✦ Keep Islamic aqidah separate; use philosophy as mental training, not belief replacement</div>
+      </div>
+
+      <div class="sect-div">✦ ✦ ✦</div>
+
+      <div style="margin:18px 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(245,158,11,.15);color:#FDBA74;border:1px solid rgba(245,158,11,.32);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 4 · DAYS 43–56</span><div><div style="font-size:16px;font-weight:800;">Biology, Microbiology &amp; Quranic Communication</div><div style="font-size:11px;color:var(--muted);font-style:italic;">DNA as information · bees · ants · coded systems in nature</div></div></div>
+        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Study DNA structure, gene expression, and life as coded information<br>✦ Study Surah An-Nahl 16:68–69 about bees<br>✦ Study Surah An-Naml 27:18–19 and 27:16 about ants and birds<br>✦ Learn that communication is not only human language</div>
+      </div>
+
+      <div class="sect-div">✦ ✦ ✦</div>
+
+      <div style="margin:18px 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(56,189,248,.15);color:#7DD3FC;border:1px solid rgba(56,189,248,.32);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 5 · DAYS 57–70</span><div><div style="font-size:16px;font-weight:800;">AI, Coding/Decoding &amp; Signal Systems</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Pattern recognition · encoding · decoding · transmission · reconstruction</div></div></div>
+        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Study CS50 AI basics and practical machine learning ideas<br>✦ Study signal processing: signals, systems, Fourier thinking, noise, transmission<br>✦ Connect this only as an analogy: information can be encoded, sent, decoded, and reconstructed</div>
+      </div>
+
+      <div class="sect-div">✦ ✦ ✦</div>
+
+      <div style="margin:18px 0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(212,168,67,.16);color:var(--gold2);border:1px solid rgba(212,168,67,.32);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 6 · DAYS 71–84</span><div><div style="font-size:16px;font-weight:800;">Surah An-Naml 27:38–40</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Bilqis throne · jinn power · one with knowledge of the Book</div></div></div>
+        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Read Quran.com, Ibn Kathir, Maududi, Ma‘arif al-Qur’an, and The Study Quran notes<br>✦ Ask: what is “knowledge of the Book”? Why was knowledge faster than strength?<br>✦ End every study with Sulayman’s lesson: “This is from the grace of my Lord”</div>
       </div>
 
       <div class="sect-div">✦ ✦ ✦</div>
 
       <div style="margin-top:18px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(139,92,246,.15);color:#A78BFA;border:1px solid rgba(139,92,246,.4);font-family:'Cinzel',serif;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;">PHASE 3</span><div><div style="font-size:15px;font-weight:600;">Deep Practice & Reflection</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Days 61–90 · Jul 10–Aug 8 · Focus: Silence + Awareness + Consistency</div></div></div>
-        <div style="line-height:2.3;font-size:13px;color:var(--muted2);padding-left:12px;">
-          ✦ Full sequence: Breathing → Heartbeat → Visualization (in order)<br>
-          ✦ Complete silence sitting 10–20 min — observe thoughts, feelings, inner calm<br>
-          ✦ Daily Telepathy journal: mood, thoughts, changes in perception, experiences
-        </div>
-        <div style="background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);border-radius:7px;padding:10px 14px;margin-top:10px;font-size:12px;color:var(--cyan);">🎯 Goal: Self-awareness, emotional control, inner calm — build real, consistent telepathic sensitivity</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="background:rgba(255,107,107,.13);color:#FFB4B4;border:1px solid rgba(255,107,107,.30);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;padding:5px 12px;border-radius:20px;letter-spacing:1px;">PHASE 7 · DAYS 85–90</span><div><div style="font-size:16px;font-weight:800;">Synthesis &amp; Mentor Questions</div><div style="font-size:11px;color:var(--muted);font-style:italic;">Balanced conclusion · no overclaiming · prepare better questions</div></div></div>
+        <div style="line-height:2;font-size:13px;color:var(--muted2);padding-left:12px;">✦ Write a final balanced report: what is direct, indirect, conceptual, and unproven<br>✦ Prepare questions for your mentor about materialism, knowledge of the Book, and coding/decoding as analogy<br>✦ Keep the goal: understand the framework behind advanced Quranic phenomena, not make careless claims</div>
       </div>
     </div>
   </div>
@@ -2741,7 +2759,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   <!-- ── PRIORITY ANALYTICS DASHBOARD ── -->
   <div class="card" style="margin-top:20px;margin-bottom:20px;border-color:rgba(212,168,67,.3);background:linear-gradient(180deg,rgba(12,20,40,.98),rgba(10,19,35,.98));">
     <div class="card-title" style="color:var(--gold);">📊 Priority Analytics — Full System Report</div>
-    <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:16px;">Live stats from your actual tracked tasks · All 9 priorities + Research Track · Auto-updates daily</div>
+    <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:16px;">Live stats from your actual tracked tasks · Main priorities + Research Track · Auto-updates daily</div>
     <div id="priorityAnalyticsDash">
       <div style="text-align:center;padding:30px;color:var(--muted);font-size:12px;font-family:'JetBrains Mono',monospace;">Loading analytics...</div>
     </div>
@@ -2750,7 +2768,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   <div class="two-col" style="margin-top:0px;">
     <div>
       <div class="card" style="margin-bottom:16px;">
-        <div class="card-title">Your 7 Priorities</div>
+        <div class="card-title">Your Priorities</div>
         <div id="priorityList"></div>
       </div>
       <!-- PRIORITY 1 DETAILED BREAKDOWN CARD -->
@@ -3607,162 +3625,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 
         <div class="note-box" style="margin-top:14px;border-left-color:var(--cyan);">🔬 <strong>This is controlled curiosity — not a priority.</strong> The moment it affects your Salah, family, or real work, it stops. Mentor-guided, schedule-locked, reality-checked at every step.</div>
       </div>
-
-      <!-- PRIORITY 9: COLLEGE -->
-      <div class="card" style="margin-bottom:16px;border-color:rgba(129,140,248,.3);background:linear-gradient(180deg,rgba(129,140,248,.04),rgba(10,19,35,.98));">
-        <div class="card-title" style="color:#818CF8;">🎓 Priority 9: College — ICS Degree</div>
-        <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:6px;">Intermediate in Computer Science — Your formal academic foundation</div>
-        <div class="note-box" style="margin-bottom:16px;border-left-color:#818CF8;background:rgba(129,140,248,.06);font-size:12px;">📌 <strong>Core Rule:</strong> College is not just a certificate — it is your structured foundation in Computer Science, Mathematics, and Physics. Treat every class, assignment, and exam as a step toward your tech and AI goals. Your degree and your self-learning must run together, not against each other.</div>
-
-        <!-- Item 1: Subjects -->
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">01</div>
-          <div style="flex:1;">
-            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
-              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📐 Core Subjects</span>
-              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(129,140,248,.15);color:#818CF8;">ICS CURRICULUM</span>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;color:var(--muted2);line-height:1.8;">
-              <div style="padding:8px 10px;background:rgba(129,140,248,.07);border-radius:7px;border-left:2px solid rgba(129,140,248,.4);">💻 <strong style="color:#F5F9FF;">Computer Science</strong><br><span style="font-size:11px;">Programming · Hardware · Networking · Algorithms</span></div>
-              <div style="padding:8px 10px;background:rgba(56,189,248,.07);border-radius:7px;border-left:2px solid rgba(56,189,248,.4);">⚡ <strong style="color:#F5F9FF;">Physics</strong><br><span style="font-size:11px;">Mechanics · Waves · Electricity · Modern Physics</span></div>
-              <div style="padding:8px 10px;background:rgba(46,204,113,.07);border-radius:7px;border-left:2px solid rgba(46,204,113,.4);">🔢 <strong style="color:#F5F9FF;">Mathematics</strong><br><span style="font-size:11px;">Calculus · Algebra · Statistics · Trigonometry</span></div>
-              <div style="padding:8px 10px;background:rgba(245,158,11,.07);border-radius:7px;border-left:2px solid rgba(245,158,11,.4);">📝 <strong style="color:#F5F9FF;">English</strong><br><span style="font-size:11px;">Essays · Grammar · Comprehension · Communication</span></div>
-              <div style="padding:8px 10px;background:rgba(212,168,67,.07);border-radius:7px;border-left:2px solid rgba(212,168,67,.4);">☪️ <strong style="color:#F5F9FF;">Islamiat</strong><br><span style="font-size:11px;">Quran · Hadith · Islamic Studies · Seerah</span></div>
-              <div style="padding:8px 10px;background:rgba(139,92,246,.07);border-radius:7px;border-left:2px solid rgba(139,92,246,.4);">🌍 <strong style="color:#F5F9FF;">Pak Studies</strong><br><span style="font-size:11px;">History · Geography · Civics · Constitution</span></div>
-            </div>
-            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);margin-top:8px;">👉 Computer Science + Math are your most important subjects — they directly fuel your AI and tech goals</div>
-          </div>
-        </div>
-
-        <!-- Item 2: Classes & Attendance -->
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">02</div>
-          <div style="flex:1;">
-            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
-              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🏫 Daily Classes &amp; Attendance</span>
-              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(46,204,113,.12);color:var(--green);">NON-NEGOTIABLE</span>
-            </div>
-            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
-              ✦ Attend every class — no skipping without valid reason<br>
-              ✦ Be present mentally, not just physically — phone away during class<br>
-              ✦ Take proper notes in every lecture<br>
-              ✦ Track attendance per subject — do not fall below 75%
-            </div>
-            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Missing class = missing knowledge = harder exams. Attendance is discipline in action.</div>
-          </div>
-        </div>
-
-        <!-- Item 3: Daily Study System -->
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">03</div>
-          <div style="flex:1;">
-            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
-              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📚 Daily Study System</span>
-              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(129,140,248,.15);color:#818CF8;">1–2 HRS / DAY</span>
-            </div>
-            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
-              ✦ Review today's class notes within 24 hours (before forgetting)<br>
-              ✦ 1 subject deep study per session — no multi-subject cramming<br>
-              ✦ Use MASTER Method: Mark → Add Notes → Summarize → Takeaways → Extract → Revisit<br>
-              ✦ Prioritize: Computer Science first · Math second · Physics third
-            </div>
-            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Daily review beats exam-week cramming every single time</div>
-          </div>
-        </div>
-
-        <!-- Item 4: Assignments -->
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">04</div>
-          <div style="flex:1;">
-            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
-              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📋 Assignments &amp; Homework</span>
-              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(229,83,83,.12);color:var(--red);">ZERO LATE POLICY</span>
-            </div>
-            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
-              ✦ Log every assignment the day it is given — with subject and due date<br>
-              ✦ Start 2 days before deadline — never the night before<br>
-              ✦ Track status: Given · In Progress · Submitted<br>
-              ✦ CS assignments: Write code yourself — no copy-paste without understanding
-            </div>
-            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Assignments are practice for exams — treat them seriously, not as a burden</div>
-          </div>
-        </div>
-
-        <!-- Item 5: Exam Preparation -->
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">05</div>
-          <div style="flex:1;">
-            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
-              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">🎯 Exam Preparation System</span>
-              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(212,168,67,.15);color:var(--gold);">PLANNED · NOT PANICKED</span>
-            </div>
-            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
-              <strong style="color:var(--muted);">3 Weeks Before Exam:</strong> Start topic-by-topic revision · Identify weak areas<br>
-              <strong style="color:var(--muted);">1 Week Before:</strong> Past papers · Practice questions · Timed mock tests<br>
-              <strong style="color:var(--muted);">Night Before:</strong> Light review only — no new topics — proper sleep<br>
-              ✦ Track: Syllabus coverage % · Past papers done · Weak topics list
-            </div>
-            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Exam grades directly affect your college completion + university options</div>
-          </div>
-        </div>
-
-        <!-- Item 6: Notes System -->
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">06</div>
-          <div style="flex:1;">
-            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
-              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📓 Notes &amp; Revision System</span>
-              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(129,140,248,.15);color:#818CF8;">ORGANIZED</span>
-            </div>
-            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
-              ✦ Separate notes file/notebook per subject<br>
-              ✦ After every class: clean and complete the notes same day<br>
-              ✦ Weekly: revisit previous week's notes (spaced repetition)<br>
-              ✦ CS notes: include working code examples, not just theory
-            </div>
-            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Good notes = less panic later. Build your notes like a personal textbook.</div>
-          </div>
-        </div>
-
-        <!-- Item 7: CS Practical -->
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">07</div>
-          <div style="flex:1;">
-            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
-              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">💻 CS Practical &amp; Coding</span>
-              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(56,189,248,.12);color:var(--cyan);">HANDS-ON</span>
-            </div>
-            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
-              ✦ Lab work: complete all practicals — never skip<br>
-              ✦ Write actual code during CS class and at home<br>
-              ✦ Connect college CS theory directly to your AI/Python self-learning<br>
-              ✦ Build at least 1 small CS project per month using what you learn
-            </div>
-            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 This is the bridge between your degree and your AI goals — they are the same path</div>
-          </div>
-        </div>
-
-        <!-- Item 8: Grade Tracking -->
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:13px 0;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:900;color:rgba(129,140,248,.5);min-width:22px;margin-top:2px;">08</div>
-          <div style="flex:1;">
-            <div style="display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap;">
-              <span style="font-size:15px;font-weight:700;color:#F5F9FF;">📈 Grade &amp; Progress Tracking</span>
-              <span style="font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:8px;background:rgba(129,140,248,.15);color:#818CF8;">MONTHLY</span>
-            </div>
-            <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:6px;">
-              Track per subject: Test scores · Assignment marks · Class position · Target grade<br>
-              <strong style="color:var(--muted);">Target Grade:</strong> A or A+ in CS and Math as minimum goal<br>
-              <strong style="color:var(--muted);">Monthly Review:</strong> Where am I vs where I need to be?
-            </div>
-            <div style="font-size:11px;padding:6px 10px;background:rgba(129,140,248,.07);border-radius:6px;color:#818CF8;border-left:2px solid rgba(129,140,248,.4);">👉 Grades are feedback — not identity. Use low marks as data, not as defeat.</div>
-          </div>
-        </div>
-
-        <div class="note-box" style="margin-top:14px;border-left-color:#818CF8;">🎓 <strong>College is Priority 9 — but never ignored.</strong> Your ICS degree is the formal structure that runs alongside everything else. CS → AI → Python → Projects — these are all the same thread. Follow your degree with discipline and intention.</div>
-      </div>
-
-      <!-- FRIDAY DUTIES CARD -->
+<!-- FRIDAY DUTIES CARD -->
       <div class="card" style="border-color:rgba(212,168,67,.4);background:rgba(212,168,67,.03);">
         <div class="card-title" style="color:var(--gold);">🕌 Friday Duties — from Qur'an & Sunnah of Prophet ﷺ</div>
         <div style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:14px;">Every Friday is Eid for the believers. These are obligatory and highly recommended acts.</div>
@@ -3939,7 +3802,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
           ✦ Deep work habit (discipline over output) · InnoVesta + Ahmad Rafiq research<br>
           ✦ Mastering Communication Ch.1+ (MASTER method)<br>
           ✦ 📰 News 30 min daily · 🎥 YouTube lectures 1 hr evening<br>
-          ✦ Telepathy: breathing 5–10 min at 5:15 PM · Sat–Sun: full research days
+          ✦ Research focus: Saturday/Sunday only · existentialism, Sartre, Amanah, and Quran-science foundations
         </div>
       </div>
       <div class="sect-div">✦ ✦ ✦</div>
@@ -3949,7 +3812,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
           ✦ Deepen Tajweed · Apply Ayats consciously in daily life<br>
           ✦ Deep work = focused flow · AI project fully active · $300 goal hit<br>
           ✦ Active networking outreach begins<br>
-          ✦ Telepathy: heartbeat awareness · focus training · visualization · mental messaging
+          ✦ Weekend research only: Plato/Plotinus, biology as information, AI coding/decoding, signal systems
         </div>
       </div>
       <div class="sect-div">✦ ✦ ✦</div>
@@ -3958,7 +3821,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
         <div style="line-height:2.3;font-size:13px;color:var(--muted2);padding-left:12px;">
           ✦ Quran recitation becomes meditative · Journal how Ayats change behavior<br>
           ✦ Regular flow state in deep work · Relationships forming in network<br>
-          ✦ Telepathy: silence sitting · full sequence + daily journal · emotional control<br>
+          ✦ Weekend research only: Surah An-Naml 27:38–40, tafsir comparison, synthesis report, mentor questions<br>
           ✦ Reflect on full 90 days · Plan next 90
         </div>
       </div>
@@ -4074,12 +3937,10 @@ Send invoice"></textarea>
         <option value="t-work">⚡ Deep Work</option>
         <option value="t-health">🏃 Health</option>
         <option value="t-learn">📚 Learning</option>
-        <option value="t-telep">💫 Telepathy</option>
         <option value="t-media">📰 News / Media</option>
         <option value="t-research">🔬 Research</option>
         <option value="t-sleep">😴 Sleep / Rest</option>
         <option value="t-family">👨‍👩‍👧 Family Duty</option>
-        <option value="t-college">🎓 College</option>
         <option value="t-mosque">🕌 Mosque Project</option>
         <option value="t-shop">🛒 Help in Shop</option>
         <option value="t-travel">✈️ Travel</option>
@@ -4132,12 +3993,10 @@ Send invoice"></textarea>
         <option value="t-prayer">🕌 Prayer</option>
         <option value="t-health">🏃 Health</option>
         <option value="t-learn">📚 Learning</option>
-        <option value="t-telep">💫 Telepathy</option>
         <option value="t-media">📰 News / Media</option>
         <option value="t-research">🔬 Research</option>
         <option value="t-sleep">😴 Sleep / Rest</option>
         <option value="t-family">👨‍👩‍👧 Family Duty</option>
-        <option value="t-college">🎓 College</option>
         <option value="t-mosque">🕌 Mosque Project</option>
         <option value="t-shop">🛒 Help in Shop</option>
         <option value="t-travel">✈️ Travel</option>
@@ -4247,8 +4106,6 @@ const WEEKDAY_TASKS = [
   // ── P2 HEALTH ──
   {id:'w04',label:'🌿 Walk + Sunlight (Barefoot if possible)',start:'06:50',end:'07:30',desc:'30 min walk · morning sunlight · no phone',note:'Strong body = better prayer, focus, discipline',details:['3500+ steps minimum','Get sunlight on face and arms','Barefoot on grass/ground when possible','No phone during walk'],tag:'t-health'},
   {id:'w05',label:'🍳 Breakfast — Halal & Clean',start:'07:30',end:'08:00',desc:'Healthy homemade breakfast · Sunnah eating',note:'Eat clean. Reduce sugar and junk. Follow Sunnah moderation.',details:['Homemade clean breakfast','Drink 2 glasses of water','No junk or processed food'],tag:'t-health'},
-  // ── P9 COLLEGE ──
-  {id:'w06',label:'🎓 College — Classes & Attendance',start:'08:00',end:'11:00',desc:'Attend classes · notes · be present mentally',note:'Attend every class. Phone away. Take proper notes.',details:['Attend all scheduled classes','Take notes for every lecture','Review previous class notes before entering','No phone during class'],tag:'t-college'},
   // ── P1 ALLAH ──
   {id:'w07',label:'📚 Tajweed Class',start:'11:00',end:'12:00',desc:'Tajweed — correct Quran recitation',note:'Learn and practice correct Quran recitation consistently.',details:['Review previous lesson','Complete new lesson','Practice recitation at home after class'],tag:'t-learn'},
   // ── P5 SKILL DEV ──
@@ -4257,8 +4114,6 @@ const WEEKDAY_TASKS = [
   {id:'w10',label:'🕌 Dhuhr Prayer',start:'13:30',end:'14:00',desc:'Dhuhr Prayer + Tasbih',note:'1. 4 types 33,33,34: SubhanAllah · Alhamdulillah · Allahu Akbar · La ilaha illa Allah\n2. 4 Sunnah\n3. 4 Fard\n4. 2 Sunnah\n5. 2 Nafil\n6. Ayatul Kursi',tag:'t-prayer'},
   // ── P2 HEALTH ──
   {id:'w11',label:'🍽 Lunch + Rest',start:'14:00',end:'14:30',desc:'Healthy halal lunch · short rest',note:'Eat clean. Moderate portions. Rest briefly.',details:['Homemade lunch only','Drink water','Rest 15 min — no screen'],tag:'t-health'},
-  // ── P9 COLLEGE ──
-  {id:'w12',label:'🎓 College — Study / Assignments',start:'14:30',end:'15:30',desc:'Daily study · notes review · assignments',note:'Review today\'s class. Start assignments 2 days before deadline.',details:['Review class notes from today','Work on any pending assignment','Study 1 subject deeply — CS / Math / Physics','Prepare questions for next class'],tag:'t-college'},
   // ── P3 MINDSET ──
   {id:'w13',label:'📚 Book Reading — MASTER Method',start:'15:30',end:'16:30',desc:'Read assigned book · MASTER method',note:'Mark → Add Notes → Summarize → Teach → Experiment → Review',details:['Read focused 45 min — no interruptions','Write 3 key lessons in journal','Summarize chapter in own words','Identify 1 action to apply today'],tag:'t-learn'},
   // ── P6 NETWORKING ──
@@ -4276,7 +4131,7 @@ const WEEKDAY_TASKS = [
   // ── P1 ALLAH ──
   {id:'w18a',label:'🎥 Islamic Lecture',start:'20:00',end:'20:45',desc:'Islamic lecture · iman boost · Quran/Sunnah understanding',note:'Watch lecture that strengthens iman, knowledge, manners, or discipline. No entertainment.',details:['Watch 1 Islamic lecture (Nouman Ali Khan / Mufti Menk / similar)','Write 1 key point from the lecture','Apply or share one lesson'],tag:'t-learn'},
   // ── P3 MINDSET / P4 HEART ──
-  {id:'w19',label:'📔 Daily Reflection + Journaling',start:'20:45',end:'21:15',desc:'Mindset · Heart · Review day',note:'What did I learn? What did I miss? What will I improve?',details:['Write what went well today','Write 1 mistake and how to fix it','Rate today: Allah / Health / Skill / College','Set top 3 priorities for tomorrow'],tag:'t-learn'},
+  {id:'w19',label:'📔 Daily Reflection + Journaling',start:'20:45',end:'21:15',desc:'Mindset · Heart · Review day',note:'What did I learn? What did I miss? What will I improve?',details:['Write what went well today','Write 1 mistake and how to fix it','Rate today: Allah / Health / Skill / Learning','Set top 3 priorities for tomorrow'],tag:'t-learn'},
   // ── P7 ENVIRONMENT ──
   {id:'w21',label:'🛡 Digital Health + Wind Down',start:'21:15',end:'21:30',desc:'App review · screen time check · prepare for sleep',note:'Limit unnecessary screen time. Control dopamine.',details:['Check StayFree screen time report','Log water count for the day','Turn off all notifications','Prepare clothes/bag for tomorrow'],tag:'t-sleep'},
   // ── P2 HEALTH ──
@@ -4293,9 +4148,7 @@ const WEEKEND_TASKS = [
   {id:'s04',label:'🌿 Barefoot Walk + Sunlight',start:'06:50',end:'07:30',desc:'30 min walk · morning sunlight',note:'Strong body = clear mind = better research',details:['3500+ steps','Get morning sunlight','Barefoot on grass if possible'],tag:'t-health'},
   {id:'s05',label:'🍳 Breakfast — Halal & Clean',start:'07:30',end:'08:00',desc:'Healthy homemade breakfast',note:'No junk. Eat clean.',details:['Homemade breakfast only','Drink 2 glasses of water'],tag:'t-health'},
   // ── SPECIAL RESEARCH TRACK ──
-  {id:'s06',label:'🔬 Research Block 1 — Quran Study',start:'08:00',end:'10:00',desc:'Teleportation research — Quran angle',note:'Research Quranic ayats related to movement, time, unseen forces, ruh, noor, and signs. Mentor: Ahmad Rafiq Akhtar',details:['Open study notes from last session','Study assigned Quranic topics','Write key findings','List questions for mentor'],tag:'t-research'},
-  // ── P9 COLLEGE ──
-  {id:'s06a',label:'🎓 College — Weekend Study & Assignments',start:'10:00',end:'12:00',desc:'College assignments · exam prep · revision',note:'Use weekends for heavier college study. No procrastination.',details:['Complete any pending assignment','Revise weakest subject from this week','Past paper practice for upcoming exam','Prepare for Monday classes'],tag:'t-college'},
+  {id:'s06',label:'🔬 Research Block 1 — Weekend Study Plan',start:'08:00',end:'10:00',desc:'Chat & Naml research — philosophy, Islam, science, AI, and Surah An-Naml',note:'Saturday/Sunday only. Follow the current 90-day research phase and write careful notes. Do not overclaim; build the framework first.',details:['Check today\'s research phase in the Research page','Study the assigned topic for this weekend','Write key findings in your own words','List questions for mentor / next session'],tag:'t-research'},
   // ── P2 HEALTH ──
   {id:'s08',label:'☕ Lunch + Break',start:'12:00',end:'13:30',desc:'Healthy lunch · short rest',note:'Rest properly. Screen-free.',details:['Homemade healthy lunch','Drink water','Rest 30 min — no phone'],tag:'t-health'},
   // ── P1 ALLAH ──
@@ -4500,98 +4353,78 @@ function fmtDateLong(d){
 }
 
 
-const TELEPATHY_PHASES = [
-  {
-    id:1,
-    title:'Phase 1 — Build the Foundation',
-    range:'Days 1–21',
-    focus:'Body + Routine + Energy',
-    items:[
-      'Walk 10–30 min daily (barefoot on grass if possible)',
-      'Morning sunlight 10–15 min around sunrise',
-      'Hydration: 8–10 glasses of water',
-      'Diet: almonds, walnuts, pistachios, fruits, fish/protein — avoid sugar, junk, cold drinks',
-      'Sleep 7–8 hours with no phone 1 hour before bed',
-      'Breathing practice 5–10 min: Inhale deeply → Hold → Exhale slowly × 10–12'
-    ],
-    goal:'Improve energy, focus, sleep, and mental clarity — physical foundation for deeper work.'
-  },
-  {
-    id:2,
-    title:'Phase 2 — Focus & Mind Training',
-    range:'Days 22–60',
-    focus:'Concentration + Awareness',
-    items:[
-      'Sit quietly with eyes closed and feet flat on the ground',
-      'Heartbeat awareness — feel it, stay calm, do not control it',
-      'Focus training — choose ONE object: dot, light, moon, or the word “Allah”',
-      'Visualization for 5 minutes — light spreading from heart through the whole body',
-      'Mental messaging (optional) — think of someone and mentally send a thought'
-    ],
-    goal:'Improve focus, imagination, emotional awareness, and ability to send/receive mental signals.'
-  },
-  {
-    id:3,
-    title:'Phase 3 — Deep Practice & Reflection',
-    range:'Days 61–90',
-    focus:'Silence + Awareness + Consistency',
-    items:[
-      'Full sequence in order: Breathing → Heartbeat → Visualization',
-      'Complete silence sitting 10–20 min — observe thoughts, feelings, and inner calm',
-      'Daily telepathy journal: mood, thoughts, changes in perception, and experiences'
-    ],
-    goal:'Self-awareness, emotional control, inner calm, and consistent telepathic sensitivity.'
-  }
+const RESEARCH_WEEKEND_PHASES = [
+  {range:'Days 1–14', title:'Existentialism & Sartre', focus:'Modern worldview, materialism, freedom, responsibility, and meaning without God.', items:['Study what existentialism means','Study Sartre: existence precedes essence, freedom, bad faith','Compare Sartre with Islamic purpose','Write 5 notes and 1 question for mentor']},
+  {range:'Days 15–28', title:'Islamic Worldview & Amanah', focus:'Human responsibility, Surah Al-Ahzab 33:72, belief vs survival, and limits before ambition.', items:['Study Amanah in Surah Al-Ahzab 33:72','Read one tafsir note on responsibility','Compare Islam with materialism/naturalism','Write how knowledge must stay connected to accountability']},
+  {range:'Days 29–42', title:'Plato, Plotinus & Reality Layers', focus:'Classical philosophy, soul, intellect, Forms, and higher/lower levels of reality.', items:['Study Plato: Cave, Forms, soul','Study Plotinus: hierarchy of reality','Separate philosophy from Islamic aqidah','Write what helps your thinking and what must be rejected']},
+  {range:'Days 43–56', title:'Biology, Microbiology & Quranic Communication', focus:'Life as information, DNA, bees, ants, and coded communication in nature.', items:['Study DNA as coded information','Study bees: Surah An-Nahl 16:68–69','Study ants/birds: Surah An-Naml 27:16 and 27:18–19','Write one connection between nature, code, and communication']},
+  {range:'Days 57–70', title:'AI, Coding/Decoding & Signals', focus:'Encoding, decoding, pattern recognition, signal systems, transmission, and reconstruction.', items:['Study one AI/coding concept','Study one signal-processing concept','Explain encoding → transmission → decoding in simple words','Write what is only analogy, not proof']},
+  {range:'Days 71–84', title:'Surah An-Naml 27:38–40', focus:'Bilqis throne, jinn power, one with knowledge of the Book, and divine grace.', items:['Read Surah An-Naml 27:38–40 with translation','Read one tafsir explanation','Compare power of jinn vs knowledge of the Book','End notes with humility: this is from Allah’s grace']},
+  {range:'Days 85–90', title:'Synthesis & Mentor Questions', focus:'Final balanced report and high-quality questions for Ahmad Rafiq Akhtar / future study.', items:['Write direct findings vs indirect connections','Write what is conceptual and what is unproven','Prepare 5 mentor questions','Create next 90-day research direction']}
 ];
-
-function telepathyKey(d){ return 'telepathy_'+dateKey(d); }
-function getTelepathyState(d){ return load(telepathyKey(d))||{checks:{},journal:''}; }
-function saveTelepathyState(d,state){ save(telepathyKey(d),state); }
-function getTelepathyPhaseData(d){ return TELEPATHY_PHASES[getPhase(d)-1]; }
-function toggleTelepathyCheck(idx){
-  const st=getTelepathyState(viewDate);
+function researchKey(d){ return 'research_'+dateKey(d); }
+function getResearchState(d){ return load(researchKey(d))||{checks:{},journal:''}; }
+function saveResearchState(d,state){ save(researchKey(d),state); }
+function getResearchPhaseData(d){
+  const n=dayNum(d);
+  if(n<=14) return RESEARCH_WEEKEND_PHASES[0];
+  if(n<=28) return RESEARCH_WEEKEND_PHASES[1];
+  if(n<=42) return RESEARCH_WEEKEND_PHASES[2];
+  if(n<=56) return RESEARCH_WEEKEND_PHASES[3];
+  if(n<=70) return RESEARCH_WEEKEND_PHASES[4];
+  if(n<=84) return RESEARCH_WEEKEND_PHASES[5];
+  return RESEARCH_WEEKEND_PHASES[6];
+}
+function toggleResearchCheck(idx){
+  const st=getResearchState(viewDate);
   if(!st.checks) st.checks={};
   st.checks[idx]=!st.checks[idx];
-  saveTelepathyState(viewDate,st);
-  renderTelepathyPanel();
+  saveResearchState(viewDate,st);
+  renderResearchPanel();
   renderProgressRing();
   renderRingRibbon();
-  renderDailyPunishmentPanel();
   renderImprovementPanel();
+  showToast();
 }
-function saveTelepathyJournal(){
-  const st=getTelepathyState(viewDate);
-  st.journal=document.getElementById('telepathyJournalInput')?.value||'';
-  saveTelepathyState(viewDate,st);
-  renderProgressRing();
-  renderRingRibbon();
-  renderDailyPunishmentPanel();
-  renderImprovementPanel();
+function saveResearchJournal(){
+  const st=getResearchState(viewDate);
+  st.journal=document.getElementById('researchJournalInput')?.value||'';
+  saveResearchState(viewDate,st);
+  showToast();
 }
-function renderTelepathyPanel(){
-  const panel=document.getElementById('telepathyPanel');
+function renderResearchPanel(){
+  const panel=document.getElementById('researchPanel');
   if(!panel) return;
-  const phase=getTelepathyPhaseData(viewDate);
-  const st=getTelepathyState(viewDate);
+  const weekend=isWeekend(viewDate);
+  const phase=getResearchPhaseData(viewDate);
+  const st=getResearchState(viewDate);
   const items=phase.items||[];
   const done=items.filter((_,i)=>st.checks&&st.checks[i]).length;
-  const pct=items.length?Math.round((done/items.length)*100):0;
+  const pct=items.length?Math.round(done/items.length*100):0;
   panel.innerHTML=`
     <div class="tele-card">
-      <span class="tele-phase-badge">Telepathy · ${phase.range}</span>
+      <span class="tele-phase-badge">Research · ${phase.range} · ${weekend?'Weekend active':'Weekday off'}</span>
       <div class="tele-phase-title">${phase.title}</div>
       <div class="tele-phase-sub">Focus: ${phase.focus}</div>
-      <div class="tele-checks">
-        ${items.map((item,i)=>`<div class="tele-check ${(st.checks&&st.checks[i])?'done':''}" onclick="toggleTelepathyCheck(${i})"><div class="tele-dot">${(st.checks&&st.checks[i])?'✓':''}</div><div class="tele-text">${item}</div></div>`).join('')}
+      ${weekend?`<div class="tele-checks">
+        ${items.map((item,i)=>`<div class="tele-check ${(st.checks&&st.checks[i])?'done':''}" onclick="toggleResearchCheck(${i})"><div class="tele-dot">${(st.checks&&st.checks[i])?'✓':''}</div><div class="tele-text">${item}</div></div>`).join('')}
       </div>
-      <div class="tele-meta"><span>${done}/${items.length} items tracked</span><span>${pct}% complete</span></div>
-      <div class="tele-bar"><div class="tele-fill" style="width:${pct}%"></div></div>
+      <div class="tele-meta"><span>${done}/${items.length} research items tracked</span><span>${pct}% complete</span></div>
+      <div class="tele-bar"><div class="tele-fill" style="width:${pct}%"></div></div>`:`<div class="note-box note-cyan" style="margin-top:12px;">Research is intentionally scheduled only for Saturday and Sunday. Use weekdays for your normal tasks and keep this topic mentally rested.</div>`}
       <div class="tele-journal">
-        <div class="tele-small">Daily Telepathy Note</div>
-        <textarea id="telepathyJournalInput" placeholder="Write today’s mood, practice details, perceptions, or experiences..." oninput="saveTelepathyJournal()">${(st.journal||'').replace(/</g,'&lt;')}</textarea>
+        <div class="tele-small">Research Note</div>
+        <textarea id="researchJournalInput" placeholder="Write findings, questions, tafsir notes, AI/biology connections, or mentor questions..." oninput="saveResearchJournal()">${(st.journal||'').replace(/</g,'&lt;')}</textarea>
       </div>
-      <div class="note-box note-cyan" style="margin-top:12px;">${phase.goal}</div>
+      <div class="note-box note-cyan" style="margin-top:12px;">Balanced rule: understand the framework first. Do not claim Surah An-Naml proves technology unless the evidence is clear.</div>
     </div>`;
+}
+function getResearchCompletion(d){
+  if(!isWeekend(d)) return {done:0,total:0,pct:100};
+  const phase=getResearchPhaseData(d);
+  const st=getResearchState(d);
+  const items=phase.items||[];
+  const done=items.filter((_,i)=>st.checks&&st.checks[i]).length;
+  return {done,total:items.length,pct:items.length?Math.round((done/items.length)*100):0};
 }
 
 
@@ -4662,32 +4495,25 @@ function getPrayerCompletion(d){
     pct: totalR?Math.round((prayedR/totalR)*100):0
   };
 }
-function getTelepathyCompletion(d){
-  const phase=getTelepathyPhaseData(d);
-  const st=getTelepathyState(d);
-  const items=phase.items||[];
-  const done=items.filter((_,i)=>st.checks&&st.checks[i]).length;
-  return {done,total:items.length,pct:items.length?Math.round((done/items.length)*100):0};
-}
 function computeDailyScore(d){
   const st=getDayState(d);
   const tasks=getTasksForDay(d);
   const done=tasks.filter(t=>st.statuses&&st.statuses[t.id]==='done').length;
   const taskPct=tasks.length?Math.round((done/tasks.length)*100):0;
   const prayer=getPrayerCompletion(d);
-  const tele=getTelepathyCompletion(d);
+  const research=getResearchCompletion(d);
   const must=getMustWinCompletion(d);
 
   const parts=[
     {key:'Tasks', pct:taskPct, weight:40},
-    {key:'Prayers', pct:prayer.pct, weight:30},
-    {key:'Telepathy', pct:tele.pct, weight:15}
+    {key:'Prayers', pct:prayer.pct, weight:30}
   ];
+  if(isWeekend(d)) parts.push({key:'Research', pct:research.pct, weight:15});
   if(must.total>0) parts.push({key:'Must Wins', pct:must.pct, weight:15});
 
   const totalWeight=parts.reduce((a,b)=>a+b.weight,0)||1;
   const score=Math.round(parts.reduce((sum,p)=>sum+(p.pct*p.weight),0)/totalWeight);
-  return {score, parts, taskPct, prayer, tele, must};
+  return {score, parts, taskPct, prayer, research, must};
 }
 function renderMustWinPanel(){
   const el=document.getElementById('mustWinPanel');
@@ -4823,8 +4649,8 @@ function getImprovementTipsForDay(d){
   } else if(scoreData.prayer.jamaatCount < Math.min(2, scoreData.prayer.prayerCount)){
     items.push({icon:'🤝',label:'Try increasing Jamaat prayers',tip:`You tracked ${scoreData.prayer.jamaatCount} prayer${scoreData.prayer.jamaatCount===1?'':'s'} with Jamaat today. Push that number up.`});
   }
-  if(scoreData.tele.pct < 100){
-    items.push({icon:'💫',label:'Telepathy practice is incomplete',tip:`Telepathy tracking is ${scoreData.tele.pct}%. Finish the current phase items and write a short daily note.`});
+  if(isWeekend(d) && scoreData.research.pct < 100){
+    items.push({icon:'🔬',label:'Weekend research is incomplete',tip:`Research tracking is ${scoreData.research.pct}%. Finish the current phase items and write a short research note.`});
   }
   if(scoreData.score < 60){
     items.push({icon:'📉',label:'Your daily score is too low',tip:`Today scored ${scoreData.score}%. Protect tomorrow by selecting only 3 must-win tasks and finishing them early.`});
@@ -4845,7 +4671,7 @@ function renderImprovementPanel(){
     return;
   }
   el.innerHTML=`<div class="improve-card">
-    <div class="improve-intro">These are the clearest areas to improve today based on score, prayers, telepathy, and missed tasks.</div>
+    <div class="improve-intro">These are the clearest areas to improve today based on score, prayers, weekend research, and missed tasks.</div>
     <div class="improve-list">
       ${items.map(item=>`<div class="improve-item2">
         <div class="improve-icon">${item.icon}</div>
@@ -5013,7 +4839,7 @@ function renderToday(){
   renderPrayerPanel();
   renderTasbihPanel();
   renderWaterPanel();
-  renderTelepathyPanel();
+  renderResearchPanel();
   renderMustWinPanel();
   renderPrayerPanel();
   renderProgressRing();
@@ -5521,7 +5347,7 @@ function clearSubNoteMiss(taskId,idx){
 function tagName(t){
   const m={
     't-prayer':'🕌 Prayer','t-work':'⚡ Deep Work','t-health':'🏃 Health',
-    't-learn':'📚 Learning','t-telep':'💫 Telepathy','t-media':'📰 Media',
+    't-learn':'📚 Learning','t-media':'📰 Media',
     't-research':'🔬 Research','t-sleep':'😴 Sleep',
     't-family':'👨‍👩‍👧 Family Duty','t-mosque':'🕌 Mosque Project',
     't-shop':'🛒 Help in Shop','t-travel':'✈️ Travel',
@@ -5782,7 +5608,7 @@ function renderWeeklyReport(){
       if(r.wins) html+=`<div style="margin-bottom:6px;"><span style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--green);text-transform:uppercase;">✅ Wins</span><div style="font-size:13px;margin-top:3px;white-space:pre-wrap;">${r.wins}</div></div>`;
       if(r.miss) html+=`<div style="margin-bottom:6px;"><span style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--red);text-transform:uppercase;">⚠️ Missed</span><div style="font-size:13px;margin-top:3px;white-space:pre-wrap;">${r.miss}</div></div>`;
       if(r.fix) html+=`<div style="margin-bottom:6px;"><span style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--gold);text-transform:uppercase;">💡 Fix</span><div style="font-size:13px;margin-top:3px;white-space:pre-wrap;">${r.fix}</div></div>`;
-      if(r.inner) html+=`<div style="margin-bottom:6px;"><span style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--cyan);text-transform:uppercase;">💫 Inner State</span><div style="font-size:13px;margin-top:3px;white-space:pre-wrap;">${r.inner}</div></div>`;
+      if(r.inner) html+=`<div style="margin-bottom:6px;"><span style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--cyan);text-transform:uppercase;">🔬 Inner State</span><div style="font-size:13px;margin-top:3px;white-space:pre-wrap;">${r.inner}</div></div>`;
       if(imgs.length) html+=`<div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;">📸 ${imgs.length} screenshot${imgs.length>1?'s':''} attached</div>`;
       html+='</div>';
       entriesEl.innerHTML+=html;
@@ -6206,7 +6032,6 @@ function renderPriorities(){
     {num:'6',title:'Networking — التواصل',sub:'Islamic: 3×/month · Mentorship: 1–2×/month · Business: 2–4×/month · Relationship System',icon:'🤝'},
     {num:'7',title:'Environment — البيئة',sub:'Digital control (StayFree) · Physical space · Work setup · Trigger Control · Routine System',icon:'🛡️'},
     {num:'8',title:'Family — الأسرة',sub:'Parents & siblings · Future family prep · Relationship quality · No neglect rule',icon:'👨‍👩‍👧'},
-    {num:'9',title:'College — ICS Degree',sub:'All subjects · Daily attendance · Study system · Assignments · Exam prep · CS Practicals · Grade tracking',icon:'🎓'},
   ];
   const list=document.getElementById('priorityList');
   list.innerHTML='';
@@ -6328,7 +6153,7 @@ function renderPriorityAnalytics(){
     {num:3,name:'Mindset',arabic:'العقل',icon:'📖',color:'var(--cyan)',rgb:'56,189,248',
      tags:['t-learn'],keys:['book','reading','journal','reflection','master','irfan']},
     {num:4,name:'Heart',arabic:'القلب',icon:'💜',color:'#A78BFA',rgb:'139,92,246',
-     tags:['t-telep'],keys:['telepathy','wind down','emotional','niyyah','dhikr']},
+     tags:[],keys:['wind down','emotional','niyyah','dhikr','reflection']} ,
     {num:5,name:'Skill Dev',arabic:'المهارة',icon:'⚡',color:'var(--orange)',rgb:'245,158,11',
      tags:['t-work'],keys:['deep work','ai project','python','marketing','skill']},
     {num:6,name:'Networking',arabic:'التواصل',icon:'🤝',color:'var(--teal)',rgb:'61,220,151',
@@ -6337,8 +6162,6 @@ function renderPriorityAnalytics(){
      tags:[],keys:['wind down','stayfree','app review','screen']},
     {num:8,name:'Family',arabic:'الأسرة',icon:'👨‍👩‍👧',color:'#FCD34D',rgb:'252,211,77',
      tags:['t-family'],keys:['family','parent','sibling']},
-    {num:9,name:'College',arabic:'ICS',icon:'🎓',color:'#818CF8',rgb:'129,140,248',
-     tags:['t-college'],keys:['college','class','lecture','assignment','exam','physics','math','computer','english','islamiat','pak studies']},
   ];
 
   // Build stats over all tracked days
@@ -7574,9 +7397,15 @@ function renderDashboard(){
   const compRate=total>0?Math.round((done/total)*100):0;
 
   // Prayer stats
-  const prayers=['fajr','dhuhr','asr','maghrib','isha'];
-  const prayerState=getPrayerState(today);
-  const pDone=prayers.filter(p=>prayerState&&prayerState[p]==='done').length;
+  let pDone=0;
+  try{
+    if(typeof getPrayerCompletion==='function') pDone=(getPrayerCompletion(today).fullPrayers||0);
+    else{
+      const prayers=['fajr','dhuhr','asr','maghrib','isha'];
+      const prayerState=getPrayerState(today);
+      pDone=prayers.filter(p=>prayerState&&prayerState[p]==='done').length;
+    }
+  }catch(e){}
 
   // Water
   const wData=load('water_'+dateKey(today))||{count:0};
@@ -7592,12 +7421,11 @@ function renderDashboard(){
     {num:1,name:'Allah',icon:'🕌',color:'var(--gold)',rgb:'212,168,67',tags:['t-prayer'],keys:['quran','tasbih','tajweed','seerah','lecture']},
     {num:2,name:'Health',icon:'🌿',color:'var(--green)',rgb:'46,204,113',tags:['t-health'],keys:['walk','water','sunlight','breakfast','lunch','dinner']},
     {num:3,name:'Mindset',icon:'📖',color:'var(--cyan)',rgb:'56,189,248',tags:['t-learn'],keys:['book','journal','reflection','master']},
-    {num:4,name:'Heart',icon:'💜',color:'#A78BFA',rgb:'139,92,246',tags:['t-telep'],keys:['reflection','journal','wind down']},
+    {num:4,name:'Heart',icon:'💜',color:'#A78BFA',rgb:'139,92,246',tags:[],keys:['reflection','journal','wind down']},
     {num:5,name:'Skill',icon:'⚡',color:'var(--orange)',rgb:'245,158,11',tags:['t-work'],keys:['deep work','ai project','python']},
     {num:6,name:'Network',icon:'🤝',color:'var(--teal)',rgb:'61,220,151',tags:['t-mosque'],keys:['networking','visit']},
     {num:7,name:'Environ.',icon:'🛡️',color:'var(--red)',rgb:'229,83,83',tags:[],keys:['wind down','app review']},
     {num:8,name:'Family',icon:'👨‍👩‍👧',color:'#FCD34D',rgb:'252,211,77',tags:['t-family'],keys:['family','dinner']},
-    {num:9,name:'College',icon:'🎓',color:'#818CF8',rgb:'129,140,248',tags:['t-college'],keys:['college','class','assignment','study']},
   ];
 
   // Today's priority progress
@@ -7620,9 +7448,10 @@ function renderDashboard(){
   const completedBooks=books.filter(b=>b.status==='completed').length;
 
   // Bad habits today
-  const badHabits=load('bad_habits_list')||[];
-  const bhState=load('bhstate_'+dateKey(today))||{};
-  const bhBroken=badHabits.filter(h=>bhState[h.id]==='broken').length;
+  const badHabits=(typeof BAD_HABITS!=='undefined')?BAD_HABITS:(load('bad_habits_list')||[]);
+  const bhWrap=(typeof getBadHabitState==='function')?getBadHabitState(today):{habits:{}};
+  const bhState=(bhWrap&&bhWrap.habits)||{};
+  const bhBroken=badHabits.filter(h=>bhState[h.id]==='relapse'||bhState[h.id]==='broken').length;
 
   // Hijri date
   const hijriDate=(()=>{
@@ -8462,7 +8291,7 @@ function navTo(page, btn){
   if(btn) btn.classList.add('active');
   else {
     const tabs=document.querySelectorAll('.nav-tab');
-    const pages=['today','weekly','streaks','islamic','media','telepathy','priorities','phases','deepwork','badhabits','mosque','portable'];
+    const pages=['dashboard','today','weekly','streaks','islamic','media','research','priorities','phases','deepwork','badhabits','mosque','financial','portable'];
     const idx=pages.indexOf(page);
     if(idx>=0) tabs[idx].classList.add('active');
   }
@@ -8655,7 +8484,7 @@ const IMPROVE_TIPS={
   'Deep Work':'You are skipping deep work blocks. Start with just 30 minutes of focused work before anything else.',
   'Reflection':'Journaling is being skipped at end of day. Do it right after Isha — 10 minutes minimum.',
   'Wind Down':'Wind down is being skipped. This means you\'re sleeping late which ruins your Fajr.',
-  'Telepathy':'Telepathy practice is being missed. It only takes 10 minutes — link it to Asr prayer as a habit.',
+  'Research':'Weekend research is being missed. Keep it Saturday/Sunday only and finish the current phase notes.',
   'Walk':'The morning walk is being missed. Walk immediately after Fajr + Quran — do not sit back down.',
   'YouTube':'YouTube lectures are being skipped. This is your learning time — replace entertainment, not add to it.',
   'Sleep':'Sleep time is being missed. If you\'re not sleeping by 9:30 PM, your whole next day suffers.',
@@ -9292,7 +9121,7 @@ function refreshReportForDate(){
 // ══════════════════════════════════════════════════════
 const TRACKER_RAW_PREFIXES=[
   'day_','prayers_','prayerv2_','report_','imgs_','order_','sn_','snmiss_',
-  'pun2_','badhabit_','badhabit_pun_','telepathy_','tasbih_','daypun_'
+  'pun2_','badhabit_','badhabit_pun_','research_','tasbih_','daypun_'
 ];
 const TRACKER_PREFIXES=TRACKER_RAW_PREFIXES.map(p=>STORAGE_PREFIX+p);
 const TRACKER_META_KEYS=['portable_sync_last_export','portable_sync_last_import'];
@@ -9712,18 +9541,27 @@ window.cloudSaveNow = cloudSaveNow;
       const missed = tasks.filter(t => statuses[t.id] === 'missed').length;
       const pending = Math.max(0, tasks.length - done - missed);
       const rate = tasks.length ? Math.round(done/tasks.length*100) : 0;
-      const prayerState = (typeof getPrayerState === 'function') ? getPrayerState(d) : {};
-      const prayers = ['fajr','dhuhr','asr','maghrib','isha'];
-      const prayerDone = prayers.filter(p => prayerState && (prayerState[p] === 'done' || prayerState[p]?.totalDone >= prayerState[p]?.totalTarget)).length;
+      let prayerDone = 0;
+      try{
+        if(typeof getPrayerCompletion === 'function'){
+          const pc = getPrayerCompletion(d);
+          prayerDone = pc.fullPrayers || 0;
+        }else{
+          const prayerState = (typeof getPrayerState === 'function') ? getPrayerState(d) : {};
+          const prayers = ['fajr','dhuhr','asr','maghrib','isha'];
+          prayerDone = prayers.filter(p => prayerState && (prayerState[p] === 'done' || prayerState[p]?.totalDone >= prayerState[p]?.totalTarget)).length;
+        }
+      }catch(e){}
       const water = safeLoadJson('water_'+safeDateKey(d), {count:0, ml:0});
       const waterText = water.ml ? (water.ml+' ml') : ((water.count||0)+'/10');
       let booksReading = 0;
       try{ booksReading = (typeof libGetBooks === 'function' ? libGetBooks() : []).filter(b => b.status === 'reading').length; }catch(e){}
       let badBroken = 0;
       try{
-        const habits = safeLoadJson('bad_habits_list', []);
-        const bhState = safeLoadJson('bhstate_'+safeDateKey(d), {});
-        badBroken = habits.filter(h => bhState[h.id] === 'broken').length;
+        const habits = (typeof BAD_HABITS !== 'undefined') ? BAD_HABITS : safeLoadJson('bad_habits_list', []);
+        const st = (typeof getBadHabitState === 'function') ? getBadHabitState(d) : {habits:{}};
+        const bhState = (st && st.habits) || {};
+        badBroken = habits.filter(h => bhState[h.id] === 'relapse' || bhState[h.id] === 'broken').length;
       }catch(e){}
       const phaseName = phase===1 ? 'Foundation' : phase===2 ? 'Focus & Mind Training' : 'Deep Practice & Reflection';
       const phaseRange = phase===1 ? 'May 11–May 31' : phase===2 ? 'Jun 1–Jul 9' : 'Jul 10–Aug 8';
@@ -9830,6 +9668,24 @@ window.cloudSaveNow = cloudSaveNow;
   function matchTask(t, tags, keys){
     const txt = taskText(t);
     return (tags||[]).includes(t.tag) || (keys||[]).some(k=>txt.includes(k));
+  }
+  function getTaskPrayerSignal(d){
+    let tasks=[]; try{ tasks = typeof getTasksForDay === 'function' ? getTasksForDay(d) : []; }catch(e){}
+    let state={statuses:{}}; try{ state = typeof getDayState === 'function' ? getDayState(d) : {statuses:{}}; }catch(e){}
+    const statuses=(state&&state.statuses)||{};
+    const names=['fajr','dhuhr','asr','maghrib','isha'];
+    const found={};
+    tasks.forEach(t=>{
+      const txt=taskText(t);
+      names.forEach(name=>{
+        if(!found[name] && txt.includes(name) && (txt.includes('prayer') || (t.tag==='t-prayer'))){
+          found[name]=statuses[t.id]==='done' ? 'done' : (statuses[t.id]==='missed' ? 'missed' : 'pending');
+        }
+      });
+    });
+    const done=names.filter(n=>found[n]==='done').length;
+    const total=names.length;
+    return {done,total,pct:total?clamp(done/total*100):0, found};
   }
   function openHref(section){ return location.href.split('#')[0] + '#dash-section=' + encodeURIComponent(section); }
   window.dashOpenSection = function(section){ window.open(openHref(section), '_blank'); };
@@ -9952,20 +9808,24 @@ window.cloudSaveNow = cloudSaveNow;
       if(ds && ds.statuses && Object.keys(ds.statuses).length) return true;
     }catch(e){}
     try{
-      const ps = (typeof getPrayerState === 'function') ? getPrayerState(d) : {};
+      const ps = safeLoad2('prayerv2_'+key, {});
       if(hasObjectKeys(ps)) return true;
+      const oldPs = (typeof getPrayerState === 'function') ? getPrayerState(d) : {};
+      if(hasObjectKeys(oldPs)) return true;
     }catch(e){}
     try{
       const water = safeLoad2('water_'+key, null);
       if(water && ((Number(water.count)||0) > 0 || (Number(water.ml)||0) > 0)) return true;
     }catch(e){}
     try{
-      const bh = safeLoad2('bhstate_'+key, {});
-      if(hasObjectKeys(bh)) return true;
+      const bh = (typeof getBadHabitState === 'function') ? getBadHabitState(d) : {habits:{}};
+      if(hasObjectKeys(bh && bh.habits)) return true;
+      const oldBh = safeLoad2('bhstate_'+key, {});
+      if(hasObjectKeys(oldBh)) return true;
     }catch(e){}
     try{
-      const tele = safeLoad2('telepathy_'+key, {});
-      if(hasObjectKeys(tele)) return true;
+      const research = safeLoad2('research_'+key, {});
+      if(hasObjectKeys(research)) return true;
     }catch(e){}
     try{
       const dw = safeLoad2('deepwork_timer_'+key, null);
@@ -9989,21 +9849,36 @@ window.cloudSaveNow = cloudSaveNow;
       let phaseRange = phase===1?'May 11–May 31':phase===2?'Jun 1–Jul 9':'Jul 10–Aug 8';
 
       const all=getTaskStatsFor(d);
-      const prayerState=(typeof getPrayerState==='function')?getPrayerState(d):{};
-      const prayers=['fajr','dhuhr','asr','maghrib','isha'];
-      const prayerDone=prayers.filter(p=>{
-        const v=prayerState&&prayerState[p];
-        if(v==='done') return true;
-        if(v && typeof v==='object' && Number(v.totalTarget)>0) return Number(v.totalDone)>=Number(v.totalTarget);
-        return false;
-      }).length;
-      const prayerPct=clamp(prayerDone/5*100);
+      let prayerDone=0, prayerPct=0;
+      try{
+        if(typeof getPrayerCompletion==='function'){
+          const pc=getPrayerCompletion(d);
+          prayerDone=pc.fullPrayers||0;
+          prayerPct=clamp(pc.pct||0);
+        }else{
+          const prayerState=(typeof getPrayerState==='function')?getPrayerState(d):{};
+          const prayers=['fajr','dhuhr','asr','maghrib','isha'];
+          prayerDone=prayers.filter(p=>{
+            const v=prayerState&&prayerState[p];
+            if(v==='done') return true;
+            if(v && typeof v==='object' && Number(v.totalTarget)>0) return Number(v.totalDone)>=Number(v.totalTarget);
+            return false;
+          }).length;
+          prayerPct=clamp(prayerDone/5*100);
+        }
+      }catch(e){}
+      const taskPrayerSignal=getTaskPrayerSignal(d);
+      if(taskPrayerSignal.done > prayerDone){
+        prayerDone=taskPrayerSignal.done;
+      }
+      prayerPct=Math.max(prayerPct, taskPrayerSignal.pct);
 
-      const water=safeLoad2('water_'+key,{count:0,ml:0,target:10});
+      const water=safeLoad2('water_'+key,{count:0,ml:0,target:2500});
+      const waterMl=Number(water.ml)||0;
       const waterCount=Number(water.count)||0;
-      const waterTarget=Number(water.target)||10;
-      const waterPct=clamp(waterCount/waterTarget*100);
-      const waterText=(water.ml?`${water.ml} ml`:`${waterCount}/${waterTarget} glasses`);
+      const waterTarget=Number(water.target)||(water.ml?2500:10);
+      const waterPct=waterMl?clamp(waterMl/waterTarget*100):clamp(waterCount/waterTarget*100);
+      const waterText=(waterMl?`${waterMl} ml`:`${waterCount}/${waterTarget} glasses`);
 
       let deepPct=0, deepDetail='Open Deep Work to track focused hours.';
       try{
@@ -10020,8 +9895,17 @@ window.cloudSaveNow = cloudSaveNow;
       let books=[], readingBooks=0, completedBooks=0;
       try{ books=(typeof libGetBooks==='function'?libGetBooks():[]); readingBooks=books.filter(b=>b.status==='reading').length; completedBooks=books.filter(b=>b.status==='completed').length; }catch(e){}
 
-      let habits=[], bhState={}, habitBroken=0, habitCleanPct=0, hasHabitData=false;
-      try{ habits=safeLoad2('bad_habits_list',[]); bhState=safeLoad2('bhstate_'+key,{}); hasHabitData=hasObjectKeys(bhState); habitBroken=habits.filter(h=>bhState[h.id]==='broken').length; habitCleanPct=(hasHabitData && habits.length)?clamp((habits.length-habitBroken)/habits.length*100):0; }catch(e){}
+      let habits=[], bhState={}, habitBroken=0, habitClean=0, habitMarked=0, habitCleanPct=0, hasHabitData=false;
+      try{
+        habits=(typeof BAD_HABITS!=='undefined')?BAD_HABITS:safeLoad2('bad_habits_list',[]);
+        const bh=(typeof getBadHabitState==='function')?getBadHabitState(d):{habits:{}};
+        bhState=(bh&&bh.habits)||safeLoad2('bhstate_'+key,{});
+        habitBroken=habits.filter(h=>bhState[h.id]==='relapse'||bhState[h.id]==='broken').length;
+        habitClean=habits.filter(h=>bhState[h.id]==='clean').length;
+        habitMarked=habits.filter(h=>bhState[h.id]==='clean'||bhState[h.id]==='relapse'||bhState[h.id]==='broken').length;
+        hasHabitData=habitMarked>0;
+        habitCleanPct=(hasHabitData && habits.length)?clamp(habitClean/habits.length*100):0;
+      }catch(e){}
 
       let finIncome=0, finDebt=0, finPct=0;
       try{ if(typeof finGet==='function' && hasAnyDateData){ const fin=finGet(); finIncome=(fin.income||[]).filter(i=>i.status==='active').reduce((s,i)=>s+(Number(i.amount)||0),0); finDebt=(fin.debts||[]).filter(i=>i.status!=='paid').reduce((s,i)=>s+(Number(i.amount)||0),0); finPct=finIncome?clamp((finIncome/(finIncome+finDebt))*100):(finDebt?20:0); }}catch(e){}
@@ -10029,25 +9913,26 @@ window.cloudSaveNow = cloudSaveNow;
       const categoryStats = {
         islamic: getTaskStatsFor(d,t=>matchTask(t,['t-prayer'],['quran','tasbih','tajweed','seerah','lecture','prayer'])),
         health: getTaskStatsFor(d,t=>matchTask(t,['t-health'],['walk','water','breakfast','lunch','dinner','exercise','sunlight'])),
-        study: getTaskStatsFor(d,t=>matchTask(t,['t-college','t-learn'],['college','assignment','study','book','reading','learn'])),
+        study: getTaskStatsFor(d,t=>matchTask(t,['t-learn'],['book','reading','learn','journal','reflection'])),
         family: getTaskStatsFor(d,t=>matchTask(t,['t-family'],['family','parents','dinner'])),
-        mosque: getTaskStatsFor(d,t=>matchTask(t,['t-mosque'],['mosque','networking','visit']))
+        mosque: getTaskStatsFor(d,t=>matchTask(t,['t-mosque'],['mosque','networking','visit'])),
+        research: getTaskStatsFor(d,t=>matchTask(t,['t-research'],['research','sartre','existentialism','amanah','naml','quran','ai','biology','signal']))
       };
 
-      const tele=safeLoad2('telepathy_'+key,{});
-      const teleChecks = ['training','journal','reflection','practice'].filter(k=>tele[k]===true || tele[k]==='done').length;
-      const telePct = teleChecks ? clamp(teleChecks/4*100) : (categoryStats.study.total?categoryStats.study.pct:0);
+      const research=safeLoad2('research_'+key,{});
+      const researchChecks = research && research.checks ? Object.values(research.checks).filter(Boolean).length : 0;
+      const researchPct = isWeekend(d) ? (researchChecks ? clamp(researchChecks/4*100) : (categoryStats.research?categoryStats.research.pct:0)) : 100;
 
       const noDataDetail = 'No saved update for this selected date yet.';
       const sections=[
         {section:'today', icon:'📋', name:'Today Discipline', pct:hasAnyDateData?all.pct:0, detail:hasAnyDateData?`${all.done}/${all.total} actions completed. Missed: ${all.missed}.`:noDataDetail},
         {section:'islamic', icon:'🌙', name:'Islamic / Prayers', pct:hasAnyDateData?Math.max(prayerPct,categoryStats.islamic.pct):0, detail:hasAnyDateData?`Prayers ${prayerDone}/5. Islamic actions ${categoryStats.islamic.done}/${categoryStats.islamic.total}.`:noDataDetail, accent:'var(--gold)'},
         {section:'deepwork', icon:'⚡', name:'Deep Work', pct:hasAnyDateData?deepPct:0, detail:hasAnyDateData?deepDetail:noDataDetail, accent:'var(--orange)'},
-        {section:'priorities', icon:'🎯', name:'Priorities', pct:hasAnyDateData?all.pct:0, detail:hasAnyDateData?'See Allah, health, learning, family, college, and discipline alignment.':noDataDetail, accent:'#A78BFA'},
-        {section:'badhabits', icon:'🚫', name:'Bad Habits', pct:hasHabitData?habitCleanPct:0, detail:hasHabitData?`${habits.length-habitBroken}/${habits.length} clean for this date. Broken: ${habitBroken}.`:noDataDetail, accent:(hasHabitData && habitBroken)?'var(--red)':'var(--muted2)'},
+        {section:'priorities', icon:'🎯', name:'Priorities', pct:hasAnyDateData?all.pct:0, detail:hasAnyDateData?'See Allah, health, learning, family, and discipline alignment.':noDataDetail, accent:'#A78BFA'},
+        {section:'badhabits', icon:'🚫', name:'Bad Habits', pct:hasHabitData?habitCleanPct:0, detail:hasHabitData?`${habitClean}/${habits.length} clean for this date. Relapse: ${habitBroken}.`:'No bad-habit mark saved for this selected date yet.', accent:(hasHabitData && habitBroken)?'var(--red)':'var(--green)'},
         {section:'media', icon:'📚', name:'Library / Learning', pct:hasAnyDateData?(books.length?clamp((completedBooks+readingBooks*.35)/books.length*100):categoryStats.study.pct):0, detail:hasAnyDateData?`${readingBooks} reading · ${completedBooks} completed books.`:noDataDetail, accent:'#A78BFA'},
         {section:'financial', icon:'💰', name:'Financial', pct:hasAnyDateData?finPct:0, detail:hasAnyDateData?`Income ${finIncome || 0} · Open debt ${finDebt || 0}.`:noDataDetail, accent:'#22C55E'},
-        {section:'telepathy', icon:'💫', name:'Telepathy / Heart', pct:hasAnyDateData?telePct:0, detail:hasAnyDateData?'Reflection, training, journal, and emotional discipline snapshot.':noDataDetail, accent:'#8B5CF6'},
+        {section:'research', icon:'🔬', name:'Research / Chat & Naml', pct:hasAnyDateData?researchPct:0, detail:hasAnyDateData?'Saturday/Sunday research notes, phase checklist, and mentor questions.':noDataDetail, accent:'#8B5CF6'},
         {section:'mosque', icon:'🕌', name:'Mosque Project', pct:hasAnyDateData?(categoryStats.mosque.total?categoryStats.mosque.pct:0):0, detail:hasAnyDateData?`Project actions ${categoryStats.mosque.done}/${categoryStats.mosque.total} today.`:noDataDetail, accent:'#34D399'},
         {section:'weekly', icon:'📊', name:'Weekly Report', pct:hasAnyDateData?all.pct:0, detail:hasAnyDateData?'Open your 7-day pattern, mistakes, wins, and correction plan.':noDataDetail, accent:'#38BDF8'},
         {section:'phases', icon:'🗓', name:'90-Day Phases', pct:progress, detail:`Day ${n}/90 · Phase ${phase}: ${phaseName}.`, accent:'#60A5FA'},
@@ -10062,11 +9947,19 @@ window.cloudSaveNow = cloudSaveNow;
         {num:1,name:'Allah',icon:'🕌',stat:hasAnyDateData?Math.max(prayerPct,categoryStats.islamic.pct):0,sub:hasAnyDateData?`Prayers ${prayerDone}/5`:'0 saved today' ,accent:'var(--gold)'},
         {num:2,name:'Health',icon:'🌿',stat:hasAnyDateData?Math.max(categoryStats.health.pct,waterPct):0,sub:hasAnyDateData?`Water ${waterText}`:'0 saved today',accent:'var(--green)'},
         {num:3,name:'Mindset / Learning',icon:'📖',stat:hasAnyDateData?categoryStats.study.pct:0,sub:hasAnyDateData?`Study actions ${categoryStats.study.done}/${categoryStats.study.total}`:'0 saved today',accent:'var(--cyan)'},
-        {num:4,name:'Heart / Reflection',icon:'💜',stat:hasAnyDateData?telePct:0,sub:hasAnyDateData?'Journal and emotional control':'0 saved today',accent:'#A78BFA'},
+        {num:4,name:'Heart / Reflection',icon:'💜',stat:hasAnyDateData?categoryStats.study.pct:0,sub:hasAnyDateData?'Journal and emotional control':'0 saved today',accent:'#A78BFA'},
         {num:5,name:'Skill / Work',icon:'⚡',stat:hasAnyDateData?deepPct:0,sub:hasAnyDateData?deepDetail:'0 saved today',accent:'var(--orange)'},
         {num:6,name:'Family',icon:'👨‍👩‍👧',stat:hasAnyDateData?categoryStats.family.pct:0,sub:hasAnyDateData?`Family actions ${categoryStats.family.done}/${categoryStats.family.total}`:'0 saved today',accent:'#F472B6'},
-        {num:7,name:'College',icon:'🎓',stat:hasAnyDateData?categoryStats.study.pct:0,sub:hasAnyDateData?'Study and assignments':'0 saved today',accent:'#818CF8'},
-        {num:8,name:'Self-Control',icon:'🛡️',stat:hasHabitData?habitCleanPct:0,sub:hasHabitData?(habitBroken?`${habitBroken} relapse/broken mark today`:'0 broken marks saved'):'0 saved today',accent:(hasHabitData && habitBroken)?'var(--red)':'var(--muted2)'}
+        {num:7,name:'Self-Control',icon:'🛡️',stat:hasHabitData?habitCleanPct:0,sub:hasHabitData?(habitBroken?`${habitBroken} relapse mark today`:`${habitClean}/${habits.length} clean marks saved`):'0 saved today',accent:(hasHabitData && habitBroken)?'var(--red)':'var(--green)'}
+      ];
+      const signalItems=[
+        {v:prayerDone+'/5',l:'Allah / Prayers',c:'var(--gold)'},
+        {v:waterText,l:'Health / Water',c:'var(--green)'},
+        {v:categoryStats.study.done+'/'+categoryStats.study.total,l:'Mindset / Learning',c:'var(--cyan)'},
+        {v:clamp(props[3].stat)+'%',l:'Heart / Reflection',c:'#A78BFA'},
+        {v:deepPct+'%',l:'Skill / Work',c:'var(--orange)'},
+        {v:categoryStats.family.done+'/'+categoryStats.family.total,l:'Family',c:'#F472B6'},
+        {v:hasHabitData?(habitBroken?'Fix':habitClean+'/'+habits.length):'0',l:'Self-Control',c:hasHabitData?(habitBroken?'var(--red)':'var(--green)'):'var(--muted2)'}
       ];
 
       const dateLabel=d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
@@ -10100,10 +9993,7 @@ window.cloudSaveNow = cloudSaveNow;
           <div class="dash-panel">
             <div class="dash-panel-title">Today Signals</div>
             <div class="dash-mini-grid">
-              ${mini(all.pct+'%','Discipline',cssVar(toneFor(all.pct)))}
-              ${mini(prayerDone+'/5','Prayers','var(--gold)')}
-              ${mini(waterText,'Water','var(--cyan)')}
-              ${mini(hasHabitData?(habitBroken?'Fix':'0 Broken'):'0','Self-Control',hasHabitData?(habitBroken?'var(--red)':'var(--muted2)'):'var(--muted2)')}
+              ${signalItems.map(s=>mini(s.v,s.l,s.c)).join('')}
             </div>
           </div>
           <div class="dash-panel full">
