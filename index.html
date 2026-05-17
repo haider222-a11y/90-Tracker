@@ -3,6 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<script>
+(function(){
+  // GitHub/online fix: old PWA service-worker caches can keep serving an outdated broken index.html.
+  // This unregisters old workers and clears caches once per browser session, then reloads only if needed.
+  var FIX_VERSION='github_click_fix_2026_05_17_v2';
+  try{
+    if(location.protocol.indexOf('http')===0 && 'serviceWorker' in navigator && !sessionStorage.getItem(FIX_VERSION)){
+      sessionStorage.setItem(FIX_VERSION,'1');
+      window.addEventListener('load',function(){
+        Promise.resolve()
+          .then(function(){ return navigator.serviceWorker.getRegistrations ? navigator.serviceWorker.getRegistrations() : []; })
+          .then(function(regs){ return Promise.all((regs||[]).map(function(r){ return r.unregister(); })); })
+          .then(function(){ return (window.caches && caches.keys) ? caches.keys().then(function(keys){ return Promise.all(keys.map(function(k){ return caches.delete(k); })); }) : null; })
+          .then(function(){ if(navigator.serviceWorker && navigator.serviceWorker.controller){ location.reload(); } })
+          .catch(function(){});
+      });
+    }
+  }catch(e){}
+})();
+</script>
 <title>90 Days Tracker</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -6366,8 +6389,8 @@ function renderTaskList(){
         return `<div class="subtask-item${st==='done'?' st-done':st==='missed'?' st-missed':''}" id="sni_${task.id}_${i}">
           <span class="subtask-num">${i+1}.</span>
           <span class="subtask-text">${escapeHtml(sn)}</span>
-          <button type="button" draggable="false" class="st-btn st-btn-done${st==='done'?' active':''}" onclick="setSubNote('${task.id}',${i},'done',event)" title="Mark done">✓</button>
-          <button type="button" draggable="false" class="st-btn st-btn-miss${st==='missed'?' active':''}" onclick="setSubNote('${task.id}',${i},'missed',event)" title="Mark missed">✕</button>
+          <button type="button" draggable="false" class="st-btn st-btn-done${st==='done'?' active':''}" data-action="subnote" data-task-id="${escapeHtml(task.id)}" data-idx="${i}" data-status="done" onclick="setSubNote('${task.id}',${i},'done',event)" title="Mark done">✓</button>
+          <button type="button" draggable="false" class="st-btn st-btn-miss${st==='missed'?' active':''}" data-action="subnote" data-task-id="${escapeHtml(task.id)}" data-idx="${i}" data-status="missed" onclick="setSubNote('${task.id}',${i},'missed',event)" title="Mark missed">✕</button>
         </div>`;
       }).join('');
       subNoteHTML=`<div class="subtask-list">${items}</div>${progressBar}`;
@@ -6381,7 +6404,7 @@ function renderTaskList(){
 
     item.innerHTML=`
       <div class="drag-handle" title="Drag to reorder"><span></span><span></span><span></span></div>
-      <div class="task-check" onclick="cycleStatus('${task.id}',event)">${checkIcon}</div>
+      <div class="task-check" data-action="task-check" data-task-id="${escapeHtml(task.id)}" onclick="cycleStatus('${task.id}',event)">${checkIcon}</div>
       <div class="task-body">
         <div class="task-time-row">
           <span class="task-time">${fmt(task.start)}${task.end&&task.end!==task.start?' → '+fmt(task.end):''}</span>
@@ -6394,9 +6417,9 @@ function renderTaskList(){
         <div class="task-tags"><span class="tag ${task.tag||'t-other'}">${tagName(task.tag)}</span></div>
       </div>
       <div class="task-actions">
-        <button type="button" draggable="false" class="task-action-btn must-btn ${isMustWin?'active':''}" onclick="toggleMustWin('${task.id}',event)">⭐</button>
-        <button type="button" draggable="false" class="task-action-btn" onclick="openEditModal('${task.id}',event)">Edit</button>
-        <button type="button" draggable="false" class="task-action-btn miss-btn" onclick="markMissed('${task.id}',event)">Missed</button>
+        <button type="button" draggable="false" class="task-action-btn must-btn ${isMustWin?'active':''}" data-action="mustwin" data-task-id="${escapeHtml(task.id)}" onclick="toggleMustWin('${task.id}',event)">⭐</button>
+        <button type="button" draggable="false" class="task-action-btn" data-action="edit-task" data-task-id="${escapeHtml(task.id)}" onclick="openEditModal('${task.id}',event)">Edit</button>
+        <button type="button" draggable="false" class="task-action-btn miss-btn" data-action="mark-missed" data-task-id="${escapeHtml(task.id)}" onclick="markMissed('${task.id}',event)">Missed</button>
       </div>
     `;
 
@@ -9070,8 +9093,8 @@ function renderBadHabitCards(){
             <div class="bad-day-num">${day.date.toLocaleDateString('en-GB',{weekday:'short'})}<br>${day.date.getDate()}</div>
             <div class="bad-day-mark">${day.status==='clean'?'✓':day.status==='relapse'?'✕':'·'}</div>
             <div class="bad-day-actions">
-              <button class="bad-mini-btn clean" onclick="event.stopPropagation(); setBadHabitStatusForDate('${habit.id}','clean','${dk}')" title="Mark this day clean">✓</button>
-              <button class="bad-mini-btn relapse" onclick="event.stopPropagation(); setBadHabitStatusForDate('${habit.id}','relapse','${dk}')" title="Mark this day relapse">✕</button>
+              <button class="bad-mini-btn clean" data-action="bad-status" data-habit-id="${escapeHtml(habit.id)}" data-date-key="${dk}" data-status="clean" onclick="event.stopPropagation(); setBadHabitStatusForDate('${habit.id}','clean','${dk}')" title="Mark this day clean">✓</button>
+              <button class="bad-mini-btn relapse" data-action="bad-status" data-habit-id="${escapeHtml(habit.id)}" data-date-key="${dk}" data-status="relapse" onclick="event.stopPropagation(); setBadHabitStatusForDate('${habit.id}','relapse','${dk}')" title="Mark this day relapse">✕</button>
             </div>
           </div>`;
         }).join('')}
@@ -9081,7 +9104,7 @@ function renderBadHabitCards(){
         <div class="tele-small">Note for selected day — ${selectedLabel}</div>
         <textarea id="badNote_${habit.id}_${selectedBadHabitDateKey}" placeholder="Trigger, time, what happened, how to prevent next time...">${escapeHtml(note)}</textarea>
         <div class="bad-action-row" style="margin-top:8px;">
-          <button type="button" class="bad-btn safe" onclick="saveBadHabitNote('${habit.id}', document.getElementById('badNote_${habit.id}_${selectedBadHabitDateKey}').value)">💾 Save Note</button>
+          <button type="button" class="bad-btn safe" data-action="bad-save-note" data-habit-id="${escapeHtml(habit.id)}" data-date-key="${selectedBadHabitDateKey}" data-note-id="badNote_${habit.id}_${selectedBadHabitDateKey}" onclick="saveBadHabitNote('${habit.id}', document.getElementById('badNote_${habit.id}_${selectedBadHabitDateKey}').value)">💾 Save Note</button>
         </div>
       </div>
     </div>`;
@@ -11733,6 +11756,47 @@ window.cloudSaveNow = cloudSaveNow;
     if(typeof libRenderReadingCalendar==='function')libRenderReadingCalendar();
   };
 })();
+
+// ── ONLINE CLICK RELIABILITY FIX ──
+// Some hosted/mobile views can swallow inline onclick or bubble events from draggable cards.
+// This capture-phase delegation keeps task, subtask, and bad-habit buttons working online.
+(function(){
+  if(window.__onlineClickReliabilityFix) return;
+  window.__onlineClickReliabilityFix=true;
+  var lastKey='', lastTime=0;
+  function guard(key){
+    var now=Date.now();
+    if(lastKey===key && now-lastTime<350) return false;
+    lastKey=key; lastTime=now; return true;
+  }
+  document.addEventListener('click', function(e){
+    var btn=e.target && e.target.closest ? e.target.closest('[data-action]') : null;
+    if(!btn) return;
+    var action=btn.getAttribute('data-action');
+    var key=action+'|'+(btn.getAttribute('data-task-id')||btn.getAttribute('data-habit-id')||'')+'|'+(btn.getAttribute('data-idx')||'')+'|'+(btn.getAttribute('data-date-key')||'');
+    if(!guard(key)) return;
+    try{
+      e.preventDefault(); e.stopPropagation(); if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+      if(action==='task-check' && typeof cycleStatus==='function'){
+        cycleStatus(btn.getAttribute('data-task-id'), e);
+      }else if(action==='subnote' && typeof setSubNote==='function'){
+        setSubNote(btn.getAttribute('data-task-id'), parseInt(btn.getAttribute('data-idx'),10), btn.getAttribute('data-status'), e);
+      }else if(action==='mark-missed' && typeof markMissed==='function'){
+        markMissed(btn.getAttribute('data-task-id'), e);
+      }else if(action==='mustwin' && typeof toggleMustWin==='function'){
+        toggleMustWin(btn.getAttribute('data-task-id'), e);
+      }else if(action==='edit-task' && typeof openEditModal==='function'){
+        openEditModal(btn.getAttribute('data-task-id'), e);
+      }else if(action==='bad-status' && typeof setBadHabitStatusForDate==='function'){
+        setBadHabitStatusForDate(btn.getAttribute('data-habit-id'), btn.getAttribute('data-status'), btn.getAttribute('data-date-key'));
+      }else if(action==='bad-save-note' && typeof saveBadHabitNoteForDate==='function'){
+        var noteEl=document.getElementById(btn.getAttribute('data-note-id'));
+        saveBadHabitNoteForDate(btn.getAttribute('data-habit-id'), noteEl?noteEl.value:'', btn.getAttribute('data-date-key'));
+      }
+    }catch(err){ console.error('Online click handler failed:', err); }
+  }, true);
+})();
+
 // ── INIT ──
 purgeLegacyTrackerData();
 importEmbeddedProgressOnOpen();
@@ -11751,17 +11815,9 @@ renderDeepWorkDashboard();
 setTimeout(initDropArea, 100);
 setTimeout(checkStreakAlert, 400);
 </script>
-<!-- PWA SERVICE WORKER REGISTRATION -->
+<!-- PWA SERVICE WORKER REGISTRATION DISABLED: prevents stale GitHub cache from breaking click buttons online. -->
 <script>
-(function(){
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function(){
-      navigator.serviceWorker.register("./sw.js")
-        .then(function(){ console.log("✅ 90 Days Tracker offline app ready"); })
-        .catch(function(err){ console.warn("Service worker registration failed:", err); });
-    });
-  }
-})();
+(function(){ console.log("Service worker disabled for online click reliability."); })();
 </script>
 </body>
 </html>
