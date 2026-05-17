@@ -27,6 +27,7 @@
 })();
 </script>
 <title>90 Days Tracker</title>
+<!-- BUILD: github_click_fix_v3_2026_05_17_nonblocking_ocr_pointer_fallback -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -5214,7 +5215,7 @@ Send invoice"></textarea>
 <!-- SAVE TOAST -->
 <div class="save-toast" id="saveToast">✓ Saved to file</div>
 
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" onerror="window.Tesseract=null;console.warn('OCR library failed to load; tracker still works.')"></script>
 <script>
 // ══════════════════════════════════════════════════════
 //  CORE DATA & STORAGE
@@ -11757,44 +11758,103 @@ window.cloudSaveNow = cloudSaveNow;
   };
 })();
 
-// ── ONLINE CLICK RELIABILITY FIX ──
-// Some hosted/mobile views can swallow inline onclick or bubble events from draggable cards.
-// This capture-phase delegation keeps task, subtask, and bad-habit buttons working online.
+// ── ONLINE CLICK RELIABILITY FIX v3 ──
+// Fixes GitHub/mobile click issues by avoiding any dependency on inline onclick only.
+// Also protects the tracker when a browser treats draggable task cards differently online.
 (function(){
-  if(window.__onlineClickReliabilityFix) return;
-  window.__onlineClickReliabilityFix=true;
+  if(window.__onlineClickReliabilityFixV3) return;
+  window.__onlineClickReliabilityFixV3=true;
+
+  // Make inline onclick and delegated handlers both able to see these functions in hosted browsers.
+  try{
+    if(typeof cycleStatus==='function') window.cycleStatus=cycleStatus;
+    if(typeof markMissed==='function') window.markMissed=markMissed;
+    if(typeof setSubNote==='function') window.setSubNote=setSubNote;
+    if(typeof openEditModal==='function') window.openEditModal=openEditModal;
+    if(typeof toggleMustWin==='function') window.toggleMustWin=toggleMustWin;
+    if(typeof setBadHabitStatusForDate==='function') window.setBadHabitStatusForDate=setBadHabitStatusForDate;
+    if(typeof saveBadHabitNoteForDate==='function') window.saveBadHabitNoteForDate=saveBadHabitNoteForDate;
+    if(typeof saveBadHabitNote==='function') window.saveBadHabitNote=saveBadHabitNote;
+  }catch(e){}
+
   var lastKey='', lastTime=0;
-  function guard(key){
+  function allow(key){
     var now=Date.now();
-    if(lastKey===key && now-lastTime<350) return false;
+    if(lastKey===key && now-lastTime<450) return false;
     lastKey=key; lastTime=now; return true;
   }
-  document.addEventListener('click', function(e){
-    var btn=e.target && e.target.closest ? e.target.closest('[data-action]') : null;
+  function closest(el, sel){ return el && el.closest ? el.closest(sel) : null; }
+  function getActionTarget(e){
+    var t=e.target;
+    var btn=closest(t,'[data-action]');
+    if(btn) return btn;
+    btn=closest(t,'.task-check,.st-btn,.task-action-btn,.bad-btn,.bad-mini-btn');
+    if(btn) return btn;
+    return null;
+  }
+  function inferAction(btn){
+    var a=btn.getAttribute('data-action');
+    if(a) return a;
+    if(btn.classList.contains('task-check')) return 'task-check';
+    if(btn.classList.contains('st-btn')) return 'subnote';
+    if(btn.classList.contains('miss-btn')) return 'mark-missed';
+    if(btn.classList.contains('must-btn')) return 'mustwin';
+    if(btn.textContent && btn.textContent.trim().toLowerCase()==='edit') return 'edit-task';
+    if(btn.classList.contains('bad-mini-btn') || btn.classList.contains('bad-btn')){
+      if((btn.textContent||'').indexOf('Save Note')!==-1) return 'bad-save-note';
+      if(btn.classList.contains('clean') || btn.classList.contains('safe')) return 'bad-status';
+      if(btn.classList.contains('relapse')) return 'bad-status';
+    }
+    return '';
+  }
+  function taskIdFrom(btn){
+    return btn.getAttribute('data-task-id') || (closest(btn,'.task-item')||{}).dataset?.id || '';
+  }
+  function run(e){
+    var btn=getActionTarget(e);
     if(!btn) return;
-    var action=btn.getAttribute('data-action');
-    var key=action+'|'+(btn.getAttribute('data-task-id')||btn.getAttribute('data-habit-id')||'')+'|'+(btn.getAttribute('data-idx')||'')+'|'+(btn.getAttribute('data-date-key')||'');
-    if(!guard(key)) return;
+    var action=inferAction(btn);
+    if(!action) return;
+
+    var taskId=taskIdFrom(btn);
+    var habitId=btn.getAttribute('data-habit-id') || '';
+    var idx=btn.getAttribute('data-idx') || '';
+    var dateKey=btn.getAttribute('data-date-key') || '';
+    var key=e.type+'|'+action+'|'+taskId+'|'+habitId+'|'+idx+'|'+dateKey;
+    if(!allow(key)) return;
+
     try{
-      e.preventDefault(); e.stopPropagation(); if(e.stopImmediatePropagation) e.stopImmediatePropagation();
-      if(action==='task-check' && typeof cycleStatus==='function'){
-        cycleStatus(btn.getAttribute('data-task-id'), e);
-      }else if(action==='subnote' && typeof setSubNote==='function'){
-        setSubNote(btn.getAttribute('data-task-id'), parseInt(btn.getAttribute('data-idx'),10), btn.getAttribute('data-status'), e);
-      }else if(action==='mark-missed' && typeof markMissed==='function'){
-        markMissed(btn.getAttribute('data-task-id'), e);
-      }else if(action==='mustwin' && typeof toggleMustWin==='function'){
-        toggleMustWin(btn.getAttribute('data-task-id'), e);
-      }else if(action==='edit-task' && typeof openEditModal==='function'){
-        openEditModal(btn.getAttribute('data-task-id'), e);
-      }else if(action==='bad-status' && typeof setBadHabitStatusForDate==='function'){
-        setBadHabitStatusForDate(btn.getAttribute('data-habit-id'), btn.getAttribute('data-status'), btn.getAttribute('data-date-key'));
-      }else if(action==='bad-save-note' && typeof saveBadHabitNoteForDate==='function'){
-        var noteEl=document.getElementById(btn.getAttribute('data-note-id'));
-        saveBadHabitNoteForDate(btn.getAttribute('data-habit-id'), noteEl?noteEl.value:'', btn.getAttribute('data-date-key'));
+      e.preventDefault();
+      e.stopPropagation();
+      if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+
+      if(action==='task-check' && typeof window.cycleStatus==='function'){
+        window.cycleStatus(taskId,e);
+      }else if(action==='subnote' && typeof window.setSubNote==='function'){
+        var st=btn.getAttribute('data-status') || (btn.classList.contains('st-btn-miss')?'missed':'done');
+        window.setSubNote(taskId, parseInt(idx,10), st, e);
+      }else if(action==='mark-missed' && typeof window.markMissed==='function'){
+        window.markMissed(taskId,e);
+      }else if(action==='mustwin' && typeof window.toggleMustWin==='function'){
+        window.toggleMustWin(taskId,e);
+      }else if(action==='edit-task' && typeof window.openEditModal==='function'){
+        window.openEditModal(taskId,e);
+      }else if(action==='bad-status' && typeof window.setBadHabitStatusForDate==='function'){
+        var status=btn.getAttribute('data-status') || (btn.classList.contains('relapse')?'relapse':'clean');
+        window.setBadHabitStatusForDate(habitId,status,dateKey);
+      }else if(action==='bad-save-note' && typeof window.saveBadHabitNoteForDate==='function'){
+        var noteEl=document.getElementById(btn.getAttribute('data-note-id')) || closest(btn,'.bad-journal')?.querySelector('textarea');
+        window.saveBadHabitNoteForDate(habitId, noteEl?noteEl.value:'', dateKey);
       }
-    }catch(err){ console.error('Online click handler failed:', err); }
-  }, true);
+    }catch(err){
+      console.error('Online click reliability handler failed:',err);
+      alert('Click handler error: '+(err&&err.message?err.message:err));
+    }
+  }
+
+  // pointerup catches mobile/touch and hosted draggable-card issues; click catches desktop fallback.
+  document.addEventListener('pointerup', run, true);
+  document.addEventListener('click', run, true);
 })();
 
 // ── INIT ──
