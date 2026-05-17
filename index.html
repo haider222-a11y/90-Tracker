@@ -6366,8 +6366,8 @@ function renderTaskList(){
         return `<div class="subtask-item${st==='done'?' st-done':st==='missed'?' st-missed':''}" id="sni_${task.id}_${i}">
           <span class="subtask-num">${i+1}.</span>
           <span class="subtask-text">${escapeHtml(sn)}</span>
-          <button class="st-btn st-btn-done${st==='done'?' active':''}" onclick="setSubNote('${task.id}',${i},'done',event)" title="Mark done">✓</button>
-          <button class="st-btn st-btn-miss${st==='missed'?' active':''}" onclick="setSubNote('${task.id}',${i},'missed',event)" title="Mark missed">✕</button>
+          <button type="button" draggable="false" class="st-btn st-btn-done${st==='done'?' active':''}" onclick="setSubNote('${task.id}',${i},'done',event)" title="Mark done">✓</button>
+          <button type="button" draggable="false" class="st-btn st-btn-miss${st==='missed'?' active':''}" onclick="setSubNote('${task.id}',${i},'missed',event)" title="Mark missed">✕</button>
         </div>`;
       }).join('');
       subNoteHTML=`<div class="subtask-list">${items}</div>${progressBar}`;
@@ -6394,9 +6394,9 @@ function renderTaskList(){
         <div class="task-tags"><span class="tag ${task.tag||'t-other'}">${tagName(task.tag)}</span></div>
       </div>
       <div class="task-actions">
-        <button class="task-action-btn must-btn ${isMustWin?'active':''}" onclick="toggleMustWin('${task.id}',event)">⭐</button>
-        <button class="task-action-btn" onclick="openEditModal('${task.id}',event)">Edit</button>
-        <button class="task-action-btn miss-btn" onclick="markMissed('${task.id}',event)">Missed</button>
+        <button type="button" draggable="false" class="task-action-btn must-btn ${isMustWin?'active':''}" onclick="toggleMustWin('${task.id}',event)">⭐</button>
+        <button type="button" draggable="false" class="task-action-btn" onclick="openEditModal('${task.id}',event)">Edit</button>
+        <button type="button" draggable="false" class="task-action-btn miss-btn" onclick="markMissed('${task.id}',event)">Missed</button>
       </div>
     `;
 
@@ -6491,11 +6491,35 @@ function carryForwardPendingDetails(d){
 }
 
 function setSubNote(taskId, idx, newStatus, e){
-  if(e) e.stopPropagation();
+  if(e){ e.preventDefault(); e.stopPropagation(); if(e.stopImmediatePropagation) e.stopImmediatePropagation(); }
   const st=getSubNoteState(taskId, viewDate);
   st[idx]=(st[idx]===newStatus)?'pending':newStatus;
   saveSubNoteState(taskId,st,viewDate);
   if(st[idx]==='missed') recordSubNoteMiss(taskId,idx); else clearSubNoteMiss(taskId,idx);
+
+  // Keep the main task status in sync with its detail/subtask buttons.
+  // Any missed detail makes the parent task missed; all done makes it done.
+  const parentTask=(getTasksForDay(viewDate)||[]).find(t=>t.id===taskId);
+  const parentDetails=parentTask?getTaskDetails(parentTask,viewDate):[];
+  if(parentDetails.length){
+    const vals=parentDetails.map((_,i)=>st[i]||'pending');
+    const anyMissed=vals.includes('missed');
+    const allDone=vals.every(v=>v==='done');
+    const anyMarked=vals.some(v=>v==='done'||v==='missed');
+    const dayState=getDayState(viewDate);
+    if(!dayState.statuses) dayState.statuses={};
+    if(anyMissed){
+      dayState.statuses[taskId]='missed';
+    }else if(allDone){
+      dayState.statuses[taskId]='done';
+      if(!dayState.clickTimes) dayState.clickTimes={};
+      dayState.clickTimes[taskId]=getPKTNow();
+    }else if(anyMarked && (dayState.statuses[taskId]==='done'||dayState.statuses[taskId]==='missed')){
+      dayState.statuses[taskId]='pending';
+    }
+    saveDayState(viewDate,dayState);
+  }
+
   renderTaskList();
   renderMustWinPanel();
   renderProgressRing();
@@ -6570,17 +6594,19 @@ function checkLateClick(task){
 }
 
 function cycleStatus(taskId, e){
-  if(e) e.stopPropagation();
+  if(e){ e.preventDefault(); e.stopPropagation(); if(e.stopImmediatePropagation) e.stopImmediatePropagation(); }
   const state=getDayState(viewDate);
   if(!state.statuses) state.statuses={};
   const cur=state.statuses[taskId]||'pending';
-  const newStatus=cur==='pending'?'done':cur==='done'?'pending':'pending';
+  const newStatus=cur==='done'?'pending':'done';
   state.statuses[taskId]=newStatus;
 
   // Record the click time in PKT for late-detection audit
   if(newStatus==='done'){
     if(!state.clickTimes) state.clickTimes={};
     state.clickTimes[taskId]=getPKTNow();
+  }else if(state.clickTimes){
+    delete state.clickTimes[taskId];
   }
 
   saveDayState(viewDate,state);
@@ -6804,10 +6830,11 @@ function getLateStatusForTask(task, state){
 }
 
 function markMissed(taskId, e){
-  if(e) e.stopPropagation();
+  if(e){ e.preventDefault(); e.stopPropagation(); if(e.stopImmediatePropagation) e.stopImmediatePropagation(); }
   const state=getDayState(viewDate);
   if(!state.statuses) state.statuses={};
   state.statuses[taskId]=state.statuses[taskId]==='missed'?'pending':'missed';
+  if(state.clickTimes) delete state.clickTimes[taskId];
   saveDayState(viewDate,state);
   renderTaskList();
   renderDayRibbon();
@@ -8916,6 +8943,7 @@ function saveBadHabitNoteForDate(habitId, val, dk){
   st.notes=st.notes||{};
   st.notes[habitId]=val||'';
   saveBadHabitState(d, st);
+  showToast();
   renderBadHabitSummary();
   renderBadHabitLog();
   renderBadHabitWeekHistory();
@@ -9051,7 +9079,10 @@ function renderBadHabitCards(){
 
       <div class="bad-journal">
         <div class="tele-small">Note for selected day — ${selectedLabel}</div>
-        <textarea placeholder="Trigger, time, what happened, how to prevent next time..." oninput="saveBadHabitNote('${habit.id}', this.value)">${escapeHtml(note)}</textarea>
+        <textarea id="badNote_${habit.id}_${selectedBadHabitDateKey}" placeholder="Trigger, time, what happened, how to prevent next time...">${escapeHtml(note)}</textarea>
+        <div class="bad-action-row" style="margin-top:8px;">
+          <button type="button" class="bad-btn safe" onclick="saveBadHabitNote('${habit.id}', document.getElementById('badNote_${habit.id}_${selectedBadHabitDateKey}').value)">💾 Save Note</button>
+        </div>
       </div>
     </div>`;
   }).join('');
@@ -10143,8 +10174,8 @@ function renderScreenshotReports(){
       <div class="screenshot-report-title">${a.title||'Screenshot Report'} · ${img.name}</div>
       ${body}
       <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
-        <button class="task-action-btn" onclick="reanalyzeScreenshot(${i})">Re-analyze</button>
-        ${(a.rawText&&a.rawText.trim())?`<button class="task-action-btn" onclick="toggleRawOCR(${i})">Show OCR Text</button>`:''}
+        <button type="button" draggable="false" class="task-action-btn" onclick="reanalyzeScreenshot(${i})">Re-analyze</button>
+        ${(a.rawText&&a.rawText.trim())?`<button type="button" draggable="false" class="task-action-btn" onclick="toggleRawOCR(${i})">Show OCR Text</button>`:''}
       </div>
       ${(a.rawText&&a.rawText.trim())?`<div id="rawOCR_${i}" style="display:none;margin-top:8px;padding:10px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);font-size:11px;color:var(--muted2);line-height:1.6;white-space:pre-wrap;max-height:180px;overflow:auto;">${escapeHtml(a.rawText)}</div>`:''}
     </div>`;
