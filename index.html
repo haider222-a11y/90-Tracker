@@ -2233,6 +2233,61 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 .ebd-hidden{display:none!important;}
 @media(max-width:900px){.ebd-grid,.ebd-insight-grid{grid-template-columns:1fr}.ebd-stats{grid-template-columns:repeat(2,1fr)}.ebd-form-grid{grid-template-columns:1fr}.ebd-lecture{grid-template-columns:auto 1fr}.ebd-lec-actions{grid-column:1/-1;justify-content:flex-start}.ebd-calendar{gap:4px}.ebd-cal-day{min-height:50px;padding:5px}}
 
+
+
+/* ── AI STARTUP SECTION (separate from Entrepreneurship; additive only) ── */
+.ais-wrap{display:flex;flex-direction:column;gap:16px;margin-top:20px;}
+.ais-hero{position:relative;overflow:hidden;border-radius:30px;padding:24px;background:radial-gradient(circle at 0% 0%,rgba(124,58,237,.20),transparent 34%),radial-gradient(circle at 100% 0%,rgba(56,189,248,.18),transparent 32%),linear-gradient(145deg,rgba(8,20,45,.98),rgba(3,8,20,.98));border:1px solid rgba(140,199,255,.20);box-shadow:0 24px 62px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.045);}
+.ais-hero::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,#7C3AED,#38BDF8,#22C55E,transparent);}
+.ais-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#A78BFA;font-weight:900;margin-bottom:8px;}
+.ais-title{font-size:clamp(24px,3.2vw,38px);font-weight:900;letter-spacing:-.045em;color:#F8FBFF;margin-bottom:8px;}
+.ais-sub{font-size:13px;line-height:1.8;color:#B8C8E4;max-width:980px;}
+.ais-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.ais-badge{padding:6px 10px;border-radius:999px;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.24);color:#CFE6FF;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:800;letter-spacing:.7px;text-transform:uppercase;}
+.ais-stat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;}
+.ais-stat{position:relative;overflow:hidden;border-radius:22px;padding:15px 13px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.065),rgba(255,255,255,.018));border:1px solid rgba(140,199,255,.13);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}
+.ais-stat-num{font-size:26px;font-weight:900;color:#F8FBFF;letter-spacing:-.04em;}
+.ais-stat-label{font-size:10px;color:#93A7C9;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;margin-top:5px;line-height:1.35;}
+.ais-main-grid{display:grid;grid-template-columns:minmax(320px,.95fr) minmax(340px,1.05fr);gap:16px;}
+.ais-card{position:relative;overflow:hidden;border-radius:26px;padding:18px;background:radial-gradient(circle at 100% 0%,rgba(56,189,248,.12),transparent 34%),linear-gradient(145deg,rgba(9,21,42,.98),rgba(4,10,22,.98));border:1px solid rgba(140,199,255,.15);box-shadow:0 18px 44px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.04);}
+.ais-card::before{content:'';position:absolute;left:18px;right:18px;top:0;height:2px;border-radius:99px;background:linear-gradient(90deg,transparent,#38BDF8,#7C3AED,transparent);}
+.ais-card-title{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#93C5FD;font-weight:900;margin-bottom:12px;}
+.ais-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px;}
+.ais-tab{padding:8px 11px;border-radius:12px;border:1px solid rgba(140,199,255,.12);background:rgba(255,255,255,.025);color:#AFC0DA;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.7px;cursor:pointer;transition:all .18s;}
+.ais-tab:hover{border-color:rgba(96,165,250,.35);color:#F3F8FF;}
+.ais-tab.active{background:linear-gradient(135deg,rgba(124,58,237,.22),rgba(56,189,248,.10));border-color:rgba(167,139,250,.40);color:#F3F8FF;box-shadow:0 8px 18px rgba(0,0,0,.20);}
+.ais-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ais-form-grid .full{grid-column:1 / -1;}
+.ais-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:#7EA2D6;margin-bottom:5px;font-weight:900;}
+.ais-input,.ais-select,.ais-textarea{width:100%;border-radius:13px;border:1px solid rgba(140,199,255,.14);background:linear-gradient(180deg,rgba(10,20,38,.88),rgba(5,12,24,.94));color:#F3F8FF;padding:10px 12px;font-family:'Inter',sans-serif;font-size:12px;outline:none;}
+.ais-input:focus,.ais-select:focus,.ais-textarea:focus{border-color:#60A5FA;box-shadow:0 0 0 3px rgba(96,165,250,.11);}
+.ais-select{color-scheme:dark;appearance:auto;-webkit-appearance:menulist;background-color:#081326;}
+.ais-select option{background:#081326;color:#F3F8FF;}
+.ais-textarea{min-height:86px;resize:vertical;line-height:1.6;}
+.ais-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.ais-list{display:flex;flex-direction:column;gap:10px;margin-top:12px;}
+.ais-item{border-radius:20px;padding:13px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.10);}
+.ais-item-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:7px;}
+.ais-item-title{font-size:14px;font-weight:900;color:#F8FBFF;line-height:1.4;}
+.ais-item-meta{font-size:10px;color:#93A7C9;font-family:'JetBrains Mono',monospace;line-height:1.55;margin-top:3px;}
+.ais-item-notes{font-size:12px;color:#DCEBFF;line-height:1.65;white-space:pre-wrap;margin-top:7px;}
+.ais-pill{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;background:rgba(56,189,248,.11);border:1px solid rgba(56,189,248,.22);color:#CFE6FF;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:900;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap;}
+.ais-pill.done{background:rgba(61,220,151,.11);border-color:rgba(61,220,151,.25);color:#9CF2C3;}
+.ais-pill.fixing,.ais-pill.progress,.ais-pill.testing{background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.25);color:#FDBA74;}
+.ais-pill.blocked,.ais-pill.critical{background:rgba(255,107,107,.12);border-color:rgba(255,107,107,.25);color:#FFB4B4;}
+.ais-item-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+.ais-mini-btn{padding:6px 9px;border-radius:10px;border:1px solid rgba(140,199,255,.13);background:rgba(255,255,255,.035);color:#DCEBFF;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:800;letter-spacing:.5px;cursor:pointer;}
+.ais-mini-btn:hover{border-color:#60A5FA;background:rgba(59,130,246,.10);}
+.ais-mini-btn.danger{border-color:rgba(255,107,107,.25);color:#FFB4B4;background:rgba(255,107,107,.06);}
+.ais-progress-track{height:9px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden;border:1px solid rgba(140,199,255,.08);margin-top:10px;}
+.ais-progress-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#7C3AED,#38BDF8,#22C55E);box-shadow:0 0 18px rgba(56,189,248,.28);transition:width .25s ease;}
+.ais-empty{font-size:13px;color:#8FA2C2;font-style:italic;line-height:1.7;padding:14px 0;text-align:center;}
+.ais-report-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.ais-question{padding:12px;border-radius:18px;background:rgba(255,255,255,.025);border:1px solid rgba(140,199,255,.09);font-size:12px;color:#DCEBFF;line-height:1.65;}
+.ais-question strong{display:block;color:#C4B5FD;margin-bottom:4px;font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:1px;}
+@media(max-width:1050px){.ais-stat-grid{grid-template-columns:repeat(3,1fr);}.ais-main-grid{grid-template-columns:1fr;}}
+@media(max-width:620px){.ais-stat-grid,.ais-form-grid,.ais-report-grid{grid-template-columns:1fr;}.ais-form-grid .full{grid-column:auto;}.ais-item-head{flex-direction:column;}.ais-title{font-size:24px;}}
+
 </style>
 <!-- PWA APP SUPPORT -->
 <link rel="manifest" href="manifest.json">
@@ -2287,6 +2342,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   <button class="nav-tab" onclick="navTo('media',this)">📚 Library</button>
   <button class="nav-tab" onclick="navTo('research',this)">🔬 Research</button>
   <button class="nav-tab" onclick="navTo('entrepreneurship',this)">🚀 Entrepreneurship</button>
+  <button class="nav-tab" onclick="navTo('aistartup',this)">🤖 AI Startup</button>
   <button class="nav-tab" onclick="navTo('priorities',this)">🎯 Priorities</button>
   <button class="nav-tab" onclick="navTo('phases',this)">🗓 90-Day Phases</button>
   <button class="nav-tab" onclick="navTo('deepwork',this)">⚡ Deep Work</button>
@@ -4336,6 +4392,84 @@ That will show him you actually studied what he gave you.</pre>
         <div class="ebd-card-title"><span>🧭 Course Roadmap</span></div>
         <div id="ebdRoadmap"></div>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE: AI STARTUP CONTROL ROOM
+══════════════════════════════════════════ -->
+<div id="page-aistartup" class="page">
+  <div class="ais-wrap">
+    <div class="ais-hero">
+      <div class="ais-kicker">Separate Main Section · Not Entrepreneurship</div>
+      <div class="ais-title">🤖 AI Startup Control Room</div>
+      <div class="ais-sub">Build and track your AI startup like a real product company. This section is separate from Entrepreneurship &amp; Business Development and uses its own saved data for ideas, MVP, features, AI prompts, research, users, bugs, roadmap, market, team, and weekly founder review.</div>
+      <div class="ais-badges">
+        <div class="ais-badge">Product Builder</div><div class="ais-badge">MVP First</div><div class="ais-badge">User Feedback</div><div class="ais-badge">AI Prompt System</div><div class="ais-badge">Founder Review</div>
+      </div>
+    </div>
+
+    <div class="ais-stat-grid">
+      <div class="ais-stat"><div class="ais-stat-num" id="aisTotalStat">0</div><div class="ais-stat-label">Total Items</div></div>
+      <div class="ais-stat"><div class="ais-stat-num" id="aisDoneStat">0</div><div class="ais-stat-label">Done</div></div>
+      <div class="ais-stat"><div class="ais-stat-num" id="aisProgressStat">0%</div><div class="ais-stat-label">Progress</div></div>
+      <div class="ais-stat"><div class="ais-stat-num" id="aisMvpStat">0</div><div class="ais-stat-label">MVP Tasks</div></div>
+      <div class="ais-stat"><div class="ais-stat-num" id="aisBugStat">0</div><div class="ais-stat-label">Open Bugs</div></div>
+      <div class="ais-stat"><div class="ais-stat-num" id="aisFeedbackStat">0</div><div class="ais-stat-label">Feedback</div></div>
+    </div>
+
+    <div class="ais-card">
+      <div class="ais-card-title"><span>🚦 Startup Overview</span><span id="aisProgressText">0%</span></div>
+      <div class="ais-form-grid">
+        <div><div class="ais-label">Startup Name</div><input class="ais-input" id="aisStartupName" placeholder="e.g. DAAI"></div>
+        <div><div class="ais-label">Target User</div><input class="ais-input" id="aisTargetUser" placeholder="e.g. university students / researchers"></div>
+        <div class="full"><div class="ais-label">One-line Idea</div><input class="ais-input" id="aisOneLineIdea" placeholder="What does your AI startup do in one clear sentence?"></div>
+        <div><div class="ais-label">This Week Goal</div><input class="ais-input" id="aisWeeklyGoal" placeholder="Main goal for this week"></div>
+        <div><div class="ais-label">Next Important Action</div><input class="ais-input" id="aisNextAction" placeholder="The next action that moves product forward"></div>
+      </div>
+      <div class="ais-actions">
+        <button class="btn btn-primary" onclick="aisSaveOverview()">💾 Save Overview</button>
+        <button class="btn btn-ghost" onclick="aisExportReport()">📄 Print / PDF Report</button>
+      </div>
+      <div class="ais-progress-track"><div class="ais-progress-fill" id="aisMainProgressFill" style="width:0%"></div></div>
+    </div>
+
+    <div class="ais-main-grid">
+      <div class="ais-card">
+        <div class="ais-card-title"><span>➕ Add / Edit Startup Item</span><span id="aisEditingLabel">New</span></div>
+        <input type="hidden" id="aisEditId">
+        <div class="ais-form-grid">
+          <div><div class="ais-label">Subsection</div><select class="ais-select" id="aisCategory"></select></div>
+          <div><div class="ais-label">Status</div><select class="ais-select" id="aisStatus"><option value="not-started">Not Started</option><option value="progress">In Progress</option><option value="testing">Testing</option><option value="done">Done</option><option value="blocked">Blocked</option><option value="removed">Removed</option></select></div>
+          <div><div class="ais-label">Title</div><input class="ais-input" id="aisTitleInput" placeholder="Feature, bug, prompt, user, task, etc."></div>
+          <div><div class="ais-label">Priority / Rating</div><select class="ais-select" id="aisPriority"><option>High</option><option>Medium</option><option>Low</option><option>Critical</option><option>Later</option></select></div>
+          <div><div class="ais-label">Date</div><input class="ais-input" id="aisDateInput" type="date"></div>
+          <div><div class="ais-label">Extra</div><input class="ais-input" id="aisExtraInput" placeholder="Version, user type, deadline, score, etc."></div>
+          <div class="full"><div class="ais-label">Notes / Details</div><textarea class="ais-textarea" id="aisNotesInput" placeholder="Write full details here. You can add problem, purpose, solution, feedback, next improvement, or action points."></textarea></div>
+        </div>
+        <div class="ais-actions">
+          <button class="btn btn-primary" onclick="aisSaveItem()">Save Item</button>
+          <button class="btn btn-ghost" onclick="aisClearForm()">Clear</button>
+        </div>
+      </div>
+
+      <div class="ais-card">
+        <div class="ais-card-title"><span>🧭 Founder Questions</span></div>
+        <div class="ais-report-grid">
+          <div class="ais-question"><strong>Problem</strong>Who has the problem, and why is it painful?</div>
+          <div class="ais-question"><strong>Product</strong>Why will someone use this instead of ChatGPT alone?</div>
+          <div class="ais-question"><strong>MVP</strong>What is the smallest useful version you can test?</div>
+          <div class="ais-question"><strong>Users</strong>Who tested it, what confused them, and would they use it again?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ais-card">
+      <div class="ais-card-title"><span>📂 AI Startup Subsections</span><span id="aisCurrentTabLabel">Product Idea</span></div>
+      <div class="ais-tabs" id="aisTabs"></div>
+      <div id="aisList" class="ais-list"></div>
     </div>
   </div>
 </div>
@@ -10289,7 +10423,7 @@ function navTo(page, btn){
   if(btn) btn.classList.add('active');
   else {
     const tabs=document.querySelectorAll('.nav-tab');
-    const pages=['dashboard','today','weekly','journaling','streaks','islamic','media','research','entrepreneurship','priorities','phases','deepwork','badhabits','mosque','financial','worldtime','portable'];
+    const pages=['dashboard','today','weekly','journaling','streaks','islamic','media','research','entrepreneurship','aistartup','priorities','phases','deepwork','badhabits','mosque','financial','worldtime','portable'];
     const idx=pages.indexOf(page);
     if(idx>=0) tabs[idx].classList.add('active');
   }
@@ -10297,6 +10431,7 @@ function navTo(page, btn){
   if(page==='journaling') renderJournaling();
   if(page==='priorities') renderPriorities();
   if(page==='entrepreneurship') ebdRender();
+  if(page==='aistartup') aisRender();
   if(page==='media') renderLibrary();
   if(page==='islamic') isCalGoNow();
   if(page==='dashboard') renderDashboard();
@@ -12819,6 +12954,68 @@ function ebdGoThisMonth(){ebdCalendarMonth=new Date();ebdCalendarMonth.setDate(1
 function ebdCalendarClick(key){const st=ebdState();const done=st.lectures.filter(l=>l.completedAt===key);alert(done.length?('Completed on '+key+':\n\n'+done.map(l=>'Lecture '+l.no+': '+l.title).join('\n')):'No Entrepreneurship lecture completion saved on '+key+'.');}
 function ebdExportReport(){const st=ebdState();const done=st.lectures.filter(l=>l.status==='done').length;const html=`<!doctype html><html><head><meta charset="utf-8"><title>Entrepreneurship Course Report</title><style>body{font-family:Inter,Arial,sans-serif;padding:28px;color:#111827;line-height:1.55}h1{margin:0 0 6px}.muted{color:#526174}.lec{border:1px solid #d9e2ef;border-radius:12px;padding:12px;margin:10px 0}.done{background:#ecfdf5}.pending{background:#fff7ed}button{float:right;padding:10px 14px;border:1px solid #2563eb;border-radius:8px;background:#2563eb;color:white}@media print{button{display:none}}</style></head><body><button onclick="window.print()">Save / Print PDF</button><h1>Entrepreneurship & Business Development Report</h1><div class="muted">Hope to Skill · Skill to Scale: Freelancing to Founder · Generated ${new Date().toLocaleString()}</div><h2>Progress: ${done}/${st.lectures.length} lectures completed</h2>${st.lectures.map(l=>`<div class="lec ${l.status}"><strong>Lecture ${ebdEsc(l.no)}: ${ebdEsc(l.title)}</strong><br><span class="muted">${ebdEsc(l.module)} · ${l.status}${l.completedAt?' · '+l.completedAt:''} · PDFs: ${(l.pdfs||[]).length}</span><p><strong>Notes:</strong><br>${ebdEsc(l.notes||'No notes saved yet.').replace(/\n/g,'<br>')}</p><p><strong>Action Steps:</strong> ${(l.actions&&l.actions.length)?l.actions.map(ebdEsc).join('; '):ebdSuggest('actions',l).map(ebdEsc).join('; ')}</p></div>`).join('')}</body></html>`;const w=window.open('','_blank');if(!w){alert('Popup blocked. Please allow popups, then click Print / PDF Report again.');return;}w.document.open();w.document.write(html);w.document.close();setTimeout(()=>{try{w.focus();w.print();}catch(e){}},500);}
 
+
+/* ── AI STARTUP CONTROL ROOM LOGIC (separate storage; additive only) ── */
+const AIS_KEY='trackingAI_aiStartupControlRoom_v1';
+const AIS_CATS=[
+  {id:'idea',label:'Product Idea',icon:'💡',hint:'Problem, target user, unique value, why not ChatGPT alone'},
+  {id:'mvp',label:'MVP Builder',icon:'🧪',hint:'Small useful version, launch checklist, testing steps'},
+  {id:'features',label:'Feature Tracker',icon:'🧩',hint:'Product features with purpose, status, priority'},
+  {id:'prompts',label:'AI Prompts',icon:'🧠',hint:'Prompt versions, output quality, protocol improvements'},
+  {id:'research',label:'Research Library',icon:'📚',hint:'Papers, theories, competitors, useful links, notes'},
+  {id:'feedback',label:'User Feedback',icon:'🗣',hint:'Tester notes, ratings, confusion, requests'},
+  {id:'bugs',label:'Bugs / Problems',icon:'🐞',hint:'Technical bugs, UX problems, output problems'},
+  {id:'roadmap',label:'Roadmap',icon:'🗺',hint:'Idea → Research → Prototype → MVP → Testing → Launch'},
+  {id:'market',label:'Market / Customers',icon:'🎯',hint:'Target users, customer segments, pricing, partners'},
+  {id:'team',label:'Team & Roles',icon:'👥',hint:'Founder, developer, prompt designer, tester, marketer'},
+  {id:'weekly',label:'Weekly Founder Review',icon:'📆',hint:'What you built, learned, feedback, next goal'}
+];
+let aisCurrentCat='idea';
+function aisEsc(x){return String(x==null?'':x).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function aisToday(){try{return dateKey(new Date());}catch(e){return new Date().toISOString().slice(0,10);}}
+function aisDefaultState(){return {overview:{startupName:'DAAI',targetUser:'',oneLineIdea:'',weeklyGoal:'',nextAction:''},items:[]};}
+function aisLoad(){try{const raw=localStorage.getItem(AIS_KEY);if(raw){const st=JSON.parse(raw);st.overview=st.overview||aisDefaultState().overview;st.items=Array.isArray(st.items)?st.items:[];return st;}}catch(e){}return aisDefaultState();}
+function aisSave(st){try{localStorage.setItem(AIS_KEY,JSON.stringify(st));}catch(e){alert('AI Startup data could not save. Browser storage may be full.');}}
+function aisCat(id){return AIS_CATS.find(c=>c.id===id)||AIS_CATS[0];}
+function aisPopulateCats(){const sel=document.getElementById('aisCategory');if(!sel)return;sel.innerHTML=AIS_CATS.map(c=>`<option value="${c.id}">${c.icon} ${c.label}</option>`).join('');}
+function aisRender(){
+  const root=document.getElementById('page-aistartup'); if(!root) return;
+  aisPopulateCats();
+  const st=aisLoad();
+  const o=st.overview||{};
+  [['aisStartupName',o.startupName||''],['aisTargetUser',o.targetUser||''],['aisOneLineIdea',o.oneLineIdea||''],['aisWeeklyGoal',o.weeklyGoal||''],['aisNextAction',o.nextAction||'']].forEach(([id,val])=>{const el=document.getElementById(id); if(el && document.activeElement!==el) el.value=val;});
+  const total=st.items.filter(x=>x.status!=='removed').length;
+  const done=st.items.filter(x=>x.status==='done').length;
+  const pct=total?Math.round(done*100/total):0;
+  const mvp=st.items.filter(x=>x.category==='mvp').length;
+  const bugs=st.items.filter(x=>x.category==='bugs' && x.status!=='done' && x.status!=='removed').length;
+  const feedback=st.items.filter(x=>x.category==='feedback').length;
+  const set=(id,v)=>{const el=document.getElementById(id); if(el) el.textContent=v;};
+  set('aisTotalStat',total); set('aisDoneStat',done); set('aisProgressStat',pct+'%'); set('aisMvpStat',mvp); set('aisBugStat',bugs); set('aisFeedbackStat',feedback); set('aisProgressText',done+'/'+total+' done');
+  const fill=document.getElementById('aisMainProgressFill'); if(fill) fill.style.width=pct+'%';
+  const tabs=document.getElementById('aisTabs'); if(tabs) tabs.innerHTML=AIS_CATS.map(c=>`<button class="ais-tab ${c.id===aisCurrentCat?'active':''}" onclick="aisSwitchCat('${c.id}')">${c.icon} ${c.label}</button>`).join('');
+  const label=document.getElementById('aisCurrentTabLabel'); if(label) label.textContent=aisCat(aisCurrentCat).label;
+  aisRenderList(st);
+}
+function aisRenderList(st){
+  const el=document.getElementById('aisList'); if(!el)return;
+  const cat=aisCat(aisCurrentCat);
+  const arr=st.items.filter(x=>x.category===aisCurrentCat).sort((a,b)=>(b.date||'').localeCompare(a.date||'') || (b.created||0)-(a.created||0));
+  if(!arr.length){el.innerHTML=`<div class="ais-empty">No items in <strong>${aisEsc(cat.label)}</strong> yet.<br>${aisEsc(cat.hint)}. Use the form above to add your first item.</div>`;return;}
+  el.innerHTML=arr.map(it=>{
+    const statusClass=(it.status||'').replace('in-','').replace('not-','');
+    return `<div class="ais-item"><div class="ais-item-head"><div><div class="ais-item-title">${aisEsc(it.title||'Untitled')}</div><div class="ais-item-meta">${aisEsc(cat.icon+' '+cat.label)} · ${aisEsc(it.priority||'Medium')} · ${aisEsc(it.date||'No date')}${it.extra?' · '+aisEsc(it.extra):''}</div></div><span class="ais-pill ${statusClass}">${aisEsc((it.status||'not-started').replace(/-/g,' '))}</span></div>${it.notes?`<div class="ais-item-notes">${aisEsc(it.notes)}</div>`:''}<div class="ais-item-actions"><button class="ais-mini-btn" onclick="aisEditItem('${it.id}')">Edit</button><button class="ais-mini-btn" onclick="aisMarkDone('${it.id}')">${it.status==='done'?'Mark Progress':'Mark Done'}</button><button class="ais-mini-btn danger" onclick="aisDeleteItem('${it.id}')">Remove</button></div></div>`;
+  }).join('');
+}
+function aisSwitchCat(cat){aisCurrentCat=cat;const sel=document.getElementById('aisCategory');if(sel)sel.value=cat;aisRender();}
+function aisSaveOverview(){const st=aisLoad();st.overview={startupName:document.getElementById('aisStartupName')?.value.trim()||'',targetUser:document.getElementById('aisTargetUser')?.value.trim()||'',oneLineIdea:document.getElementById('aisOneLineIdea')?.value.trim()||'',weeklyGoal:document.getElementById('aisWeeklyGoal')?.value.trim()||'',nextAction:document.getElementById('aisNextAction')?.value.trim()||''};aisSave(st);aisRender();alert('AI Startup overview saved.');}
+function aisClearForm(){['aisEditId','aisTitleInput','aisExtraInput','aisNotesInput'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});const d=document.getElementById('aisDateInput');if(d)d.value=aisToday();const s=document.getElementById('aisStatus');if(s)s.value='not-started';const p=document.getElementById('aisPriority');if(p)p.value='High';const c=document.getElementById('aisCategory');if(c)c.value=aisCurrentCat;const lab=document.getElementById('aisEditingLabel');if(lab)lab.textContent='New';}
+function aisSaveItem(){const st=aisLoad();const id=document.getElementById('aisEditId')?.value||'';const title=document.getElementById('aisTitleInput')?.value.trim()||'';if(!title){alert('Please write a title first.');return;}const item={id:id||('ais_'+Date.now()),category:document.getElementById('aisCategory')?.value||aisCurrentCat,title,status:document.getElementById('aisStatus')?.value||'not-started',priority:document.getElementById('aisPriority')?.value||'High',date:document.getElementById('aisDateInput')?.value||aisToday(),extra:document.getElementById('aisExtraInput')?.value.trim()||'',notes:document.getElementById('aisNotesInput')?.value.trim()||'',created:Date.now()};if(id){const idx=st.items.findIndex(x=>x.id===id);if(idx>=0){item.created=st.items[idx].created||Date.now();st.items[idx]=item;}}else{st.items.push(item);}aisCurrentCat=item.category;aisSave(st);aisClearForm();aisRender();}
+function aisEditItem(id){const st=aisLoad();const it=st.items.find(x=>x.id===id);if(!it)return;aisCurrentCat=it.category||'idea';aisPopulateCats();const set=(id2,val)=>{const el=document.getElementById(id2); if(el) el.value=val||'';};set('aisEditId',it.id);set('aisCategory',it.category);set('aisStatus',it.status);set('aisPriority',it.priority);set('aisTitleInput',it.title);set('aisDateInput',it.date);set('aisExtraInput',it.extra);set('aisNotesInput',it.notes);const lab=document.getElementById('aisEditingLabel');if(lab)lab.textContent='Editing';aisRender();setTimeout(()=>{document.getElementById('aisTitleInput')?.focus();},50);}
+function aisDeleteItem(id){if(!confirm('Remove this AI Startup item?'))return;const st=aisLoad();st.items=st.items.filter(x=>x.id!==id);aisSave(st);aisRender();}
+function aisMarkDone(id){const st=aisLoad();const it=st.items.find(x=>x.id===id);if(!it)return;it.status=it.status==='done'?'progress':'done';if(!it.date)it.date=aisToday();aisSave(st);aisRender();}
+function aisExportReport(){const st=aisLoad();const o=st.overview||{};const total=st.items.length, done=st.items.filter(x=>x.status==='done').length;const pct=total?Math.round(done*100/total):0;const byCat=AIS_CATS.map(c=>({c,items:st.items.filter(x=>x.category===c.id)}));const html=`<!doctype html><html><head><meta charset="utf-8"><title>AI Startup Report</title><style>body{font-family:Inter,Arial,sans-serif;padding:28px;color:#111827;line-height:1.55}h1{margin:0 0 6px}.muted{color:#526174}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.kpi{border:1px solid #d9e2ef;border-radius:12px;padding:12px;text-align:center}.num{font-size:24px;font-weight:800}.item{border:1px solid #d9e2ef;border-radius:12px;padding:12px;margin:9px 0}.notes{white-space:pre-wrap}.tag{font-size:11px;color:#2563eb;font-weight:700}button{float:right;padding:10px 14px;border:1px solid #2563eb;border-radius:8px;background:#2563eb;color:white}@media print{button{display:none}.kpis{grid-template-columns:repeat(2,1fr)}}</style></head><body><button onclick="window.print()">Save / Print PDF</button><h1>${aisEsc(o.startupName||'AI Startup')} Report</h1><div class="muted">Generated ${new Date().toLocaleString()}</div><p><strong>Target user:</strong> ${aisEsc(o.targetUser||'-')}<br><strong>Idea:</strong> ${aisEsc(o.oneLineIdea||'-')}<br><strong>Weekly goal:</strong> ${aisEsc(o.weeklyGoal||'-')}<br><strong>Next action:</strong> ${aisEsc(o.nextAction||'-')}</p><div class="kpis"><div class="kpi"><div class="num">${total}</div><div>Total Items</div></div><div class="kpi"><div class="num">${done}</div><div>Done</div></div><div class="kpi"><div class="num">${pct}%</div><div>Progress</div></div><div class="kpi"><div class="num">${st.items.filter(x=>x.category==='feedback').length}</div><div>User Feedback</div></div></div>${byCat.map(group=>`<h2>${group.c.icon} ${aisEsc(group.c.label)}</h2>${group.items.length?group.items.map(it=>`<div class="item"><strong>${aisEsc(it.title)}</strong><br><span class="tag">${aisEsc(it.status)} · ${aisEsc(it.priority)} · ${aisEsc(it.date||'')}</span>${it.extra?`<div class="muted">${aisEsc(it.extra)}</div>`:''}<div class="notes">${aisEsc(it.notes||'')}</div></div>`).join(''):'<p class="muted">No items yet.</p>'}`).join('')}</body></html>`;const w=window.open('','_blank');if(!w){alert('Popup blocked. Please allow popups, then click Print / PDF Report again.');return;}w.document.open();w.document.write(html);w.document.close();setTimeout(()=>{try{w.focus();w.print();}catch(e){}},500);}
+
 // ── INIT ──
 purgeLegacyTrackerData();
 importEmbeddedProgressOnOpen();
@@ -12833,6 +13030,8 @@ if(viewDate<START){
 renderToday();
 renderJournaling();
 ebdRender();
+aisClearForm();
+aisRender();
 wtEnsureLoop();
 wtEnsureClockToolsLoop();
 renderBadHabitTracker();
