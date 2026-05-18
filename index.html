@@ -2288,6 +2288,44 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 @media(max-width:1050px){.ais-stat-grid{grid-template-columns:repeat(3,1fr);}.ais-main-grid{grid-template-columns:1fr;}}
 @media(max-width:620px){.ais-stat-grid,.ais-form-grid,.ais-report-grid{grid-template-columns:1fr;}.ais-form-grid .full{grid-column:auto;}.ais-item-head{flex-direction:column;}.ais-title{font-size:24px;}}
 
+
+/* ── AI STARTUP BUILDER UPGRADE (dashboard + beginner templates; additive only) ── */
+.ais-dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px;}
+.ais-dash-card{position:relative;overflow:hidden;border-radius:20px;padding:13px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.016));border:1px solid rgba(140,199,255,.11);cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease;}
+.ais-dash-card:hover{transform:translateY(-2px);border-color:rgba(96,165,250,.34);background:rgba(59,130,246,.06);}
+.ais-dash-card.active{border-color:rgba(167,139,250,.48);box-shadow:0 0 0 2px rgba(167,139,250,.12) inset;background:linear-gradient(145deg,rgba(124,58,237,.14),rgba(56,189,248,.045));}
+.ais-dash-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.ais-dash-icon{width:34px;height:34px;border-radius:13px;display:grid;place-items:center;background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.20);font-size:17px;}
+.ais-dash-num{font-size:24px;font-weight:900;color:#F8FBFF;letter-spacing:-.04em;}
+.ais-dash-title{font-size:12px;font-weight:900;color:#F3F8FF;line-height:1.35;margin-top:9px;}
+.ais-dash-sub{font-size:10px;color:#8FA2C2;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.45;}
+.ais-dash-bar{height:5px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:9px;}
+.ais-dash-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#7C3AED,#38BDF8,#22C55E);}
+.ais-insight-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;margin-top:12px;}
+.ais-insight-box{border-radius:20px;padding:13px;background:rgba(255,255,255,.025);border:1px solid rgba(140,199,255,.09);}
+.ais-insight-title{font-size:10px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1.4px;color:#93C5FD;font-weight:900;margin-bottom:7px;}
+.ais-insight-text{font-size:12px;line-height:1.65;color:#DCEBFF;}
+.ais-quick-list{display:flex;flex-direction:column;gap:7px;}
+.ais-quick-row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 9px;border-radius:12px;background:rgba(255,255,255,.026);border:1px solid rgba(255,255,255,.055);font-size:11px;}
+.ais-quick-row span:first-child{color:#AFC0DA;line-height:1.35;}
+.ais-quick-row span:last-child{font-family:'JetBrains Mono',monospace;color:#F8FBFF;font-weight:900;white-space:nowrap;}
+.ais-template-card{border-radius:22px;padding:15px;background:radial-gradient(circle at 100% 0%,rgba(124,58,237,.14),transparent 32%),linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.014));border:1px solid rgba(167,139,250,.16);margin-bottom:12px;}
+.ais-template-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
+.ais-template-title{font-size:15px;font-weight:900;color:#F8FBFF;letter-spacing:-.02em;}
+.ais-template-sub{font-size:12px;color:#AFC0DA;line-height:1.65;margin-top:4px;}
+.ais-template-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;}
+.ais-template-box{border-radius:15px;background:rgba(255,255,255,.028);border:1px solid rgba(140,199,255,.09);padding:10px;}
+.ais-template-box strong{display:block;color:#7DD3FC;font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.9px;margin-bottom:5px;}
+.ais-template-box div{font-size:11px;color:#DCEBFF;line-height:1.55;}
+.ais-category-tools{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px;}
+.ais-item-checks{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:9px;}
+.ais-check-chip{font-size:10px;line-height:1.35;color:#AFC0DA;padding:7px 8px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid rgba(140,199,255,.08);}
+.ais-check-chip.done{color:#9CF2C3;border-color:rgba(61,220,151,.23);background:rgba(61,220,151,.07);}
+.ais-filter-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;align-items:center;}
+.ais-search{flex:1;min-width:180px;}
+@media(max-width:1050px){.ais-dashboard-grid{grid-template-columns:repeat(2,1fr);}.ais-insight-grid{grid-template-columns:1fr;}.ais-template-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:620px){.ais-dashboard-grid,.ais-template-grid,.ais-item-checks{grid-template-columns:1fr;}.ais-dash-card{border-radius:16px;}.ais-template-card{border-radius:18px;}}
+
 </style>
 <!-- PWA APP SUPPORT -->
 <link rel="manifest" href="manifest.json">
@@ -4405,33 +4443,43 @@ That will show him you actually studied what he gave you.</pre>
     <div class="ais-hero">
       <div class="ais-kicker">Separate Main Section · Not Entrepreneurship</div>
       <div class="ais-title">🤖 AI Startup Control Room</div>
-      <div class="ais-sub">Build and track your AI startup like a real product company. This section is separate from Entrepreneurship &amp; Business Development and uses its own saved data for ideas, MVP, features, AI prompts, research, users, bugs, roadmap, market, team, and weekly founder review.</div>
+      <div class="ais-sub">A beginner-friendly builder for your AI startup. Each subsection has its own system, starter items, templates, progress tracking, add/edit/remove actions, and a one-screen dashboard so you know what is happening without mixing it with Entrepreneurship &amp; Business Development.</div>
       <div class="ais-badges">
-        <div class="ais-badge">Product Builder</div><div class="ais-badge">MVP First</div><div class="ais-badge">User Feedback</div><div class="ais-badge">AI Prompt System</div><div class="ais-badge">Founder Review</div>
+        <div class="ais-badge">Problem First</div><div class="ais-badge">MVP Builder</div><div class="ais-badge">Launch Feedback</div><div class="ais-badge">Prompt Library</div><div class="ais-badge">Founder Review</div>
       </div>
     </div>
 
     <div class="ais-stat-grid">
       <div class="ais-stat"><div class="ais-stat-num" id="aisTotalStat">0</div><div class="ais-stat-label">Total Items</div></div>
       <div class="ais-stat"><div class="ais-stat-num" id="aisDoneStat">0</div><div class="ais-stat-label">Done</div></div>
-      <div class="ais-stat"><div class="ais-stat-num" id="aisProgressStat">0%</div><div class="ais-stat-label">Progress</div></div>
+      <div class="ais-stat"><div class="ais-stat-num" id="aisProgressStat">0%</div><div class="ais-stat-label">Overall Progress</div></div>
       <div class="ais-stat"><div class="ais-stat-num" id="aisMvpStat">0</div><div class="ais-stat-label">MVP Tasks</div></div>
       <div class="ais-stat"><div class="ais-stat-num" id="aisBugStat">0</div><div class="ais-stat-label">Open Bugs</div></div>
-      <div class="ais-stat"><div class="ais-stat-num" id="aisFeedbackStat">0</div><div class="ais-stat-label">Feedback</div></div>
+      <div class="ais-stat"><div class="ais-stat-num" id="aisFeedbackStat">0</div><div class="ais-stat-label">User Feedback</div></div>
+    </div>
+
+    <div class="ais-card">
+      <div class="ais-card-title"><span>📊 Main AI Startup Dashboard</span><span id="aisDashboardSignal">Loading</span></div>
+      <div id="aisDashboard" class="ais-dashboard-grid"></div>
+      <div class="ais-insight-grid">
+        <div class="ais-insight-box"><div class="ais-insight-title">Founder Signal</div><div class="ais-insight-text" id="aisFounderSignal">Your next founder signal will appear here.</div></div>
+        <div class="ais-insight-box"><div class="ais-insight-title">Quick Health</div><div class="ais-quick-list" id="aisQuickHealth"></div></div>
+      </div>
     </div>
 
     <div class="ais-card">
       <div class="ais-card-title"><span>🚦 Startup Overview</span><span id="aisProgressText">0%</span></div>
       <div class="ais-form-grid">
         <div><div class="ais-label">Startup Name</div><input class="ais-input" id="aisStartupName" placeholder="e.g. DAAI"></div>
-        <div><div class="ais-label">Target User</div><input class="ais-input" id="aisTargetUser" placeholder="e.g. university students / researchers"></div>
+        <div><div class="ais-label">Target User</div><input class="ais-input" id="aisTargetUser" placeholder="e.g. students, researchers, small businesses"></div>
         <div class="full"><div class="ais-label">One-line Idea</div><input class="ais-input" id="aisOneLineIdea" placeholder="What does your AI startup do in one clear sentence?"></div>
-        <div><div class="ais-label">This Week Goal</div><input class="ais-input" id="aisWeeklyGoal" placeholder="Main goal for this week"></div>
+        <div><div class="ais-label">This Week Goal</div><input class="ais-input" id="aisWeeklyGoal" placeholder="Main measurable goal for this week"></div>
         <div><div class="ais-label">Next Important Action</div><input class="ais-input" id="aisNextAction" placeholder="The next action that moves product forward"></div>
       </div>
       <div class="ais-actions">
         <button class="btn btn-primary" onclick="aisSaveOverview()">💾 Save Overview</button>
         <button class="btn btn-ghost" onclick="aisExportReport()">📄 Print / PDF Report</button>
+        <button class="btn btn-ghost" onclick="aisRestoreStarterPack()">🧰 Restore Starter Pack</button>
       </div>
       <div class="ais-progress-track"><div class="ais-progress-fill" id="aisMainProgressFill" style="width:0%"></div></div>
     </div>
@@ -4441,38 +4489,43 @@ That will show him you actually studied what he gave you.</pre>
         <div class="ais-card-title"><span>➕ Add / Edit Startup Item</span><span id="aisEditingLabel">New</span></div>
         <input type="hidden" id="aisEditId">
         <div class="ais-form-grid">
-          <div><div class="ais-label">Subsection</div><select class="ais-select" id="aisCategory"></select></div>
+          <div><div class="ais-label">Subsection</div><select class="ais-select" id="aisCategory" onchange="aisSwitchCat(this.value)"></select></div>
           <div><div class="ais-label">Status</div><select class="ais-select" id="aisStatus"><option value="not-started">Not Started</option><option value="progress">In Progress</option><option value="testing">Testing</option><option value="done">Done</option><option value="blocked">Blocked</option><option value="removed">Removed</option></select></div>
-          <div><div class="ais-label">Title</div><input class="ais-input" id="aisTitleInput" placeholder="Feature, bug, prompt, user, task, etc."></div>
+          <div><div class="ais-label" id="aisTitleLabel">Title</div><input class="ais-input" id="aisTitleInput" placeholder="Feature, bug, prompt, customer, task, etc."></div>
           <div><div class="ais-label">Priority / Rating</div><select class="ais-select" id="aisPriority"><option>High</option><option>Medium</option><option>Low</option><option>Critical</option><option>Later</option></select></div>
           <div><div class="ais-label">Date</div><input class="ais-input" id="aisDateInput" type="date"></div>
-          <div><div class="ais-label">Extra</div><input class="ais-input" id="aisExtraInput" placeholder="Version, user type, deadline, score, etc."></div>
-          <div class="full"><div class="ais-label">Notes / Details</div><textarea class="ais-textarea" id="aisNotesInput" placeholder="Write full details here. You can add problem, purpose, solution, feedback, next improvement, or action points."></textarea></div>
+          <div><div class="ais-label" id="aisExtraLabel">Extra</div><input class="ais-input" id="aisExtraInput" placeholder="Version, user type, deadline, score, owner, etc."></div>
+          <div class="full"><div class="ais-label" id="aisNotesLabel">Notes / Details</div><textarea class="ais-textarea" id="aisNotesInput" placeholder="Write full details here. Use the current subsection template below as your guide."></textarea></div>
         </div>
         <div class="ais-actions">
           <button class="btn btn-primary" onclick="aisSaveItem()">Save Item</button>
           <button class="btn btn-ghost" onclick="aisClearForm()">Clear</button>
+          <button class="btn btn-ghost" onclick="aisPrefillFromTemplate()">Use Template</button>
         </div>
       </div>
 
       <div class="ais-card">
-        <div class="ais-card-title"><span>🧭 Founder Questions</span></div>
-        <div class="ais-report-grid">
-          <div class="ais-question"><strong>Problem</strong>Who has the problem, and why is it painful?</div>
-          <div class="ais-question"><strong>Product</strong>Why will someone use this instead of ChatGPT alone?</div>
-          <div class="ais-question"><strong>MVP</strong>What is the smallest useful version you can test?</div>
-          <div class="ais-question"><strong>Users</strong>Who tested it, what confused them, and would they use it again?</div>
-        </div>
+        <div class="ais-card-title"><span>🧭 Current Subsection Guide</span><span id="aisGuideLabel">Product Idea</span></div>
+        <div id="aisTemplateBox"></div>
       </div>
     </div>
 
     <div class="ais-card">
       <div class="ais-card-title"><span>📂 AI Startup Subsections</span><span id="aisCurrentTabLabel">Product Idea</span></div>
       <div class="ais-tabs" id="aisTabs"></div>
+      <div class="ais-filter-row">
+        <input class="ais-input ais-search" id="aisSearchInput" placeholder="Search inside this subsection..." oninput="aisRender()">
+        <select class="ais-select" id="aisStatusFilter" onchange="aisRender()" style="max-width:180px"><option value="all">All Status</option><option value="not-started">Not Started</option><option value="progress">In Progress</option><option value="testing">Testing</option><option value="done">Done</option><option value="blocked">Blocked</option></select>
+      </div>
+      <div class="ais-category-tools">
+        <button class="btn btn-ghost" onclick="aisAddCategoryStarter(aisCurrentCat)">➕ Add Starter Items For This Subsection</button>
+        <button class="btn btn-ghost" onclick="aisMarkCategoryDone(aisCurrentCat)">✅ Mark Current Subsection Done</button>
+      </div>
       <div id="aisList" class="ais-list"></div>
     </div>
   </div>
 </div>
+
 
 <div id="page-priorities" class="page">
 
@@ -12956,65 +13009,123 @@ function ebdExportReport(){const st=ebdState();const done=st.lectures.filter(l=>
 
 
 /* ── AI STARTUP CONTROL ROOM LOGIC (separate storage; additive only) ── */
-const AIS_KEY='trackingAI_aiStartupControlRoom_v1';
+const AIS_KEY='trackingAI_aiStartupControlRoom_v2';
+const AIS_OLD_KEY='trackingAI_aiStartupControlRoom_v1';
 const AIS_CATS=[
-  {id:'idea',label:'Product Idea',icon:'💡',hint:'Problem, target user, unique value, why not ChatGPT alone'},
-  {id:'mvp',label:'MVP Builder',icon:'🧪',hint:'Small useful version, launch checklist, testing steps'},
-  {id:'features',label:'Feature Tracker',icon:'🧩',hint:'Product features with purpose, status, priority'},
-  {id:'prompts',label:'AI Prompts',icon:'🧠',hint:'Prompt versions, output quality, protocol improvements'},
-  {id:'research',label:'Research Library',icon:'📚',hint:'Papers, theories, competitors, useful links, notes'},
-  {id:'feedback',label:'User Feedback',icon:'🗣',hint:'Tester notes, ratings, confusion, requests'},
-  {id:'bugs',label:'Bugs / Problems',icon:'🐞',hint:'Technical bugs, UX problems, output problems'},
-  {id:'roadmap',label:'Roadmap',icon:'🗺',hint:'Idea → Research → Prototype → MVP → Testing → Launch'},
-  {id:'market',label:'Market / Customers',icon:'🎯',hint:'Target users, customer segments, pricing, partners'},
-  {id:'team',label:'Team & Roles',icon:'👥',hint:'Founder, developer, prompt designer, tester, marketer'},
-  {id:'weekly',label:'Weekly Founder Review',icon:'📆',hint:'What you built, learned, feedback, next goal'}
+  {id:'idea',label:'Product Idea',icon:'💡',hint:'Turn a rough idea into a clear problem, user, value proposition, and validation plan.',titleLabel:'Idea / Hypothesis',extraLabel:'Target user or score',notesLabel:'Problem, user pain, solution, why now, why not ChatGPT alone',template:['Problem statement','Target user / niche','Pain level 1-10','Current workaround','Your AI advantage','How to test this idea this week']},
+  {id:'mvp',label:'MVP Builder',icon:'🧪',hint:'Build the smallest useful version that validates the idea with real users before overbuilding.',titleLabel:'MVP Task',extraLabel:'Version / deadline',notesLabel:'Scope, success metric, test steps, launch checklist',template:['Core job-to-be-done','Must-have only','What you will NOT build yet','Success metric','Test users','Launch checklist']},
+  {id:'features',label:'Feature Tracker',icon:'🧩',hint:'Track product features separately with priority, purpose, status, and user value.',titleLabel:'Feature Name',extraLabel:'MoSCoW / release',notesLabel:'User story, purpose, acceptance criteria, dependencies',template:['User story','Why this feature matters','Must/Should/Could/Later','Acceptance criteria','Owner','Release version']},
+  {id:'prompts',label:'AI Prompts',icon:'🧠',hint:'Save prompt versions, AI workflows, output quality notes, and improvement tests.',titleLabel:'Prompt / Workflow Name',extraLabel:'Model / version',notesLabel:'Prompt text, input format, output format, quality score, improvement notes',template:['Prompt goal','System instruction','Input variables','Expected output','Quality score','Next prompt improvement']},
+  {id:'research',label:'Research Library',icon:'📚',hint:'Keep competitors, papers, user interviews, articles, videos, and market evidence in one place.',titleLabel:'Research Source / Topic',extraLabel:'Link / source type',notesLabel:'Key learning, evidence, quote summary, action to apply',template:['Source/link','Main learning','Evidence strength','Competitor insight','How it changes product','Next research question']},
+  {id:'feedback',label:'User Feedback',icon:'🗣',hint:'Collect tester notes, confusion, feature requests, satisfaction, and willingness to use/pay.',titleLabel:'User / Feedback Session',extraLabel:'Rating / user type',notesLabel:'What user tried, what confused them, quote summary, requested changes, next action',template:['Who tested it','What task they tried','Confusion points','Positive signal','Feature request','Would they use/pay?']},
+  {id:'bugs',label:'Bugs / Problems',icon:'🐞',hint:'Track technical bugs, UX issues, AI output problems, and blockers until fixed.',titleLabel:'Bug / Problem',extraLabel:'Severity / device',notesLabel:'Steps to reproduce, expected result, actual result, fix idea, test after fix',template:['Steps to reproduce','Expected result','Actual result','Severity','Possible cause','Fix verification']},
+  {id:'roadmap',label:'Roadmap',icon:'🗺',hint:'Plan phases from idea to research, prototype, MVP, beta testing, launch, and growth.',titleLabel:'Roadmap Milestone',extraLabel:'Phase / deadline',notesLabel:'Outcome, deliverables, dependencies, risks, definition of done',template:['Phase name','Outcome','Deliverables','Dependency','Risk','Definition of done']},
+  {id:'market',label:'Market / Customers',icon:'🎯',hint:'Define customer segments, pricing, competitors, channels, positioning, and early adopter profile.',titleLabel:'Market / Customer Segment',extraLabel:'Segment / channel',notesLabel:'Customer profile, pain, budget, competitor, acquisition channel, offer',template:['Customer segment','Pain + urgency','Budget/willingness to pay','Current alternatives','Acquisition channel','Offer/message']},
+  {id:'team',label:'Team & Roles',icon:'👥',hint:'Clarify founder responsibilities, needed skills, advisors, helpers, and accountability.',titleLabel:'Role / Person',extraLabel:'Owner / skill gap',notesLabel:'Responsibilities, weekly deliverables, skills needed, accountability',template:['Role','Responsibilities','Skills needed','Weekly deliverable','Current owner','Help needed']},
+  {id:'weekly',label:'Weekly Founder Review',icon:'📆',hint:'Review what was built, what was learned, user signals, mistakes, and next week priorities.',titleLabel:'Weekly Review',extraLabel:'Week / score',notesLabel:'Built, learned, feedback, mistakes, metrics, next week goal',template:['What I built','What I learned','User feedback signal','Mistakes / blockers','Metrics','Next week top 3']}
+];
+const AIS_STARTER_ITEMS=[
+  ['idea','Define the core painful problem','High','progress','Beginner validation','Problem: What exact problem am I solving?\nTarget user: Who has this problem daily or weekly?\nCurrent workaround: How do they solve it now?\nAI advantage: Why is AI useful here?\nValidation: Talk to 3 real people before building more.'],
+  ['idea','Write one clear value proposition','High','not-started','Positioning','For [target user] who struggle with [problem], my AI product helps them [result] by [AI advantage], unlike [alternative].'],
+  ['mvp','Build smallest testable version','Critical','progress','MVP v0.1','Must-have only: one workflow that solves one problem.\nDo not build: login, payments, advanced dashboard, extra features until users confirm value.\nSuccess metric: 5 testers complete the main task.'],
+  ['mvp','Create MVP launch checklist','High','not-started','Checklist','Landing page or simple demo link.\nClear onboarding steps.\nFeedback form.\nBasic bug log.\nOne success metric.\nManual support process.'],
+  ['features','Core user input flow','High','not-started','Must-have','User story: As a beginner user, I can enter my problem and get a useful AI output.\nAcceptance: output is clear, saved, and editable.'],
+  ['features','Save and edit user outputs','Medium','not-started','Should-have','Purpose: users should not lose useful AI results.\nAcceptance: save, edit, delete, and view history.'],
+  ['prompts','Main product prompt v1','High','progress','Prompt v1','Goal: produce useful output for the core user problem.\nInputs: user goal, context, constraints.\nOutput: step-by-step result with next actions.\nQuality score: test with 5 examples.'],
+  ['prompts','Prompt evaluation checklist','Medium','not-started','Quality system','Check: accuracy, clarity, usefulness, safety, formatting, and whether output helps the user take action.'],
+  ['research','Competitor research list','High','not-started','Competitors','Find 5 alternatives: ChatGPT workflow, apps, websites, Notion templates, agencies.\nRecord: what they do well, weakness, price, and gap.'],
+  ['research','Customer interview notes','High','not-started','User research','Ask: What is hard? How do you solve it now? What did you try? What would you pay for? What would make this a must-use product?'],
+  ['feedback','First 5 tester feedback sessions','Critical','not-started','User testing','Tester name/type.\nTask attempted.\nWhere they got confused.\nWhat they liked.\nWhat they asked for.\nWould they use it again?'],
+  ['feedback','Feedback scoring system','Medium','not-started','Score 1-5','Score each session: usefulness, clarity, speed, trust, willingness to use again.'],
+  ['bugs','AI output is too generic','High','not-started','AI quality','Steps: enter a vague user problem.\nActual: generic advice.\nExpected: asks clarifying questions and gives personalized action plan.\nFix: add context questions and examples.'],
+  ['bugs','Mobile layout / button test','Medium','testing','UX bug','Test all buttons on phone, GitHub Pages, and Chrome. Record broken clicks, clipped text, or saved data issues.'],
+  ['roadmap','Phase 1: Problem validation','Critical','progress','Week 1','Deliverables: problem statement, target user, 3 interviews, competitor list, MVP scope.\nDone when: one clear user pain is confirmed.'],
+  ['roadmap','Phase 2: Prototype and MVP test','High','not-started','Week 2-3','Deliverables: clickable prototype or simple AI workflow, 5 testers, feedback log, bug fixes.'],
+  ['market','Early adopter profile','High','not-started','Customer segment','Who needs this urgently? What do they already spend time/money on? Where can I find them online/offline?'],
+  ['market','Pricing and offer hypothesis','Medium','not-started','Offer','Free beta? One-time setup? Monthly plan? Service + software? Test willingness before building payment system.'],
+  ['team','Founder role: product and validation','High','progress','Haider','Responsibilities: talk to users, define MVP, test prompts, record feedback, decide next action weekly.'],
+  ['team','Needed helper: technical builder/tester','Medium','not-started','Skill gap','Need someone or tool stack for code review, deployment, bug fixing, and UI testing.'],
+  ['weekly','Week 1 founder review','High','not-started','Review','Built: \nLearned: \nUser feedback: \nMistakes: \nBiggest blocker: \nNext week top 3 actions: ']
 ];
 let aisCurrentCat='idea';
-function aisEsc(x){return String(x==null?'':x).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function aisEsc(x){return String(x==null?'':x).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function aisToday(){try{return dateKey(new Date());}catch(e){return new Date().toISOString().slice(0,10);}}
-function aisDefaultState(){return {overview:{startupName:'DAAI',targetUser:'',oneLineIdea:'',weeklyGoal:'',nextAction:''},items:[]};}
-function aisLoad(){try{const raw=localStorage.getItem(AIS_KEY);if(raw){const st=JSON.parse(raw);st.overview=st.overview||aisDefaultState().overview;st.items=Array.isArray(st.items)?st.items:[];return st;}}catch(e){}return aisDefaultState();}
+function aisDefaultState(){return {overview:{startupName:'DAAI',targetUser:'',oneLineIdea:'',weeklyGoal:'Validate one painful AI startup problem with 3 real users',nextAction:'Choose one target user and record the first interview'},items:aisStarterObjects()};}
+function aisStarterObjects(){return AIS_STARTER_ITEMS.map((r,i)=>({id:'starter_'+i+'_'+r[0],category:r[0],title:r[1],priority:r[2],status:r[3],extra:r[4],notes:r[5],date:aisToday(),created:Date.now()+i,starter:true}));}
+function aisLoad(){try{let raw=localStorage.getItem(AIS_KEY);if(!raw && localStorage.getItem(AIS_OLD_KEY)){raw=localStorage.getItem(AIS_OLD_KEY);}if(raw){const st=JSON.parse(raw);st.overview=Object.assign({},aisDefaultState().overview,st.overview||{});st.items=Array.isArray(st.items)?st.items:[];if(!st.items.length)st.items=aisStarterObjects();return st;}}catch(e){}return aisDefaultState();}
 function aisSave(st){try{localStorage.setItem(AIS_KEY,JSON.stringify(st));}catch(e){alert('AI Startup data could not save. Browser storage may be full.');}}
 function aisCat(id){return AIS_CATS.find(c=>c.id===id)||AIS_CATS[0];}
-function aisPopulateCats(){const sel=document.getElementById('aisCategory');if(!sel)return;sel.innerHTML=AIS_CATS.map(c=>`<option value="${c.id}">${c.icon} ${c.label}</option>`).join('');}
+function aisPopulateCats(){const sel=document.getElementById('aisCategory');if(!sel)return;const cur=sel.value||aisCurrentCat;sel.innerHTML=AIS_CATS.map(c=>`<option value="${c.id}">${c.icon} ${c.label}</option>`).join('');sel.value=cur;}
+function aisCatStats(st,catId){const arr=st.items.filter(x=>x.category===catId && x.status!=='removed');const done=arr.filter(x=>x.status==='done').length;const blocked=arr.filter(x=>x.status==='blocked').length;const pct=arr.length?Math.round(done*100/arr.length):0;return {arr,done,blocked,pct,total:arr.length};}
 function aisRender(){
   const root=document.getElementById('page-aistartup'); if(!root) return;
   aisPopulateCats();
   const st=aisLoad();
   const o=st.overview||{};
   [['aisStartupName',o.startupName||''],['aisTargetUser',o.targetUser||''],['aisOneLineIdea',o.oneLineIdea||''],['aisWeeklyGoal',o.weeklyGoal||''],['aisNextAction',o.nextAction||'']].forEach(([id,val])=>{const el=document.getElementById(id); if(el && document.activeElement!==el) el.value=val;});
-  const total=st.items.filter(x=>x.status!=='removed').length;
-  const done=st.items.filter(x=>x.status==='done').length;
+  const activeItems=st.items.filter(x=>x.status!=='removed');
+  const total=activeItems.length;
+  const done=activeItems.filter(x=>x.status==='done').length;
   const pct=total?Math.round(done*100/total):0;
-  const mvp=st.items.filter(x=>x.category==='mvp').length;
-  const bugs=st.items.filter(x=>x.category==='bugs' && x.status!=='done' && x.status!=='removed').length;
-  const feedback=st.items.filter(x=>x.category==='feedback').length;
+  const mvp=activeItems.filter(x=>x.category==='mvp').length;
+  const bugs=activeItems.filter(x=>x.category==='bugs' && x.status!=='done').length;
+  const feedback=activeItems.filter(x=>x.category==='feedback').length;
   const set=(id,v)=>{const el=document.getElementById(id); if(el) el.textContent=v;};
   set('aisTotalStat',total); set('aisDoneStat',done); set('aisProgressStat',pct+'%'); set('aisMvpStat',mvp); set('aisBugStat',bugs); set('aisFeedbackStat',feedback); set('aisProgressText',done+'/'+total+' done');
   const fill=document.getElementById('aisMainProgressFill'); if(fill) fill.style.width=pct+'%';
   const tabs=document.getElementById('aisTabs'); if(tabs) tabs.innerHTML=AIS_CATS.map(c=>`<button class="ais-tab ${c.id===aisCurrentCat?'active':''}" onclick="aisSwitchCat('${c.id}')">${c.icon} ${c.label}</button>`).join('');
   const label=document.getElementById('aisCurrentTabLabel'); if(label) label.textContent=aisCat(aisCurrentCat).label;
+  const gl=document.getElementById('aisGuideLabel'); if(gl) gl.textContent=aisCat(aisCurrentCat).label;
+  const sel=document.getElementById('aisCategory'); if(sel && document.activeElement!==sel) sel.value=aisCurrentCat;
+  aisUpdateFormLabels();
+  aisRenderDashboard(st);
+  aisRenderTemplate();
   aisRenderList(st);
 }
+function aisRenderDashboard(st){
+  const dash=document.getElementById('aisDashboard'); if(!dash)return;
+  dash.innerHTML=AIS_CATS.map(c=>{const cs=aisCatStats(st,c.id);return `<div class="ais-dash-card ${c.id===aisCurrentCat?'active':''}" onclick="aisSwitchCat('${c.id}')"><div class="ais-dash-top"><div class="ais-dash-icon">${c.icon}</div><div class="ais-dash-num">${cs.total}</div></div><div class="ais-dash-title">${aisEsc(c.label)}</div><div class="ais-dash-sub">${cs.done} done · ${cs.blocked} blocked · ${cs.pct}%</div><div class="ais-dash-bar"><div class="ais-dash-fill" style="width:${cs.pct}%"></div></div></div>`;}).join('');
+  const total=st.items.filter(x=>x.status!=='removed').length, done=st.items.filter(x=>x.status==='done').length, blocked=st.items.filter(x=>x.status==='blocked').length;
+  const feedback=aisCatStats(st,'feedback').total, bugs=aisCatStats(st,'bugs').arr.filter(x=>x.status!=='done').length, mvpDone=aisCatStats(st,'mvp').pct;
+  const signal=document.getElementById('aisFounderSignal'); if(signal){
+    let msg='Start with problem validation: define one painful problem, talk to real users, then build only the smallest useful MVP.';
+    if(feedback<3) msg='Your biggest next move: collect at least 3 user feedback sessions. Real feedback decides what to build next.';
+    else if(bugs>0) msg='You have open bugs/problems. Fix the biggest blocker before adding more features.';
+    else if(mvpDone<60) msg='MVP is still forming. Keep scope small: one user, one problem, one useful workflow.';
+    else msg='Good signal: you have MVP progress and feedback. Focus on repeating the user test and improving the highest-value workflow.';
+    signal.textContent=msg;
+  }
+  const health=document.getElementById('aisQuickHealth'); if(health){health.innerHTML=`<div class="ais-quick-row"><span>Active startup items</span><span>${total}</span></div><div class="ais-quick-row"><span>Completed items</span><span>${done}</span></div><div class="ais-quick-row"><span>Blocked items</span><span>${blocked}</span></div><div class="ais-quick-row"><span>Feedback sessions</span><span>${feedback}</span></div><div class="ais-quick-row"><span>Open bugs</span><span>${bugs}</span></div>`;}
+  const ds=document.getElementById('aisDashboardSignal'); if(ds) ds.textContent= total? Math.round(done*100/total)+'% complete':'Starter ready';
+}
+function aisRenderTemplate(){const c=aisCat(aisCurrentCat);const box=document.getElementById('aisTemplateBox');if(!box)return;box.innerHTML=`<div class="ais-template-card"><div class="ais-template-head"><div><div class="ais-template-title">${c.icon} ${aisEsc(c.label)} System</div><div class="ais-template-sub">${aisEsc(c.hint)}</div></div><span class="ais-pill">Beginner Guide</span></div><div class="ais-template-grid">${c.template.map((t,i)=>`<div class="ais-template-box"><strong>Step ${i+1}</strong><div>${aisEsc(t)}</div></div>`).join('')}</div></div>`;}
+function aisUpdateFormLabels(){const c=aisCat(aisCurrentCat);const tl=document.getElementById('aisTitleLabel'), el=document.getElementById('aisExtraLabel'), nl=document.getElementById('aisNotesLabel');if(tl)tl.textContent=c.titleLabel||'Title';if(el)el.textContent=c.extraLabel||'Extra';if(nl)nl.textContent=c.notesLabel||'Notes / Details';}
 function aisRenderList(st){
   const el=document.getElementById('aisList'); if(!el)return;
   const cat=aisCat(aisCurrentCat);
-  const arr=st.items.filter(x=>x.category===aisCurrentCat).sort((a,b)=>(b.date||'').localeCompare(a.date||'') || (b.created||0)-(a.created||0));
-  if(!arr.length){el.innerHTML=`<div class="ais-empty">No items in <strong>${aisEsc(cat.label)}</strong> yet.<br>${aisEsc(cat.hint)}. Use the form above to add your first item.</div>`;return;}
-  el.innerHTML=arr.map(it=>{
-    const statusClass=(it.status||'').replace('in-','').replace('not-','');
-    return `<div class="ais-item"><div class="ais-item-head"><div><div class="ais-item-title">${aisEsc(it.title||'Untitled')}</div><div class="ais-item-meta">${aisEsc(cat.icon+' '+cat.label)} · ${aisEsc(it.priority||'Medium')} · ${aisEsc(it.date||'No date')}${it.extra?' · '+aisEsc(it.extra):''}</div></div><span class="ais-pill ${statusClass}">${aisEsc((it.status||'not-started').replace(/-/g,' '))}</span></div>${it.notes?`<div class="ais-item-notes">${aisEsc(it.notes)}</div>`:''}<div class="ais-item-actions"><button class="ais-mini-btn" onclick="aisEditItem('${it.id}')">Edit</button><button class="ais-mini-btn" onclick="aisMarkDone('${it.id}')">${it.status==='done'?'Mark Progress':'Mark Done'}</button><button class="ais-mini-btn danger" onclick="aisDeleteItem('${it.id}')">Remove</button></div></div>`;
-  }).join('');
+  const q=(document.getElementById('aisSearchInput')?.value||'').trim().toLowerCase();
+  const sf=document.getElementById('aisStatusFilter')?.value||'all';
+  let arr=st.items.filter(x=>x.category===aisCurrentCat && x.status!=='removed');
+  if(sf!=='all') arr=arr.filter(x=>x.status===sf);
+  if(q) arr=arr.filter(x=>[x.title,x.extra,x.notes,x.status,x.priority].join(' ').toLowerCase().includes(q));
+  arr=arr.sort((a,b)=>(b.date||'').localeCompare(a.date||'') || (b.created||0)-(a.created||0));
+  if(!arr.length){el.innerHTML=`<div class="ais-empty">No visible items in <strong>${aisEsc(cat.label)}</strong> yet.<br>${aisEsc(cat.hint)}. Use the form above or click “Add Starter Items For This Subsection”.</div>`;return;}
+  el.innerHTML=arr.map(it=>{const statusClass=(it.status||'').replace('in-','').replace('not-','');const checks=cat.template.slice(0,3).map((x,i)=>`<div class="ais-check-chip ${it.status==='done'?'done':''}">${i+1}. ${aisEsc(x)}</div>`).join('');return `<div class="ais-item"><div class="ais-item-head"><div><div class="ais-item-title">${aisEsc(it.title||'Untitled')}</div><div class="ais-item-meta">${aisEsc(cat.icon+' '+cat.label)} · ${aisEsc(it.priority||'Medium')} · ${aisEsc(it.date||'No date')}${it.extra?' · '+aisEsc(it.extra):''}${it.starter?' · Starter':''}</div></div><span class="ais-pill ${statusClass}">${aisEsc((it.status||'not-started').replace(/-/g,' '))}</span></div>${it.notes?`<div class="ais-item-notes">${aisEsc(it.notes)}</div>`:''}<div class="ais-item-checks">${checks}</div><div class="ais-item-actions"><button class="ais-mini-btn" onclick="aisEditItem('${it.id}')">Edit</button><button class="ais-mini-btn" onclick="aisMarkDone('${it.id}')">${it.status==='done'?'Mark Progress':'Mark Done'}</button><button class="ais-mini-btn" onclick="aisDuplicateItem('${it.id}')">Duplicate</button><button class="ais-mini-btn danger" onclick="aisDeleteItem('${it.id}')">Remove</button></div></div>`;}).join('');
 }
-function aisSwitchCat(cat){aisCurrentCat=cat;const sel=document.getElementById('aisCategory');if(sel)sel.value=cat;aisRender();}
+function aisSwitchCat(cat){aisCurrentCat=cat;const sel=document.getElementById('aisCategory');if(sel)sel.value=cat;aisUpdateFormLabels();aisRender();}
 function aisSaveOverview(){const st=aisLoad();st.overview={startupName:document.getElementById('aisStartupName')?.value.trim()||'',targetUser:document.getElementById('aisTargetUser')?.value.trim()||'',oneLineIdea:document.getElementById('aisOneLineIdea')?.value.trim()||'',weeklyGoal:document.getElementById('aisWeeklyGoal')?.value.trim()||'',nextAction:document.getElementById('aisNextAction')?.value.trim()||''};aisSave(st);aisRender();alert('AI Startup overview saved.');}
-function aisClearForm(){['aisEditId','aisTitleInput','aisExtraInput','aisNotesInput'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});const d=document.getElementById('aisDateInput');if(d)d.value=aisToday();const s=document.getElementById('aisStatus');if(s)s.value='not-started';const p=document.getElementById('aisPriority');if(p)p.value='High';const c=document.getElementById('aisCategory');if(c)c.value=aisCurrentCat;const lab=document.getElementById('aisEditingLabel');if(lab)lab.textContent='New';}
-function aisSaveItem(){const st=aisLoad();const id=document.getElementById('aisEditId')?.value||'';const title=document.getElementById('aisTitleInput')?.value.trim()||'';if(!title){alert('Please write a title first.');return;}const item={id:id||('ais_'+Date.now()),category:document.getElementById('aisCategory')?.value||aisCurrentCat,title,status:document.getElementById('aisStatus')?.value||'not-started',priority:document.getElementById('aisPriority')?.value||'High',date:document.getElementById('aisDateInput')?.value||aisToday(),extra:document.getElementById('aisExtraInput')?.value.trim()||'',notes:document.getElementById('aisNotesInput')?.value.trim()||'',created:Date.now()};if(id){const idx=st.items.findIndex(x=>x.id===id);if(idx>=0){item.created=st.items[idx].created||Date.now();st.items[idx]=item;}}else{st.items.push(item);}aisCurrentCat=item.category;aisSave(st);aisClearForm();aisRender();}
-function aisEditItem(id){const st=aisLoad();const it=st.items.find(x=>x.id===id);if(!it)return;aisCurrentCat=it.category||'idea';aisPopulateCats();const set=(id2,val)=>{const el=document.getElementById(id2); if(el) el.value=val||'';};set('aisEditId',it.id);set('aisCategory',it.category);set('aisStatus',it.status);set('aisPriority',it.priority);set('aisTitleInput',it.title);set('aisDateInput',it.date);set('aisExtraInput',it.extra);set('aisNotesInput',it.notes);const lab=document.getElementById('aisEditingLabel');if(lab)lab.textContent='Editing';aisRender();setTimeout(()=>{document.getElementById('aisTitleInput')?.focus();},50);}
+function aisClearForm(){['aisEditId','aisTitleInput','aisExtraInput','aisNotesInput'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});const d=document.getElementById('aisDateInput');if(d)d.value=aisToday();const s=document.getElementById('aisStatus');if(s)s.value='not-started';const p=document.getElementById('aisPriority');if(p)p.value='High';const c=document.getElementById('aisCategory');if(c)c.value=aisCurrentCat;const lab=document.getElementById('aisEditingLabel');if(lab)lab.textContent='New';aisUpdateFormLabels();}
+function aisPrefillFromTemplate(){const c=aisCat(aisCurrentCat);const title=document.getElementById('aisTitleInput');const extra=document.getElementById('aisExtraInput');const notes=document.getElementById('aisNotesInput');if(title && !title.value)title.value=c.label+' item';if(extra && !extra.value)extra.value='New';if(notes)notes.value=c.template.map(x=>x+': ').join('\n');}
+function aisSaveItem(){const st=aisLoad();const id=document.getElementById('aisEditId')?.value||'';const title=document.getElementById('aisTitleInput')?.value.trim()||'';if(!title){alert('Please write a title first.');return;}const item={id:id||('ais_'+Date.now()),category:document.getElementById('aisCategory')?.value||aisCurrentCat,title,status:document.getElementById('aisStatus')?.value||'not-started',priority:document.getElementById('aisPriority')?.value||'High',date:document.getElementById('aisDateInput')?.value||aisToday(),extra:document.getElementById('aisExtraInput')?.value.trim()||'',notes:document.getElementById('aisNotesInput')?.value.trim()||'',created:Date.now(),starter:false};if(id){const idx=st.items.findIndex(x=>x.id===id);if(idx>=0){item.created=st.items[idx].created||Date.now();item.starter=!!st.items[idx].starter;st.items[idx]=item;}}else{st.items.push(item);}aisCurrentCat=item.category;aisSave(st);aisClearForm();aisRender();}
+function aisEditItem(id){const st=aisLoad();const it=st.items.find(x=>x.id===id);if(!it)return;aisCurrentCat=it.category||'idea';aisPopulateCats();const set=(id2,val)=>{const el=document.getElementById(id2); if(el) el.value=val||'';};set('aisEditId',it.id);set('aisCategory',it.category);set('aisStatus',it.status);set('aisPriority',it.priority);set('aisTitleInput',it.title);set('aisDateInput',it.date);set('aisExtraInput',it.extra);set('aisNotesInput',it.notes);const lab=document.getElementById('aisEditingLabel');if(lab)lab.textContent='Editing';aisUpdateFormLabels();aisRender();setTimeout(()=>{document.getElementById('aisTitleInput')?.focus();},50);}
 function aisDeleteItem(id){if(!confirm('Remove this AI Startup item?'))return;const st=aisLoad();st.items=st.items.filter(x=>x.id!==id);aisSave(st);aisRender();}
 function aisMarkDone(id){const st=aisLoad();const it=st.items.find(x=>x.id===id);if(!it)return;it.status=it.status==='done'?'progress':'done';if(!it.date)it.date=aisToday();aisSave(st);aisRender();}
-function aisExportReport(){const st=aisLoad();const o=st.overview||{};const total=st.items.length, done=st.items.filter(x=>x.status==='done').length;const pct=total?Math.round(done*100/total):0;const byCat=AIS_CATS.map(c=>({c,items:st.items.filter(x=>x.category===c.id)}));const html=`<!doctype html><html><head><meta charset="utf-8"><title>AI Startup Report</title><style>body{font-family:Inter,Arial,sans-serif;padding:28px;color:#111827;line-height:1.55}h1{margin:0 0 6px}.muted{color:#526174}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.kpi{border:1px solid #d9e2ef;border-radius:12px;padding:12px;text-align:center}.num{font-size:24px;font-weight:800}.item{border:1px solid #d9e2ef;border-radius:12px;padding:12px;margin:9px 0}.notes{white-space:pre-wrap}.tag{font-size:11px;color:#2563eb;font-weight:700}button{float:right;padding:10px 14px;border:1px solid #2563eb;border-radius:8px;background:#2563eb;color:white}@media print{button{display:none}.kpis{grid-template-columns:repeat(2,1fr)}}</style></head><body><button onclick="window.print()">Save / Print PDF</button><h1>${aisEsc(o.startupName||'AI Startup')} Report</h1><div class="muted">Generated ${new Date().toLocaleString()}</div><p><strong>Target user:</strong> ${aisEsc(o.targetUser||'-')}<br><strong>Idea:</strong> ${aisEsc(o.oneLineIdea||'-')}<br><strong>Weekly goal:</strong> ${aisEsc(o.weeklyGoal||'-')}<br><strong>Next action:</strong> ${aisEsc(o.nextAction||'-')}</p><div class="kpis"><div class="kpi"><div class="num">${total}</div><div>Total Items</div></div><div class="kpi"><div class="num">${done}</div><div>Done</div></div><div class="kpi"><div class="num">${pct}%</div><div>Progress</div></div><div class="kpi"><div class="num">${st.items.filter(x=>x.category==='feedback').length}</div><div>User Feedback</div></div></div>${byCat.map(group=>`<h2>${group.c.icon} ${aisEsc(group.c.label)}</h2>${group.items.length?group.items.map(it=>`<div class="item"><strong>${aisEsc(it.title)}</strong><br><span class="tag">${aisEsc(it.status)} · ${aisEsc(it.priority)} · ${aisEsc(it.date||'')}</span>${it.extra?`<div class="muted">${aisEsc(it.extra)}</div>`:''}<div class="notes">${aisEsc(it.notes||'')}</div></div>`).join(''):'<p class="muted">No items yet.</p>'}`).join('')}</body></html>`;const w=window.open('','_blank');if(!w){alert('Popup blocked. Please allow popups, then click Print / PDF Report again.');return;}w.document.open();w.document.write(html);w.document.close();setTimeout(()=>{try{w.focus();w.print();}catch(e){}},500);}
+function aisDuplicateItem(id){const st=aisLoad();const it=st.items.find(x=>x.id===id);if(!it)return;const copy=Object.assign({},it,{id:'ais_'+Date.now(),title:(it.title||'Item')+' copy',status:'not-started',created:Date.now(),starter:false});st.items.push(copy);aisSave(st);aisRender();}
+function aisAddCategoryStarter(catId){const st=aisLoad();const add=AIS_STARTER_ITEMS.filter(r=>r[0]===catId).map((r,i)=>({id:'ais_'+Date.now()+'_'+i,category:r[0],title:r[1],priority:r[2],status:r[3],extra:r[4],notes:r[5],date:aisToday(),created:Date.now()+i,starter:true}));st.items.push(...add);aisSave(st);aisRender();}
+function aisRestoreStarterPack(){if(!confirm('Add the beginner starter pack to AI Startup? Existing items will stay.'))return;const st=aisLoad();const existing=new Set(st.items.map(x=>(x.category+'|'+x.title).toLowerCase()));const add=aisStarterObjects().filter(x=>!existing.has((x.category+'|'+x.title).toLowerCase()));st.items.push(...add);aisSave(st);aisRender();}
+function aisMarkCategoryDone(catId){if(!confirm('Mark all visible items in this subsection as done?'))return;const st=aisLoad();st.items.forEach(x=>{if(x.category===catId && x.status!=='removed')x.status='done';});aisSave(st);aisRender();}
+function aisExportReport(){const st=aisLoad();const o=st.overview||{};const active=st.items.filter(x=>x.status!=='removed');const total=active.length, done=active.filter(x=>x.status==='done').length;const pct=total?Math.round(done*100/total):0;const byCat=AIS_CATS.map(c=>({c,items:active.filter(x=>x.category===c.id)}));const html=`<!doctype html><html><head><meta charset="utf-8"><title>AI Startup Report</title><style>body{font-family:Inter,Arial,sans-serif;padding:28px;color:#111827;line-height:1.55}h1{margin:0 0 6px}.muted{color:#526174}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.kpi{border:1px solid #d9e2ef;border-radius:12px;padding:12px;text-align:center}.num{font-size:24px;font-weight:800}.item{border:1px solid #d9e2ef;border-radius:12px;padding:12px;margin:9px 0}.notes{white-space:pre-wrap}.tag{font-size:11px;color:#2563eb;font-weight:700}button{float:right;padding:10px 14px;border:1px solid #2563eb;border-radius:8px;background:#2563eb;color:white}@media print{button{display:none}.kpis{grid-template-columns:repeat(2,1fr)}}</style></head><body><button onclick="window.print()">Save / Print PDF</button><h1>${aisEsc(o.startupName||'AI Startup')} Report</h1><div class="muted">Generated ${new Date().toLocaleString()}</div><p><strong>Target user:</strong> ${aisEsc(o.targetUser||'-')}<br><strong>Idea:</strong> ${aisEsc(o.oneLineIdea||'-')}<br><strong>Weekly goal:</strong> ${aisEsc(o.weeklyGoal||'-')}<br><strong>Next action:</strong> ${aisEsc(o.nextAction||'-')}</p><div class="kpis"><div class="kpi"><div class="num">${total}</div><div>Total Items</div></div><div class="kpi"><div class="num">${done}</div><div>Done</div></div><div class="kpi"><div class="num">${pct}%</div><div>Progress</div></div><div class="kpi"><div class="num">${active.filter(x=>x.category==='feedback').length}</div><div>User Feedback</div></div></div>${byCat.map(group=>`<h2>${group.c.icon} ${aisEsc(group.c.label)}</h2>${group.items.length?group.items.map(it=>`<div class="item"><strong>${aisEsc(it.title)}</strong><br><span class="tag">${aisEsc(it.status)} · ${aisEsc(it.priority)} · ${aisEsc(it.date||'')}</span>${it.extra?`<div class="muted">${aisEsc(it.extra)}</div>`:''}<div class="notes">${aisEsc(it.notes||'')}</div></div>`).join(''):'<p class="muted">No items yet.</p>'}`).join('')}</body></html>`;const w=window.open('','_blank');if(!w){alert('Popup blocked. Please allow popups, then click Print / PDF Report again.');return;}w.document.open();w.document.write(html);w.document.close();setTimeout(()=>{try{w.focus();w.print();}catch(e){}},500);}
+
 
 // ── INIT ──
 purgeLegacyTrackerData();
