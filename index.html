@@ -8334,7 +8334,17 @@ window.libOpenBookModal=function(id){
 const LIB_READING_SETTINGS_KEY='lib_reading_settings_v1';
 function libGetReadingSettings(){return load(LIB_READING_SETTINGS_KEY)||{yearTarget:12,weekTarget:80,calendarWeeks:12};}
 function libSaveReadingSettings(st){save(LIB_READING_SETTINGS_KEY,st);}
-function libDateISO(d){const x=new Date(d);if(isNaN(x))return '';return x.toISOString().slice(0,10);}
+function libDateISO(d){
+  // Reading calendar fix: use LOCAL date parts, not UTC toISOString().
+  // In PKT/other non-UTC time zones, toISOString() moves midnight back one day,
+  // which made May 18 save/display as May 17 and shifted the selected calendar cell.
+  const x=new Date(d);
+  if(isNaN(x))return '';
+  const y=x.getFullYear();
+  const m=String(x.getMonth()+1).padStart(2,'0');
+  const day=String(x.getDate()).padStart(2,'0');
+  return `${y}-${m}-${day}`;
+}
 function libTodayISO(){return libDateISO(new Date());}
 function libDaysBetween(a,b){const A=new Date(a);const B=new Date(b);A.setHours(0,0,0,0);B.setHours(0,0,0,0);return Math.ceil((B-A)/86400000);}
 function libEscape(v){return String(v||'').replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));}
@@ -12119,7 +12129,7 @@ window.cloudSaveNow = cloudSaveNow;
   };
   window.libRenderReadingCalendar=function(){
     const el=document.getElementById('lib-reading-calendar'); if(!el)return;
-    const month=(typeof libStartOfMonth==='function'?libStartOfMonth(window.libCalendarMonthDate||new Date()):new Date(new Date().getFullYear(),new Date().getMonth(),1));
+    const month=(typeof libStartOfMonth==='function'?libStartOfMonth(libCalendarMonthDate||new Date()):new Date(new Date().getFullYear(),new Date().getMonth(),1));
     const end=(typeof libEndOfMonth==='function'?libEndOfMonth(month):new Date(month.getFullYear(),month.getMonth()+1,0));
     const books=getBooks(); const st=(typeof libReadingStats==='function'?libReadingStats():{completed:books.filter(b=>b.status==='completed'),yearCompleted:0});
     const logs=allLessonLogs().filter(l=>sameMonth(l.date,month));
@@ -12147,6 +12157,29 @@ window.cloudSaveNow = cloudSaveNow;
     el.innerHTML=html;
   };
 })();
+
+
+// ── READING CALENDAR MONTH NAVIGATION FIX ──
+// Keeps the dashboard calendar on the selected month when Prev / Today / Next are clicked.
+window.libMoveReadingMonth=function(delta){
+  try{
+    const base=(typeof libCalendarMonthDate!=='undefined' && libCalendarMonthDate)?libCalendarMonthDate:new Date();
+    libCalendarMonthDate=new Date(base.getFullYear(),base.getMonth()+Number(delta||0),1);
+    if(typeof libRenderReadingDashboard==='function') libRenderReadingDashboard();
+    else if(typeof libRenderReadingCalendar==='function') libRenderReadingCalendar();
+  }catch(e){console.error('Reading month navigation failed',e);}
+};
+window.libGoReadingMonthToday=function(){
+  try{
+    libCalendarMonthDate=new Date();
+    libCalendarMonthDate.setDate(1);
+    libSelectedCalendarISO=(typeof libTodayISO==='function')?libTodayISO():'';
+    if(typeof libRenderReadingDashboard==='function') libRenderReadingDashboard();
+    else if(typeof libRenderReadingCalendar==='function') libRenderReadingCalendar();
+  }catch(e){console.error('Reading today navigation failed',e);}
+};
+
+
 
 
 
