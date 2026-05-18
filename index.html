@@ -27,7 +27,7 @@
 })();
 </script>
 <title>90 Days Tracker</title>
-<!-- BUILD: github_click_fix_v3_2026_05_17_world_time_weather_visible_v2 -->
+<!-- BUILD: github_click_fix_v3_2026_05_17_world_time_weather_visible_v2_entrepreneurship_business_2026_05_18 -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -2174,6 +2174,65 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 @media(max-width:980px){.journal-grid{grid-template-columns:1fr;}.journal-kpi-grid{grid-template-columns:repeat(2,1fr);}.journal-form-grid{grid-template-columns:1fr;}.journal-form-grid .full{grid-column:auto;}}
 @media(max-width:560px){.journal-calendar{gap:5px;}.journal-cal-day{min-height:68px;border-radius:14px;padding:7px 5px;}.journal-percent-grid,.journal-kpi-grid{grid-template-columns:1fr;}.journal-toolbar{align-items:stretch;}.journal-toolbar .date-nav-btns{width:100%;}.journal-toolbar .dnav-btn{flex:1;}}
 
+
+
+/* ── ENTREPRENEURSHIP & BUSINESS DEVELOPMENT SECTION (added only; existing sections preserved) ── */
+.ebd-hero{margin-top:20px;border:1px solid rgba(140,199,255,.16);border-radius:24px;padding:22px;background:linear-gradient(135deg,rgba(59,130,246,.14),rgba(16,185,129,.06),rgba(255,255,255,.025));box-shadow:0 20px 60px rgba(0,0,0,.28);position:relative;overflow:hidden;}
+.ebd-hero:before{content:"";position:absolute;inset:auto -80px -120px auto;width:260px;height:260px;background:radial-gradient(circle,rgba(56,189,248,.18),transparent 65%);pointer-events:none;}
+.ebd-title{font-size:26px;font-weight:900;letter-spacing:-.04em;color:#F4F9FF;margin:0 0 8px;}
+.ebd-sub{color:#AAB6CA;line-height:1.7;font-size:13px;max-width:980px;}
+.ebd-badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.ebd-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(140,199,255,.18);background:rgba(255,255,255,.035);color:#BFDBFE;border-radius:999px;padding:7px 10px;}
+.ebd-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;margin-top:16px;}
+.ebd-card{border:1px solid rgba(140,199,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));border-radius:20px;padding:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.035);}
+.ebd-card-title{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#93C5FD;font-weight:900;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.ebd-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px;}
+.ebd-stat{border:1px solid rgba(140,199,255,.10);border-radius:16px;padding:12px;background:rgba(0,0,0,.14);}
+.ebd-stat-num{font-size:24px;font-weight:900;color:#EAF4FF;line-height:1;}
+.ebd-stat-label{font-size:10px;color:#7E8CA5;text-transform:uppercase;letter-spacing:1px;margin-top:6px;font-family:'JetBrains Mono',monospace;}
+.ebd-progress-track{height:10px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;border:1px solid rgba(255,255,255,.06);margin-top:10px;}
+.ebd-progress-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#3B82F6,#38BDF8,#3DDC97);width:0%;transition:width .3s ease;}
+.ebd-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.ebd-btn{border:1px solid rgba(140,199,255,.18);background:rgba(255,255,255,.035);color:#DCEBFF;border-radius:12px;padding:9px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;cursor:pointer;transition:all .18s ease;}
+.ebd-btn:hover{border-color:#58A6FF;color:#fff;transform:translateY(-1px);}
+.ebd-btn.primary{background:linear-gradient(135deg,rgba(59,130,246,.22),rgba(16,185,129,.13));border-color:rgba(88,166,255,.34);color:#BFDBFE;}
+.ebd-btn.danger{border-color:rgba(255,107,107,.25);color:#FCA5A5;}
+.ebd-select,.ebd-input,.ebd-textarea{width:100%;border:1px solid rgba(140,199,255,.13);background:rgba(0,0,0,.18);color:#E6EDF7;border-radius:12px;padding:10px 11px;outline:none;font-family:inherit;}
+.ebd-textarea{min-height:110px;resize:vertical;line-height:1.55;}
+.ebd-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ebd-lecture-list{display:grid;gap:9px;max-height:640px;overflow:auto;padding-right:4px;}
+.ebd-lecture{border:1px solid rgba(140,199,255,.10);background:rgba(255,255,255,.026);border-radius:16px;padding:12px;display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;cursor:pointer;transition:all .18s ease;}
+.ebd-lecture:hover{border-color:rgba(88,166,255,.26);transform:translateY(-1px);}
+.ebd-lecture.active{border-color:#58A6FF;background:rgba(88,166,255,.10);}
+.ebd-lecture.done{border-color:rgba(61,220,151,.24);}
+.ebd-check{width:26px;height:26px;border-radius:9px;border:1px solid rgba(140,199,255,.20);display:flex;align-items:center;justify-content:center;color:#93A7C9;background:rgba(0,0,0,.18);font-weight:900;}
+.ebd-lecture.done .ebd-check{background:rgba(61,220,151,.13);border-color:rgba(61,220,151,.42);color:#7CFFC4;}
+.ebd-lec-title{font-weight:800;color:#EAF4FF;font-size:13px;line-height:1.35;}
+.ebd-lec-meta{font-size:11px;color:#7E8CA5;margin-top:5px;line-height:1.45;}
+.ebd-lec-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;}
+.ebd-mini-btn{border:1px solid rgba(140,199,255,.12);background:rgba(255,255,255,.035);color:#AAB6CA;border-radius:9px;padding:5px 7px;font-size:10px;font-family:'JetBrains Mono',monospace;cursor:pointer;}
+.ebd-mini-btn:hover{color:#fff;border-color:#58A6FF;}
+.ebd-module-pill{display:inline-flex;border:1px solid rgba(140,199,255,.13);border-radius:999px;padding:5px 8px;color:#BFDBFE;background:rgba(59,130,246,.08);font-size:10px;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;margin:0 5px 5px 0;}
+.ebd-detail-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px;}
+.ebd-detail-title{font-size:20px;font-weight:900;color:#F4F9FF;letter-spacing:-.03em;}
+.ebd-detail-sub{color:#93A7C9;font-size:12px;margin-top:4px;}
+.ebd-insight-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px;}
+.ebd-insight{border:1px solid rgba(140,199,255,.10);border-radius:16px;padding:12px;background:rgba(0,0,0,.12);}
+.ebd-insight h4{margin:0 0 8px;color:#BFDBFE;font-size:12px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;}
+.ebd-insight ul{margin:0;padding-left:18px;color:#AAB6CA;font-size:12px;line-height:1.65;}
+.ebd-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px;}
+.ebd-cal-head{font-family:'JetBrains Mono',monospace;font-size:10px;color:#7E8CA5;text-align:center;text-transform:uppercase;letter-spacing:1px;padding:4px;}
+.ebd-cal-day{min-height:58px;border:1px solid rgba(140,199,255,.09);background:rgba(255,255,255,.024);border-radius:12px;padding:7px;font-size:11px;color:#AAB6CA;cursor:pointer;}
+.ebd-cal-day:hover{border-color:rgba(88,166,255,.28);}
+.ebd-cal-day.today{border-color:#58A6FF;color:#EAF4FF;}
+.ebd-cal-day.has{background:rgba(61,220,151,.07);border-color:rgba(61,220,151,.20);}
+.ebd-cal-num{font-weight:900;color:#DCEBFF;}
+.ebd-cal-dot{margin-top:5px;font-size:10px;color:#7CFFC4;line-height:1.25;}
+.ebd-pdf-row{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid rgba(140,199,255,.10);border-radius:12px;padding:9px 10px;background:rgba(255,255,255,.025);margin-top:8px;}
+.ebd-pdf-name{font-size:12px;color:#DCEBFF;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ebd-hidden{display:none!important;}
+@media(max-width:900px){.ebd-grid,.ebd-insight-grid{grid-template-columns:1fr}.ebd-stats{grid-template-columns:repeat(2,1fr)}.ebd-form-grid{grid-template-columns:1fr}.ebd-lecture{grid-template-columns:auto 1fr}.ebd-lec-actions{grid-column:1/-1;justify-content:flex-start}.ebd-calendar{gap:4px}.ebd-cal-day{min-height:50px;padding:5px}}
+
 </style>
 <!-- PWA APP SUPPORT -->
 <link rel="manifest" href="manifest.json">
@@ -2227,6 +2286,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   <button class="nav-tab" onclick="navTo('islamic',this)">🌙 Islamic Calendar</button>
   <button class="nav-tab" onclick="navTo('media',this)">📚 Library</button>
   <button class="nav-tab" onclick="navTo('research',this)">🔬 Research</button>
+  <button class="nav-tab" onclick="navTo('entrepreneurship',this)">🚀 Entrepreneurship</button>
   <button class="nav-tab" onclick="navTo('priorities',this)">🎯 Priorities</button>
   <button class="nav-tab" onclick="navTo('phases',this)">🗓 90-Day Phases</button>
   <button class="nav-tab" onclick="navTo('deepwork',this)">⚡ Deep Work</button>
@@ -4195,6 +4255,91 @@ That will show him you actually studied what he gave you.</pre>
 <!-- ══════════════════════════════════════════
      PAGE: PRIORITIES
 ══════════════════════════════════════════ -->
+
+
+<!-- ══════════════════════════════════════════
+     PAGE: ENTREPRENEURSHIP & BUSINESS DEVELOPMENT
+══════════════════════════════════════════ -->
+<div id="page-entrepreneurship" class="page">
+  <div class="ebd-hero">
+    <div class="ebd-title">🚀 Entrepreneurship & Business Development</div>
+    <div class="ebd-sub">Track your Hope to Skill course <strong>Skill to Scale: Freelancing to Founder</strong>. This section helps you move from freelancer to founder by tracking lectures, saving lecture notes, attaching PDF files, planning action steps, and reviewing progress on a calendar.</div>
+    <div class="ebd-badge-row">
+      <div class="ebd-badge">Hope to Skill Platform</div>
+      <div class="ebd-badge">Freelancer → Founder</div>
+      <div class="ebd-badge">Software House Strategy</div>
+      <div class="ebd-badge">Product Startup Roadmap</div>
+    </div>
+    <div class="ebd-stats">
+      <div class="ebd-stat"><div class="ebd-stat-num" id="ebdDoneStat">0</div><div class="ebd-stat-label">Completed</div></div>
+      <div class="ebd-stat"><div class="ebd-stat-num" id="ebdTotalStat">0</div><div class="ebd-stat-label">Lectures</div></div>
+      <div class="ebd-stat"><div class="ebd-stat-num" id="ebdPdfStat">0</div><div class="ebd-stat-label">PDF Files</div></div>
+      <div class="ebd-stat"><div class="ebd-stat-num" id="ebdActionStat">0</div><div class="ebd-stat-label">Action Items</div></div>
+    </div>
+    <div class="ebd-progress-track"><div class="ebd-progress-fill" id="ebdProgressFill"></div></div>
+  </div>
+
+  <div class="ebd-grid">
+    <div class="ebd-card">
+      <div class="ebd-card-title"><span>📚 Course Lectures Tracker</span><span id="ebdProgressText">0%</span></div>
+      <div class="ebd-toolbar">
+        <button class="ebd-btn primary" onclick="ebdOpenLectureForm()">＋ Add New Lecture</button>
+        <button class="ebd-btn" onclick="ebdShowOnly('all')">All</button>
+        <button class="ebd-btn" onclick="ebdShowOnly('done')">Completed</button>
+        <button class="ebd-btn" onclick="ebdShowOnly('pending')">Pending</button>
+        <button class="ebd-btn" onclick="ebdExportReport()">📄 Print / PDF Report</button>
+      </div>
+      <div id="ebdLectureForm" class="ebd-card ebd-hidden" style="margin-top:12px;">
+        <div class="ebd-card-title"><span id="ebdFormTitle">Add / Edit Lecture</span></div>
+        <input type="hidden" id="ebdEditId">
+        <div class="ebd-form-grid">
+          <input class="ebd-input" id="ebdLectureNo" placeholder="Lecture no. e.g. 36">
+          <input class="ebd-input" id="ebdLectureTitle" placeholder="Lecture title">
+        </div>
+        <div class="ebd-form-grid" style="margin-top:10px;">
+          <select class="ebd-select" id="ebdLectureModule">
+            <option>Module 1: Entrepreneurial Foundations</option>
+            <option>Module 2: Transition - Freelancer to Founder</option>
+            <option>Module 3: Software House Strategy</option>
+            <option>Module 4: Lean Setup & Team Building</option>
+            <option>Module 5: Sales & Growth Engine</option>
+            <option>Module 6: Operations & Risk Management</option>
+            <option>Module 7: Product-Based Startup</option>
+          </select>
+          <select class="ebd-select" id="ebdLectureStatus"><option value="pending">Pending</option><option value="done">Completed</option></select>
+        </div>
+        <div class="ebd-toolbar">
+          <button class="ebd-btn primary" onclick="ebdSaveLectureForm()">Save Lecture</button>
+          <button class="ebd-btn" onclick="ebdCloseLectureForm()">Cancel</button>
+        </div>
+      </div>
+      <div class="ebd-lecture-list" id="ebdLectureList" style="margin-top:14px;"></div>
+    </div>
+
+    <div>
+      <div class="ebd-card" id="ebdLectureDetail">
+        <div class="ebd-card-title"><span>🎯 Lecture Workspace</span></div>
+        <div style="color:var(--muted);font-size:13px;line-height:1.7;">Select a lecture from the list to save notes, upload lecture PDF, and create takeaways, lessons, and action steps.</div>
+      </div>
+
+      <div class="ebd-card" style="margin-top:16px;">
+        <div class="ebd-card-title"><span>🗓 Learning Calendar</span><span id="ebdCalLabel"></span></div>
+        <div class="date-nav-btns" style="margin-bottom:10px;">
+          <button class="dnav-btn" onclick="ebdMoveMonth(-1)">← Prev</button>
+          <button class="dnav-btn today-btn" onclick="ebdGoThisMonth()">Today</button>
+          <button class="dnav-btn" onclick="ebdMoveMonth(1)">Next →</button>
+        </div>
+        <div id="ebdCalendar"></div>
+      </div>
+
+      <div class="ebd-card" style="margin-top:16px;">
+        <div class="ebd-card-title"><span>🧭 Course Roadmap</span></div>
+        <div id="ebdRoadmap"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="page-priorities" class="page">
 
   <!-- ── PRIORITY ANALYTICS DASHBOARD ── -->
@@ -10144,13 +10289,14 @@ function navTo(page, btn){
   if(btn) btn.classList.add('active');
   else {
     const tabs=document.querySelectorAll('.nav-tab');
-    const pages=['dashboard','today','weekly','journaling','streaks','islamic','media','research','priorities','phases','deepwork','badhabits','mosque','financial','worldtime','portable'];
+    const pages=['dashboard','today','weekly','journaling','streaks','islamic','media','research','entrepreneurship','priorities','phases','deepwork','badhabits','mosque','financial','worldtime','portable'];
     const idx=pages.indexOf(page);
     if(idx>=0) tabs[idx].classList.add('active');
   }
   if(page==='weekly') renderWeeklyReport();
   if(page==='journaling') renderJournaling();
   if(page==='priorities') renderPriorities();
+  if(page==='entrepreneurship') ebdRender();
   if(page==='media') renderLibrary();
   if(page==='islamic') isCalGoNow();
   if(page==='dashboard') renderDashboard();
@@ -12511,6 +12657,168 @@ window.libGoReadingMonthToday=function(){
   document.addEventListener('click', run, true);
 })();
 
+
+
+// ══════════════════════════════════════════════════════
+//  ENTREPRENEURSHIP & BUSINESS DEVELOPMENT — added only
+// ══════════════════════════════════════════════════════
+const EBD_KEY='entrepreneurship_business_development_v1';
+const EBD_MODULES=[
+  {name:'Module 1: Entrepreneurial Foundations',focus:'Startup thinking, entrepreneur vs businessman, founder mindset, myths, failure reasons, and roadmap.'},
+  {name:'Module 2: Transition - Freelancer to Founder',focus:'Identity shift, financial discipline, path selection, and risk management before expansion.'},
+  {name:'Module 3: Software House Strategy',focus:'Safe transition, niche selection, sustainable service vision, first hire, legal setup, cash flow.'},
+  {name:'Module 4: Lean Setup & Team Building',focus:'Lean company mindset, first team, motivation, leadership, delegation, hierarchy, and exits.'},
+  {name:'Module 5: Sales & Growth Engine',focus:'Marketplaces, outbound, LinkedIn, branding, pricing, discovery, retainers, and B2B sales.'},
+  {name:'Module 6: Operations & Risk Management',focus:'Delivery assurance, costing, timelines, dissatisfied clients, dashboards, KPIs, payments, crises.'},
+  {name:'Module 7: Product-Based Startup',focus:'Product opportunities, problem discovery, AI validation, MVPs, funding, investor outreach, pitch decks.'}
+];
+const EBD_DEFAULT_LECTURES=[
+  ['01','Welcome & Instructor Journey','Module 1: Entrepreneurial Foundations','done'],
+  ['02','What You Will Learn in This Course','Module 1: Entrepreneurial Foundations','done'],
+  ['03','Who Should Take This Course?','Module 1: Entrepreneurial Foundations','done'],
+  ['04','What is Startup Strategy & Entrepreneurship?','Module 1: Entrepreneurial Foundations','done'],
+  ['05','Entrepreneur vs Businessman','Module 1: Entrepreneurial Foundations','done'],
+  ['06','Entrepreneurial Mindset | How to Build a Founder’s Mindset?','Module 1: Entrepreneurial Foundations','done'],
+  ['07','Startups Myths and Misconceptions','Module 1: Entrepreneurial Foundations','done'],
+  ['08','Why Startups Fail?','Module 1: Entrepreneurial Foundations','done'],
+  ['09','The Transition | Freelancer to Founder','Module 2: Transition - Freelancer to Founder','done'],
+  ['10','Financial Discipline Before Scaling','Module 2: Transition - Freelancer to Founder','done'],
+  ['11','Deciding Path: Business, Product or Investor','Module 2: Transition - Freelancer to Founder','done'],
+  ['12','Safe Transition to Software House','Module 3: Software House Strategy','done'],
+  ['13','Identify Core Service Niche','Module 3: Software House Strategy','done'],
+  ['14','Strategic Vision of Sustainable Service','Module 3: Software House Strategy','done'],
+  ['15','Who Should Be Your First Hire?','Module 3: Software House Strategy','done'],
+  ['16','Survival vs Growth | The Right Balance','Module 3: Software House Strategy','done'],
+  ['17','Legal Structure Setup | Registration, Contracts & IP','Module 3: Software House Strategy','done'],
+  ['18','Financial Management & Cash Flow Planning','Module 3: Software House Strategy','done'],
+  ['19','Building Without Breaking – The Lean Company Mindset','Module 4: Lean Setup & Team Building','done'],
+  ['20','From Solo to Structured – Building Your First Lean Team','Module 4: Lean Setup & Team Building','done'],
+  ['21','Motivational Mapping | Understanding What Drives Your People','Module 4: Lean Setup & Team Building','done'],
+  ['22','Early Team Challenges | What No One Warns You About','Module 4: Lean Setup & Team Building','done'],
+  ['23','Leadership, Accountability and Culture Foundations','Module 4: Lean Setup & Team Building','done'],
+  ['24','Delegation & Organizational Hierarchy','Module 4: Lean Setup & Team Building','pending'],
+  ['25','When and How to Let People Go','Module 4: Lean Setup & Team Building','pending'],
+  ['26','The Anchor Rider Rower Framework','Module 4: Lean Setup & Team Building','pending'],
+  ['27','Understanding Marketplace Sales for Software Houses (Upwork & Freelancing Platforms)','Module 5: Sales & Growth Engine','pending'],
+  ['28','Outbound Sales: Cold Email, Lead Generation & Automated Pipelines','Module 5: Sales & Growth Engine','pending'],
+  ['29','Company Branding, Portfolio, Website & Trust Infrastructure','Module 5: Sales & Growth Engine','pending'],
+  ['30','LinkedIn Sales & Personal Branding (Inbound for B2B Clients)','Module 5: Sales & Growth Engine','pending'],
+  ['31','Pricing, Packaging & Proposal Strategy','Module 5: Sales & Growth Engine','pending'],
+  ['32','Client Conversion, Discovery Calls & Retainers','Module 5: Sales & Growth Engine','pending'],
+  ['33','Turning One Time Clients Into Long Term Retainers & Partnerships','Module 5: Sales & Growth Engine','pending'],
+  ['34','Enterprise & B2B Sales (Corporate Clients & High Value Projects)','Module 5: Sales & Growth Engine','pending'],
+  ['35','Delivery Assurance','Module 6: Operations & Risk Management','pending']
+].map(x=>({id:'ebd_'+x[0],no:x[0],title:x[1],module:x[2],status:x[3],notes:'',takeaways:[],lessons:[],actions:[],pdfs:[],completedAt:x[3]==='done'?dateKey(new Date()):''}));
+let ebdSelectedId='ebd_01';
+let ebdFilter='all';
+let ebdCalendarMonth=new Date();
+ebdCalendarMonth.setDate(1); ebdCalendarMonth.setHours(0,0,0,0);
+function ebdEsc(v){return String(v==null?'':v).replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));}
+function ebdState(){
+  let st=load(EBD_KEY);
+  if(!st||!Array.isArray(st.lectures)){
+    st={lectures:EBD_DEFAULT_LECTURES,createdAt:new Date().toISOString()};
+    save(EBD_KEY,st);
+  }
+  st.lectures.forEach(l=>{l.pdfs=l.pdfs||[];l.takeaways=l.takeaways||[];l.lessons=l.lessons||[];l.actions=l.actions||[];});
+  return st;
+}
+function ebdSave(st){save(EBD_KEY,st);}
+function ebdFind(st,id){return (st.lectures||[]).find(l=>l.id===id)||null;}
+function ebdSuggest(type,l){
+  const title=(l.title||'').toLowerCase();
+  const module=l.module||'';
+  if(type==='takeaways'){
+    if(title.includes('financial')) return ['Know your runway before scaling.','Separate personal survival money from business cash flow.','Growth without financial discipline creates stress and risk.'];
+    if(title.includes('sales')||title.includes('upwork')||title.includes('email')||title.includes('linkedin')) return ['Sales must become a repeatable system, not random luck.','Trust assets like portfolio, proof, and positioning increase conversion.','Track leads, follow-ups, proposals, and closes weekly.'];
+    if(title.includes('hire')||title.includes('team')||title.includes('delegation')||module.includes('Team')) return ['A founder must build systems, not stay trapped in solo execution.','Hiring should solve a clear bottleneck.','Accountability and expectations prevent confusion.'];
+    if(title.includes('startup')||title.includes('entrepreneur')) return ['Entrepreneurship is about solving valuable problems under uncertainty.','Startup strategy needs execution, learning, and risk control.','Long-term vision matters more than short-term excitement.'];
+    return ['Capture the main business principle from this lecture.','Connect the lesson with your current freelancing or company-building path.','Decide one small implementation step within 24 hours.'];
+  }
+  if(type==='lessons'){
+    if(title.includes('legal')) return ['Prepare basic contracts before serious scaling.','Protect intellectual property and client expectations.','Compliance reduces future business risk.'];
+    if(title.includes('niche')) return ['A focused service niche makes marketing and delivery easier.','Niche selection should match skill, market demand, and proof.','Avoid offering everything to everyone.'];
+    if(title.includes('fail')) return ['Startups fail from poor market understanding, weak cash flow, bad teams, and no execution discipline.','Failure signals must be measured early.'];
+    return ['Write the lecture in your own words.','List what mistake this lecture helps you avoid.','Write one question you still need to research.'];
+  }
+  return ['Apply one idea to your current work this week.','Create or update one business document: offer, SOP, proposal, budget, or client pipeline.','Review the result and write what improved.'];
+}
+function ebdRender(){
+  const root=document.getElementById('page-entrepreneurship'); if(!root) return;
+  const st=ebdState();
+  if(!ebdFind(st,ebdSelectedId)&&st.lectures.length) ebdSelectedId=st.lectures[0].id;
+  const done=st.lectures.filter(l=>l.status==='done').length;
+  const total=st.lectures.length||1;
+  const pdfs=st.lectures.reduce((a,l)=>a+(l.pdfs||[]).length,0);
+  const actions=st.lectures.reduce((a,l)=>a+(l.actions||[]).filter(Boolean).length,0);
+  const pct=Math.round(done*100/total);
+  const byId=id=>document.getElementById(id);
+  if(byId('ebdDoneStat')) byId('ebdDoneStat').textContent=done;
+  if(byId('ebdTotalStat')) byId('ebdTotalStat').textContent=st.lectures.length;
+  if(byId('ebdPdfStat')) byId('ebdPdfStat').textContent=pdfs;
+  if(byId('ebdActionStat')) byId('ebdActionStat').textContent=actions;
+  if(byId('ebdProgressFill')) byId('ebdProgressFill').style.width=pct+'%';
+  if(byId('ebdProgressText')) byId('ebdProgressText').textContent=pct+'% Complete';
+  ebdRenderList(st); ebdRenderDetail(st); ebdRenderCalendar(st); ebdRenderRoadmap(st);
+}
+function ebdRenderList(st){
+  const el=document.getElementById('ebdLectureList'); if(!el) return;
+  let lectures=[...st.lectures].sort((a,b)=>String(a.no).localeCompare(String(b.no),undefined,{numeric:true}));
+  if(ebdFilter==='done') lectures=lectures.filter(l=>l.status==='done');
+  if(ebdFilter==='pending') lectures=lectures.filter(l=>l.status!=='done');
+  el.innerHTML=lectures.map(l=>`<div class="ebd-lecture ${l.status==='done'?'done':''} ${l.id===ebdSelectedId?'active':''}" onclick="ebdSelectLecture('${l.id}')"><div class="ebd-check">${l.status==='done'?'✓':'○'}</div><div><div class="ebd-lec-title">Lecture ${ebdEsc(l.no)}: ${ebdEsc(l.title)}</div><div class="ebd-lec-meta">${ebdEsc(l.module)} · Videos: ${l.status==='done'?'1/1':'0/1'} · PDFs: ${(l.pdfs||[]).length}</div></div><div class="ebd-lec-actions"><button class="ebd-mini-btn" onclick="event.stopPropagation();ebdToggleDone('${l.id}')">${l.status==='done'?'Undo':'Done'}</button><button class="ebd-mini-btn" onclick="event.stopPropagation();ebdOpenLectureForm('${l.id}')">Edit</button><button class="ebd-mini-btn" onclick="event.stopPropagation();ebdDeleteLecture('${l.id}')">Delete</button></div></div>`).join('')||'<div style="color:var(--muted);font-size:13px;padding:14px;">No lectures in this filter.</div>';
+}
+function ebdRenderDetail(st){
+  const el=document.getElementById('ebdLectureDetail'); if(!el) return;
+  const l=ebdFind(st,ebdSelectedId);
+  if(!l){el.innerHTML='<div class="ebd-card-title"><span>🎯 Lecture Workspace</span></div><div style="color:var(--muted);">No lecture selected.</div>';return;}
+  const takes=(l.takeaways&&l.takeaways.length?l.takeaways:ebdSuggest('takeaways',l));
+  const lessons=(l.lessons&&l.lessons.length?l.lessons:ebdSuggest('lessons',l));
+  const actions=(l.actions&&l.actions.length?l.actions:ebdSuggest('actions',l));
+  el.innerHTML=`<div class="ebd-detail-head"><div><div class="ebd-detail-title">Lecture ${ebdEsc(l.no)}: ${ebdEsc(l.title)}</div><div class="ebd-detail-sub">${ebdEsc(l.module)} · Status: ${l.status==='done'?'Completed':'Pending'} ${l.completedAt?'· '+ebdEsc(l.completedAt):''}</div></div><button class="ebd-btn primary" onclick="ebdToggleDone('${l.id}')">${l.status==='done'?'Mark Pending':'Mark Completed'}</button></div>
+  <div><span class="ebd-module-pill">Videos ${l.status==='done'?'1/1':'0/1'}</span><span class="ebd-module-pill">Assignments 0/0</span><span class="ebd-module-pill">Quiz 0/0</span><span class="ebd-module-pill">Helping Content 0</span></div>
+  <div class="ebd-insight-grid"><div class="ebd-insight"><h4>Key Takeaways</h4><ul>${takes.map(x=>`<li>${ebdEsc(x)}</li>`).join('')}</ul></div><div class="ebd-insight"><h4>Lessons</h4><ul>${lessons.map(x=>`<li>${ebdEsc(x)}</li>`).join('')}</ul></div><div class="ebd-insight"><h4>Action Steps</h4><ul>${actions.map(x=>`<li>${ebdEsc(x)}</li>`).join('')}</ul></div></div>
+  <div style="margin-top:12px;"><div class="ebd-card-title"><span>📝 My Lecture Notes</span></div><textarea class="ebd-textarea" id="ebdNotesBox" placeholder="Write lecture notes, personal reflections, business ideas, questions, and implementation plans...">${ebdEsc(l.notes||'')}</textarea><div class="ebd-toolbar"><button class="ebd-btn primary" onclick="ebdSaveNotes('${l.id}')">Save Notes</button><button class="ebd-btn" onclick="ebdApplySuggestions('${l.id}')">Use Suggested Takeaways / Lessons / Actions</button></div></div>
+  <div style="margin-top:12px;"><div class="ebd-card-title"><span>📎 Lecture PDF Files</span></div><input type="file" id="ebdPdfInput" accept="application/pdf" class="ebd-input" onchange="ebdUploadPdf('${l.id}',this)"><div id="ebdPdfList">${(l.pdfs||[]).map((p,i)=>`<div class="ebd-pdf-row"><div class="ebd-pdf-name">📄 ${ebdEsc(p.name)} <span style="color:var(--muted);font-size:10px;">${ebdEsc(p.date||'')}</span></div><div><button class="ebd-mini-btn" onclick="ebdOpenPdf('${l.id}',${i})">Open</button><button class="ebd-mini-btn" onclick="ebdDeletePdf('${l.id}',${i})">Delete</button></div></div>`).join('')||'<div style="color:var(--muted);font-size:12px;margin-top:8px;">No PDF saved yet. Upload lecture PDF here.</div>'}</div></div>`;
+}
+function ebdRenderCalendar(st){
+  const el=document.getElementById('ebdCalendar'); if(!el) return;
+  const label=document.getElementById('ebdCalLabel');
+  if(label) label.textContent=ebdCalendarMonth.toLocaleDateString('en-GB',{month:'long',year:'numeric'});
+  const y=ebdCalendarMonth.getFullYear(), m=ebdCalendarMonth.getMonth();
+  const first=new Date(y,m,1), start=(first.getDay()+6)%7;
+  const days=new Date(y,m+1,0).getDate();
+  const todayKey=dateKey(new Date());
+  let html='<div class="ebd-calendar">'+['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>`<div class="ebd-cal-head">${d}</div>`).join('');
+  for(let i=0;i<start;i++) html+='<div></div>';
+  for(let d=1;d<=days;d++){
+    const key=dateKey(new Date(y,m,d));
+    const done=st.lectures.filter(l=>l.completedAt===key);
+    html+=`<div class="ebd-cal-day ${key===todayKey?'today':''} ${done.length?'has':''}" onclick="ebdCalendarClick('${key}')"><div class="ebd-cal-num">${d}</div>${done.length?`<div class="ebd-cal-dot">${done.length} lecture${done.length>1?'s':''} done</div>`:''}</div>`;
+  }
+  html+='</div>'; el.innerHTML=html;
+}
+function ebdRenderRoadmap(st){
+  const el=document.getElementById('ebdRoadmap'); if(!el) return;
+  el.innerHTML=EBD_MODULES.map(mod=>{const ls=st.lectures.filter(l=>l.module===mod.name);const done=ls.filter(l=>l.status==='done').length;const pct=ls.length?Math.round(done*100/ls.length):0;return `<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;gap:10px;font-size:12px;color:#DCEBFF;font-weight:800;"><span>${ebdEsc(mod.name)}</span><span>${done}/${ls.length}</span></div><div style="font-size:11px;color:#7E8CA5;line-height:1.55;margin:5px 0;">${ebdEsc(mod.focus)}</div><div class="ebd-progress-track" style="height:7px;margin-top:6px;"><div class="ebd-progress-fill" style="width:${pct}%"></div></div></div>`;}).join('');
+}
+function ebdSelectLecture(id){ebdSelectedId=id;ebdRender();}
+function ebdShowOnly(f){ebdFilter=f;ebdRender();}
+function ebdToggleDone(id){const st=ebdState();const l=ebdFind(st,id);if(!l)return;l.status=l.status==='done'?'pending':'done';l.completedAt=l.status==='done'?dateKey(new Date()):'';ebdSave(st);ebdRender();}
+function ebdSaveNotes(id){const st=ebdState();const l=ebdFind(st,id);if(!l)return;const box=document.getElementById('ebdNotesBox');l.notes=box?box.value:'';ebdSave(st);ebdRender();alert('Lecture notes saved.');}
+function ebdApplySuggestions(id){const st=ebdState();const l=ebdFind(st,id);if(!l)return;l.takeaways=ebdSuggest('takeaways',l);l.lessons=ebdSuggest('lessons',l);l.actions=ebdSuggest('actions',l);ebdSave(st);ebdRender();}
+function ebdOpenLectureForm(id){const form=document.getElementById('ebdLectureForm'); if(!form)return;form.classList.remove('ebd-hidden');const st=ebdState();const l=id?ebdFind(st,id):null;document.getElementById('ebdEditId').value=l?l.id:'';document.getElementById('ebdLectureNo').value=l?l.no:'';document.getElementById('ebdLectureTitle').value=l?l.title:'';document.getElementById('ebdLectureModule').value=l?l.module:EBD_MODULES[0].name;document.getElementById('ebdLectureStatus').value=l?l.status:'pending';}
+function ebdCloseLectureForm(){const form=document.getElementById('ebdLectureForm');if(form)form.classList.add('ebd-hidden');}
+function ebdSaveLectureForm(){const st=ebdState();const id=document.getElementById('ebdEditId').value;const no=document.getElementById('ebdLectureNo').value.trim();const title=document.getElementById('ebdLectureTitle').value.trim();if(!no||!title){alert('Please add lecture number and title.');return;}const module=document.getElementById('ebdLectureModule').value;const status=document.getElementById('ebdLectureStatus').value;if(id){const l=ebdFind(st,id);if(l){l.no=no;l.title=title;l.module=module;l.status=status;l.completedAt=status==='done'?(l.completedAt||dateKey(new Date())):'';}}else{const newId='ebd_'+Date.now();st.lectures.push({id:newId,no,title,module,status,notes:'',takeaways:[],lessons:[],actions:[],pdfs:[],completedAt:status==='done'?dateKey(new Date()):''});ebdSelectedId=newId;}ebdSave(st);ebdCloseLectureForm();ebdRender();}
+function ebdDeleteLecture(id){if(!confirm('Delete this lecture from Entrepreneurship tracker?'))return;const st=ebdState();st.lectures=st.lectures.filter(l=>l.id!==id);if(ebdSelectedId===id) ebdSelectedId=st.lectures[0]?.id||'';ebdSave(st);ebdRender();}
+function ebdUploadPdf(id,input){const file=input&&input.files&&input.files[0];if(!file)return;if(file.type!=='application/pdf'&&!file.name.toLowerCase().endsWith('.pdf')){alert('Please upload a PDF file.');return;}if(file.size>2500000){alert('This PDF is larger than 2.5 MB. Browser local storage may not save it. Please compress it or save notes manually.');input.value='';return;}const reader=new FileReader();reader.onload=function(){const st=ebdState();const l=ebdFind(st,id);if(!l)return;l.pdfs=l.pdfs||[];l.pdfs.push({name:file.name,size:file.size,date:dateKey(new Date()),data:reader.result});ebdSave(st);ebdApplySuggestions(id);};reader.readAsDataURL(file);}
+function ebdOpenPdf(id,idx){const st=ebdState();const l=ebdFind(st,id);const p=l&&l.pdfs&&l.pdfs[idx];if(!p)return;const w=window.open('','_blank');if(!w){alert('Popup blocked. Please allow popups to open saved PDF.');return;}w.document.write(`<title>${ebdEsc(p.name)}</title><iframe src="${p.data}" style="border:0;width:100%;height:100vh"></iframe>`);w.document.close();}
+function ebdDeletePdf(id,idx){const st=ebdState();const l=ebdFind(st,id);if(!l||!l.pdfs)return;l.pdfs.splice(idx,1);ebdSave(st);ebdRender();}
+function ebdMoveMonth(n){ebdCalendarMonth.setMonth(ebdCalendarMonth.getMonth()+n);ebdRender();}
+function ebdGoThisMonth(){ebdCalendarMonth=new Date();ebdCalendarMonth.setDate(1);ebdCalendarMonth.setHours(0,0,0,0);ebdRender();}
+function ebdCalendarClick(key){const st=ebdState();const done=st.lectures.filter(l=>l.completedAt===key);alert(done.length?('Completed on '+key+':\n\n'+done.map(l=>'Lecture '+l.no+': '+l.title).join('\n')):'No Entrepreneurship lecture completion saved on '+key+'.');}
+function ebdExportReport(){const st=ebdState();const done=st.lectures.filter(l=>l.status==='done').length;const html=`<!doctype html><html><head><meta charset="utf-8"><title>Entrepreneurship Course Report</title><style>body{font-family:Inter,Arial,sans-serif;padding:28px;color:#111827;line-height:1.55}h1{margin:0 0 6px}.muted{color:#526174}.lec{border:1px solid #d9e2ef;border-radius:12px;padding:12px;margin:10px 0}.done{background:#ecfdf5}.pending{background:#fff7ed}button{float:right;padding:10px 14px;border:1px solid #2563eb;border-radius:8px;background:#2563eb;color:white}@media print{button{display:none}}</style></head><body><button onclick="window.print()">Save / Print PDF</button><h1>Entrepreneurship & Business Development Report</h1><div class="muted">Hope to Skill · Skill to Scale: Freelancing to Founder · Generated ${new Date().toLocaleString()}</div><h2>Progress: ${done}/${st.lectures.length} lectures completed</h2>${st.lectures.map(l=>`<div class="lec ${l.status}"><strong>Lecture ${ebdEsc(l.no)}: ${ebdEsc(l.title)}</strong><br><span class="muted">${ebdEsc(l.module)} · ${l.status}${l.completedAt?' · '+l.completedAt:''} · PDFs: ${(l.pdfs||[]).length}</span><p><strong>Notes:</strong><br>${ebdEsc(l.notes||'No notes saved yet.').replace(/\n/g,'<br>')}</p><p><strong>Action Steps:</strong> ${(l.actions&&l.actions.length)?l.actions.map(ebdEsc).join('; '):ebdSuggest('actions',l).map(ebdEsc).join('; ')}</p></div>`).join('')}</body></html>`;const w=window.open('','_blank');if(!w){alert('Popup blocked. Please allow popups, then click Print / PDF Report again.');return;}w.document.open();w.document.write(html);w.document.close();setTimeout(()=>{try{w.focus();w.print();}catch(e){}},500);}
+
 // ── INIT ──
 purgeLegacyTrackerData();
 importEmbeddedProgressOnOpen();
@@ -12524,6 +12832,7 @@ if(viewDate<START){
 }
 renderToday();
 renderJournaling();
+ebdRender();
 wtEnsureLoop();
 wtEnsureClockToolsLoop();
 renderBadHabitTracker();
