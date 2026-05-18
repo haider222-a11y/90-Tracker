@@ -27,7 +27,7 @@
 })();
 </script>
 <title>90 Days Tracker</title>
-<!-- BUILD: github_click_fix_v3_2026_05_17_nonblocking_ocr_pointer_fallback -->
+<!-- BUILD: github_click_fix_v3_2026_05_17_world_time_weather_visible_v2 -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -2038,6 +2038,82 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 @media(max-width:900px){#page-media .lib-rd-kpis{grid-template-columns:repeat(2,1fr);}#page-media .lib-rd-tools{grid-template-columns:1fr;}}
 @media(max-width:560px){#page-media .lib-book-strip{grid-template-columns:1fr;}#page-media .lib-rd-kpis{grid-template-columns:1fr 1fr;}}
 
+
+
+/* ── WORLD CLOCK + WEATHER COMMAND CENTER (added only; existing system preserved) ── */
+.h-clock-card{margin-top:10px;padding:10px 12px;border-radius:18px;background:radial-gradient(circle at 0% 0%,rgba(56,189,248,.18),transparent 34%),linear-gradient(145deg,rgba(9,21,42,.92),rgba(4,10,22,.94));border:1px solid rgba(140,199,255,.18);box-shadow:0 12px 26px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.04);min-width:210px;text-align:right;}
+.h-clock-time{font-family:'JetBrains Mono',monospace;font-size:23px;font-weight:900;letter-spacing:-.04em;color:#F8FBFF;text-shadow:0 0 20px rgba(88,166,255,.22);}
+.h-clock-meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:#93C5FD;text-transform:uppercase;letter-spacing:1.1px;margin-top:3px;}
+.world-wrap{display:flex;flex-direction:column;gap:16px;margin-top:20px;}
+.world-hero{position:relative;overflow:hidden;border-radius:30px;padding:22px;background:radial-gradient(circle at 0% 0%,rgba(56,189,248,.22),transparent 34%),radial-gradient(circle at 100% 0%,rgba(124,58,237,.16),transparent 34%),linear-gradient(145deg,rgba(8,22,45,.98),rgba(3,8,20,.98));border:1px solid rgba(140,199,255,.20);box-shadow:0 24px 62px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.045);}
+.world-hero::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,#38BDF8,#7C3AED,#22C55E,transparent);}
+.world-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:#7DD3FC;font-weight:900;margin-bottom:8px;}
+.world-title{font-size:clamp(24px,3.2vw,38px);font-weight:900;letter-spacing:-.045em;color:#F8FBFF;margin-bottom:8px;}
+.world-sub{font-size:13px;line-height:1.75;color:#B8C8E4;max-width:980px;}
+.world-top-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;}
+.world-panel{position:relative;overflow:hidden;border-radius:26px;padding:16px;background:radial-gradient(circle at 100% 0%,rgba(56,189,248,.12),transparent 34%),linear-gradient(145deg,rgba(9,21,42,.98),rgba(4,10,22,.98));border:1px solid rgba(140,199,255,.14);box-shadow:0 18px 44px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.04);}
+.world-panel::before{content:'';position:absolute;left:16px;right:16px;top:0;height:2px;border-radius:99px;background:linear-gradient(90deg,transparent,#38BDF8,#7C3AED,transparent);}
+.world-panel-title{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#93C5FD;font-weight:900;margin-bottom:12px;}
+.world-local-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.world-local-clock{grid-column:1 / -1;border-radius:24px;padding:18px;background:radial-gradient(circle at 12% 0%,rgba(61,220,151,.16),transparent 34%),linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.016));border:1px solid rgba(61,220,151,.18);}
+.world-local-time{font-family:'JetBrains Mono',monospace;font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-.06em;color:#F8FBFF;line-height:1;}
+.world-local-date{font-size:12px;color:#AFC0DA;line-height:1.6;margin-top:8px;}
+.world-mini-stat{border-radius:18px;padding:13px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border:1px solid rgba(140,199,255,.10);}
+.world-mini-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.1px;text-transform:uppercase;color:#7EA2D6;font-weight:900;margin-bottom:5px;}
+.world-mini-value{font-size:16px;font-weight:900;color:#F8FBFF;line-height:1.35;}
+.world-mini-sub{font-size:11px;color:#93A7C9;line-height:1.5;margin-top:4px;}
+.world-map-box{position:relative;min-height:330px;border-radius:24px;overflow:hidden;background:radial-gradient(circle at 48% 45%,rgba(56,189,248,.18),transparent 31%),linear-gradient(145deg,rgba(3,9,20,.98),rgba(10,21,42,.98));border:1px solid rgba(140,199,255,.13);}
+.world-map-svg{position:absolute;inset:0;width:100%;height:100%;opacity:.72;}
+.world-map-pin{position:absolute;transform:translate(-50%,-50%);z-index:2;display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;background:rgba(2,8,23,.82);border:1px solid rgba(125,211,252,.24);box-shadow:0 10px 24px rgba(0,0,0,.32),0 0 18px rgba(56,189,248,.16);font-family:'JetBrains Mono',monospace;font-size:9px;color:#EAF6FF;white-space:nowrap;backdrop-filter:blur(8px);}
+.world-map-pin::before{content:'';width:8px;height:8px;border-radius:50%;background:#38BDF8;box-shadow:0 0 14px #38BDF8;}
+.world-map-legend{position:absolute;left:14px;bottom:14px;right:14px;z-index:3;padding:10px 12px;border-radius:16px;background:rgba(2,8,23,.72);border:1px solid rgba(140,199,255,.12);color:#AFC0DA;font-size:11px;line-height:1.55;backdrop-filter:blur(8px);}
+.world-fav-tools{display:grid;grid-template-columns:minmax(180px,1fr) auto auto;gap:8px;margin-bottom:12px;}
+.world-select{width:100%;border-radius:13px;border:1px solid rgba(140,199,255,.18);background:#081326;color:#F3F8FF;padding:10px 12px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;outline:none;color-scheme:dark;}
+.world-select option{background:#081326;color:#F3F8FF;}
+.world-card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;}
+.world-card{position:relative;overflow:hidden;border-radius:22px;padding:14px;background:radial-gradient(circle at 100% 0%,rgba(56,189,248,.12),transparent 34%),linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}
+.world-card::before{content:'';position:absolute;left:14px;right:14px;top:0;height:2px;border-radius:99px;background:linear-gradient(90deg,transparent,#38BDF8,transparent);}
+.world-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.world-country{font-size:15px;font-weight:900;color:#F8FBFF;line-height:1.3;}
+.world-city{font-size:10px;color:#93A7C9;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;margin-top:3px;}
+.world-time{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:900;color:#EAF6FF;letter-spacing:-.04em;}
+.world-weather{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;margin-top:10px;padding:10px;border-radius:16px;background:rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.07);}
+.world-weather-icon{width:42px;height:42px;border-radius:15px;display:grid;place-items:center;background:rgba(56,189,248,.11);border:1px solid rgba(56,189,248,.20);font-size:20px;}
+.world-weather-main{font-size:13px;font-weight:800;color:#F8FBFF;line-height:1.35;}
+.world-weather-sub{font-size:11px;color:#AFC0DA;line-height:1.45;margin-top:2px;}
+.world-card-actions{display:flex;gap:6px;margin-top:11px;}
+.world-tiny-btn{padding:7px 10px;border-radius:11px;border:1px solid rgba(140,199,255,.13);background:rgba(255,255,255,.035);color:#CFE6FF;font-family:'JetBrains Mono',monospace;font-size:10px;cursor:pointer;}
+.world-tiny-btn:hover{border-color:#60A5FA;background:rgba(59,130,246,.12);}
+.world-danger{border-color:rgba(255,107,107,.26)!important;color:#FFB4B4!important;background:rgba(255,107,107,.08)!important;}
+.world-status{padding:11px 13px;border-radius:16px;background:rgba(59,130,246,.08);border:1px solid rgba(96,165,250,.18);color:#CFE6FF;font-size:12px;line-height:1.6;margin-top:10px;}
+@media(max-width:930px){.world-top-grid{grid-template-columns:1fr;}.world-local-grid{grid-template-columns:1fr 1fr;}.world-fav-tools{grid-template-columns:1fr;}.world-map-box{min-height:280px;}}
+@media(max-width:560px){.h-right{text-align:left;width:100%;}.h-clock-card{text-align:left;min-width:0;}.world-local-grid{grid-template-columns:1fr;}.world-card-grid{grid-template-columns:1fr;}.world-map-pin{font-size:8px;padding:4px 6px;}.world-map-box{min-height:250px;}}
+
+
+
+/* ── WORLD MAP REALISM + CLOCK TOOLS UPGRADE ── */
+.world-map-box{min-height:380px;background:radial-gradient(circle at 50% 50%,rgba(56,189,248,.16),transparent 30%),linear-gradient(145deg,#031126,#020713)!important;}
+.world-map-real{opacity:.9!important;}
+.world-graticule path{fill:none;stroke:rgba(140,199,255,.075);stroke-width:1;}
+.world-land path{fill:rgba(125,211,252,.20);stroke:rgba(190,230,255,.36);stroke-width:1.4;vector-effect:non-scaling-stroke;}
+.world-coast-dots circle{fill:#7DD3FC;opacity:.72;}
+.world-map-pin{max-width:190px;overflow:hidden;text-overflow:ellipsis;}
+.clock-tools-panel{background:radial-gradient(circle at 0% 0%,rgba(245,158,11,.11),transparent 32%),radial-gradient(circle at 100% 0%,rgba(56,189,248,.12),transparent 35%),linear-gradient(145deg,rgba(9,21,42,.98),rgba(4,10,22,.98));}
+.clock-tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.clock-tool-card{position:relative;overflow:hidden;border-radius:22px;padding:14px;background:linear-gradient(155deg,rgba(255,255,255,.058),rgba(255,255,255,.016));border:1px solid rgba(140,199,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}
+.clock-tool-card::before{content:'';position:absolute;left:14px;right:14px;top:0;height:2px;border-radius:999px;background:linear-gradient(90deg,transparent,#38BDF8,#F59E0B,transparent);}
+.clock-tool-heading{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#93C5FD;font-weight:900;margin-bottom:9px;}
+.clock-tool-display{font-family:'JetBrains Mono',monospace;font-size:clamp(24px,3vw,34px);font-weight:900;color:#F8FBFF;letter-spacing:-.055em;line-height:1.1;text-shadow:0 0 22px rgba(88,166,255,.18);margin-bottom:10px;}
+.alarm-card .clock-tool-display{font-size:18px;letter-spacing:-.03em;line-height:1.35;color:#FFE9B8;}
+.clock-tool-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:9px;}
+.clock-tool-row.three{grid-template-columns:repeat(3,1fr);}
+.clock-tool-input{width:100%;min-width:0;border-radius:12px;border:1px solid rgba(140,199,255,.16);background:#081326;color:#F3F8FF;padding:9px 10px;font-family:'JetBrains Mono',monospace;font-size:12px;outline:none;color-scheme:dark;}
+.clock-tool-input:focus{border-color:#60A5FA;box-shadow:0 0 0 3px rgba(96,165,250,.11);}
+.clock-tool-note{font-size:11px;line-height:1.5;color:#93A7C9;margin-top:8px;}
+.clock-laps{max-height:102px;overflow:auto;margin-top:8px;display:flex;flex-direction:column;gap:5px;}
+.clock-lap-row{display:flex;justify-content:space-between;gap:8px;padding:6px 8px;border-radius:10px;background:rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:10px;color:#CFE6FF;}
+@media(max-width:980px){.clock-tools-grid{grid-template-columns:1fr;}.world-map-box{min-height:320px;}.clock-tool-row,.clock-tool-row.three{grid-template-columns:1fr;}}
+
 </style>
 <!-- PWA APP SUPPORT -->
 <link rel="manifest" href="manifest.json">
@@ -2061,6 +2137,10 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
     <div class="h-date" id="hdrDate">Monday, 11 May 2026</div>
     <div class="h-hijri" id="hdrHijri">2 Dhū al-Qaʿdah 1447 AH</div>
     <div class="h-day" id="hdrDay">Day 1 of 90</div>
+    <div class="h-clock-card" onclick="navTo('worldtime',document.getElementById('worldTimeNavTab'))" title="Open World Time & Weather">
+      <div class="h-clock-time" id="hdrDigitalClock">--:--:--</div>
+      <div class="h-clock-meta" id="hdrClockMeta">Pakistan Time · Live Clock</div>
+    </div>
   </div>
 </header>
 
@@ -2092,6 +2172,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   <button class="nav-tab" onclick="navTo('badhabits',this)">🚫 Bad Habits</button>
   <button class="nav-tab" onclick="navTo('mosque',this)">🕌 Mosque Project</button>
   <button class="nav-tab" onclick="navTo('financial',this)">💰 Financial</button>
+  <button class="nav-tab" id="worldTimeNavTab" onclick="navTo('worldtime',this)">🌍 World Time</button>
   <button class="nav-tab" onclick="navTo('portable',this)">☁ Portable Sync</button>
 </div>
 
@@ -5023,6 +5104,137 @@ That will show him you actually studied what he gave you.</pre>
 </div>
 
 
+
+
+<!-- ══════════════════════════════════════════
+     PAGE: WORLD TIME + WEATHER
+══════════════════════════════════════════ -->
+<div id="page-worldtime" class="page">
+  <div class="world-wrap">
+    <div class="world-hero">
+      <div class="world-kicker">LIVE CLOCKS · WEATHER · LOCATION</div>
+      <div class="world-title">🌍 World Time & Weather Command Center</div>
+      <div class="world-sub">See your current time and weather, track favorite countries, and view a live worldwide time map. Weather uses your browser internet connection and location permission only when you click “Use My Location”.</div>
+    </div>
+
+    <div class="world-panel clock-tools-panel">
+      <div class="world-panel-title">⏰ Clock Tools · Alarm · Timer · Stopwatch</div>
+      <div class="clock-tools-grid">
+        <div class="clock-tool-card alarm-card">
+          <div class="clock-tool-heading">Alarm</div>
+          <div class="clock-tool-display" id="wtAlarmStatus">No alarm set</div>
+          <div class="clock-tool-row">
+            <input type="time" id="wtAlarmTime" class="clock-tool-input">
+            <input type="text" id="wtAlarmLabel" class="clock-tool-input" placeholder="Alarm label">
+          </div>
+          <div class="world-card-actions">
+            <button class="world-tiny-btn" onclick="wtSetAlarm()">Set Alarm</button>
+            <button class="world-tiny-btn world-danger" onclick="wtClearAlarm()">Clear</button>
+            <button class="world-tiny-btn" onclick="wtTestAlarmSound()">Test Sound</button>
+          </div>
+          <div class="clock-tool-note">Alarm sound plays in this browser tab. Keep the page open for alarm alerts.</div>
+        </div>
+        <div class="clock-tool-card timer-card">
+          <div class="clock-tool-heading">Timer</div>
+          <div class="clock-tool-display" id="wtTimerDisplay">00:00:00</div>
+          <div class="clock-tool-row three">
+            <input type="number" id="wtTimerHours" class="clock-tool-input" min="0" max="23" placeholder="Hours">
+            <input type="number" id="wtTimerMinutes" class="clock-tool-input" min="0" max="59" placeholder="Minutes">
+            <input type="number" id="wtTimerSeconds" class="clock-tool-input" min="0" max="59" placeholder="Seconds">
+          </div>
+          <div class="world-card-actions">
+            <button class="world-tiny-btn" onclick="wtStartTimer()">Start</button>
+            <button class="world-tiny-btn" onclick="wtPauseTimer()">Pause</button>
+            <button class="world-tiny-btn world-danger" onclick="wtResetTimer()">Reset</button>
+          </div>
+        </div>
+        <div class="clock-tool-card stopwatch-card">
+          <div class="clock-tool-heading">Stopwatch</div>
+          <div class="clock-tool-display" id="wtStopwatchDisplay">00:00:00.0</div>
+          <div class="world-card-actions">
+            <button class="world-tiny-btn" onclick="wtStartStopwatch()">Start</button>
+            <button class="world-tiny-btn" onclick="wtPauseStopwatch()">Pause</button>
+            <button class="world-tiny-btn" onclick="wtLapStopwatch()">Lap</button>
+            <button class="world-tiny-btn world-danger" onclick="wtResetStopwatch()">Reset</button>
+          </div>
+          <div class="clock-laps" id="wtStopwatchLaps"></div>
+        </div>
+      </div>
+      <div class="world-status" id="wtClockToolStatus">Clock tools are saved in this browser and run while this page is open.</div>
+    </div>
+
+    <div class="world-top-grid">
+      <div class="world-panel">
+        <div class="world-panel-title">📍 My Current Location</div>
+        <div class="world-local-grid">
+          <div class="world-local-clock">
+            <div class="world-mini-label">Local Time</div>
+            <div class="world-local-time" id="wtLocalTime">--:--:--</div>
+            <div class="world-local-date" id="wtLocalDate">Waiting for clock…</div>
+          </div>
+          <div class="world-mini-stat">
+            <div class="world-mini-label">Place</div>
+            <div class="world-mini-value" id="wtLocalPlace">Current browser location</div>
+            <div class="world-mini-sub" id="wtLocalCoords">Click location button to load coordinates.</div>
+          </div>
+          <div class="world-mini-stat">
+            <div class="world-mini-label">Weather</div>
+            <div class="world-mini-value" id="wtLocalWeather">Not loaded yet</div>
+            <div class="world-mini-sub" id="wtLocalWeatherSub">Allow location permission to see your weather.</div>
+          </div>
+        </div>
+        <div class="world-card-actions">
+          <button class="world-tiny-btn" onclick="wtUseMyLocation()">📡 Use My Location</button>
+          <button class="world-tiny-btn" onclick="wtRefreshAllWeather()">↻ Refresh Weather</button>
+        </div>
+        <div class="world-status" id="wtLocalStatus">Your clock works offline. Weather needs internet and location permission.</div>
+      </div>
+
+      <div class="world-panel">
+        <div class="world-panel-title">🗺 Favorite Countries Map</div>
+        <div class="world-map-box">
+          <svg class="world-map-svg world-map-real" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet" aria-label="Geographical world map background" role="img">
+            <defs>
+              <linearGradient id="wtOcean" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#07162d"/><stop offset="100%" stop-color="#020713"/>
+              </linearGradient>
+              <filter id="wtGlow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect width="1000" height="520" fill="url(#wtOcean)"/>
+            <g class="world-graticule">
+              <path d="M0 130H1000M0 260H1000M0 390H1000M125 0V520M250 0V520M375 0V520M500 0V520M625 0V520M750 0V520M875 0V520"/>
+            </g>
+            <g class="world-land" filter="url(#wtGlow)">
+              <path d="M142 104 L177 82 L224 86 L265 111 L291 152 L279 194 L306 237 L287 290 L249 314 L214 303 L185 272 L163 233 L128 211 L107 167 Z"/>
+              <path d="M288 305 L323 326 L341 369 L332 413 L303 468 L270 441 L252 389 L261 342 Z"/>
+              <path d="M386 96 L435 78 L506 91 L558 119 L579 164 L552 202 L502 210 L448 190 L404 151 Z"/>
+              <path d="M463 210 L514 219 L550 261 L556 325 L535 389 L504 429 L480 366 L455 308 Z"/>
+              <path d="M548 118 L646 92 L744 95 L847 132 L910 186 L884 245 L807 252 L766 292 L704 275 L658 230 L604 213 Z"/>
+              <path d="M695 292 L735 320 L731 372 L696 388 L665 351 Z"/>
+              <path d="M776 342 L844 331 L917 371 L895 417 L829 433 L775 394 Z"/>
+              <path d="M600 414 L652 426 L688 459 L635 471 L584 451 Z"/>
+              <path d="M830 92 L905 83 L955 116 L915 142 L858 130 Z"/>
+            </g>
+            <g class="world-coast-dots"><circle cx="542" cy="158" r="2"/><circle cx="610" cy="188" r="2"/><circle cx="710" cy="240" r="2"/><circle cx="808" cy="252" r="2"/><circle cx="270" cy="300" r="2"/></g>
+          </svg>
+          <div id="wtMapPins"></div>
+          <div class="world-map-legend">Pins show your saved favorite countries. Times update live every second.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="world-panel">
+      <div class="world-panel-title">⭐ Favorite Countries Time + Weather List</div>
+      <div class="world-fav-tools">
+        <select id="wtCountrySelect" class="world-select"></select>
+        <button class="world-tiny-btn" onclick="wtAddFavorite()">＋ Add Country</button>
+        <button class="world-tiny-btn" onclick="wtResetFavorites()">↺ Reset List</button>
+      </div>
+      <div id="wtFavCards" class="world-card-grid"></div>
+      <div class="world-status" id="wtWeatherStatus">Open this section online to load weather for your favorite countries.</div>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════
      PAGE: PORTABLE SYNC
@@ -9505,6 +9717,124 @@ function renderDeepWorkCalendar(){const el=document.getElementById('deepWorkCale
 function renderDeepWorkBlocks(){const el=document.getElementById('deepWorkBlocks');if(!el)return;const weekStats=getDeepWorkWeekRange(viewDate).map(d=>getDeepWorkDayStats(d));const todayStats=getDeepWorkDayStats(viewDate);el.innerHTML=DEEP_WORK_BLOCKS.map(block=>{const today=todayStats.blocks[block.id];const weekCred=weekStats.reduce((a,s)=>a+(s.blocks[block.id]?.credited||0),0);const weekPlanned=weekStats.reduce((a,s)=>a+(s.blocks[block.id]?.planned||0),0);const pct=weekPlanned?Math.round((weekCred/weekPlanned)*100):(weekCred>0?100:0);return `<div class="deep-block-card ${block.className}"><div class="deep-block-label">${block.label}</div><div class="deep-block-title">${block.icon} ${block.title}</div><div class="deep-block-sub">${block.desc}</div><div class="deep-block-stat"><span>Today ${(today.credited/60).toFixed(1)}h</span><strong>${pct}% week</strong></div><div class="deep-block-bar"><div class="deep-block-fill" style="width:${Math.min(100,pct)}%"></div></div><div class="deep-cal-meta" style="margin-top:8px;">Week ${(weekCred/60).toFixed(1)}h / ${(weekPlanned/60).toFixed(1)}h planned</div></div>`;}).join('');}
 function renderDeepWorkTaskList(){const el=document.getElementById('deepWorkTaskList');if(!el)return;const stats=getDeepWorkDayStats(viewDate);if(!stats.tasks.length){el.innerHTML='<div class="deep-empty">No Deep Work tasks found for this date. Add or edit a daily task and choose category ⚡ Deep Work.</div>';return;}const state=getDayState(viewDate);el.innerHTML=`<div class="deep-task-list">${stats.tasks.map(t=>{const status=state.statuses&&state.statuses[t.id]||'pending';const bid=classifyDeepWorkBlock(t);const block=DEEP_WORK_BLOCKS.find(b=>b.id===bid)||DEEP_WORK_BLOCKS[0];const details=getTaskDetails(t,viewDate);const sn=getSubNoteState(t.id,viewDate);const doneDetails=details.filter((_,i)=>sn&&sn[i]==='done').length;return `<div class="deep-task-card"><div class="deep-task-top"><div class="deep-task-title">${escapeHtml(t.label)}</div><div class="deep-task-pill">${block.label} · ${status.toUpperCase()}</div></div><div class="deep-task-meta">${fmt(t.start)}${t.end&&t.end!==t.start?' → '+fmt(t.end):''} · planned ${fmtDur(getTaskDuration(t))} · credited ${fmtDur(deepWorkTaskCreditMinutes(t,viewDate))}</div>${t.desc?`<div class="deep-task-meta" style="color:#CFE6FF;">${escapeHtml(t.desc)}</div>`:''}${details.length?`<div class="deep-task-meta">Checklist progress: ${doneDetails}/${details.length} done</div>`:''}</div>`;}).join('')}</div>`;}function renderDeepWorkDashboard(){if(!document.getElementById('page-deepwork'))return;renderDeepWorkStats();renderDeepWorkTimerBox();renderDeepWorkCalendar();renderDeepWorkBlocks();renderDeepWorkTaskList();}
 
+
+
+// ══════════════════════════════════════════════════════
+//  WORLD TIME + WEATHER COMMAND CENTER
+// ══════════════════════════════════════════════════════
+const WT_COUNTRIES=[
+  {id:'pakistan',country:'Pakistan',city:'Lahore / Karachi',tz:'Asia/Karachi',lat:31.5204,lon:74.3587,flag:'🇵🇰'},
+  {id:'saudi',country:'Saudi Arabia',city:'Makkah / Riyadh',tz:'Asia/Riyadh',lat:21.3891,lon:39.8579,flag:'🇸🇦'},
+  {id:'uae',country:'United Arab Emirates',city:'Dubai',tz:'Asia/Dubai',lat:25.2048,lon:55.2708,flag:'🇦🇪'},
+  {id:'qatar',country:'Qatar',city:'Doha',tz:'Asia/Qatar',lat:25.2854,lon:51.5310,flag:'🇶🇦'},
+  {id:'kuwait',country:'Kuwait',city:'Kuwait City',tz:'Asia/Kuwait',lat:29.3759,lon:47.9774,flag:'🇰🇼'},
+  {id:'bahrain',country:'Bahrain',city:'Manama',tz:'Asia/Bahrain',lat:26.2235,lon:50.5876,flag:'🇧🇭'},
+  {id:'oman',country:'Oman',city:'Muscat',tz:'Asia/Muscat',lat:23.5880,lon:58.3829,flag:'🇴🇲'},
+  {id:'turkey',country:'Türkiye',city:'Istanbul',tz:'Europe/Istanbul',lat:41.0082,lon:28.9784,flag:'🇹🇷'},
+  {id:'uk',country:'United Kingdom',city:'London',tz:'Europe/London',lat:51.5072,lon:-0.1276,flag:'🇬🇧'},
+  {id:'ireland',country:'Ireland',city:'Dublin',tz:'Europe/Dublin',lat:53.3498,lon:-6.2603,flag:'🇮🇪'},
+  {id:'usa_ny',country:'United States',city:'New York',tz:'America/New_York',lat:40.7128,lon:-74.0060,flag:'🇺🇸'},
+  {id:'usa_chicago',country:'United States',city:'Chicago',tz:'America/Chicago',lat:41.8781,lon:-87.6298,flag:'🇺🇸'},
+  {id:'usa_denver',country:'United States',city:'Denver',tz:'America/Denver',lat:39.7392,lon:-104.9903,flag:'🇺🇸'},
+  {id:'usa_la',country:'United States',city:'Los Angeles',tz:'America/Los_Angeles',lat:34.0522,lon:-118.2437,flag:'🇺🇸'},
+  {id:'canada_toronto',country:'Canada',city:'Toronto',tz:'America/Toronto',lat:43.6532,lon:-79.3832,flag:'🇨🇦'},
+  {id:'canada_vancouver',country:'Canada',city:'Vancouver',tz:'America/Vancouver',lat:49.2827,lon:-123.1207,flag:'🇨🇦'},
+  {id:'mexico',country:'Mexico',city:'Mexico City',tz:'America/Mexico_City',lat:19.4326,lon:-99.1332,flag:'🇲🇽'},
+  {id:'brazil',country:'Brazil',city:'São Paulo',tz:'America/Sao_Paulo',lat:-23.5558,lon:-46.6396,flag:'🇧🇷'},
+  {id:'argentina',country:'Argentina',city:'Buenos Aires',tz:'America/Argentina/Buenos_Aires',lat:-34.6037,lon:-58.3816,flag:'🇦🇷'},
+  {id:'chile',country:'Chile',city:'Santiago',tz:'America/Santiago',lat:-33.4489,lon:-70.6693,flag:'🇨🇱'},
+  {id:'colombia',country:'Colombia',city:'Bogotá',tz:'America/Bogota',lat:4.7110,lon:-74.0721,flag:'🇨🇴'},
+  {id:'peru',country:'Peru',city:'Lima',tz:'America/Lima',lat:-12.0464,lon:-77.0428,flag:'🇵🇪'},
+  {id:'china',country:'China',city:'Beijing',tz:'Asia/Shanghai',lat:39.9042,lon:116.4074,flag:'🇨🇳'},
+  {id:'hong_kong',country:'Hong Kong',city:'Hong Kong',tz:'Asia/Hong_Kong',lat:22.3193,lon:114.1694,flag:'🇭🇰'},
+  {id:'japan',country:'Japan',city:'Tokyo',tz:'Asia/Tokyo',lat:35.6762,lon:139.6503,flag:'🇯🇵'},
+  {id:'south_korea',country:'South Korea',city:'Seoul',tz:'Asia/Seoul',lat:37.5665,lon:126.9780,flag:'🇰🇷'},
+  {id:'india',country:'India',city:'Delhi',tz:'Asia/Kolkata',lat:28.6139,lon:77.2090,flag:'🇮🇳'},
+  {id:'bangladesh',country:'Bangladesh',city:'Dhaka',tz:'Asia/Dhaka',lat:23.8103,lon:90.4125,flag:'🇧🇩'},
+  {id:'sri_lanka',country:'Sri Lanka',city:'Colombo',tz:'Asia/Colombo',lat:6.9271,lon:79.8612,flag:'🇱🇰'},
+  {id:'nepal',country:'Nepal',city:'Kathmandu',tz:'Asia/Kathmandu',lat:27.7172,lon:85.3240,flag:'🇳🇵'},
+  {id:'afghanistan',country:'Afghanistan',city:'Kabul',tz:'Asia/Kabul',lat:34.5553,lon:69.2075,flag:'🇦🇫'},
+  {id:'iran',country:'Iran',city:'Tehran',tz:'Asia/Tehran',lat:35.6892,lon:51.3890,flag:'🇮🇷'},
+  {id:'malaysia',country:'Malaysia',city:'Kuala Lumpur',tz:'Asia/Kuala_Lumpur',lat:3.1390,lon:101.6869,flag:'🇲🇾'},
+  {id:'singapore',country:'Singapore',city:'Singapore',tz:'Asia/Singapore',lat:1.3521,lon:103.8198,flag:'🇸🇬'},
+  {id:'indonesia',country:'Indonesia',city:'Jakarta',tz:'Asia/Jakarta',lat:-6.2088,lon:106.8456,flag:'🇮🇩'},
+  {id:'thailand',country:'Thailand',city:'Bangkok',tz:'Asia/Bangkok',lat:13.7563,lon:100.5018,flag:'🇹🇭'},
+  {id:'vietnam',country:'Vietnam',city:'Hanoi',tz:'Asia/Ho_Chi_Minh',lat:21.0278,lon:105.8342,flag:'🇻🇳'},
+  {id:'philippines',country:'Philippines',city:'Manila',tz:'Asia/Manila',lat:14.5995,lon:120.9842,flag:'🇵🇭'},
+  {id:'australia_sydney',country:'Australia',city:'Sydney',tz:'Australia/Sydney',lat:-33.8688,lon:151.2093,flag:'🇦🇺'},
+  {id:'australia_perth',country:'Australia',city:'Perth',tz:'Australia/Perth',lat:-31.9523,lon:115.8613,flag:'🇦🇺'},
+  {id:'new_zealand',country:'New Zealand',city:'Auckland',tz:'Pacific/Auckland',lat:-36.8509,lon:174.7645,flag:'🇳🇿'},
+  {id:'germany',country:'Germany',city:'Berlin',tz:'Europe/Berlin',lat:52.5200,lon:13.4050,flag:'🇩🇪'},
+  {id:'france',country:'France',city:'Paris',tz:'Europe/Paris',lat:48.8566,lon:2.3522,flag:'🇫🇷'},
+  {id:'spain',country:'Spain',city:'Madrid',tz:'Europe/Madrid',lat:40.4168,lon:-3.7038,flag:'🇪🇸'},
+  {id:'italy',country:'Italy',city:'Rome',tz:'Europe/Rome',lat:41.9028,lon:12.4964,flag:'🇮🇹'},
+  {id:'netherlands',country:'Netherlands',city:'Amsterdam',tz:'Europe/Amsterdam',lat:52.3676,lon:4.9041,flag:'🇳🇱'},
+  {id:'switzerland',country:'Switzerland',city:'Zurich',tz:'Europe/Zurich',lat:47.3769,lon:8.5417,flag:'🇨🇭'},
+  {id:'sweden',country:'Sweden',city:'Stockholm',tz:'Europe/Stockholm',lat:59.3293,lon:18.0686,flag:'🇸🇪'},
+  {id:'norway',country:'Norway',city:'Oslo',tz:'Europe/Oslo',lat:59.9139,lon:10.7522,flag:'🇳🇴'},
+  {id:'russia',country:'Russia',city:'Moscow',tz:'Europe/Moscow',lat:55.7558,lon:37.6173,flag:'🇷🇺'},
+  {id:'egypt',country:'Egypt',city:'Cairo',tz:'Africa/Cairo',lat:30.0444,lon:31.2357,flag:'🇪🇬'},
+  {id:'morocco',country:'Morocco',city:'Casablanca',tz:'Africa/Casablanca',lat:33.5731,lon:-7.5898,flag:'🇲🇦'},
+  {id:'nigeria',country:'Nigeria',city:'Lagos',tz:'Africa/Lagos',lat:6.5244,lon:3.3792,flag:'🇳🇬'},
+  {id:'kenya',country:'Kenya',city:'Nairobi',tz:'Africa/Nairobi',lat:-1.2921,lon:36.8219,flag:'🇰🇪'},
+  {id:'south_africa',country:'South Africa',city:'Cape Town',tz:'Africa/Johannesburg',lat:-33.9249,lon:18.4241,flag:'🇿🇦'}
+]
+const WT_DEFAULT_FAVS=['pakistan','saudi','uae','qatar','uk','usa_ny','turkey','china','japan','australia_sydney'];
+let wtWeatherCache={};
+let wtLoopStarted=false;
+function wtFmtTime(tz){try{return new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true}).format(new Date());}catch(e){return '--:--:--';}}
+function wtFmtDate(tz){try{return new Intl.DateTimeFormat('en-GB',{timeZone:tz,weekday:'long',day:'2-digit',month:'long',year:'numeric'}).format(new Date());}catch(e){return '';}}
+function wtGetFavs(){let f=load('world_time_favorites_v1');if(!Array.isArray(f)||!f.length)f=WT_DEFAULT_FAVS.slice();return f.filter(id=>WT_COUNTRIES.some(c=>c.id===id));}
+function wtSaveFavs(f){save('world_time_favorites_v1',[...new Set(f)]);}
+function wtWeatherCodeText(code){const map={0:['☀️','Clear sky'],1:['🌤️','Mainly clear'],2:['⛅','Partly cloudy'],3:['☁️','Cloudy'],45:['🌫️','Fog'],48:['🌫️','Rime fog'],51:['🌦️','Light drizzle'],53:['🌦️','Drizzle'],55:['🌧️','Heavy drizzle'],61:['🌧️','Light rain'],63:['🌧️','Rain'],65:['⛈️','Heavy rain'],71:['🌨️','Light snow'],73:['🌨️','Snow'],75:['❄️','Heavy snow'],80:['🌦️','Rain showers'],81:['🌧️','Showers'],82:['⛈️','Heavy showers'],95:['⛈️','Thunderstorm'],96:['⛈️','Thunderstorm + hail'],99:['⛈️','Severe storm']};return map[code]||['🌡️','Weather update'];}
+function wtProject(lon,lat){return {x:((lon+180)/360)*100,y:((90-lat)/180)*100};}
+async function wtFetchWeatherFor(place){const key='wt_'+place.id;const now=Date.now();if(wtWeatherCache[key]&&now-wtWeatherCache[key].stamp<20*60*1000)return wtWeatherCache[key].data;const url=`https://api.open-meteo.com/v1/forecast?latitude=${encodeURIComponent(place.lat)}&longitude=${encodeURIComponent(place.lon)}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&timezone=${encodeURIComponent(place.tz)}`;try{const res=await fetch(url);if(!res.ok)throw new Error('weather');const json=await res.json();const c=json.current||{};const data={temp:c.temperature_2m,feels:c.apparent_temperature,humidity:c.relative_humidity_2m,wind:c.wind_speed_10m,precip:c.precipitation,code:c.weather_code,time:c.time};wtWeatherCache[key]={stamp:now,data};return data;}catch(e){return null;}}
+async function wtFetchWeatherLatLon(lat,lon,tz){const url=`https://api.open-meteo.com/v1/forecast?latitude=${encodeURIComponent(lat)}&longitude=${encodeURIComponent(lon)}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&timezone=${encodeURIComponent(tz||'auto')}`;try{const res=await fetch(url);if(!res.ok)throw new Error('weather');const json=await res.json();const c=json.current||{};return {temp:c.temperature_2m,feels:c.apparent_temperature,humidity:c.relative_humidity_2m,wind:c.wind_speed_10m,precip:c.precipitation,code:c.weather_code,time:c.time};}catch(e){return null;}}
+function wtRenderCountrySelect(){const sel=document.getElementById('wtCountrySelect');if(!sel)return;const favs=wtGetFavs();sel.innerHTML=WT_COUNTRIES.map(c=>`<option value="${c.id}" ${favs.includes(c.id)?'disabled':''}>${c.flag} ${escapeHtml(c.country)} — ${escapeHtml(c.city)}</option>`).join('');}
+function wtRenderCards(){const box=document.getElementById('wtFavCards');if(!box)return;const favs=wtGetFavs().map(id=>WT_COUNTRIES.find(c=>c.id===id)).filter(Boolean);box.innerHTML=favs.map(c=>{const w=wtWeatherCache['wt_'+c.id]?.data;const weather=w?wtWeatherCodeText(w.code):['⏳','Loading weather'];return `<div class="world-card" id="wtCard_${c.id}"><div class="world-card-head"><div><div class="world-country">${c.flag} ${escapeHtml(c.country)}</div><div class="world-city">${escapeHtml(c.city)} · ${escapeHtml(c.tz)}</div></div><button class="world-tiny-btn world-danger" onclick="wtRemoveFavorite('${c.id}')">Remove</button></div><div class="world-time" data-wt-clock="${c.tz}">${wtFmtTime(c.tz)}</div><div class="world-local-date">${wtFmtDate(c.tz)}</div><div class="world-weather"><div class="world-weather-icon">${weather[0]}</div><div><div class="world-weather-main">${w&&w.temp!=null?Math.round(w.temp)+'°C · ':''}${weather[1]}</div><div class="world-weather-sub">${w?`Feels ${Math.round(w.feels)}°C · Humidity ${w.humidity}% · Wind ${Math.round(w.wind)} km/h · Rain ${w.precip||0} mm`:'Weather will appear when online.'}</div></div></div><div class="world-card-actions"><button class="world-tiny-btn" onclick="wtRefreshOne('${c.id}')">↻ Refresh</button></div></div>`;}).join('');wtRenderMapPins();}
+function wtRenderMapPins(){const pins=document.getElementById('wtMapPins');if(!pins)return;const favs=wtGetFavs().map(id=>WT_COUNTRIES.find(c=>c.id===id)).filter(Boolean);pins.innerHTML=favs.map(c=>{const p=wtProject(c.lon,c.lat);return `<div class="world-map-pin" style="left:${p.x}%;top:${p.y}%;">${c.flag} ${escapeHtml(c.country)} · <span data-wt-clock="${c.tz}">${wtFmtTime(c.tz).replace(/:\d\d /,' ')}</span></div>`;}).join('');}
+function wtTick(){const pk='Asia/Karachi';const hdr=document.getElementById('hdrDigitalClock');if(hdr)hdr.textContent=wtFmtTime(pk);const meta=document.getElementById('hdrClockMeta');if(meta)meta.textContent='Pakistan Time · '+wtFmtDate(pk).split(',')[0];const localTz=Intl.DateTimeFormat().resolvedOptions().timeZone||pk;const lt=document.getElementById('wtLocalTime');if(lt)lt.textContent=wtFmtTime(localTz);const ld=document.getElementById('wtLocalDate');if(ld)ld.textContent=`${wtFmtDate(localTz)} · ${localTz}`;document.querySelectorAll('[data-wt-clock]').forEach(el=>{const tz=el.getAttribute('data-wt-clock');el.textContent=el.classList.contains('world-time')?wtFmtTime(tz):wtFmtTime(tz).replace(/:\d\d /,' ');});}
+function wtEnsureLoop(){if(wtLoopStarted)return;wtLoopStarted=true;wtTick();setInterval(wtTick,1000);}
+async function wtRefreshOne(id){const c=WT_COUNTRIES.find(x=>x.id===id);if(!c)return;delete wtWeatherCache['wt_'+id];const status=document.getElementById('wtWeatherStatus');if(status)status.textContent='Refreshing weather for '+c.country+'…';await wtFetchWeatherFor(c);wtRenderCards();if(status)status.textContent='Weather updated for '+c.country+'.';}
+async function wtRefreshAllWeather(){const favs=wtGetFavs().map(id=>WT_COUNTRIES.find(c=>c.id===id)).filter(Boolean);const status=document.getElementById('wtWeatherStatus');if(status)status.textContent='Refreshing favorite countries weather…';await Promise.all(favs.map(c=>wtFetchWeatherFor(c)));wtRenderCards();if(status)status.textContent='Favorite countries weather list updated.';const loc=load('world_time_my_location_v1');if(loc&&loc.lat&&loc.lon)wtLoadLocalWeather(loc.lat,loc.lon,loc.label);}
+function wtAddFavorite(){const sel=document.getElementById('wtCountrySelect');if(!sel||!sel.value)return;const favs=wtGetFavs();if(!favs.includes(sel.value))favs.push(sel.value);wtSaveFavs(favs);wtRenderCountrySelect();wtRenderCards();wtRefreshOne(sel.value);}
+function wtRemoveFavorite(id){const favs=wtGetFavs().filter(x=>x!==id);wtSaveFavs(favs.length?favs:WT_DEFAULT_FAVS.slice(0,1));wtRenderCountrySelect();wtRenderCards();}
+function wtResetFavorites(){wtSaveFavs(WT_DEFAULT_FAVS.slice());wtRenderCountrySelect();wtRenderCards();wtRefreshAllWeather();}
+async function wtLoadLocalWeather(lat,lon,label){const status=document.getElementById('wtLocalStatus');const wMain=document.getElementById('wtLocalWeather');const wSub=document.getElementById('wtLocalWeatherSub');const place=document.getElementById('wtLocalPlace');const coords=document.getElementById('wtLocalCoords');const tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'Asia/Karachi';if(place)place.textContent=label||'My current location';if(coords)coords.textContent=`Lat ${Number(lat).toFixed(3)}, Lon ${Number(lon).toFixed(3)} · ${tz}`;if(status)status.textContent='Loading your current location weather…';const w=await wtFetchWeatherLatLon(lat,lon,tz);if(w){const t=wtWeatherCodeText(w.code);if(wMain)wMain.textContent=`${t[0]} ${Math.round(w.temp)}°C · ${t[1]}`;if(wSub)wSub.textContent=`Feels ${Math.round(w.feels)}°C · Humidity ${w.humidity}% · Wind ${Math.round(w.wind)} km/h · Rain ${w.precip||0} mm`;if(status)status.textContent='Current location weather updated.';}else{if(wMain)wMain.textContent='Weather unavailable';if(wSub)wSub.textContent='Check internet connection or try again.';if(status)status.textContent='Could not load weather right now.';}}
+function wtUseMyLocation(){const status=document.getElementById('wtLocalStatus');if(!navigator.geolocation){if(status)status.textContent='Your browser does not support location permission.';return;}if(status)status.textContent='Requesting location permission…';navigator.geolocation.getCurrentPosition(pos=>{const lat=pos.coords.latitude,lon=pos.coords.longitude;const data={lat,lon,label:'My current location',savedAt:new Date().toISOString()};save('world_time_my_location_v1',data);wtLoadLocalWeather(lat,lon,data.label);},err=>{if(status)status.textContent='Location permission was denied or unavailable. You can still use worldwide clocks and country weather.';},{enableHighAccuracy:false,timeout:12000,maximumAge:20*60*1000});}
+function wtInit(){wtEnsureLoop();wtEnsureClockToolsLoop();wtRenderCountrySelect();wtRenderCards();const loc=load('world_time_my_location_v1');if(loc&&loc.lat&&loc.lon)wtLoadLocalWeather(loc.lat,loc.lon,loc.label);wtRefreshAllWeather();}
+
+// ── CLOCK TOOLS: ALARM · TIMER · STOPWATCH ──
+let wtAlarmInterval=null, wtTimerInterval=null, wtStopwatchInterval=null;
+let wtTimerState={remaining:0,running:false,lastTick:null};
+let wtStopwatchState={elapsed:0,running:false,lastTick:null,laps:[]};
+function wtPad(n){return String(Math.floor(Math.max(0,n))).padStart(2,'0');}
+function wtFormatDuration(ms,withTenths=false){ms=Math.max(0,Math.floor(ms||0));const total=Math.floor(ms/1000);const h=Math.floor(total/3600),m=Math.floor((total%3600)/60),s=total%60;return `${wtPad(h)}:${wtPad(m)}:${wtPad(s)}${withTenths?'.'+Math.floor((ms%1000)/100):''}`;}
+function wtClockToolStatus(msg){const el=document.getElementById('wtClockToolStatus');if(el)el.textContent=msg;}
+function wtGetAudioCtx(){try{window.wtAudioCtx=window.wtAudioCtx||new (window.AudioContext||window.webkitAudioContext)();return window.wtAudioCtx;}catch(e){return null;}}
+function wtPlayAlarmSound(){const ctx=wtGetAudioCtx();if(!ctx)return;ctx.resume&&ctx.resume();const now=ctx.currentTime;for(let i=0;i<9;i++){const osc=ctx.createOscillator();const gain=ctx.createGain();osc.type=i%2?'triangle':'sine';osc.frequency.setValueAtTime(i%2?880:660,now+i*.28);gain.gain.setValueAtTime(0.0001,now+i*.28);gain.gain.exponentialRampToValueAtTime(0.26,now+i*.28+.03);gain.gain.exponentialRampToValueAtTime(0.0001,now+i*.28+.22);osc.connect(gain);gain.connect(ctx.destination);osc.start(now+i*.28);osc.stop(now+i*.28+.24);}}
+function wtTestAlarmSound(){wtPlayAlarmSound();wtClockToolStatus('Alarm sound test played. Browser may ask for sound permission after a user click.');}
+function wtLoadAlarm(){return load('world_time_alarm_v1')||null;}
+function wtSaveAlarm(data){save('world_time_alarm_v1',data);}
+function wtSetAlarm(){const time=document.getElementById('wtAlarmTime')?.value||'';const label=(document.getElementById('wtAlarmLabel')?.value||'Alarm').trim()||'Alarm';if(!time){wtClockToolStatus('Choose an alarm time first.');return;}wtSaveAlarm({time,label,enabled:true,lastFired:''});wtRenderAlarm();wtClockToolStatus('Alarm set for '+time+' · keep this tab open.');wtEnsureClockToolsLoop();}
+function wtClearAlarm(){wtSaveAlarm(null);wtRenderAlarm();wtClockToolStatus('Alarm cleared.');}
+function wtRenderAlarm(){const data=wtLoadAlarm();const el=document.getElementById('wtAlarmStatus');if(!el)return;if(data&&data.enabled){el.textContent=`${data.label||'Alarm'} · ${data.time}`;}else el.textContent='No alarm set';}
+function wtCheckAlarm(){const data=wtLoadAlarm();if(!data||!data.enabled||!data.time)return;const now=new Date();const hh=wtPad(now.getHours()),mm=wtPad(now.getMinutes());const today=now.toISOString().slice(0,10);if(`${hh}:${mm}`===data.time && data.lastFired!==today+' '+data.time){data.lastFired=today+' '+data.time;wtSaveAlarm(data);wtPlayAlarmSound();wtClockToolStatus('⏰ Alarm ringing: '+(data.label||'Alarm'));try{alert('⏰ '+(data.label||'Alarm')+' · '+data.time);}catch(e){}}}
+function wtStartTimer(){const h=Number(document.getElementById('wtTimerHours')?.value)||0,m=Number(document.getElementById('wtTimerMinutes')?.value)||0,sec=Number(document.getElementById('wtTimerSeconds')?.value)||0;if(!wtTimerState.remaining){wtTimerState.remaining=Math.max(0,((h*3600)+(m*60)+sec)*1000);}if(!wtTimerState.remaining){wtClockToolStatus('Enter a timer duration first.');return;}wtTimerState.running=true;wtTimerState.lastTick=Date.now();wtEnsureClockToolsLoop();wtRenderTimer();wtClockToolStatus('Timer started.');}
+function wtPauseTimer(){wtUpdateTimerState();wtTimerState.running=false;wtTimerState.lastTick=null;wtRenderTimer();wtClockToolStatus('Timer paused.');}
+function wtResetTimer(){wtTimerState={remaining:0,running:false,lastTick:null};['wtTimerHours','wtTimerMinutes','wtTimerSeconds'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});wtRenderTimer();wtClockToolStatus('Timer reset.');}
+function wtUpdateTimerState(){if(wtTimerState.running&&wtTimerState.lastTick){const now=Date.now();wtTimerState.remaining=Math.max(0,wtTimerState.remaining-(now-wtTimerState.lastTick));wtTimerState.lastTick=now;if(wtTimerState.remaining<=0){wtTimerState.running=false;wtTimerState.lastTick=null;wtPlayAlarmSound();wtClockToolStatus('⏲ Timer finished.');try{alert('⏲ Timer finished');}catch(e){}}}}
+function wtRenderTimer(){const el=document.getElementById('wtTimerDisplay');if(el)el.textContent=wtFormatDuration(wtTimerState.remaining);}
+function wtStartStopwatch(){if(!wtStopwatchState.running){wtStopwatchState.running=true;wtStopwatchState.lastTick=Date.now();wtEnsureClockToolsLoop();wtClockToolStatus('Stopwatch started.');}}
+function wtPauseStopwatch(){wtUpdateStopwatchState();wtStopwatchState.running=false;wtStopwatchState.lastTick=null;wtRenderStopwatch();wtClockToolStatus('Stopwatch paused.');}
+function wtResetStopwatch(){wtStopwatchState={elapsed:0,running:false,lastTick:null,laps:[]};wtRenderStopwatch();wtClockToolStatus('Stopwatch reset.');}
+function wtLapStopwatch(){wtUpdateStopwatchState();if(wtStopwatchState.elapsed>0){wtStopwatchState.laps.unshift(wtStopwatchState.elapsed);wtStopwatchState.laps=wtStopwatchState.laps.slice(0,8);wtRenderStopwatch();}}
+function wtUpdateStopwatchState(){if(wtStopwatchState.running&&wtStopwatchState.lastTick){const now=Date.now();wtStopwatchState.elapsed+=now-wtStopwatchState.lastTick;wtStopwatchState.lastTick=now;}}
+function wtRenderStopwatch(){const el=document.getElementById('wtStopwatchDisplay');if(el)el.textContent=wtFormatDuration(wtStopwatchState.elapsed,true);const laps=document.getElementById('wtStopwatchLaps');if(laps)laps.innerHTML=wtStopwatchState.laps.map((v,i)=>`<div class="clock-lap-row"><span>Lap ${wtStopwatchState.laps.length-i}</span><strong>${wtFormatDuration(v,true)}</strong></div>`).join('');}
+function wtClockToolsTick(){wtCheckAlarm();wtUpdateTimerState();wtUpdateStopwatchState();wtRenderTimer();wtRenderStopwatch();}
+function wtEnsureClockToolsLoop(){if(wtAlarmInterval)return;wtRenderAlarm();wtRenderTimer();wtRenderStopwatch();wtAlarmInterval=setInterval(wtClockToolsTick,250);}
+
+
 // ══════════════════════════════════════════════════════
 //  NAV
 // ══════════════════════════════════════════════════════
@@ -9515,7 +9845,7 @@ function navTo(page, btn){
   if(btn) btn.classList.add('active');
   else {
     const tabs=document.querySelectorAll('.nav-tab');
-    const pages=['dashboard','today','weekly','streaks','islamic','media','research','priorities','phases','deepwork','badhabits','mosque','financial','portable'];
+    const pages=['dashboard','today','weekly','streaks','islamic','media','research','priorities','phases','deepwork','badhabits','mosque','financial','worldtime','portable'];
     const idx=pages.indexOf(page);
     if(idx>=0) tabs[idx].classList.add('active');
   }
@@ -9529,6 +9859,7 @@ function navTo(page, btn){
   if(page==='deepwork') renderDeepWorkDashboard();
   if(page==='badhabits') renderBadHabitTracker();
   if(page==='mosque') renderMosqueProject();
+  if(page==='worldtime') wtInit();
   if(page==='portable') updateSyncPanelStats();
 }
 
@@ -11869,6 +12200,8 @@ if(viewDate<START){
   viewDate.setHours(0,0,0,0);
 }
 renderToday();
+wtEnsureLoop();
+wtEnsureClockToolsLoop();
 renderBadHabitTracker();
 renderMosqueProject();
 renderDeepWorkDashboard();
