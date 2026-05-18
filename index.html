@@ -2114,6 +2114,66 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
 .clock-lap-row{display:flex;justify-content:space-between;gap:8px;padding:6px 8px;border-radius:10px;background:rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:10px;color:#CFE6FF;}
 @media(max-width:980px){.clock-tools-grid{grid-template-columns:1fr;}.world-map-box{min-height:320px;}.clock-tool-row,.clock-tool-row.three{grid-template-columns:1fr;}}
 
+
+/* ── JOURNALING SECTION (weekly self-review + PDF report) ── */
+.journal-wrap{display:flex;flex-direction:column;gap:16px;margin-top:20px;}
+.journal-hero{position:relative;overflow:hidden;border-radius:30px;padding:24px;background:radial-gradient(circle at 0% 0%,rgba(61,220,151,.18),transparent 34%),radial-gradient(circle at 100% 0%,rgba(124,58,237,.18),transparent 34%),linear-gradient(145deg,rgba(8,22,45,.98),rgba(3,8,20,.98));border:1px solid rgba(140,199,255,.20);box-shadow:0 24px 62px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.045);}
+.journal-hero::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,#3DDC97,#38BDF8,#7C3AED,transparent);}
+.journal-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:#7DD3FC;font-weight:900;margin-bottom:8px;}
+.journal-title{font-size:clamp(24px,3.2vw,38px);font-weight:900;letter-spacing:-.045em;color:#F8FBFF;margin-bottom:8px;}
+.journal-sub{font-size:13px;line-height:1.75;color:#B8C8E4;max-width:980px;}
+.journal-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;}
+.journal-week-title{font-size:13px;color:#DCEBFF;font-family:'JetBrains Mono',monospace;line-height:1.55;}
+.journal-tab-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;}
+.journal-tab{padding:9px 14px;border-radius:12px;border:1px solid rgba(140,199,255,.14);background:rgba(255,255,255,.025);color:#AFC0DA;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;transition:all .18s;}
+.journal-tab.active{border-color:#60A5FA;color:#F3F8FF;background:linear-gradient(135deg,rgba(59,130,246,.20),rgba(124,58,237,.10));box-shadow:0 10px 24px rgba(0,0,0,.18);}
+.journal-pane{display:none;}
+.journal-pane.active{display:block;}
+.journal-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;}
+.journal-panel{position:relative;overflow:hidden;border-radius:26px;padding:18px;background:radial-gradient(circle at 100% 0%,rgba(56,189,248,.10),transparent 34%),linear-gradient(145deg,rgba(9,21,42,.98),rgba(4,10,22,.98));border:1px solid rgba(140,199,255,.14);box-shadow:0 18px 44px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.04);}
+.journal-panel::before{content:'';position:absolute;left:18px;right:18px;top:0;height:2px;border-radius:99px;background:linear-gradient(90deg,transparent,#38BDF8,#7C3AED,transparent);}
+.journal-panel-title{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#93C5FD;font-weight:900;margin-bottom:12px;}
+.journal-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.journal-kpi{border-radius:20px;padding:14px 10px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.016));border:1px solid rgba(140,199,255,.10);}
+.journal-kpi-num{font-size:26px;font-weight:900;color:#F8FBFF;letter-spacing:-.04em;}
+.journal-kpi-label{font-size:9px;color:#93A7C9;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.9px;margin-top:5px;line-height:1.35;}
+.journal-meter{height:11px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden;border:1px solid rgba(140,199,255,.08);}
+.journal-meter-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#3DDC97,#38BDF8,#7C3AED);box-shadow:0 0 18px rgba(56,189,248,.28);transition:width .25s ease;}
+.journal-percent-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+.journal-percent-card{border-radius:18px;padding:13px;background:rgba(255,255,255,.03);border:1px solid rgba(140,199,255,.10);}
+.journal-percent-head{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:#AFC0DA;margin-bottom:8px;}
+.journal-percent-head strong{font-size:17px;color:#F8FBFF;font-family:'Inter',sans-serif;letter-spacing:-.04em;}
+.journal-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;}
+.journal-cal-head{text-align:center;font-size:9px;color:#7E8CA5;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.8px;padding-bottom:4px;}
+.journal-cal-day{min-height:84px;border-radius:18px;padding:9px 7px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014));border:1px solid rgba(140,199,255,.08);cursor:pointer;transition:all .18s;}
+.journal-cal-day:hover{transform:translateY(-2px);border-color:rgba(96,165,250,.35);}
+.journal-cal-day.today{border-color:#60A5FA;box-shadow:0 0 0 2px rgba(96,165,250,.14);}
+.journal-cal-day.has-entry{background:linear-gradient(180deg,rgba(61,220,151,.12),rgba(255,255,255,.016));border-color:rgba(61,220,151,.28);}
+.journal-cal-day.weak{background:linear-gradient(180deg,rgba(255,107,107,.11),rgba(255,255,255,.014));border-color:rgba(255,107,107,.23);}
+.journal-cal-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:#DCEBFF;font-weight:900;display:flex;justify-content:space-between;}
+.journal-cal-meta{font-size:9px;color:#9FB2D2;line-height:1.35;margin-top:7px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.journal-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.journal-form-grid .full{grid-column:1 / -1;}
+.journal-input,.journal-textarea{width:100%;border-radius:14px;border:1px solid rgba(140,199,255,.14);background:linear-gradient(180deg,rgba(10,20,38,.88),rgba(5,12,24,.94));color:#F3F8FF;padding:10px 12px;font-family:'Inter',sans-serif;font-size:13px;outline:none;}
+.journal-textarea{min-height:95px;resize:vertical;line-height:1.6;}
+.journal-input:focus,.journal-textarea:focus{border-color:#60A5FA;box-shadow:0 0 0 3px rgba(96,165,250,.11);}
+.journal-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:#7EA2D6;margin-bottom:5px;font-weight:900;}
+.journal-insight-list{display:flex;flex-direction:column;gap:8px;}
+.journal-insight{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:flex-start;padding:11px 12px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(140,199,255,.10);}
+.journal-insight-icon{width:30px;height:30px;border-radius:12px;display:grid;place-items:center;background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.20);}
+.journal-insight-title{font-size:13px;font-weight:900;color:#F8FBFF;line-height:1.35;}
+.journal-insight-sub{font-size:11px;color:#AFC0DA;line-height:1.5;margin-top:3px;}
+.journal-entry-list{display:flex;flex-direction:column;gap:9px;}
+.journal-entry{border-radius:16px;padding:11px 12px;background:rgba(255,255,255,.025);border:1px solid rgba(140,199,255,.09);}
+.journal-entry-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:6px;}
+.journal-entry-title{font-size:13px;font-weight:900;color:#F8FBFF;line-height:1.35;}
+.journal-entry-date{font-size:10px;color:#7DD3FC;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.journal-entry-text{font-size:12px;color:#DCEBFF;line-height:1.6;white-space:pre-wrap;}
+.journal-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.journal-note{font-size:12px;line-height:1.7;color:#AFC0DA;background:rgba(56,189,248,.055);border:1px solid rgba(56,189,248,.15);border-radius:16px;padding:11px 13px;margin-top:10px;}
+@media(max-width:980px){.journal-grid{grid-template-columns:1fr;}.journal-kpi-grid{grid-template-columns:repeat(2,1fr);}.journal-form-grid{grid-template-columns:1fr;}.journal-form-grid .full{grid-column:auto;}}
+@media(max-width:560px){.journal-calendar{gap:5px;}.journal-cal-day{min-height:68px;border-radius:14px;padding:7px 5px;}.journal-percent-grid,.journal-kpi-grid{grid-template-columns:1fr;}.journal-toolbar{align-items:stretch;}.journal-toolbar .date-nav-btns{width:100%;}.journal-toolbar .dnav-btn{flex:1;}}
+
 </style>
 <!-- PWA APP SUPPORT -->
 <link rel="manifest" href="manifest.json">
@@ -2162,6 +2222,7 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   <button class="nav-tab" onclick="navTo('dashboard',this)">🏠 Dashboard</button>
   <button class="nav-tab active" onclick="navTo('today',this)">📋 Today</button>
   <button class="nav-tab" onclick="navTo('weekly',this)">📊 Weekly Report</button>
+  <button class="nav-tab" onclick="navTo('journaling',this)">📓 Journaling</button>
   <button class="nav-tab" id="streakNavTab" onclick="navTo('streaks',this)">⚠️ Streak Tracker</button>
   <button class="nav-tab" onclick="navTo('islamic',this)">🌙 Islamic Calendar</button>
   <button class="nav-tab" onclick="navTo('media',this)">📚 Library</button>
@@ -2486,6 +2547,112 @@ textarea.field-input{resize:vertical;min-height:70px;line-height:1.5;}
   </div>
 </div>
 
+
+
+<!-- ══════════════════════════════════════════
+     PAGE: JOURNALING
+══════════════════════════════════════════ -->
+<div id="page-journaling" class="page">
+  <div class="journal-wrap">
+    <div class="journal-hero">
+      <div class="journal-kicker">Weekly self-analysis · gratitude · mindset · report</div>
+      <div class="journal-title">Journaling</div>
+      <div class="journal-sub">Review your first week and every week after it: what you won, what you missed, what you struggled with, what your strengths are, and exactly where to improve next. This section automatically reads your weekly report and daily notes, then turns it into a printable PDF-style report.</div>
+      <div class="journal-toolbar">
+        <div class="journal-week-title" id="journalWeekTitle">Week report loading…</div>
+        <div class="date-nav-btns">
+          <button class="dnav-btn" onclick="journalChangeWeek(-1)">← Prev Week</button>
+          <button class="dnav-btn today-btn" onclick="journalGoCurrentWeek()">This Week</button>
+          <button class="dnav-btn" onclick="journalChangeWeek(1)">Next Week →</button>
+          <button class="dnav-btn" onclick="journalExportPDF()">📄 PDF Report</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="journal-kpi-grid" id="journalKpis"></div>
+
+    <div class="journal-tab-row">
+      <button class="journal-tab active" id="jtab-overview" onclick="journalSwitchTab('overview',this)">📊 Review</button>
+      <button class="journal-tab" id="jtab-gratitude" onclick="journalSwitchTab('gratitude',this)">🙏 Gratitude</button>
+      <button class="journal-tab" id="jtab-mindset" onclick="journalSwitchTab('mindset',this)">🧠 Thoughts & Mindset</button>
+      <button class="journal-tab" id="jtab-weekly" onclick="journalSwitchTab('weekly',this)">📈 Weekly Review</button>
+    </div>
+
+    <div id="jpane-overview" class="journal-pane active">
+      <div class="journal-grid">
+        <div class="journal-panel">
+          <div class="journal-panel-title">Calendar & Daily Pattern</div>
+          <div id="journalCalendar" class="journal-calendar"></div>
+          <div class="journal-note" id="journalCalendarDetail">Click a day to see what happened and what you wrote.</div>
+        </div>
+        <div class="journal-panel">
+          <div class="journal-panel-title">Strengths, Weaknesses & Improvement %</div>
+          <div id="journalPercentCards"></div>
+          <div class="journal-insight-list" id="journalInsights" style="margin-top:12px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="jpane-gratitude" class="journal-pane">
+      <div class="journal-grid">
+        <div class="journal-panel">
+          <div class="journal-panel-title">Gratitude Journal</div>
+          <div class="journal-form-grid">
+            <div class="full"><div class="journal-label">I am grateful for</div><textarea class="journal-textarea" id="journalGratitude" placeholder="Write 3 things you are grateful for this week…"></textarea></div>
+            <div><div class="journal-label">Best blessing / win</div><input class="journal-input" id="journalBlessing" placeholder="Example: consistency, family, health"></div>
+            <div><div class="journal-label">Who helped me</div><input class="journal-input" id="journalPeople" placeholder="People, teachers, family, Allah's help"></div>
+            <div class="full"><div class="journal-label">How I will show gratitude through action</div><textarea class="journal-textarea" id="journalGratitudeAction" placeholder="What action will prove your gratitude next week?"></textarea></div>
+          </div>
+          <div class="journal-actions"><button class="btn btn-primary" onclick="journalSave('gratitude')">💾 Save Gratitude</button></div>
+        </div>
+        <div class="journal-panel">
+          <div class="journal-panel-title">Saved Gratitude Notes</div>
+          <div id="journalGratitudeView" class="journal-entry-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="jpane-mindset" class="journal-pane">
+      <div class="journal-grid">
+        <div class="journal-panel">
+          <div class="journal-panel-title">Thoughts & Mindset</div>
+          <div class="journal-form-grid">
+            <div class="full"><div class="journal-label">Main thoughts this week</div><textarea class="journal-textarea" id="journalThoughts" placeholder="What thoughts kept repeating? What did you learn about your mind?"></textarea></div>
+            <div><div class="journal-label">Mindset score (0-100)</div><input class="journal-input" type="number" min="0" max="100" id="journalMindsetScore" placeholder="70"></div>
+            <div><div class="journal-label">Mood / energy</div><input class="journal-input" id="journalMood" placeholder="Focused, tired, hopeful…"></div>
+            <div class="full"><div class="journal-label">Negative belief to replace</div><textarea class="journal-textarea" id="journalBelief" placeholder="Old belief → new stronger belief"></textarea></div>
+            <div class="full"><div class="journal-label">Mindset action for next week</div><textarea class="journal-textarea" id="journalMindsetAction" placeholder="One practical action that will improve your thinking and discipline"></textarea></div>
+          </div>
+          <div class="journal-actions"><button class="btn btn-primary" onclick="journalSave('mindset')">💾 Save Mindset</button></div>
+        </div>
+        <div class="journal-panel">
+          <div class="journal-panel-title">Mindset Analysis</div>
+          <div id="journalMindsetView" class="journal-entry-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="jpane-weekly" class="journal-pane">
+      <div class="journal-grid">
+        <div class="journal-panel">
+          <div class="journal-panel-title">Weekly Review</div>
+          <div class="journal-form-grid">
+            <div><div class="journal-label">What I won</div><textarea class="journal-textarea" id="journalWins" placeholder="Your biggest wins and completed tasks…"></textarea></div>
+            <div><div class="journal-label">What I missed</div><textarea class="journal-textarea" id="journalMissed" placeholder="Missed tasks, broken plans, weak areas…"></textarea></div>
+            <div><div class="journal-label">What I struggled with</div><textarea class="journal-textarea" id="journalStruggled" placeholder="Triggers, time, energy, emotions, laziness…"></textarea></div>
+            <div><div class="journal-label">What I learned</div><textarea class="journal-textarea" id="journalLearned" placeholder="Lessons from this week…"></textarea></div>
+            <div class="full"><div class="journal-label">Next week improvement plan</div><textarea class="journal-textarea" id="journalPlan" placeholder="Specific fixes: time changes, habits, environment, focus blocks…"></textarea></div>
+          </div>
+          <div class="journal-actions"><button class="btn btn-primary" onclick="journalSave('weekly')">💾 Save Weekly Review</button><button class="btn btn-ghost" onclick="journalAutoFillWeekly()">✨ Auto-fill from Weekly Report</button></div>
+        </div>
+        <div class="journal-panel">
+          <div class="journal-panel-title">Automatic Weekly Report Connection</div>
+          <div id="journalWeeklyAuto" class="journal-entry-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- ══════════════════════════════════════════
      PAGE: ISLAMIC CALENDAR
 ══════════════════════════════════════════ -->
@@ -9838,6 +10005,128 @@ function wtEnsureClockToolsLoop(){if(wtAlarmInterval)return;wtRenderAlarm();wtRe
 // ══════════════════════════════════════════════════════
 //  NAV
 // ══════════════════════════════════════════════════════
+
+
+// ══════════════════════════════════════════════════════
+//  JOURNALING — GRATITUDE + MINDSET + WEEKLY REVIEW + PDF
+// ══════════════════════════════════════════════════════
+let journalWeekOffset=0;
+let journalSelectedDateKey='';
+function journalEsc(v){return String(v==null?'':v).replace(/[&<>'"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c];});}
+function journalWeekMonday(){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7)+(journalWeekOffset*7));return d;}
+function journalWeekKey(){return dateKey(journalWeekMonday());}
+function journalDataKey(){return 'journal_week_'+journalWeekKey();}
+function journalLoad(){return load(journalDataKey())||{};}
+function journalSaveData(data){save(journalDataKey(),data);}
+function journalReadReport(d){return load('report_'+dateKey(d))||{};}
+function journalDateShort(d){return d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});}
+function journalBuildWeeklySnapshot(){
+  const mon=journalWeekMonday();
+  const dayNames=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  let totalDone=0,totalMissed=0,totalTasks=0;
+  const doneLabels=[], missedLabels=[], missCount={}, daily=[];
+  const notes=[];
+  for(let i=0;i<7;i++){
+    const dd=new Date(mon); dd.setDate(mon.getDate()+i);
+    const st=getDayState(dd), tasks=getTasksForDay(dd), rpt=journalReadReport(dd);
+    const done=tasks.filter(t=>st.statuses&&st.statuses[t.id]==='done');
+    const missed=tasks.filter(t=>st.statuses&&st.statuses[t.id]==='missed');
+    totalDone+=done.length; totalMissed+=missed.length; totalTasks+=tasks.length;
+    done.forEach(t=>doneLabels.push(t.label));
+    missed.forEach(t=>{missedLabels.push(t.label); missCount[t.label]=(missCount[t.label]||0)+1;});
+    const noteText=[rpt.wins,rpt.miss,rpt.fix,rpt.notes].filter(Boolean).join(' | ');
+    if(noteText) notes.push({date:dateKey(dd),text:noteText});
+    daily.push({date:dateKey(dd),day:dayNames[i],num:dd.getDate(),done:done.length,missed:missed.length,total:tasks.length,pct:tasks.length?Math.round(done.length/tasks.length*100):0,note:noteText});
+  }
+  const completion=totalTasks?Math.round(totalDone/totalTasks*100):0;
+  const needImprove=Math.max(0,100-completion);
+  const topMisses=Object.entries(missCount).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const strengths=[];
+  if(completion>=80) strengths.push('Strong consistency and high task completion.');
+  if(doneLabels.some(x=>/prayer|fajr|dhuhr|asr|maghrib|isha|qur|surah/i.test(x))) strengths.push('Spiritual routine is being protected.');
+  if(doneLabels.some(x=>/deep|research|learn|study|book|reading|work/i.test(x))) strengths.push('Learning, work, or deep focus showed real movement.');
+  if(notes.length>=3) strengths.push('You reflected on multiple days, which makes improvement easier.');
+  if(!strengths.length) strengths.push('You kept the system alive by tracking the week.');
+  const weaknesses=topMisses.length?topMisses.map(([label,count])=>`${label} missed ${count} time${count>1?'s':''}`):['No repeated missed-task pattern found yet.'];
+  return {mon,sun:(()=>{const x=new Date(mon);x.setDate(mon.getDate()+6);return x;})(),totalDone,totalMissed,totalTasks,completion,needImprove,topMisses,strengths,weaknesses,daily,notes,doneLabels,missedLabels};
+}
+function journalSwitchTab(tab,btn){document.querySelectorAll('.journal-pane').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.journal-tab').forEach(t=>t.classList.remove('active'));const p=document.getElementById('jpane-'+tab);if(p)p.classList.add('active');if(btn)btn.classList.add('active');}
+function journalChangeWeek(delta){journalWeekOffset+=delta;journalSelectedDateKey='';renderJournaling();}
+function journalGoCurrentWeek(){journalWeekOffset=0;journalSelectedDateKey='';renderJournaling();}
+function journalFillInputs(){
+  const d=journalLoad();
+  const set=(id,val)=>{const el=document.getElementById(id); if(el) el.value=val||'';};
+  set('journalGratitude',d.gratitude);set('journalBlessing',d.blessing);set('journalPeople',d.people);set('journalGratitudeAction',d.gratitudeAction);
+  set('journalThoughts',d.thoughts);set('journalMindsetScore',d.mindsetScore);set('journalMood',d.mood);set('journalBelief',d.belief);set('journalMindsetAction',d.mindsetAction);
+  set('journalWins',d.wins);set('journalMissed',d.missed);set('journalStruggled',d.struggled);set('journalLearned',d.learned);set('journalPlan',d.plan);
+}
+function journalSave(section){
+  const d=journalLoad();
+  const val=id=>{const el=document.getElementById(id); return el?el.value.trim():'';};
+  if(section==='gratitude'){Object.assign(d,{gratitude:val('journalGratitude'),blessing:val('journalBlessing'),people:val('journalPeople'),gratitudeAction:val('journalGratitudeAction')});}
+  if(section==='mindset'){Object.assign(d,{thoughts:val('journalThoughts'),mindsetScore:Math.max(0,Math.min(100,parseInt(val('journalMindsetScore'))||0)),mood:val('journalMood'),belief:val('journalBelief'),mindsetAction:val('journalMindsetAction')});}
+  if(section==='weekly'){Object.assign(d,{wins:val('journalWins'),missed:val('journalMissed'),struggled:val('journalStruggled'),learned:val('journalLearned'),plan:val('journalPlan')});}
+  d.updatedAt=new Date().toISOString(); journalSaveData(d); renderJournaling(); showToast();
+}
+function journalAutoFillWeekly(){
+  const snap=journalBuildWeeklySnapshot(), d=journalLoad();
+  d.wins=(snap.doneLabels.slice(0,12).join('\n') || 'No completed tasks recorded yet.');
+  d.missed=(snap.missedLabels.slice(0,12).join('\n') || 'No missed tasks recorded yet.');
+  d.struggled=snap.weaknesses.join('\n');
+  d.learned=snap.notes.slice(0,5).map(n=>n.date+': '+n.text).join('\n');
+  d.plan=snap.topMisses.length?'Next week focus:\n'+snap.topMisses.map(([x])=>'• Protect: '+x).join('\n'):'Keep the same routine and raise the completion percentage.';
+  journalSaveData(d); renderJournaling(); showToast();
+}
+function renderJournalKpis(snap,data){
+  const el=document.getElementById('journalKpis'); if(!el)return;
+  const mind=data.mindsetScore!==undefined&&data.mindsetScore!==''?Number(data.mindsetScore):Math.max(0,Math.min(100,snap.completion-5));
+  el.innerHTML=`<div class="journal-kpi"><div class="journal-kpi-num">${snap.completion}%</div><div class="journal-kpi-label">Improved / completed</div></div><div class="journal-kpi"><div class="journal-kpi-num">${snap.needImprove}%</div><div class="journal-kpi-label">Needs improvement</div></div><div class="journal-kpi"><div class="journal-kpi-num">${snap.totalDone}</div><div class="journal-kpi-label">Wins this week</div></div><div class="journal-kpi"><div class="journal-kpi-num">${mind}%</div><div class="journal-kpi-label">Mindset score</div></div>`;
+}
+function renderJournalCalendar(snap){
+  const el=document.getElementById('journalCalendar'); if(!el)return;
+  let html=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>`<div class="journal-cal-head">${d}</div>`).join('');
+  const today=dateKey(new Date());
+  snap.daily.forEach(day=>{const cls=[day.date===today?'today':'',day.note?'has-entry':'',day.pct<50?'weak':''].join(' ');html+=`<div class="journal-cal-day ${cls}" onclick="journalSelectDay('${day.date}')"><div class="journal-cal-num"><span>${day.num}</span><span>${day.pct}%</span></div><div class="journal-cal-meta">${day.done}/${day.total} done · ${day.missed} missed${day.note?' · Note saved':''}</div></div>`;});
+  el.innerHTML=html;
+}
+function journalSelectDay(dk){journalSelectedDateKey=dk;const snap=journalBuildWeeklySnapshot();const day=snap.daily.find(x=>x.date===dk);const el=document.getElementById('journalCalendarDetail');if(!el||!day)return;el.innerHTML=`<strong>${journalEsc(day.day)} ${journalEsc(dk)}</strong><br>${day.done}/${day.total} completed · ${day.missed} missed · ${day.pct}% score<br>${day.note?journalEsc(day.note):'No daily report note saved for this day yet.'}`;}
+function renderJournalInsights(snap,data){
+  const pct=document.getElementById('journalPercentCards'); if(pct){pct.innerHTML=`<div class="journal-percent-grid"><div class="journal-percent-card"><div class="journal-percent-head"><span>Improved by</span><strong>${snap.completion}%</strong></div><div class="journal-meter"><div class="journal-meter-fill" style="width:${snap.completion}%"></div></div></div><div class="journal-percent-card"><div class="journal-percent-head"><span>Need to improve</span><strong>${snap.needImprove}%</strong></div><div class="journal-meter"><div class="journal-meter-fill" style="width:${snap.needImprove}%;background:linear-gradient(90deg,#FF6B6B,#F59E0B)"></div></div></div></div>`;}
+  const ins=document.getElementById('journalInsights'); if(ins){
+    const strengths=snap.strengths.map(x=>`<div class="journal-insight"><div class="journal-insight-icon">💪</div><div><div class="journal-insight-title">Strength</div><div class="journal-insight-sub">${journalEsc(x)}</div></div></div>`).join('');
+    const weaknesses=snap.weaknesses.slice(0,5).map(x=>`<div class="journal-insight"><div class="journal-insight-icon">🎯</div><div><div class="journal-insight-title">Weakness to work on</div><div class="journal-insight-sub">${journalEsc(x)}</div></div></div>`).join('');
+    const plan=data.plan?`<div class="journal-insight"><div class="journal-insight-icon">🛠</div><div><div class="journal-insight-title">Your saved improvement plan</div><div class="journal-insight-sub">${journalEsc(data.plan)}</div></div></div>`:'';
+    ins.innerHTML=strengths+weaknesses+plan;
+  }
+}
+function renderJournalViews(snap,data){
+  const g=document.getElementById('journalGratitudeView'); if(g) g.innerHTML=`<div class="journal-entry"><div class="journal-entry-head"><div class="journal-entry-title">Gratitude summary</div><div class="journal-entry-date">${journalEsc(journalWeekKey())}</div></div><div class="journal-entry-text">${journalEsc(data.gratitude||'No gratitude note saved yet.')}</div></div><div class="journal-entry"><div class="journal-entry-title">Blessing / people / action</div><div class="journal-entry-text">Blessing: ${journalEsc(data.blessing||'-')}\nPeople: ${journalEsc(data.people||'-')}\nAction: ${journalEsc(data.gratitudeAction||'-')}</div></div>`;
+  const m=document.getElementById('journalMindsetView'); if(m) m.innerHTML=`<div class="journal-entry"><div class="journal-entry-head"><div class="journal-entry-title">Mindset report</div><div class="journal-entry-date">${journalEsc(data.mindsetScore||0)}%</div></div><div class="journal-entry-text">Mood: ${journalEsc(data.mood||'-')}\nThoughts: ${journalEsc(data.thoughts||'No thoughts saved yet.')}\nBelief work: ${journalEsc(data.belief||'-')}\nAction: ${journalEsc(data.mindsetAction||'-')}</div></div>`;
+  const w=document.getElementById('journalWeeklyAuto'); if(w){
+    const missed=snap.topMisses.length?snap.topMisses.map(([x,c])=>`${x} (${c})`).join('\n'):'No repeated misses recorded.';
+    w.innerHTML=`<div class="journal-entry"><div class="journal-entry-head"><div class="journal-entry-title">Connected weekly report</div><div class="journal-entry-date">${snap.completion}%</div></div><div class="journal-entry-text">Completed: ${snap.totalDone}/${snap.totalTasks}\nMissed: ${snap.totalMissed}\nTop missed patterns:\n${journalEsc(missed)}</div></div><div class="journal-entry"><div class="journal-entry-title">Daily notes pulled from Day Report</div><div class="journal-entry-text">${journalEsc(snap.notes.length?snap.notes.map(n=>n.date+': '+n.text).join('\n\n'):'No daily notes found this week.')}</div></div>`;
+  }
+}
+function renderJournaling(){
+  const snap=journalBuildWeeklySnapshot(), data=journalLoad();
+  const title=document.getElementById('journalWeekTitle'); if(title) title.textContent=journalDateShort(snap.mon)+' – '+journalDateShort(snap.sun)+' · '+snap.totalDone+'/'+snap.totalTasks+' tasks completed · '+snap.completion+'% improved';
+  renderJournalKpis(snap,data); renderJournalCalendar(snap); renderJournalInsights(snap,data); journalFillInputs(); renderJournalViews(snap,data);
+  if(!journalSelectedDateKey && snap.daily[0]) journalSelectedDateKey=snap.daily[0].date; journalSelectDay(journalSelectedDateKey);
+}
+function journalReportHTML(){
+  const snap=journalBuildWeeklySnapshot(), data=journalLoad();
+  const lis=a=>a&&a.length?'<ul>'+a.map(x=>'<li>'+journalEsc(x)+'</li>').join('')+'</ul>':'<p>None recorded.</p>';
+  const misses=snap.topMisses.map(([x,c])=>`${x} — ${c} time${c>1?'s':''}`);
+  return `<!doctype html><html><head><meta charset="utf-8"><title>Journaling Weekly Report</title><style>body{font-family:Inter,Arial,sans-serif;color:#101827;padding:28px;line-height:1.55}h1{margin:0 0 6px;font-size:28px}h2{margin-top:22px;border-bottom:1px solid #d9e2ef;padding-bottom:6px}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.kpi{border:1px solid #d9e2ef;border-radius:12px;padding:12px;text-align:center}.num{font-size:24px;font-weight:800}.box{border:1px solid #d9e2ef;border-radius:12px;padding:14px;margin:10px 0;white-space:pre-wrap}.day{padding:8px 0;border-bottom:1px solid #edf2f7}.muted{color:#526174;font-size:13px}@media print{button{display:none}body{padding:10px}.kpis{grid-template-columns:repeat(2,1fr)}}</style></head><body><button onclick="window.print()" style="float:right;padding:10px 14px;border-radius:8px;border:1px solid #2563eb;background:#2563eb;color:white">Save / Print PDF</button><h1>Journaling Weekly Report</h1><div class="muted">${journalDateShort(snap.mon)} – ${journalDateShort(snap.sun)} · Generated ${new Date().toLocaleString()}</div><div class="kpis"><div class="kpi"><div class="num">${snap.completion}%</div><div>Improved / completed</div></div><div class="kpi"><div class="num">${snap.needImprove}%</div><div>Needs improvement</div></div><div class="kpi"><div class="num">${snap.totalDone}</div><div>Wins</div></div><div class="kpi"><div class="num">${data.mindsetScore||0}%</div><div>Mindset score</div></div></div><h2>Strengths</h2>${lis(snap.strengths)}<h2>Weaknesses</h2>${lis(misses.length?misses:snap.weaknesses)}<h2>Gratitude</h2><div class="box">${journalEsc(data.gratitude||'Not written yet.')}\n\nBlessing: ${journalEsc(data.blessing||'-')}\nPeople: ${journalEsc(data.people||'-')}\nAction: ${journalEsc(data.gratitudeAction||'-')}</div><h2>Thoughts & Mindset</h2><div class="box">Mood: ${journalEsc(data.mood||'-')}\nThoughts: ${journalEsc(data.thoughts||'-')}\nBelief: ${journalEsc(data.belief||'-')}\nAction: ${journalEsc(data.mindsetAction||'-')}</div><h2>Weekly Review</h2><div class="box">Wins:\n${journalEsc(data.wins||'-')}\n\nMissed:\n${journalEsc(data.missed||'-')}\n\nStruggled:\n${journalEsc(data.struggled||'-')}\n\nLearned:\n${journalEsc(data.learned||'-')}\n\nNext Plan:\n${journalEsc(data.plan||'-')}</div><h2>Daily Calendar Summary</h2>${snap.daily.map(d=>`<div class="day"><strong>${journalEsc(d.day)} ${journalEsc(d.date)}</strong> — ${d.done}/${d.total} done, ${d.missed} missed, ${d.pct}%<br><span class="muted">${journalEsc(d.note||'No note saved')}</span></div>`).join('')}</body></html>`;
+}
+function journalExportPDF(){
+  const html=journalReportHTML();
+  const w=window.open('','_blank');
+  if(!w){alert('Popup blocked. Please allow popups, then click PDF Report again.');return;}
+  w.document.open(); w.document.write(html); w.document.close();
+  setTimeout(()=>{try{w.focus();w.print();}catch(e){}},500);
+}
+
 function navTo(page, btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
@@ -9845,11 +10134,12 @@ function navTo(page, btn){
   if(btn) btn.classList.add('active');
   else {
     const tabs=document.querySelectorAll('.nav-tab');
-    const pages=['dashboard','today','weekly','streaks','islamic','media','research','priorities','phases','deepwork','badhabits','mosque','financial','worldtime','portable'];
+    const pages=['dashboard','today','weekly','journaling','streaks','islamic','media','research','priorities','phases','deepwork','badhabits','mosque','financial','worldtime','portable'];
     const idx=pages.indexOf(page);
     if(idx>=0) tabs[idx].classList.add('active');
   }
   if(page==='weekly') renderWeeklyReport();
+  if(page==='journaling') renderJournaling();
   if(page==='priorities') renderPriorities();
   if(page==='media') renderLibrary();
   if(page==='islamic') isCalGoNow();
@@ -12200,6 +12490,7 @@ if(viewDate<START){
   viewDate.setHours(0,0,0,0);
 }
 renderToday();
+renderJournaling();
 wtEnsureLoop();
 wtEnsureClockToolsLoop();
 renderBadHabitTracker();
